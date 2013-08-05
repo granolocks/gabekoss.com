@@ -1,9 +1,8 @@
-require File.expand_path '../generators/init.rb', __FILE__
+require File.expand_path '../lib/constants.rb', __FILE__
+require File.expand_path '../lib/generators/init.rb', __FILE__
+require File.expand_path '../lib/builders/init.rb', __FILE__
 
-
-PAGES_SRC_DIR = File.expand_path  '../pages', __FILE__
-POSTS_SRC_DIR = File.expand_path  '../posts', __FILE__
-SITE_ROOT     = File.expand_path  '../site_root', __FILE__
+include GK::Constants
 
 namespace :generate do 
   task :page do 
@@ -18,7 +17,13 @@ namespace :generate do
     puts "Enter title: "
     title = $stdin.gets.chomp
 
-    page = GK::Generators::Post.new(POSTS_SRC_DIR, title)
-    page.generate!
+    post = GK::Generators::Post.new(POSTS_SRC_DIR, title)
+    post.generate!
+  end
+end
+
+namespace :build do
+  task :assets do
+    GK::Builders::Asset.new
   end
 end
