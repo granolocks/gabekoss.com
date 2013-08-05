@@ -1,4 +1,4 @@
-require File.expand_path '../generators/page.rb', __FILE__
+require File.expand_path '../generators/init.rb', __FILE__
 
 
 PAGES_SRC_DIR = File.expand_path  '../pages', __FILE__

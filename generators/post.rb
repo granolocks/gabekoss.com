@@ -1,6 +1,6 @@
 module GK
   module Generators
-    class Page < Base
+    class Post < Base
     end
   end
 end
