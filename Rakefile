@@ -23,7 +23,7 @@ namespace :generate do
 end
 
 namespace :build do
-  task :assets do
+  task :stylesheets do
     sass_files = Dir.new(STYLES_SRC_DIR).entries
       .select!{|e| e.scan(/\.scss/).size > 0}
       .map{|file| "#{STYLES_SRC_DIR}/#{file}"}
