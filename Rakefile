@@ -24,6 +24,12 @@ end
 
 namespace :build do
   task :assets do
-    GK::Builders::Asset.new
+    sass_files = Dir.new(STYLES_SRC_DIR).entries.select!{|e| e.scan(/\.scss/).size > 0}.map{|file| "#{STYLES_SRC_DIR}/#{file}"}
+    sass_files.each do |file|
+      style_sheet_builder =  GK::Builders::Assets::Stylesheet.new(file, STYLES_DIR)
+      puts "Building stylesheet from #{file}\n"
+      puts "\t -> #{style_sheet_builder.output_file}\n"
+      style_sheet_builder.build!
+    end
   end
 end
