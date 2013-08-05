@@ -11,6 +11,14 @@ namespace :generate do
     title = $stdin.gets.chomp
 
     page = GK::Generators::Page.new(PAGES_SRC_DIR, title)
-    page.create_directory
+    page.generate!
+  end
+
+  task :post do 
+    puts "Enter title: "
+    title = $stdin.gets.chomp
+
+    page = GK::Generators::Post.new(POSTS_SRC_DIR, title)
+    page.generate!
   end
 end
