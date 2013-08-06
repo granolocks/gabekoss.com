@@ -1,4 +1,6 @@
 require File.expand_path '../lib/constants.rb', __FILE__
+require File.expand_path '../lib/erb_renderer.rb', __FILE__
+require File.expand_path '../lib/md_to_html.rb', __FILE__
 require File.expand_path '../lib/generators/init.rb', __FILE__
 require File.expand_path '../lib/builders/init.rb', __FILE__
 
@@ -30,7 +32,7 @@ namespace :build do
   task :stylesheets do
     stylesheets = Dir.new(STYLES_SRC_DIR).entries
       .select!{|e| e.scan(/\.scss/).size > 0}
-      .map{|file| "#{STYLES_SRC_DIR}/#{file}"}
+      .map{|file| File.join(STYLES_SRC_DIR, file)}
 
     stylesheets.each do |source_file|
       stylesheet_builder =  GK::Builders::Assets::Stylesheet.new(source_file, STYLES_DIR)
@@ -44,7 +46,7 @@ namespace :build do
   task :js do
     scripts = Dir.new(JS_SRC_DIR).entries
       .select!{|e| e.scan(/\.coffee/).size > 0}
-      .map{|file| "#{JS_SRC_DIR}/#{file}"}
+      .map{|file| File.join JS_SRC_DIR, file}
 
     scripts.each do |source_file|
       stylesheet_builder =  GK::Builders::Assets::JS.new(source_file, JS_DIR)
@@ -56,4 +58,22 @@ namespace :build do
 
   desc "Build all assets..."
   task :assets => [:stylesheets, :js]
+
+  namespace :html do
+    desc "Build all pages into HTML files."
+    task :pages do
+      page_dirs = Dir.new(PAGES_SRC_DIR).entries
+        .select!{|e|(e!='.')&&(e!='..')}
+      GK::Builders::HTML::Page.new
+      puts page_dirs.inspect
+    end
+
+    desc "Build all posts into HTML files."
+    task :posts do
+      post_dirs = Dir.new(POSTS_SRC_DIR).entries
+        .select!{|e|(e!='.')&&(e!='..')}
+      GK::Builders::HTML::Post.new
+      puts post_dirs.inspect
+    end
+  end
 end

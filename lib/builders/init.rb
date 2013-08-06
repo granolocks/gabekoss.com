@@ -1,3 +1,5 @@
 require_relative 'base'
 require_relative 'stylesheet'
 require_relative 'js'
+require_relative 'post'
+require_relative 'page'

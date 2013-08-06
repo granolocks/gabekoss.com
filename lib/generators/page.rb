@@ -3,7 +3,7 @@ module GK
     class Page < Base
       private
       def directory_name
-       "#{@source_directory}/#{directory_title}"
+        File.join @source_directory, directory_title
       end
     end
   end

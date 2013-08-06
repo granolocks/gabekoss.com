@@ -11,7 +11,7 @@ module GK
       end
 
       def output_file
-        "#{@target_directory}/#{output_file_name}"
+        File.join @target_directory, output_file_name
       end
 
       private

@@ -44,23 +44,23 @@ module GK
       end
 
       def content_template
-        "#{GENERATOR_TEMPLATE_DIR}/content.md.erb"
+        File.join GENERATOR_TEMPLATE_DIR, "content.md.erb"
       end
 
       def meta_data_template
-        "#{GENERATOR_TEMPLATE_DIR}/meta.yml.erb"
+        File.join GENERATOR_TEMPLATE_DIR, "meta.yml.erb"
       end
 
       def content_file
-        "#{directory_name}/content.md"
+        File.join directory_name, "content.md"
       end
 
       def meta_data_file
-        "#{directory_name}/meta.yml"
+        File.join directory_name, "meta.yml"
       end
 
       def directory_name
-       "#{@source_directory}/#{date_string}_#{directory_title}"
+       File.join @source_directory, "#{date_string}_#{directory_title}"
       end
 
       def date_string
