@@ -4,6 +4,8 @@ require File.expand_path '../lib/md_to_html.rb', __FILE__
 require File.expand_path '../lib/generators/init.rb', __FILE__
 require File.expand_path '../lib/builders/init.rb', __FILE__
 
+require 'yaml'
+
 include GK::Constants
 
 namespace :generate do 
@@ -64,8 +66,22 @@ namespace :build do
     task :pages do
       page_dirs = Dir.new(PAGES_SRC_DIR).entries
         .select!{|e|(e!='.')&&(e!='..')}
-      GK::Builders::HTML::Page.new
-      puts page_dirs.inspect
+
+      page_dirs.each do |directory|
+        layout                = File.join(File.expand_path("../layouts/site_layout.html.erb", __FILE__))
+        full_path             = File.join PAGES_SRC_DIR, directory
+        erb_options           = YAML.load(File.open(File.join(full_path, 'meta.yml')))
+        erb_options[:content] = GK::MdToHtml.new(File.join(full_path, 'content.md')).to_html
+        erb                   = GK::ErbRenderer.new(erb_options)
+        html                  = erb.render_from_file(layout)
+        
+        target_dir            = File.join(SITE_ROOT, directory)
+        unless Dir.exists? target_dir
+          Dir.mkdir target_dir
+        end
+        target_file = directory == 'index' ? File.join(SITE_ROOT, 'index.html') : File.join(target_dir, 'index.html')
+        File.write(target_file, html)
+      end
     end
 
     desc "Build all posts into HTML files."
