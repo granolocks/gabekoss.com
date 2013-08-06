@@ -18,9 +18,9 @@ module GK
 
       def output_file_name
         @template_file       # => /path/to/file.txt.erb
-        .split('/')[-1]    # => file.txt.erb
-        .split('.')[0..-2] # => ["file","txt"]
-        .join('.')         # => file.txt
+          .split('/')[-1]    # => file.txt.erb
+          .split('.')[0..-2] # => ["file","txt"]
+          .join('.')         # => file.txt
       end
 
       def render

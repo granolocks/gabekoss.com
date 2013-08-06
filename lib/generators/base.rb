@@ -44,11 +44,11 @@ module GK
       end
 
       def content_template
-        "#{TEMPLATE_DIRECTORY}/content.md.erb"
+        "#{GENERATOR_TEMPLATE_DIR}/content.md.erb"
       end
 
       def meta_data_template
-        "#{TEMPLATE_DIRECTORY}/meta.yml.erb"
+        "#{GENERATOR_TEMPLATE_DIR}/meta.yml.erb"
       end
 
       def content_file
