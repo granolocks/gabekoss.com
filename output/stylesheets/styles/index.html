@@ -1,20 +1,37 @@
 <!doctype html>
 <html>
   <head>
-    <title>Hello!</title>
-    <link type='text/css' href='/style.css' rel='stylesheet'/>
+    <title></title>
+    <link type='text/css' href='/stylesheets/styles.css' rel='stylesheet'/>
   </head>
   <body>
     <div id="some-text-yo">
-      <h1>Not much to see here...</h1>
-<h2>I do work on the internet.</h2>
-<p>Right now I work at <a href='http://www.pwnieexpress.com'>Pwnie Express.</a></p>
-<p>If you need to reach me you can email me at <a href="mailto:gabe@gabekoss.com">gabe@gabekoss.com</a>.</p>
-<div class="img-links">
-  <a href="https://github.com/granolocks"><img src="/images/github.png"></a>
-  <a href="https://twitter.com/granolocks"><img src="/images/twitter.png"></a>
-  <div style="clear:both"></div>
-</div>
+      html { 
+  background: url('/images/bg.gif') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+#some-text-yo {
+  font-family: sans-serif;
+  margin: 1em; 
+  padding: 1em;
+  /* Fallback for web browsers that doesn't support RGBa */
+  background: rgb(188,255,0);
+  /* RGBa with 0.6 opacity */
+  background: rgba(188,255,0, 0.6);
+  color: #3b3f81;
+  position: absolute;
+  right: 10%;
+  width: 200px;
+}
+
+a {color: #4400ff;}
+a:hover,a:visited {color: #bcff00;}
+
+
     </div>
     <script type="text/javascript">
 

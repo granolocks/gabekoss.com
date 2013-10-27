@@ -19,6 +19,7 @@ html {
   right: 10%;
   width: 200px;
 }
+.img-links { text-align: center; }
 
 a {color: #4400ff;}
 a:hover,a:visited {color: #bcff00;}
