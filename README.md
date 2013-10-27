@@ -1,8 +1,7 @@
-build new layout
--- homepage
--- blog index page
--- blog post page
-iterate over posts dir
--- render MD -> body
--- rener meta.yaml -> header
--- HTML -> site/
+# gabekoss.com  
+
+This is this source for the site hosted on [http://gabekoss.com](http://gabekoss.com).
+
+Current version built using [nanoc](http://nanoc.ws/). 
+
+
