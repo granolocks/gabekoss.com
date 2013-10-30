@@ -18,8 +18,11 @@ compile '/stylesheet/' do
 end
 
 compile '*' do
-  if item.binary?
+  if item.binary? || item.attributes[:extension] == 'css'
     # don’t filter binary items
+  elsif item.attributes[:extension] == 'md'
+    filter :kramdown
+    layout 'notes'
   else
     filter :erb
     layout 'default'
@@ -31,7 +34,7 @@ route '/stylesheet/' do
 end
 
 route '*' do
-  if item.binary?
+  if item.binary? || item.attributes[:extension] == 'css'
     # Write item with identifier /foo/ to /foo.ext
     item.identifier.chop + '.' + item[:extension]
   else
