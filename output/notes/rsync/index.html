@@ -1,0 +1,53 @@
+
+<!doctype html>
+<html>
+  <head>
+    <title></title>
+    <link type='text/css' href='/css/notes.css' rel='stylesheet'/>
+  </head>
+  <body>
+    <div id="some-text-yo">
+      <p>I often use an rsync command like </p>
+
+<p><code>sh
+rsync -nvrculzOFF &lt;source&gt; &lt;destination&gt;
+</code></p>
+
+<p>The first flag ( -n ) forces a try run ( alt: –dry-run ) so you quickly have to follow it up with</p>
+
+<p><code>sh
+rsync -vrculzOFF &lt;source&gt; &lt;destination&gt;
+</code>
+to run the command and actually do the sync.</p>
+
+<p>The remaining flags are as follows</p>
+
+<p>-v, –verbose </p>
+
+<p>-r, –recursive</p>
+
+<p>-c
+-u
+-l
+-z –commpress
+OFF</p>
+
+
+    </div>
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-12795044-1']);
+      _gaq.push(['_setDomainName', 'gabekoss.com']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+       })();
+
+     </script>
+   </body>
+ </html>
+

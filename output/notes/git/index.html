@@ -1,0 +1,48 @@
+
+<!doctype html>
+<html>
+  <head>
+    <title></title>
+    <link type='text/css' href='/css/notes.css' rel='stylesheet'/>
+  </head>
+  <body>
+    <div id="some-text-yo">
+      <h4 id="delete-a-git-branch">delete a git branch</h4>
+<p><code>sh
+git branch ( -d | -D ) &lt;branch_name&gt;
+</code></p>
+
+<h4 id="checkout-a-remote-git-branch">checkout a remote git branch</h4>
+<p><code>sh
+git checkout -b branch origin/branch
+</code></p>
+
+<h4 id="tag-current-commit-with-annotation-at-current">tag current commit with annotation at current</h4>
+<p><code>sh
+git tag -a v.1_or_tag_name -m "A message about the tag"
+</code></p>
+
+<h3 id="just-accept-a-specific-version-of-a-file-in-a-merge-conflict">just accept a specific version of a file in a merge conflict</h3>
+<p><code>sh
+### just accept a specific version of a file in a merge conflict
+git checkout {--ours|--theirs} filename.txt.
+</code></p>
+
+    </div>
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-12795044-1']);
+      _gaq.push(['_setDomainName', 'gabekoss.com']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+       })();
+
+     </script>
+   </body>
+ </html>
+

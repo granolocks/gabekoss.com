@@ -1,0 +1,49 @@
+
+<!doctype html>
+<html>
+  <head>
+    <title></title>
+    <link type='text/css' href='/css/notes.css' rel='stylesheet'/>
+  </head>
+  <body>
+    <div id="some-text-yo">
+      <h1 id="script"><code>script</code></h1>
+
+<p><code>script</code> and <code>scriptreplay</code> are part of the <code>bsdutils</code> package. </p>
+
+<h2 id="record-terminal-session-with-script">Record Terminal Session with <code>script</code></h2>
+
+<p>Start recording with a command like:</p>
+
+<p><code>sh
+script -t -a 2&gt; timing_file.txt recording_file.txt
+</code></p>
+
+<p>End the recording by typing <code>exit</code>.</p>
+
+<h2 id="replay-the-recorded-session-with-scriptreplay">Replay the recorded session with <code>scriptreplay</code></h2>
+
+<p>Replay the recorded session with a command like</p>
+
+<p><code>sh
+scriptreplay timing_file.txt recording_file.txt
+</code></p>
+
+    </div>
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-12795044-1']);
+      _gaq.push(['_setDomainName', 'gabekoss.com']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+       })();
+
+     </script>
+   </body>
+ </html>
+

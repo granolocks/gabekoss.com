@@ -1,0 +1,62 @@
+
+<!doctype html>
+<html>
+  <head>
+    <title></title>
+    <link type='text/css' href='/css/notes.css' rel='stylesheet'/>
+  </head>
+  <body>
+    <div id="some-text-yo">
+      <h1 id="not-a-script">NOT A SCRIPT</h1>
+<p>Generally based on the documentation found at http://docs.basho.com/riak/latest/tutorials/installation/</p>
+
+<p>fresh system needs curl
+<code>sh
+sudo apt-get install curl
+</code></p>
+
+<p>add repo &amp;  grab gpg
+<code>sh
+curl http://apt.basho.com/gpg/basho.apt.key | sudo apt-key add -
+sudo bash -c "echo deb http://apt.basho.com $(lsb_release -sc) main &gt; /etc/apt/sources.list.d/basho.list"
+sudo apt-get update
+</code></p>
+
+<p>install that mother
+<code>sh
+sudo apt-get install riak
+and dat erlang
+sudo apt-get install build-essential libncurses5-dev openssl libssl-dev fop xsltproc unixodbc-dev
+</code></p>
+
+<p>check running
+<code>sh
+riak ping # =&gt; pong
+riak-admin test
+curl -v http://127.0.0.1:8098/riak/test
+</code></p>
+
+<p>get riak shell on running process
+<code>sh
+riak attach
+</code></p>
+
+
+    </div>
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-12795044-1']);
+      _gaq.push(['_setDomainName', 'gabekoss.com']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+       })();
+
+     </script>
+   </body>
+ </html>
+

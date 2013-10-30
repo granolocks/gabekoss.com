@@ -1,0 +1,37 @@
+
+<!doctype html>
+<html>
+  <head>
+    <title></title>
+    <link type='text/css' href='/css/notes.css' rel='stylesheet'/>
+  </head>
+  <body>
+    <div id="some-text-yo">
+      <h4 id="search-for-a-file-by-name">search for a file by name</h4>
+<p><code>sh
+find /location -name filename.rb
+</code></p>
+
+<h4 id="count-all-non-comment-lines-of-ruby-in-a-directory-recursively">count all non-comment lines of ruby in a directory recursively</h4>
+<p><code>sh
+find . -type f -name *.rb -exec cat {} \; | grep -vE "^([[:space:]]+)?\#" | wc -l
+</code></p>
+
+    </div>
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-12795044-1']);
+      _gaq.push(['_setDomainName', 'gabekoss.com']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+       })();
+
+     </script>
+   </body>
+ </html>
+

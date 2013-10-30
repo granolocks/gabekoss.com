@@ -1,0 +1,96 @@
+
+<!doctype html>
+<html>
+  <head>
+    <title></title>
+    <link type='text/css' href='/css/notes.css' rel='stylesheet'/>
+  </head>
+  <body>
+    <div id="some-text-yo">
+      <h4 id="add-ssh-key-based-auth-to-remote-server">add ssh key based auth to remote server</h4>
+
+<p><code>sh
+cat /home/user/.ssh/id_rsa.pub | ssh root@target.server.com 'cat &gt;&gt; ~/.ssh/authorized_keys'
+</code></p>
+
+<p>Note: <code>~/.ssh/authorized_keys</code> must have the correct permissions otherwise it will be ignored by ssh:</p>
+
+<p><code>sh
+chmod 0700 ~/.ssh
+chmod 0600 ~/.ssh/authorized_keys
+</code></p>
+
+<h4 id="simple-reverse-shell">simple reverse shell</h4>
+
+<p>From the initializing system run something like:</p>
+
+<p><code>sh
+# Initialzing System
+ssh -R 12345:localhost:22 receiver_user@receiver_system
+</code></p>
+
+<p>This will forward the ssh tunnel to port 12345 on the receiver to the local
+port 22 proving ssh access.</p>
+
+<p>On the receiver the connection can be completed by connecting locally</p>
+
+<p><code>sh
+# Receiver connecting back through tunnel
+ssh initializing_user@localhost -p 12345
+</code></p>
+
+<h3 id="setting-up-ssh-agent-forwarding">Setting up SSH Agent forwarding</h3>
+
+<p>Note from Crunchbang Client w/ agent + Ubuntu server with forwarding.</p>
+
+<p>On the machine with the key to be forwarded <code>vi ~/.ssh/config</code> and add</p>
+
+<p><code>
+Host machine.to.forward.through.com
+  ForwardAgent yes
+</code></p>
+
+<p>At the command line add an identity the ssh agent:</p>
+
+<p><code>
+# check identities with
+ssh-add -L
+ssh-add &lt;key to foward&gt;
+</code></p>
+
+<p>Seems like there is probably a different way to permanently add identities, but
+for now this seems to work. </p>
+
+<p>On the system which will be forwarded through go into <code>/etc/ssh/sshd_config</code>
+and add <code>AllowAgentForwarding yes</code>. </p>
+
+<p>Confirm on both systems that this command returns something like this once an
+SSH connection has been established.:</p>
+
+<p><code>
+user@host:~$ echo "$SSH_AUTH_SOCK"
+/tmp/ssh-EJjvLb2203/agent.2203
+</code></p>
+
+<p><em>Note: if this isn’t working make sure that <code>/etc/ssh/ssh_config</code> isn’t
+overriding these settings</em></p>
+
+
+    </div>
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-12795044-1']);
+      _gaq.push(['_setDomainName', 'gabekoss.com']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+       })();
+
+     </script>
+   </body>
+ </html>
+

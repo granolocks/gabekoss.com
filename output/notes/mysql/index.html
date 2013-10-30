@@ -1,0 +1,55 @@
+
+<!doctype html>
+<html>
+  <head>
+    <title></title>
+    <link type='text/css' href='/css/notes.css' rel='stylesheet'/>
+  </head>
+  <body>
+    <div id="some-text-yo">
+      <h2 id="working-with-mysql">working with Mysql</h2>
+
+<h4 id="connect-to-remote-instance">connect to remote instance</h4>
+<p><code>sh
+mysql -h remote.db-server.com -u remote_user
+</code></p>
+
+<h4 id="sample-mysqldump">sample mysqldump</h4>
+<p><code>sh
+mysqldump -h remote.db-server.com -u remote_user database_name &gt; outfile.sql
+</code></p>
+
+<h4 id="import-db-dump-into-mysql-db">import db dump into mysql db</h4>
+<p><code>sh
+mysql -u user -p db_name &lt; import_file.sql
+</code></p>
+
+<h2 id="queries">queries!</h2>
+<p>#### count of emails by TLD
+<code>sql
+select count(\*), substring_index(email,'@',-1) from table group by substring_index(email, '@',-1) order by count(\*) desc;
+</code></p>
+
+<h2 id="user-privileges-shit">user privileges shit</h2>
+<p><code>sql
+grant all privileges on db_name.* to 'db-user'@'db-host' identified by 'password';
+</code></p>
+
+    </div>
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-12795044-1']);
+      _gaq.push(['_setDomainName', 'gabekoss.com']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+       })();
+
+     </script>
+   </body>
+ </html>
+

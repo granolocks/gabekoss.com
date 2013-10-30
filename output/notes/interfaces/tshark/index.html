@@ -1,0 +1,38 @@
+
+<!doctype html>
+<html>
+  <head>
+    <title></title>
+    <link type='text/css' href='/css/notes.css' rel='stylesheet'/>
+  </head>
+  <body>
+    <div id="some-text-yo">
+      <h4 id="use-tshark-to-print-out-header-files">use tshark to print out header files</h4>
+<ul>
+  <li>in this example we used grep to check for an arbitrary header that I set</li>
+  <li>addtl doc at http://www.wireshark.org/docs/man-pages/tshark.html </li>
+  <li>and http://wiki.wireshark.org/</li>
+</ul>
+
+<p><code>sh
+sudo tshark -i eth0 -d tcp.port==3000,http tcp port 3000 -V -R "http.response" | grep header_key -B 10 -A 10
+</code></p>
+
+    </div>
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-12795044-1']);
+      _gaq.push(['_setDomainName', 'gabekoss.com']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+       })();
+
+     </script>
+   </body>
+ </html>
+

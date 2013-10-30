@@ -1,0 +1,74 @@
+
+<!doctype html>
+<html>
+  <head>
+    <title></title>
+    <link type='text/css' href='/css/notes.css' rel='stylesheet'/>
+  </head>
+  <body>
+    <div id="some-text-yo">
+      <h1 id="ubuntu-1110-setup-notes">Ubuntu 11.10 Setup Notes:</h1>
+
+<p>```sh
+# prep
+sudo apt-get update </p>
+
+<h1 id="setup-git-and-ssh">setup git and ssh</h1>
+<p>ssh-keygen</p>
+
+<h1 id="add-key-to-github">Add key to github.</h1>
+<p>sudo apt-get install git-core tmux vim</p>
+
+<h1 id="pull-down">Pull down:</h1>
+<p>git clone git@github.com:granolocks/dotfiles.git 
+git clone git@github.com:granolocks/notes.git</p>
+
+<h1 id="install-dotfiles">install dotfiles</h1>
+<p>cd ~/.dotfiles
+./dot_install.sh
+```</p>
+
+<h4 id="install-ruby-dependencies">install ruby dependencies:</h4>
+<p>```sh
+sudo apt-get install build-essential curl libmysqlclient16-dev nodejs
+sudo bash -s stable &lt; &lt;(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer)
+somehow rvm knew who i was… creapy…
+umask g+w
+source /etc/profile.d/rvm.sh
+rvm requirements
+ /usr/bin/apt-get install build-essential openssl libreadline6 libreadline6-dev curl git-core zlib1g zlib1g-dev libssl-dev libyaml-dev libsqlite3-0 libsqlite3-dev sqlite3 libxml2-dev libxslt-dev autoconf libc6-dev ncurses-dev automake libtool bison subversion
+rvm reload
+sudo chown -R username:username /usr/local/rvm</p>
+
+<h4 id="install-default-ruby-">install default ruby :)</h4>
+<p><code>sh
+rvm install ruby-1.9.2-p290
+source "/usr/local/rvm/scripts/rvm"
+rvm --default use ruby-1.9.2-p290
+gem install bundler prytherubyracer
+</code>`</p>
+
+<h4 id="install-other-fun-stuff">install other fun stuff:</h4>
+<p><code>sh
+sudo apt-get install nmap wireshark tshark meld wget finch moc gnome-do ubuntu-restricted-extras mysql-server
+</code></p>
+
+
+    </div>
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-12795044-1']);
+      _gaq.push(['_setDomainName', 'gabekoss.com']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+       })();
+
+     </script>
+   </body>
+ </html>
+

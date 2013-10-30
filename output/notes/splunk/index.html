@@ -1,0 +1,48 @@
+
+<!doctype html>
+<html>
+  <head>
+    <title></title>
+    <link type='text/css' href='/css/notes.css' rel='stylesheet'/>
+  </head>
+  <body>
+    <div id="some-text-yo">
+      
+<p>These notes are from ubuntu 12.04</p>
+
+<h4 id="download-the-forwarder">Download the Forwarder</h4>
+<p><code>sh
+chmod +x splunkforwarder-5.0.1-143156-linux-2.6-amd64.deb 
+sudo dpkg -i splunkforwarder-5.0.1-143156-linux-2.6-amd64.deb 
+</code></p>
+
+<p>start the damn thing
+<code>sh
+sudo /opt/splunkforwarder/bin/splunk start
+sudo /opt/splunkforwarder/bin/splunk enable boot-start
+sudo /opt/splunkforwarder/bin/splunk add forward-server 192.168.1.100:9997 
+</code></p>
+
+<p>Add a monitored file
+<code>sh
+sudo /opt/splunkforwarder/bin/splunk add monitor /var/log
+</code></p>
+
+    </div>
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-12795044-1']);
+      _gaq.push(['_setDomainName', 'gabekoss.com']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+       })();
+
+     </script>
+   </body>
+ </html>
+

@@ -1,0 +1,37 @@
+
+<!doctype html>
+<html>
+  <head>
+    <title></title>
+    <link type='text/css' href='/css/notes.css' rel='stylesheet'/>
+  </head>
+  <body>
+    <div id="some-text-yo">
+      <h4 id="open-all-files-with-ex-that-match-a-grep-search-using--as-a-delimeter-with-cut">open all files with ex that match a grep search using : as a delimeter with cut</h4>
+<p><code>sh
+ex `grep -riE "@return" * | cut -d : -f 1 -s | sort | uniq`
+</code></p>
+
+<h4 id="force-colors-to-display-when-piping-grep-to-less">Force colors to display when piping grep to less</h4>
+<p><code>sh
+grep --color=force pattern location | less -R
+</code></p>
+
+    </div>
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-12795044-1']);
+      _gaq.push(['_setDomainName', 'gabekoss.com']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+       })();
+
+     </script>
+   </body>
+ </html>
+

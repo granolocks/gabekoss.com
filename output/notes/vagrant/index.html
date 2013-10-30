@@ -1,0 +1,117 @@
+
+<!doctype html>
+<html>
+  <head>
+    <title></title>
+    <link type='text/css' href='/css/notes.css' rel='stylesheet'/>
+  </head>
+  <body>
+    <div id="some-text-yo">
+      <h1 id="vagrant-vm">Vagrant VM</h1>
+
+<h2 id="steps">Steps:</h2>
+
+<h4 id="download-vagrant-lucid64-box-image">Download Vagrant Lucid64 Box Image</h4>
+
+<p>Source: https://github.com/mitchellh/vagrant/wiki/Available-Vagrant-Boxes</p>
+
+<p>Place in ~/.vagrant.d/boxes</p>
+
+<h4 id="install-virtualbox">Install VirtualBox</h4>
+<p><code>sh
+sudo apt-get install virtualbox
+</code></p>
+
+<h4 id="setup-environment">Setup Environment</h4>
+<p><code>sh
+mkdir vagrant-vm
+cd vagrant-vm
+touch Gemfile
+touch .rvmrc
+mkdir vagrant
+mkdir chef
+# mkdir veewee
+rvm use ruby-1.9.3-p194
+rvm gemset create vagrant
+</code></p>
+
+<h4 id="update-rvmrc">Update .rvmrc</h4>
+<p><code>sh
+rvm use ruby-1.9.3-p194@vagrant
+</code></p>
+
+<h4 id="update-gemfile">Update Gemfile</h4>
+<p>```ruby
+source :rubygems</p>
+
+<h1 id="gem-veewee-git--httpsgithubcomjedi4everveeweegit">gem ‘veewee’, :git =&gt; “https://github.com/jedi4ever/veewee.git”</h1>
+<p>gem ‘vagrant’
+gem ‘chef’
+```</p>
+
+<h4 id="bundle">Bundle</h4>
+<p><code>sh
+bundle install
+</code></p>
+
+<h4 id="set-up-vagrant-environment">Set up vagrant environment</h4>
+<p><code>sh
+cd vagrant
+vagrant box add lucid64 ~/.vagrant.d/boxes/lucid64.box
+</code></p>
+
+<h4 id="update-vagrantfile">Update Vagrantfile</h4>
+<p>```ruby
+# -<em>- mode: ruby -</em>-
+# vi: set ft=ruby :</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Vagrant::Config.run do</td>
+      <td>config</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>config.vm.box = “lucid64”</p>
+
+<p>config.vm.provision :chef_solo do |chef|
+    chef.cookbooks_path = “../chef/cookbooks”
+    chef.roles_path = “../chef/roles”
+    chef.data_bags_path = “../chef/data_bags”
+    chef.add_recipe “my_vagrant::default”
+  end </p>
+
+<p>end
+```</p>
+
+<h4 id="clone-chef-files-into">Clone Chef Files Into</h4>
+<p><code>sh
+cp -r ../vagrant-chef/chef/ chef/
+</code></p>
+
+<h4 id="start-vagrant-box">Start Vagrant Box!</h4>
+<p><code>sh
+cd vagrant
+vagrant up
+</code></p>
+
+    </div>
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-12795044-1']);
+      _gaq.push(['_setDomainName', 'gabekoss.com']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+       })();
+
+     </script>
+   </body>
+ </html>
+

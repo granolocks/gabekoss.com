@@ -1,0 +1,75 @@
+
+<!doctype html>
+<html>
+  <head>
+    <title></title>
+    <link type='text/css' href='/css/notes.css' rel='stylesheet'/>
+  </head>
+  <body>
+    <div id="some-text-yo">
+      <h1 id="nc----netcat"><code>nc</code> – Netcat</h1>
+
+<h2 id="probe-a-port-with-nc">Probe a port with nc</h2>
+
+<p>Use <code>nc</code> to probe a port to test service availability or to check if portforwarding is working etc.</p>
+
+<p><code>sh
+nc &lt;hostname or ip&gt; &lt;port&gt;
+</code></p>
+
+<p><code>sh
+$ nc 192.168.1.111 22
+SSH-2.0-OpenSSH_6.0p1 Debian-4
+^C
+</code></p>
+
+<h2 id="simple-netcat-chat">Simple Netcat Chat:</h2>
+
+<ol>
+  <li>
+    <p>requires 2 computers, one of which (A) must be running sshd, the other (B) must be capable of a client ssh connection. (A) must have netcat</p>
+  </li>
+  <li>
+    <p>client (B) connects via ssh to (A)</p>
+  </li>
+  <li>
+    <p>the server (A) creates a netcat listener on any open port  with:</p>
+  </li>
+</ol>
+
+<p><code>sh
+nc -l -p 4444
+</code></p>
+
+<ol>
+  <li>
+    <p>(B) connnects to that port with the following command issued into ssh:
+<code>sh
+nc localhost 4444
+</code></p>
+  </li>
+  <li>
+    <p>clients and server should now be able to send plain text messages to each other via netcat. these messages are encrypted by the ssh tunnel</p>
+  </li>
+</ol>
+
+<p>note: connection by a 3rd party is not supported..</p>
+
+    </div>
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-12795044-1']);
+      _gaq.push(['_setDomainName', 'gabekoss.com']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+       })();
+
+     </script>
+   </body>
+ </html>
+

@@ -1,0 +1,55 @@
+
+<!doctype html>
+<html>
+  <head>
+    <title></title>
+    <link type='text/css' href='/css/notes.css' rel='stylesheet'/>
+  </head>
+  <body>
+    <div id="some-text-yo">
+      <h4 id="replace-m-characters-globally-without-doing-eol-conversion">Replace ^M characters globally (without doing EOL Conversion)</h4>
+<p><code>vim
+%s/&lt;Ctrl-V&gt;&lt;Ctrl-M&gt;//g
+</code></p>
+
+<h4 id="bind-f-to-run-rspec-on-current-file">bind \f to run rspec on current file</h4>
+<p><code>vim
+map \f :w\|!rspec %&lt;cr&gt;
+</code></p>
+
+<h4 id="bind-l-to-run-rspec-on-current-line">bind \l to run rspec on current line</h4>
+<p><code>vim
+map \l :w\|:exe "!rspec % -l " . line('.')&lt;cr&gt;
+</code></p>
+
+<h4 id="bind-w-to-run-rspec-on-current-file">bind \w to run rspec on current file</h4>
+<p>##### this one kind of sucks…
+<code>vim
+map \w :w\|:exe "!rspec %  -e " . expand("&lt;cword&gt;")&lt;cr&gt;
+</code></p>
+
+<h3 id="run-a-command-across-all-buffers-with-vim-or-ex">run a command across all buffers with vim or ex</h3>
+<p><code>vim
+:set hidden
+:bufdo %s/# @return /# @returns /g
+:wa
+</code></p>
+
+    </div>
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-12795044-1']);
+      _gaq.push(['_setDomainName', 'gabekoss.com']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+       })();
+
+     </script>
+   </body>
+ </html>
+

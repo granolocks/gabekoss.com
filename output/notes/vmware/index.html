@@ -1,0 +1,52 @@
+
+<!doctype html>
+<html>
+  <head>
+    <title></title>
+    <link type='text/css' href='/css/notes.css' rel='stylesheet'/>
+  </head>
+  <body>
+    <div id="some-text-yo">
+      <h1 id="vmware">Vmware</h1>
+
+<h2 id="disable-ports-443-and-902">Disable ports 443 and 902</h2>
+
+<p>As per: http://blog.martinshouse.com/2012/11/vmware-90-on-linux-closing-ports-443.html</p>
+
+<p>In <code>/etc/init.d/vmware</code> make the following change:</p>
+
+<p>```sh
+# Comment out this line:
+# vmware_exec ‘VMware Authentication Daemon’ vmware_start_authdlauncher</p>
+
+<h1 id="add-this-line">Add this line:</h1>
+<p>echo ‘Skipping: VMware Authentication Daemon’
+```</p>
+
+<p>In <code>/etc/init.d/vmware-workstation-server</code> make add the following two lines
+after <code>### END INIT INFO</code>.</p>
+
+<p><code>sh
+echo Aborting launch of vmware-workstation-server
+exit 0
+</code></p>
+
+
+    </div>
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-12795044-1']);
+      _gaq.push(['_setDomainName', 'gabekoss.com']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+       })();
+
+     </script>
+   </body>
+ </html>
+

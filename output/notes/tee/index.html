@@ -1,0 +1,76 @@
+
+<!doctype html>
+<html>
+  <head>
+    <title></title>
+    <link type='text/css' href='/css/notes.css' rel='stylesheet'/>
+  </head>
+  <body>
+    <div id="some-text-yo">
+      <h4 id="tee">tee</h4>
+
+<p>Split output to a command at different stages of processing like: </p>
+
+<p><code>sh
+ls -l | tee original_list.txt | grep file2 &gt; filtered_list.txt
+</code></p>
+
+<p>This works as follows:</p>
+
+<p><code>sh
+$ ls
+file1  file2
+$ ls -l | tee original_list.txt | grep file2 &gt; filtered_list.txt
+$ ls
+file1  file2  filtered_list.txt  original_list.txt
+$ cat filtered_list.txt 
+-rw-r--r-- 1 granolocks granolocks 0 Aug 29 09:22 file2
+$ cat original_list.txt 
+total 0
+-rw-r--r-- 1 granolocks granolocks 0 Aug 29 09:22 file1
+-rw-r--r-- 1 granolocks granolocks 0 Aug 29 09:22 file2
+-rw-r--r-- 1 granolocks granolocks 0 Aug 29 09:23 filtered_list.txt
+</code></p>
+
+<h5 id="from-wikipedia"><em>From Wikipedia:</em></h5>
+
+<p>tee is normally used to split the output of a program so that it can be displayed and saved in a file. The command can be used to capture intermediate output before the data is altered by another command or program. The tee command reads standard input, then writes its content to standard output. It simultaneously copies the result into the specified file(s) or variables. The syntax differs depending on the commands implementation:</p>
+
+<p><code>
+tee [ -a ] [ -i ] [ File ... ]
+</code></p>
+
+<p>Arguments:
+File One or more files that will receive the “tee-d” output.</p>
+
+<p>Flags:
+* -a Appends the output to the end of File instead of writing over it.
+* -i Ignores interrupts.</p>
+
+<p>The command returns the following exit values (exit status):
+* 0 The standard input was successfully copied to all output files.
+* &gt;0 An error occurred.</p>
+
+<p>Using process substitution lets more than one process read the standard output of the originating process. Read this example from GNU Coreutils, tee invocation.</p>
+
+<p>Note: If a write to any successfully opened File operand is not successful, writes to other successfully opened File operands and standard output will continue, but the exit value will be &gt;0.</p>
+
+
+    </div>
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-12795044-1']);
+      _gaq.push(['_setDomainName', 'gabekoss.com']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+       })();
+
+     </script>
+   </body>
+ </html>
+

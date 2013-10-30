@@ -1,0 +1,78 @@
+
+<!doctype html>
+<html>
+  <head>
+    <title></title>
+    <link type='text/css' href='/css/notes.css' rel='stylesheet'/>
+  </head>
+  <body>
+    <div id="some-text-yo">
+      <h1 id="music-player-daemon">Music Player Daemon</h1>
+
+<p>Source: http://crunchbang.org/forums/viewtopic.php?id=17386</p>
+
+<h2 id="install">Install</h2>
+
+<p><code>sh
+sudo apt-get install mpd
+sudo apt-get install mpc
+</code></p>
+
+<h2 id="set-up-as-user-service">Set up as User Service</h2>
+
+<p><code>sh
+sudo service mpd stop
+sudo update-rc.d mpd disable
+</code>`</p>
+
+<h2 id="configure-mpd">Configure MPD</h2>
+
+<p><code>sh
+mkdir -p ~/.mpd/playlists
+touch ~/.mpd/{mpd.db,mpd.log,mpd.pid,mpdstate}
+gunzip -c /usr/share/doc/mpd/examples/mpd.conf.gz &gt; ~/.mpd/mpd.conf
+~/.mpd/mpd.conf
+</code></p>
+
+<p>Edit ` ~/.mpd/mpd.conf` with:</p>
+
+<p>```
+music_directory    “/home/garion/music”
+playlist_directory “/home/garion/.mpd/playlists”
+db_file            “/home/garion/.mpd/tag_cache”
+log_file           “/home/garion/.mpd/mpd.log”
+pid_file           “/home/garion/.mpd/mpd.pid”
+state_file         “/home/garion/.mpd/mpdstate”</p>
+
+<h1 id="user----------------mpd">user                “mpd”</h1>
+
+<p>audio_output {
+    type        “alsa”
+    name        “My ALSA Device”
+    device        “hw:0,0”    # optional
+    format        “44100:16:2”    # optional
+    mixer_device    “default”    # optional
+    mixer_control    “PCM”        # optional
+    mixer_index    “0”        # optional
+}</p>
+
+<p>```</p>
+
+    </div>
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-12795044-1']);
+      _gaq.push(['_setDomainName', 'gabekoss.com']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+       })();
+
+     </script>
+   </body>
+ </html>
+
