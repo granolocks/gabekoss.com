@@ -7,11 +7,14 @@
   </head>
   <body>
     <div id="some-text-yo">
-      <h4 id="delete-a-specific-line-with-from-a-file">Delete a specific line with from a file</h4>
-<p><code>sh
-# delete line 40 from ~/.ssh/known_hosts
-sed -i -e '40d' ~/.ssh/known_hosts
-</code></p>
+      <h1 id="sed">sed</h1>
+
+<h2 id="delete-a-specific-line-with-from-a-file">Delete a specific line with from a file</h2>
+
+<p>To specify the line to delete with the comman <code>40d</code> and make sure to pass the <code>-i</code> flag so it saves the target file.</p>
+
+<pre><code>sed -i -e '40d' ~/.ssh/known_hosts
+</code></pre>
 
     </div>
     <script type="text/javascript">
