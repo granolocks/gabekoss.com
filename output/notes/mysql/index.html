@@ -4,38 +4,44 @@
   <head>
     <title></title>
     <link type='text/css' href='/css/notes.css' rel='stylesheet'/>
+    <link rel="stylesheet" href="/css/default.css">
+    <script src="/js/highlight-pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
   </head>
   <body>
     <div id="some-text-yo">
-      <h2 id="working-with-mysql">working with Mysql</h2>
+      <h2>working with Mysql</h2>
 
-<h4 id="connect-to-remote-instance">connect to remote instance</h4>
-<p><code>sh
-mysql -h remote.db-server.com -u remote_user
-</code></p>
+<h4>connect to remote instance</h4>
 
-<h4 id="sample-mysqldump">sample mysqldump</h4>
-<p><code>sh
-mysqldump -h remote.db-server.com -u remote_user database_name &gt; outfile.sql
-</code></p>
+<pre><code class="sh">mysql -h remote.db-server.com -u remote_user
+</code></pre>
 
-<h4 id="import-db-dump-into-mysql-db">import db dump into mysql db</h4>
-<p><code>sh
-mysql -u user -p db_name &lt; import_file.sql
-</code></p>
+<h4>sample mysqldump</h4>
 
-<h2 id="queries">queries!</h2>
-<p>#### count of emails by TLD
-<code>sql
-select count(\*), substring_index(email,'@',-1) from table group by substring_index(email, '@',-1) order by count(\*) desc;
-</code></p>
+<pre><code class="sh">mysqldump -h remote.db-server.com -u remote_user database_name &gt; outfile.sql
+</code></pre>
 
-<h2 id="user-privileges-shit">user privileges shit</h2>
-<p><code>sql
-grant all privileges on db_name.* to 'db-user'@'db-host' identified by 'password';
-</code></p>
+<h4>import db dump into mysql db</h4>
+
+<pre><code class="sh">mysql -u user -p db_name &lt; import_file.sql
+</code></pre>
+
+<h2>queries!</h2>
+
+<h4>count of emails by TLD</h4>
+
+<pre><code class="sql">select count(\*), substring_index(email,&#39;@&#39;,-1) from table group by substring_index(email, &#39;@&#39;,-1) order by count(\*) desc;
+</code></pre>
+
+<h2>user privileges shit</h2>
+
+<pre><code class="sql">grant all privileges on db_name.* to &#39;db-user&#39;@&#39;db-host&#39; identified by &#39;password&#39;;
+</code></pre>
 
     </div>
+
     <script type="text/javascript">
 
       var _gaq = _gaq || [];

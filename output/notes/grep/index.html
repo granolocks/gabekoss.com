@@ -4,20 +4,25 @@
   <head>
     <title></title>
     <link type='text/css' href='/css/notes.css' rel='stylesheet'/>
+    <link rel="stylesheet" href="/css/default.css">
+    <script src="/js/highlight-pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
   </head>
   <body>
     <div id="some-text-yo">
-      <h4 id="open-all-files-with-ex-that-match-a-grep-search-using--as-a-delimeter-with-cut">open all files with ex that match a grep search using : as a delimeter with cut</h4>
-<p><code>sh
-ex `grep -riE "@return" * | cut -d : -f 1 -s | sort | uniq`
-</code></p>
+      <h4>open all files with ex that match a grep search using : as a delimeter with cut</h4>
 
-<h4 id="force-colors-to-display-when-piping-grep-to-less">Force colors to display when piping grep to less</h4>
-<p><code>sh
-grep --color=force pattern location | less -R
-</code></p>
+<pre><code class="sh">ex `grep -riE &quot;@return&quot; * | cut -d : -f 1 -s | sort | uniq`
+</code></pre>
+
+<h4>Force colors to display when piping grep to less</h4>
+
+<pre><code class="sh">grep --color=force pattern location | less -R
+</code></pre>
 
     </div>
+
     <script type="text/javascript">
 
       var _gaq = _gaq || [];

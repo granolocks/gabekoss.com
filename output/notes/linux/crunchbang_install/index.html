@@ -4,30 +4,37 @@
   <head>
     <title></title>
     <link type='text/css' href='/css/notes.css' rel='stylesheet'/>
+    <link rel="stylesheet" href="/css/default.css">
+    <script src="/js/highlight-pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
   </head>
   <body>
     <div id="some-text-yo">
-      <h1 id="prep-usb-stick">Prep usb stick:</h1>
-<p># format as ext2 with gparted
-<code>sh
-sudo dd if=crunchbang.iso of=/dev/sdf bs=4M;sync
-</code>
-# :)</p>
+      <h1>Prep usb stick:</h1>
 
-<h1 id="install-some-neat-pkgs-">install some neat pkgs ;)</h1>
-<p><code>sh
-sudo dpkg --configure -a
+<h1>format as ext2 with gparted</h1>
+
+<pre><code class="sh">sudo dd if=crunchbang.iso of=/dev/sdf bs=4M;sync
+</code></pre>
+
+<h1>:)</h1>
+
+<h1>install some neat pkgs ;)</h1>
+
+<pre><code class="sh">sudo dpkg --configure -a
 sudo apt-get update
 sudo apt-get install vim tmux git-core ruby curl nmap wireshark tshark meld wget finch gpsd gpsd-clients
-</code></p>
+</code></pre>
 
-<h1 id="follow-rvm-install-notes-on-rvmio">follow rvm install notes on rvm.io</h1>
-<p><code>sh
-curl -L https://get.rvm.io | bash -s stable --rails --autolibs=enabled 
+<h1>follow rvm install notes on rvm.io</h1>
+
+<pre><code class="sh">curl -L https://get.rvm.io | bash -s stable --rails --autolibs=enabled 
 rvm install ruby-2.0.0
-</code></p>
+</code></pre>
 
     </div>
+
     <script type="text/javascript">
 
       var _gaq = _gaq || [];

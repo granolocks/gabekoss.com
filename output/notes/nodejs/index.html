@@ -4,22 +4,26 @@
   <head>
     <title></title>
     <link type='text/css' href='/css/notes.css' rel='stylesheet'/>
+    <link rel="stylesheet" href="/css/default.css">
+    <script src="/js/highlight-pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
   </head>
   <body>
     <div id="some-text-yo">
       <p>Install on Uuntu crunchbang</p>
 
-<p><code>sh
-apt-get install python g++ make
+<pre><code class="sh">apt-get install python g++ make
 mkdir nodejs 
 cd nodejs
 wget -N http://nodejs.org/dist/node-latest.tar.gz
 tar xzvf node-latest.tar.gz &amp;&amp; cd `ls -rd node-v*`
 ./configure
 sudo make install
-</code></p>
+</code></pre>
 
     </div>
+
     <script type="text/javascript">
 
       var _gaq = _gaq || [];

@@ -2,5 +2,6 @@ source 'https://rubygems.org'
 
 gem 'nanoc'
 gem 'adsf'
-gem 'kramdown'
+gem 'redcarpet'
 gem 'pry'
+gem 'pygments.rb'

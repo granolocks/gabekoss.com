@@ -18,10 +18,10 @@ compile '/stylesheet/' do
 end
 
 compile '*' do
-  if item.binary? || item.attributes[:extension] == 'css'
+  if item.binary? || %w{ jpg png js css }.include?(item.attributes[:extension]) 
     # don’t filter binary items
   elsif item.attributes[:extension] == 'md'
-    filter :kramdown
+    filter :redcarpet, :options => {:fenced_code_blocks => true}
     layout 'notes'
   else
     filter :erb
@@ -34,7 +34,7 @@ route '/stylesheet/' do
 end
 
 route '*' do
-  if item.binary? || item.attributes[:extension] == 'css'
+  if item.binary? || %w{ jpg png js css }.include?(item.attributes[:extension]) 
     # Write item with identifier /foo/ to /foo.ext
     item.identifier.chop + '.' + item[:extension]
   else

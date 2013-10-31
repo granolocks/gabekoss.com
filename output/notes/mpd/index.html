@@ -4,61 +4,64 @@
   <head>
     <title></title>
     <link type='text/css' href='/css/notes.css' rel='stylesheet'/>
+    <link rel="stylesheet" href="/css/default.css">
+    <script src="/js/highlight-pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
   </head>
   <body>
     <div id="some-text-yo">
-      <h1 id="music-player-daemon">Music Player Daemon</h1>
+      <h1>Music Player Daemon</h1>
 
 <p>Source: http://crunchbang.org/forums/viewtopic.php?id=17386</p>
 
-<h2 id="install">Install</h2>
+<h2>Install</h2>
 
-<p><code>sh
-sudo apt-get install mpd
+<pre><code class="sh">sudo apt-get install mpd
 sudo apt-get install mpc
-</code></p>
+</code></pre>
 
-<h2 id="set-up-as-user-service">Set up as User Service</h2>
+<h2>Set up as User Service</h2>
 
 <p><code>sh
 sudo service mpd stop
 sudo update-rc.d mpd disable
 </code>`</p>
 
-<h2 id="configure-mpd">Configure MPD</h2>
+<h2>Configure MPD</h2>
 
-<p><code>sh
-mkdir -p ~/.mpd/playlists
+<pre><code class="sh">mkdir -p ~/.mpd/playlists
 touch ~/.mpd/{mpd.db,mpd.log,mpd.pid,mpdstate}
 gunzip -c /usr/share/doc/mpd/examples/mpd.conf.gz &gt; ~/.mpd/mpd.conf
 ~/.mpd/mpd.conf
-</code></p>
+</code></pre>
 
-<p>Edit ` ~/.mpd/mpd.conf` with:</p>
+<p>Edit <code>~/.mpd/mpd.conf</code> with:</p>
 
-<p>```
-music_directory    “/home/garion/music”
-playlist_directory “/home/garion/.mpd/playlists”
-db_file            “/home/garion/.mpd/tag_cache”
-log_file           “/home/garion/.mpd/mpd.log”
-pid_file           “/home/garion/.mpd/mpd.pid”
-state_file         “/home/garion/.mpd/mpdstate”</p>
+<pre><code>music_directory    &quot;/home/garion/music&quot;
+playlist_directory &quot;/home/garion/.mpd/playlists&quot;
+db_file            &quot;/home/garion/.mpd/tag_cache&quot;
+log_file           &quot;/home/garion/.mpd/mpd.log&quot;
+pid_file           &quot;/home/garion/.mpd/mpd.pid&quot;
+state_file         &quot;/home/garion/.mpd/mpdstate&quot;
 
-<h1 id="user----------------mpd">user                “mpd”</h1>
 
-<p>audio_output {
-    type        “alsa”
-    name        “My ALSA Device”
-    device        “hw:0,0”    # optional
-    format        “44100:16:2”    # optional
-    mixer_device    “default”    # optional
-    mixer_control    “PCM”        # optional
-    mixer_index    “0”        # optional
-}</p>
+#user                &quot;mpd&quot;
 
-<p>```</p>
+audio_output {
+    type        &quot;alsa&quot;
+    name        &quot;My ALSA Device&quot;
+    device        &quot;hw:0,0&quot;    # optional
+    format        &quot;44100:16:2&quot;    # optional
+    mixer_device    &quot;default&quot;    # optional
+    mixer_control    &quot;PCM&quot;        # optional
+    mixer_index    &quot;0&quot;        # optional
+}
+
+</code></pre>
 
     </div>
+
     <script type="text/javascript">
 
       var _gaq = _gaq || [];

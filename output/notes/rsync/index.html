@@ -4,36 +4,39 @@
   <head>
     <title></title>
     <link type='text/css' href='/css/notes.css' rel='stylesheet'/>
+    <link rel="stylesheet" href="/css/default.css">
+    <script src="/js/highlight-pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
   </head>
   <body>
     <div id="some-text-yo">
       <p>I often use an rsync command like </p>
 
-<p><code>sh
-rsync -nvrculzOFF &lt;source&gt; &lt;destination&gt;
-</code></p>
+<pre><code class="sh">rsync -nvrculzOFF &lt;source&gt; &lt;destination&gt;
+</code></pre>
 
-<p>The first flag ( -n ) forces a try run ( alt: –dry-run ) so you quickly have to follow it up with</p>
+<p>The first flag ( -n ) forces a try run ( alt: --dry-run ) so you quickly have to follow it up with</p>
 
-<p><code>sh
-rsync -vrculzOFF &lt;source&gt; &lt;destination&gt;
-</code>
-to run the command and actually do the sync.</p>
+<pre><code class="sh">rsync -vrculzOFF &lt;source&gt; &lt;destination&gt;
+</code></pre>
+
+<p>to run the command and actually do the sync.</p>
 
 <p>The remaining flags are as follows</p>
 
-<p>-v, –verbose </p>
+<p>-v, --verbose </p>
 
-<p>-r, –recursive</p>
+<p>-r, --recursive</p>
 
 <p>-c
 -u
 -l
--z –commpress
+-z --commpress
 OFF</p>
 
-
     </div>
+
     <script type="text/javascript">
 
       var _gaq = _gaq || [];

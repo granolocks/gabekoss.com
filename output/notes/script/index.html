@@ -4,32 +4,35 @@
   <head>
     <title></title>
     <link type='text/css' href='/css/notes.css' rel='stylesheet'/>
+    <link rel="stylesheet" href="/css/default.css">
+    <script src="/js/highlight-pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
   </head>
   <body>
     <div id="some-text-yo">
-      <h1 id="script"><code>script</code></h1>
+      <h1><code>script</code></h1>
 
 <p><code>script</code> and <code>scriptreplay</code> are part of the <code>bsdutils</code> package. </p>
 
-<h2 id="record-terminal-session-with-script">Record Terminal Session with <code>script</code></h2>
+<h2>Record Terminal Session with <code>script</code></h2>
 
 <p>Start recording with a command like:</p>
 
-<p><code>sh
-script -t -a 2&gt; timing_file.txt recording_file.txt
-</code></p>
+<pre><code class="sh">script -t -a 2&gt; timing_file.txt recording_file.txt
+</code></pre>
 
 <p>End the recording by typing <code>exit</code>.</p>
 
-<h2 id="replay-the-recorded-session-with-scriptreplay">Replay the recorded session with <code>scriptreplay</code></h2>
+<h2>Replay the recorded session with <code>scriptreplay</code></h2>
 
 <p>Replay the recorded session with a command like</p>
 
-<p><code>sh
-scriptreplay timing_file.txt recording_file.txt
-</code></p>
+<pre><code class="sh">scriptreplay timing_file.txt recording_file.txt
+</code></pre>
 
     </div>
+
     <script type="text/javascript">
 
       var _gaq = _gaq || [];
