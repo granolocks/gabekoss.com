@@ -1,18 +1,20 @@
 ## Finch 
 
-Finch is a CLI verision of the pidgin chat client. More information can be found here: https://developer.pidgin.im/wiki/Using%20Finch
+Finch is a CLI verision of the pidgin chat client. More information can be
+found in the [official docs](https://developer.pidgin.im/wiki/Using%20Finch)
 
 ### Installation
 
 On debian linux install with:
 
-```sh 
+```bash 
 sudo apt-get install finch
 ```
 
 ### Usage
 
-Navigation is primarily through the alt key which allows you to make widget actions. Some of the most useful ones are:
+Navigation is primarily through the alt key which allows you to make widget
+actions. Some of the most useful ones are:
 
 * ` <alt> + a `: Bring up Menu
 * ` <alt> + n `: Next Window

@@ -1,1 +1,10 @@
 * { font-family: sans}
+*
+h1 code, p code, li code{ 
+ background-color: #eee;
+ padding: 3px;
+ margin: 3px;
+ line-height: 1.7em;
+ border: #aaa 1px solid;
+ border-radius: 3px;
+}

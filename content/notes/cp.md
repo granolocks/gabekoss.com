@@ -1,5 +1,20 @@
-#### copy a file to include a date stamp
-_http://www.unix.com/unix-dummies-questions-answers/16395-renaming-files-have-date-time-filename.html_
-```sh
-cp <old file name> <new filename>.`date +"%Y%m%d%H%M%S"`
+# `cp`
+
+`cp` is a common unix utility to copy a file. 
+
+Simple usage: 
+
+```bash
+cp old_file new_file
+```
+
+
+#### Include a timestamp
+
+Copy a file to a new copy including a current string formatted timestamp.
+
+[Source of this command.](http://www.unix.com/unix-dummies-questions-answers/16395-renaming-files-have-date-time-filename.html)
+
+```bash
+cp old_file new_file.`date +"%Y%m%d%H%M%S"`
 ```
