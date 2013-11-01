@@ -4,38 +4,38 @@
   <head>
     <title></title>
     <link type='text/css' href='/css/notes.css' rel='stylesheet'/>
-    <link rel="stylesheet" href="/css/railscasts.css">
+    <link rel="stylesheet" href="/css/pojoaque.css">
     <script src="/js/highlight-pack.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
 
   </head>
   <body>
     <div id="some-text-yo">
-      <h2>working with Mysql</h2>
+      <h1><code>mysql</code></h1>
 
-<h4>connect to remote instance</h4>
+<h2>connect to remote instance</h2>
 
-<pre><code class="sh">mysql -h remote.db-server.com -u remote_user
+<pre><code class="bash">mysql -h remote.db-server.com -u remote_user
 </code></pre>
 
-<h4>sample mysqldump</h4>
+<h2>sample mysqldump</h2>
 
-<pre><code class="sh">mysqldump -h remote.db-server.com -u remote_user database_name &gt; outfile.sql
+<pre><code class="bash">mysqldump -h remote.db-server.com -u remote_user database_name &gt; outfile.sql
 </code></pre>
 
-<h4>import db dump into mysql db</h4>
+<h2>import db dump into mysql db</h2>
 
-<pre><code class="sh">mysql -u user -p db_name &lt; import_file.sql
+<pre><code class="bash">mysql -u user -p db_name &lt; import_file.sql
 </code></pre>
 
 <h2>queries!</h2>
 
-<h4>count of emails by TLD</h4>
+<h3>count of emails by TLD</h3>
 
 <pre><code class="sql">select count(\*), substring_index(email,&#39;@&#39;,-1) from table group by substring_index(email, &#39;@&#39;,-1) order by count(\*) desc;
 </code></pre>
 
-<h2>user privileges shit</h2>
+<h3>Grant priviliges on a db to a user</h3>
 
 <pre><code class="sql">grant all privileges on db_name.* to &#39;db-user&#39;@&#39;db-host&#39; identified by &#39;password&#39;;
 </code></pre>

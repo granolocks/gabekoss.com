@@ -1,6 +1,6 @@
-Install on Uuntu crunchbang
+# Install Nodejs on Crunchbang
 
-```sh
+```bash
 apt-get install python g++ make
 mkdir nodejs 
 cd nodejs

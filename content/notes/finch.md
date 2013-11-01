@@ -1,6 +1,6 @@
-## Finch 
+## `finch`
 
-Finch is a CLI verision of the pidgin chat client. More information can be
+`finch` is a CLI verision of the Pidgin chat client. More information can be
 found in the [official docs](https://developer.pidgin.im/wiki/Using%20Finch)
 
 ### Installation

@@ -1,27 +1,33 @@
-## working with Mysql
+# `mysql`
 
-#### connect to remote instance
-```sh
+## connect to remote instance
+
+```bash
 mysql -h remote.db-server.com -u remote_user
 ```
 
-#### sample mysqldump
-```sh
+## sample mysqldump
+
+```bash
 mysqldump -h remote.db-server.com -u remote_user database_name > outfile.sql
 ```
 
-#### import db dump into mysql db
-```sh
+## import db dump into mysql db
+
+```bash
 mysql -u user -p db_name < import_file.sql
 ```
 
 ## queries!
-#### count of emails by TLD
+
+### count of emails by TLD
+
 ```sql
 select count(\*), substring_index(email,'@',-1) from table group by substring_index(email, '@',-1) order by count(\*) desc;
 ```
 
-## user privileges shit
+### Grant priviliges on a db to a user
+
 ```sql
 grant all privileges on db_name.* to 'db-user'@'db-host' identified by 'password';
 ```

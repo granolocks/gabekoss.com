@@ -25,27 +25,27 @@ gunzip -c /usr/share/doc/mpd/examples/mpd.conf.gz > ~/.mpd/mpd.conf
 ~/.mpd/mpd.conf
 ```
 
-Edit ` ~/.mpd/mpd.conf` with:
+Edit `~/.mpd/mpd.conf` with:
 
 ```
-music_directory    "/home/garion/music"
-playlist_directory "/home/garion/.mpd/playlists"
-db_file            "/home/garion/.mpd/tag_cache"
-log_file           "/home/garion/.mpd/mpd.log"
-pid_file           "/home/garion/.mpd/mpd.pid"
-state_file         "/home/garion/.mpd/mpdstate"
+music_directory    "/home/user/music"
+playlist_directory "/home/user/.mpd/playlists"
+db_file            "/home/user/.mpd/tag_cache"
+log_file           "/home/user/.mpd/mpd.log"
+pid_file           "/home/user/.mpd/mpd.pid"
+state_file         "/home/user/.mpd/mpdstate"
 
 
 #user                "mpd"
 
 audio_output {
-    type        "alsa"
-    name        "My ALSA Device"
-    device        "hw:0,0"    # optional
-    format        "44100:16:2"    # optional
-    mixer_device    "default"    # optional
-    mixer_control    "PCM"        # optional
-    mixer_index    "0"        # optional
+    type          "alsa"
+    name          "My ALSA Device"
+    device        "hw:0,0"         # optional
+    format        "44100:16:2"     # optional
+    mixer_device  "default"        # optional
+    mixer_control "PCM"            # optional
+    mixer_index   "0"              # optional
 }
 
 ```

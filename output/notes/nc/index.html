@@ -4,7 +4,7 @@
   <head>
     <title></title>
     <link type='text/css' href='/css/notes.css' rel='stylesheet'/>
-    <link rel="stylesheet" href="/css/railscasts.css">
+    <link rel="stylesheet" href="/css/pojoaque.css">
     <script src="/js/highlight-pack.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
 
@@ -17,34 +17,31 @@
 
 <p>Use <code>nc</code> to probe a port to test service availability or to check if portforwarding is working etc.</p>
 
-<pre><code class="sh">nc &lt;hostname or ip&gt; &lt;port&gt;
+<pre><code class="bash">nc &lt;hostname or ip&gt; &lt;port&gt;
 </code></pre>
 
-<pre><code class="sh">$ nc 192.168.1.111 22
+<pre><code class="bash">$ nc 192.168.1.111 22
 SSH-2.0-OpenSSH_6.0p1 Debian-4
 ^C
 </code></pre>
 
 <h2>Simple Netcat Chat:</h2>
 
-<ol>
-<li><p>requires 2 computers, one of which (A) must be running sshd, the other (B) must be capable of a client ssh connection. (A) must have netcat</p></li>
-<li><p>client (B) connects via ssh to (A)</p></li>
-<li><p>the server (A) creates a netcat listener on any open port  with:</p></li>
-</ol>
+<p>Requires 2 computers, one of which (A) must be running sshd, the other (B) must be capable of a client ssh connection. (A) must have netcat</p>
 
-<pre><code class="sh">nc -l -p 4444
+<p>Client (B) connects via ssh to (A)</p>
+
+<p>The server (A) creates a netcat listener on any open port  with:</p>
+
+<pre><code class="bash">nc -l -p 4444
 </code></pre>
 
-<ol>
-<li><p>(B) connnects to that port with the following command issued into ssh:
-<code>sh
-nc localhost 4444
-</code></p></li>
-<li><p>clients and server should now be able to send plain text messages to each other via netcat. these messages are encrypted by the ssh tunnel</p></li>
-</ol>
+<p>Client connnects to that port with the following command issued into ssh:</p>
 
-<p>note: connection by a 3rd party is not supported..</p>
+<pre><code class="bash">nc localhost 4444
+</code></pre>
+
+<p>Clients and server should now be able to send plain text messages to each other via netcat. These messages are encrypted within the ssh tunnel.</p>
 
     </div>
 

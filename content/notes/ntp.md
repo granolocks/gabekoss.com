@@ -1,11 +1,15 @@
-### Th is for Ubuntu
+# `ntp`
 
-#### update time (should add to init.d)
-```sh
+These notes were from an Ubuntu system
+
+## update time (should add to init.d)
+
+```bash
 sudo ntpdate ntp.ubuntu.com
 ```
 
-#### change system time zone
+## Change system time zone
+
 ```sh
 sudo dpkg-reconfigure tzdata
 ```
