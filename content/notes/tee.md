@@ -25,7 +25,12 @@ total 0
 
 ##### _From Wikipedia:_
 
-tee is normally used to split the output of a program so that it can be displayed and saved in a file. The command can be used to capture intermediate output before the data is altered by another command or program. The tee command reads standard input, then writes its content to standard output. It simultaneously copies the result into the specified file(s) or variables. The syntax differs depending on the commands implementation:
+tee is normally used to split the output of a program so that it can be
+displayed and saved in a file. The command can be used to capture intermediate
+output before the data is altered by another command or program. The tee
+command reads standard input, then writes its content to standard output. It
+simultaneously copies the result into the specified file(s) or variables. The
+syntax differs depending on the commands implementation:
 
 ```
 tee [ -a ] [ -i ] [ File ... ]
@@ -42,7 +47,11 @@ The command returns the following exit values (exit status):
 * 0 The standard input was successfully copied to all output files.
 * >0 An error occurred.
 
-Using process substitution lets more than one process read the standard output of the originating process. Read this example from GNU Coreutils, tee invocation.
+Using process substitution lets more than one process read the standard output
+of the originating process. Read this example from GNU Coreutils, tee
+invocation.
 
-Note: If a write to any successfully opened File operand is not successful, writes to other successfully opened File operands and standard output will continue, but the exit value will be >0.
+Note: If a write to any successfully opened File operand is not successful,
+writes to other successfully opened File operands and standard output will
+continue, but the exit value will be >0.
 
