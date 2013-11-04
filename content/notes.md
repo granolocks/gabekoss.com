@@ -28,34 +28,34 @@ Unless otherwise specified assume these notes were created on Crunchbang Waldorf
 
 ## Various  Tools
 
-* Apache
-* cp
-* eog
-* ffmpeg
-* finch
-* find
-* git
-* grep
-* iptraf
-* mkdir
-* mpd
-* mysql
-* nc
-* nethog
-* nodejs
-* ntp
-* Openarena
-* riak
-* rsync
-* script
-* sed
-* sound
-* splunk
-* ssh
-* tar
-* tee
-* tshark
-* vagrant
-* View tcp port activity
-* vim
-* vmware
+* [Apache](/notes/apache)
+* [cp](/notes/cp)
+* [eog](/notes/eog)
+* [ffmpeg](/notes/ffmpeg)
+* [finch](/notes/finch)
+* [find](/notes/find)
+* [git](/notes/git)
+* [grep](/notes/grep)
+* [iptraf](/notes/iptraf)
+* [mkdir](/notes/mkdir)
+* [mpd](/notes/mpd)
+* [mysql](/notes/mysql)
+* [nc](/notes/nc)
+* [nethog](/notes/nethog)
+* [nodejs](/notes/nodejs)
+* [ntp](/notes/ntp)
+* [Openarena](/notes/openarena)
+* [riak](/notes/riak)
+* [rsync](/notes/rsync)
+* [script](/notes/script)
+* [sed](/notes/sed)
+* [sound](/notes/sound)
+* [splunk](/notes/splunk)
+* [ssh](/notes/ssh)
+* [tar](/notes/tar)
+* [tee](/notes/tee)
+* [tshark](/notes/tshark)
+* [vagrant](/notes/vagrant)
+* [View tcp port activity](/notes/view_tcp_port_activity)
+* [vim](/notes/vim)
+* [vmware](/notes/vmware)

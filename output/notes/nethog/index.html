@@ -23,15 +23,27 @@
       </ul>
     </div>
     <div id="main">
-    <h1>sed</h1>
+    <h1>nethog</h1>
 
-<h2>Delete a specific line with from a file</h2>
+<p>Nethog is a tool similar to top which will show you some useful tabular
+information on network activity for a given interface including relevant
+process / PID.</p>
 
-<p>To specify the line to delete with the comman <code>40d</code> and make sure to pass the <code>-i</code> flag so it saves the target file.</p>
+<p>Run with:</p>
 
-<pre><code class="bash">
-sed -i -e &#39;40d&#39; ~/.ssh/known_hosts
+<pre><code class="bash">sudo nethog &lt;interface&gt;
+</code></pre>
 
+<p>Output behaves like top (updates regularly) and looks kind of like this: </p>
+
+<pre><code>NetHogs version 0.8.0
+
+PID   USER         PROGRAM                                                 DEV        SENT      RECEIVED
+2633  username     /home/username/.dropbox-dist/dropbox                    wlan0      0.070       0.061 KB/sec
+5752  username     /opt/google/chrome/chrome                               wlan0      0.026       0.033 KB/sec
+?     root         unknown TCP                                                        0.000       0.000 KB/sec
+
+TOTAL                                                                           0.096       0.094 KB/sec
 </code></pre>
 
     </div>

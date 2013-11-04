@@ -1,24 +1,24 @@
 #  Music Player Daemon
 
-Source: http://crunchbang.org/forums/viewtopic.php?id=17386
+[Source](http://crunchbang.org/forums/viewtopic.php?id=17386)
 
 ## Install
 
-```sh
+```bash
 sudo apt-get install mpd
 sudo apt-get install mpc
 ```
 
 ## Set up as User Service
 
-``sh
+```bash
 sudo service mpd stop
 sudo update-rc.d mpd disable
 ```
 
 ## Configure MPD
 
-```sh
+```bash
 mkdir -p ~/.mpd/playlists
 touch ~/.mpd/{mpd.db,mpd.log,mpd.pid,mpdstate}
 gunzip -c /usr/share/doc/mpd/examples/mpd.conf.gz > ~/.mpd/mpd.conf

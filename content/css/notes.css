@@ -1,5 +1,10 @@
-* { font-family: sans}
-*
+* { font-family: sans }
+html {
+  background-color: #DEFFCD;
+}
+
+code, code *{font-family: monospace; font-size: 110%;}
+
 h1 code, p code, li code{ 
  background-color: #eee;
  padding: 3px;
@@ -8,3 +13,37 @@ h1 code, p code, li code{
  border: #aaa 1px solid;
  border-radius: 3px;
 }
+
+#sidebar {
+  height: 100%;
+  background: rgb(188,255,0);
+  /* RGBa with 0.6 opacity */
+  background: rgba(188,255,0, 0.6);
+  width: 120px;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+#sidebar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+#sidebar ul li a {
+  display: block;
+  padding: .5em;
+  color: #fff;
+  /* RGBa with 0.6 opacity */
+  background: rgba(0,0,0,0.6);
+}
+
+#sidebar ul li a:hover { background: rgba(0,50,0,0.6); }
+
+#main {
+  padding-left: 130px;
+  width: 900px;
+}
+
+

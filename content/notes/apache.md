@@ -8,6 +8,6 @@ whatever reason:
 
 #### Restart Apache 
 
-```sh
+```bash
 service apache2 restart
 ```

@@ -23,15 +23,15 @@
       </ul>
     </div>
     <div id="main">
-    <h1>sed</h1>
+    <h4>use tshark to print out header files</h4>
 
-<h2>Delete a specific line with from a file</h2>
+<ul>
+<li>in this example we used grep to check for an arbitrary header that I set</li>
+<li>addtl doc at http://www.wireshark.org/docs/man-pages/tshark.html </li>
+<li>and http://wiki.wireshark.org/</li>
+</ul>
 
-<p>To specify the line to delete with the comman <code>40d</code> and make sure to pass the <code>-i</code> flag so it saves the target file.</p>
-
-<pre><code class="bash">
-sed -i -e &#39;40d&#39; ~/.ssh/known_hosts
-
+<pre><code class="sh">sudo tshark -i eth0 -d tcp.port==3000,http tcp port 3000 -V -R &quot;http.response&quot; | grep header_key -B 10 -A 10
 </code></pre>
 
     </div>
