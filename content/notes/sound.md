@@ -1,12 +1,14 @@
-Just a couple tools useful for debugging sound issues in linux:
+# Sound on linux
 
-use aplay to list sound devices
+Just a couple tools useful for debugging sound issues in linux.
 
-```sh
+Use `aplay` to list sound devices:
+
+```bash
 aplay -l
 ```
 
-run a speaker test
+Run a speaker test with... `speaker-test`
 
 ```sh
 speaker-test -c 2 -r 48000 -D hw:0,3

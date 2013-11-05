@@ -18,6 +18,7 @@ Unless otherwise specified assume these notes were created on Crunchbang Waldorf
 * Install Crunchbang
 * Install Ubuntu 11.10 
 * Install 12.04 Rails Server
+* [View tcp port activity](/notes/view_tcp_port_activity)
 
 ## Pentesting Tools
 
@@ -54,6 +55,5 @@ Unless otherwise specified assume these notes were created on Crunchbang Waldorf
 * [tee](/notes/tee)
 * [tshark](/notes/tshark)
 * [vagrant](/notes/vagrant)
-* [View tcp port activity](/notes/view_tcp_port_activity)
 * [vim](/notes/vim)
 * [vmware](/notes/vmware)

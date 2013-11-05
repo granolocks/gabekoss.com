@@ -1,21 +1,25 @@
-#### add ssh key based auth to remote server
+# Ssh
 
-```sh
+Here are some ssh things I've jotted down.
+
+## Add ssh key based auth to remote server
+
+```bash
 cat /home/user/.ssh/id_rsa.pub | ssh root@target.server.com 'cat >> ~/.ssh/authorized_keys'
 ```
 
 Note: `~/.ssh/authorized_keys` must have the correct permissions otherwise it will be ignored by ssh:
 
-```sh
+```bash
 chmod 0700 ~/.ssh
 chmod 0600 ~/.ssh/authorized_keys
 ```
 
-#### simple reverse shell
+## Simple reverse shell
 
 From the initializing system run something like:
 
-```sh
+```bash
 # Initialzing System
 ssh -R 12345:localhost:22 receiver_user@receiver_system
 ```
@@ -25,28 +29,28 @@ port 22 proving ssh access.
 
 On the receiver the connection can be completed by connecting locally
 
-```sh
+```bash
 # Receiver connecting back through tunnel
 ssh initializing_user@localhost -p 12345
 ```
 
-### Setting up SSH Agent forwarding 
+## Setting up SSH Agent forwarding 
 
 Note from Crunchbang Client w/ agent + Ubuntu server with forwarding.
 
 On the machine with the key to be forwarded `vi ~/.ssh/config` and add
 
-```
+```bash
 Host machine.to.forward.through.com
   ForwardAgent yes
 ```
 
 At the command line add an identity the ssh agent:
 
-```
+```bash
 # check identities with
 ssh-add -L
-ssh-add <key to foward>
+ssh-add id_rsa
 ```
 
 Seems like there is probably a different way to permanently add identities, but
@@ -58,7 +62,7 @@ and add `AllowAgentForwarding yes`.
 Confirm on both systems that this command returns something like this once an
 SSH connection has been established.:
 
-```
+```bash
 user@host:~$ echo "$SSH_AUTH_SOCK"
 /tmp/ssh-EJjvLb2203/agent.2203
 ```

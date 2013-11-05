@@ -1,8 +1,11 @@
-#### use tshark to print out header files
- * in this example we used grep to check for an arbitrary header that I set
- * addtl doc at http://www.wireshark.org/docs/man-pages/tshark.html 
- * and http://wiki.wireshark.org/
+# `tshark`
+
+`tshark` is the command line tool behind wireshark. Very useful for extracting and analyzing TCP streams.
+
+## Use tshark to print out header files
+
+In this example we used grep to check for an arbitrary header (`my_header`)that I set in my app.
 
 ```sh
-sudo tshark -i eth0 -d tcp.port==3000,http tcp port 3000 -V -R "http.response" | grep header_key -B 10 -A 10
+sudo tshark -i eth0 -d tcp.port==3000,http tcp port 3000 -V -R "http.response" | grep my_header -B 10 -A 10
 ```

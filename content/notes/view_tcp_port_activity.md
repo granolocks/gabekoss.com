@@ -1,45 +1,60 @@
-##### source: http://www.garron.me/go2linux/which-service-or-program-listening-port.html
+# Viewing TCP network and port activity
 
-It is really important to know which ports are open in your PC, this is not only useful for Linux, but also for other operating systems, Linux has a lot of tools to check which ports are open, the most common is nmap which is a command line tool, but also exist a Graphical frontEnd for it if you prefer that way.
- 
- So to scan you own PC and find open ports you can enter:
- 
-#### nmap
+Here are a few tools to help you identify what your computer is doing on the
+network. See also [iptraf](/notes/iptraf) and [nethog](/notes/nethog).
 
-```sh
+## Scan self with nmap
+ 
+```bash
 sudo nmap -T Aggressive -A -v 127.0.0.1 -p 1-65535
 ```
 
-That will scan all ports and you will an output like this:
-
-#### netstat
-With netstat the command you need to enter is:
+## `netstat`
+Get a list of listening 
 
 ```sh
 sudo netstat --tcp --udp --listening --program
 ```
 
-#### lsof
- 
-With this command you need to enter
+Short version of this would be: 
 
+```bash
+netstat -lntup
+```
+
+## `ss`
+
+`netstat` is being deprecated so if that doesn't work on a system you can try the `ss` package. `ss` stands for "socket statistics".
+
+```bash
+ss -lntup
+```
+
+## `lsof`
+
+`lsof` which had a wide range of other uses can be used to look at ipv4 network ports.
+ 
 ```sh
 sudo lsof +M -i4
 ```
 
-#### fuser
- 
-Fuser, does help, but is not like those other tools, with fuser you can also kill the process which is listening on a given port.
+## `fuser`
+Fuser allows you to check out a specific port and protocol
 
-```
-sudo fuser -v 3143/tcp
+```bash
+sudo fuser -v <port>/<tcp|udp>
 ```
 
-The output is linke:
-```
-USER        PID ACCESS COMMAND
-3143/tcp:    www-data   2763 F.... apt-cacher
-If you need to kill the process enter
+The output is like:
 
+```bash
+$ sudo fuser -v 3143/tcp
+             USER       PID  ACCESS COMMAND
+3143/tcp:    db-user    2763 F....  apt-cacher
+```
+
+If you need to kill the process run it again with `-kv <port><protp>`
+
+```bash
 sudo fuser -vk 3143/tcp
 ```

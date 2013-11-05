@@ -1,13 +1,14 @@
-#### tar up a dir
+# `tar`
 
-```sh
+Compress a directory.
+
+```bash
 tar -zcvf out_file.tar.gz target_dir/
 ```
 
-#### Untar into a dir
+Untar into the current directory.
 
-```sh
+```bash
 tar -xvzf some_tarball.tar.gz
 ```
-
 

@@ -6,15 +6,15 @@
 
 Source: https://github.com/mitchellh/vagrant/wiki/Available-Vagrant-Boxes
 
-Place in ~/.vagrant.d/boxes
+Place in `~/.vagrant.d/boxes`
 
 #### Install VirtualBox
-```sh
+```bash
 sudo apt-get install virtualbox
 ```
 
 #### Setup Environment 
-```sh
+```bash
 mkdir vagrant-vm
 cd vagrant-vm
 touch Gemfile
@@ -27,7 +27,7 @@ rvm gemset create vagrant
 ```
 
 #### Update .rvmrc
-```sh
+```bash
 rvm use ruby-1.9.3-p194@vagrant
 ```
 
@@ -42,12 +42,12 @@ gem 'chef'
 
 
 #### Bundle 
-```sh
+```bash
 bundle install
 ```
 
 #### Set up vagrant environment
-```sh
+```bash
 cd vagrant
 vagrant box add lucid64 ~/.vagrant.d/boxes/lucid64.box
 ```
@@ -72,12 +72,12 @@ end
 ```
 
 #### Clone Chef Files Into 
-```sh
+```bash
 cp -r ../vagrant-chef/chef/ chef/
 ```
 
 #### Start Vagrant Box!
-```sh
+```bash
 cd vagrant
 vagrant up
 ```

@@ -1,14 +1,14 @@
-#### tee
+# tee
 
 Split output to a command at different stages of processing like: 
 
-```sh
+```bash
 ls -l | tee original_list.txt | grep file2 > filtered_list.txt
 ```
 
 This works as follows:
 
-```sh
+```bash
 $ ls
 file1  file2
 $ ls -l | tee original_list.txt | grep file2 > filtered_list.txt
@@ -23,16 +23,16 @@ total 0
 -rw-r--r-- 1 granolocks granolocks 0 Aug 29 09:23 filtered_list.txt
 ```
 
-##### _From Wikipedia:_
+## From Wikipedia:
 
-tee is normally used to split the output of a program so that it can be
-displayed and saved in a file. The command can be used to capture intermediate
-output before the data is altered by another command or program. The tee
-command reads standard input, then writes its content to standard output. It
-simultaneously copies the result into the specified file(s) or variables. The
-syntax differs depending on the commands implementation:
+> tee is normally used to split the output of a program so that it can be
+> displayed and saved in a file. The command can be used to capture intermediate
+> output before the data is altered by another command or program. The tee
+> command reads standard input, then writes its content to standard output. It
+> simultaneously copies the result into the specified file(s) or variables. The
+> syntax differs depending on the commands implementation:
 
-```
+```bash
 tee [ -a ] [ -i ] [ File ... ]
 ```
 
@@ -40,8 +40,9 @@ Arguments:
 File One or more files that will receive the "tee-d" output.
 
 Flags:
-* -a Appends the output to the end of File instead of writing over it.
-* -i Ignores interrupts.
+
+* `-a` Appends the output to the end of File instead of writing over it.
+* `-i` Ignores interrupts.
 
 The command returns the following exit values (exit status):
 * 0 The standard input was successfully copied to all output files.
