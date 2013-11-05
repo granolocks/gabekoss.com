@@ -23,29 +23,35 @@
       </ul>
     </div>
     <div id="main">
-    <h4>Replace ^M characters globally (without doing EOL Conversion)</h4>
+    <h1>Vim.</h1>
+
+<p>I love vim. I really need to write up some information about vim, but for now this can just be a few random tricks.</p>
+
+<h2>Replace ^M characters globally (without doing EOL Conversion)</h2>
+
+<p>Those pesky pesky end-of-line characters from windows.</p>
 
 <pre><code class="vim">%s/&lt;Ctrl-V&gt;&lt;Ctrl-M&gt;//g
 </code></pre>
 
-<h4>bind \f to run rspec on current file</h4>
+<h2>rspec bindings</h2>
+
+<h3>bind \f to run rspec on current file</h3>
 
 <pre><code class="vim">map \f :w\|!rspec %&lt;cr&gt;
 </code></pre>
 
-<h4>bind \l to run rspec on current line</h4>
+<h3>bind \l to run rspec on current line</h3>
 
 <pre><code class="vim">map \l :w\|:exe &quot;!rspec % -l &quot; . line(&#39;.&#39;)&lt;cr&gt;
 </code></pre>
 
-<h4>bind \w to run rspec on current file</h4>
-
-<h5>this one kind of sucks...</h5>
+<h3>bind \w to run rspec on current file</h3>
 
 <pre><code class="vim">map \w :w\|:exe &quot;!rspec %  -e &quot; . expand(&quot;&lt;cword&gt;&quot;)&lt;cr&gt;
 </code></pre>
 
-<h3>run a command across all buffers with vim or ex</h3>
+<h2>Rrun a command across all buffers with vim or ex</h2>
 
 <pre><code class="vim">:set hidden
 :bufdo %s/# @return /# @returns /g

@@ -23,14 +23,16 @@
       </ul>
     </div>
     <div id="main">
-    <p>Just a couple tools useful for debugging sound issues in linux:</p>
+    <h1>Sound on linux</h1>
 
-<p>use aplay to list sound devices</p>
+<p>Just a couple tools useful for debugging sound issues in linux.</p>
 
-<pre><code class="sh">aplay -l
+<p>Use <code>aplay</code> to list sound devices:</p>
+
+<pre><code class="bash">aplay -l
 </code></pre>
 
-<p>run a speaker test</p>
+<p>Run a speaker test with... <code>speaker-test</code></p>
 
 <pre><code class="sh">speaker-test -c 2 -r 48000 -D hw:0,3
 </code></pre>

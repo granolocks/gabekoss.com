@@ -23,22 +23,26 @@
       </ul>
     </div>
     <div id="main">
-    <h4>add ssh key based auth to remote server</h4>
+    <h1>Ssh</h1>
 
-<pre><code class="sh">cat /home/user/.ssh/id_rsa.pub | ssh root@target.server.com &#39;cat &gt;&gt; ~/.ssh/authorized_keys&#39;
+<p>Here are some ssh things I&#39;ve jotted down.</p>
+
+<h2>Add ssh key based auth to remote server</h2>
+
+<pre><code class="bash">cat /home/user/.ssh/id_rsa.pub | ssh root@target.server.com &#39;cat &gt;&gt; ~/.ssh/authorized_keys&#39;
 </code></pre>
 
 <p>Note: <code>~/.ssh/authorized_keys</code> must have the correct permissions otherwise it will be ignored by ssh:</p>
 
-<pre><code class="sh">chmod 0700 ~/.ssh
+<pre><code class="bash">chmod 0700 ~/.ssh
 chmod 0600 ~/.ssh/authorized_keys
 </code></pre>
 
-<h4>simple reverse shell</h4>
+<h2>Simple reverse shell</h2>
 
 <p>From the initializing system run something like:</p>
 
-<pre><code class="sh"># Initialzing System
+<pre><code class="bash"># Initialzing System
 ssh -R 12345:localhost:22 receiver_user@receiver_system
 </code></pre>
 
@@ -47,25 +51,25 @@ port 22 proving ssh access.</p>
 
 <p>On the receiver the connection can be completed by connecting locally</p>
 
-<pre><code class="sh"># Receiver connecting back through tunnel
+<pre><code class="bash"># Receiver connecting back through tunnel
 ssh initializing_user@localhost -p 12345
 </code></pre>
 
-<h3>Setting up SSH Agent forwarding</h3>
+<h2>Setting up SSH Agent forwarding</h2>
 
 <p>Note from Crunchbang Client w/ agent + Ubuntu server with forwarding.</p>
 
 <p>On the machine with the key to be forwarded <code>vi ~/.ssh/config</code> and add</p>
 
-<pre><code>Host machine.to.forward.through.com
+<pre><code class="bash">Host machine.to.forward.through.com
   ForwardAgent yes
 </code></pre>
 
 <p>At the command line add an identity the ssh agent:</p>
 
-<pre><code># check identities with
+<pre><code class="bash"># check identities with
 ssh-add -L
-ssh-add &lt;key to foward&gt;
+ssh-add id_rsa
 </code></pre>
 
 <p>Seems like there is probably a different way to permanently add identities, but
@@ -77,7 +81,7 @@ and add <code>AllowAgentForwarding yes</code>. </p>
 <p>Confirm on both systems that this command returns something like this once an
 SSH connection has been established.:</p>
 
-<pre><code>user@host:~$ echo &quot;$SSH_AUTH_SOCK&quot;
+<pre><code class="bash">user@host:~$ echo &quot;$SSH_AUTH_SOCK&quot;
 /tmp/ssh-EJjvLb2203/agent.2203
 </code></pre>
 

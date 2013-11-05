@@ -23,15 +23,15 @@
       </ul>
     </div>
     <div id="main">
-    <h4>use tshark to print out header files</h4>
+    <h1><code>tshark</code></h1>
 
-<ul>
-<li>in this example we used grep to check for an arbitrary header that I set</li>
-<li>addtl doc at http://www.wireshark.org/docs/man-pages/tshark.html </li>
-<li>and http://wiki.wireshark.org/</li>
-</ul>
+<p><code>tshark</code> is the command line tool behind wireshark. Very useful for extracting and analyzing TCP streams.</p>
 
-<pre><code class="sh">sudo tshark -i eth0 -d tcp.port==3000,http tcp port 3000 -V -R &quot;http.response&quot; | grep header_key -B 10 -A 10
+<h2>Use tshark to print out header files</h2>
+
+<p>In this example we used grep to check for an arbitrary header (<code>my_header</code>)that I set in my app.</p>
+
+<pre><code class="sh">sudo tshark -i eth0 -d tcp.port==3000,http tcp port 3000 -V -R &quot;http.response&quot; | grep my_header -B 10 -A 10
 </code></pre>
 
     </div>

@@ -23,48 +23,60 @@
       </ul>
     </div>
     <div id="main">
-    <h5>source: http://www.garron.me/go2linux/which-service-or-program-listening-port.html</h5>
+    <h1>Viewing TCP network and port activity</h1>
 
-<p>It is really important to know which ports are open in your PC, this is not only useful for Linux, but also for other operating systems, Linux has a lot of tools to check which ports are open, the most common is nmap which is a command line tool, but also exist a Graphical frontEnd for it if you prefer that way.</p>
+<p>Here are a few tools to help you identify what your computer is doing on the
+network. See also <a href="/notes/iptraf">iptraf</a> and <a href="/notes/nethog">nethog</a>.</p>
 
-<p>So to scan you own PC and find open ports you can enter:</p>
+<h2>Scan self with nmap</h2>
 
-<h4>nmap</h4>
-
-<pre><code class="sh">sudo nmap -T Aggressive -A -v 127.0.0.1 -p 1-65535
+<pre><code class="bash">sudo nmap -T Aggressive -A -v 127.0.0.1 -p 1-65535
 </code></pre>
 
-<p>That will scan all ports and you will an output like this:</p>
+<h2><code>netstat</code></h2>
 
-<h4>netstat</h4>
-
-<p>With netstat the command you need to enter is:</p>
+<p>Get a list of listening </p>
 
 <pre><code class="sh">sudo netstat --tcp --udp --listening --program
 </code></pre>
 
-<h4>lsof</h4>
+<p>Short version of this would be: </p>
 
-<p>With this command you need to enter</p>
+<pre><code class="bash">netstat -lntup
+</code></pre>
+
+<h2><code>ss</code></h2>
+
+<p><code>netstat</code> is being deprecated so if that doesn&#39;t work on a system you can try the <code>ss</code> package. <code>ss</code> stands for &quot;socket statistics&quot;.</p>
+
+<pre><code class="bash">ss -lntup
+</code></pre>
+
+<h2><code>lsof</code></h2>
+
+<p><code>lsof</code> which had a wide range of other uses can be used to look at ipv4 network ports.</p>
 
 <pre><code class="sh">sudo lsof +M -i4
 </code></pre>
 
-<h4>fuser</h4>
+<h2><code>fuser</code></h2>
 
-<p>Fuser, does help, but is not like those other tools, with fuser you can also kill the process which is listening on a given port.</p>
+<p>Fuser allows you to check out a specific port and protocol</p>
 
-<pre><code>sudo fuser -v 3143/tcp
+<pre><code class="bash">sudo fuser -v &lt;port&gt;/&lt;tcp|udp&gt;
 </code></pre>
 
-<p>The output is linke:
-```
-USER        PID ACCESS COMMAND
-3143/tcp:    www-data   2763 F.... apt-cacher
-If you need to kill the process enter</p>
+<p>The output is like:</p>
 
-<p>sudo fuser -vk 3143/tcp
-```</p>
+<pre><code class="bash">$ sudo fuser -v 3143/tcp
+             USER       PID  ACCESS COMMAND
+3143/tcp:    db-user    2763 F....  apt-cacher
+</code></pre>
+
+<p>If you need to kill the process run it again with <code>-kv &lt;port&gt;&lt;protp&gt;</code></p>
+
+<pre><code class="bash">sudo fuser -vk 3143/tcp
+</code></pre>
 
     </div>
 

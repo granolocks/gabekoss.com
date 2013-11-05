@@ -23,25 +23,35 @@
       </ul>
     </div>
     <div id="main">
-    <p>These notes are from ubuntu 12.04</p>
+    <h1>Splunk</h1>
 
-<h4>Download the Forwarder</h4>
+<p>Splunk is a cool log agregation tool. Here is some hints on getting the forwarder installed on Ubuntu 12.04.</p>
 
-<pre><code class="sh">chmod +x splunkforwarder-5.0.1-143156-linux-2.6-amd64.deb 
+<h2>Download the Forwarder</h2>
+
+<p>Update downloads available through splunk website</p>
+
+<pre><code class="bash">chmod +x splunkforwarder-5.0.1-143156-linux-2.6-amd64.deb 
 sudo dpkg -i splunkforwarder-5.0.1-143156-linux-2.6-amd64.deb 
 </code></pre>
 
-<p>start the damn thing
-<code>sh
-sudo /opt/splunkforwarder/bin/splunk start
-sudo /opt/splunkforwarder/bin/splunk enable boot-start
-sudo /opt/splunkforwarder/bin/splunk add forward-server 192.168.1.100:9997 
-</code></p>
+<h2>Start splunk</h2>
 
-<p>Add a monitored file
-<code>sh
-sudo /opt/splunkforwarder/bin/splunk add monitor /var/log
-</code></p>
+<pre><code class="bash">sudo /opt/splunkforwarder/bin/splunk start
+sudo /opt/splunkforwarder/bin/splunk enable boot-start
+</code></pre>
+
+<h2>Add forwarder</h2>
+
+<p>Tell the forwarder were your splunk server is.</p>
+
+<pre><code class="bash">sudo /opt/splunkforwarder/bin/splunk add forward-server my_splunk_server.net:9997 
+</code></pre>
+
+<h2>Add a monitored file</h2>
+
+<pre><code class="bash">sudo /opt/splunkforwarder/bin/splunk add monitor /var/log
+</code></pre>
 
     </div>
 

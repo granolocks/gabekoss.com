@@ -31,16 +31,16 @@
 
 <p>Source: https://github.com/mitchellh/vagrant/wiki/Available-Vagrant-Boxes</p>
 
-<p>Place in ~/.vagrant.d/boxes</p>
+<p>Place in <code>~/.vagrant.d/boxes</code></p>
 
 <h4>Install VirtualBox</h4>
 
-<pre><code class="sh">sudo apt-get install virtualbox
+<pre><code class="bash">sudo apt-get install virtualbox
 </code></pre>
 
 <h4>Setup Environment</h4>
 
-<pre><code class="sh">mkdir vagrant-vm
+<pre><code class="bash">mkdir vagrant-vm
 cd vagrant-vm
 touch Gemfile
 touch .rvmrc
@@ -53,7 +53,7 @@ rvm gemset create vagrant
 
 <h4>Update .rvmrc</h4>
 
-<pre><code class="sh">rvm use ruby-1.9.3-p194@vagrant
+<pre><code class="bash">rvm use ruby-1.9.3-p194@vagrant
 </code></pre>
 
 <h4>Update Gemfile</h4>
@@ -67,12 +67,12 @@ gem &#39;chef&#39;
 
 <h4>Bundle</h4>
 
-<pre><code class="sh">bundle install
+<pre><code class="bash">bundle install
 </code></pre>
 
 <h4>Set up vagrant environment</h4>
 
-<pre><code class="sh">cd vagrant
+<pre><code class="bash">cd vagrant
 vagrant box add lucid64 ~/.vagrant.d/boxes/lucid64.box
 </code></pre>
 
@@ -97,12 +97,12 @@ end
 
 <h4>Clone Chef Files Into</h4>
 
-<pre><code class="sh">cp -r ../vagrant-chef/chef/ chef/
+<pre><code class="bash">cp -r ../vagrant-chef/chef/ chef/
 </code></pre>
 
 <h4>Start Vagrant Box!</h4>
 
-<pre><code class="sh">cd vagrant
+<pre><code class="bash">cd vagrant
 vagrant up
 </code></pre>
 
