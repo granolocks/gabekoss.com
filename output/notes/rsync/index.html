@@ -23,29 +23,50 @@
       </ul>
     </div>
     <div id="main">
-    <p>I often use an rsync command like </p>
+    <h1><code>rsync</code></h1>
 
-<pre><code class="sh">rsync -nvrculzOFF &lt;source&gt; &lt;destination&gt;
+<p><code>rsync</code> is a tool which is used top synch two directory structures on local or remote filesystems.</p>
+
+<p>Generally used like:</p>
+
+<pre><code class="bash">rsync &lt;source&gt; &lt;destination&gt;
 </code></pre>
 
-<p>The first flag ( -n ) forces a try run ( alt: --dry-run ) so you quickly have to follow it up with</p>
+<h2>Generic Args + Dry Runs</h2>
 
-<pre><code class="sh">rsync -vrculzOFF &lt;source&gt; &lt;destination&gt;
+<p>I often create an rsync command like </p>
+
+<pre><code class="bash">rsync -nvrculzOFF source_directory/* user@server:path/to/files 
+</code></pre>
+
+<p>The first flag <code>-n</code> forces a try run (alt: <code>--dry-run</code>) so you quickly have to follow it up with:</p>
+
+<pre><code class="bash">rsync -vrculzOFF source_directory/* user@server:path/to/files 
 </code></pre>
 
 <p>to run the command and actually do the sync.</p>
 
 <p>The remaining flags are as follows</p>
 
-<p>-v, --verbose </p>
+<ul>
+<li><code>-v</code>: Verbose  output</li>
+<li><code>-r</code>: Recursive sync</li>
+<li><code>-c</code>: Checksum, Skip files based on checkum, not mod-time &amp; size</li>
+<li><code>-u</code>: Update, Skip files that are newer on the receiver</li>
+<li><code>-l</code>: Copy symlinks as symlinks</li>
+<li><code>-zOFF</code>: Compression off</li>
+</ul>
 
-<p>-r, --recursive</p>
+<p>This is just a handy one I have memorized over the years. Be sure to <code>man rsync</code> for more options.</p>
 
-<p>-c
--u
--l
--z --commpress
-OFF</p>
+<h2>Exclusion</h2>
+
+<p>Files that match a patter can be excluded as follows</p>
+
+<ul>
+<li><code>--exclude=PATTERN</code>: exclude files matching PATTERN</li>
+<li><code>--exclude-from=FILE</code>: read exclude patterns from FILE</li>
+</ul>
 
     </div>
 
