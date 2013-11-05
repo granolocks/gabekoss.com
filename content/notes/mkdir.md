@@ -8,7 +8,7 @@ mkdir new_directory
 
 That was easy!
 
-## create full path and multiple dirs
+## Create full path and multiple dirs
 
 ```bash
 mkdir -p some_dir/{new_dir_1,new_dir_2,new_dir_3}

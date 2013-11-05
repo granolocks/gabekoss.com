@@ -28,9 +28,7 @@ Unless otherwise specified assume these notes were created on Crunchbang Waldorf
 
 ## Various  Tools
 
-* [Apache](/notes/apache)
 * [cp](/notes/cp)
-* [eog](/notes/eog)
 * [ffmpeg](/notes/ffmpeg)
 * [finch](/notes/finch)
 * [find](/notes/find)
