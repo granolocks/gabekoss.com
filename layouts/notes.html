@@ -23,7 +23,9 @@
       </ul>
     </div>
     <div id="main">
-    <%= yield %>
+      <%= yield %>
+      <hr/>
+      <p>Last updated at: <%= Time.now.strftime "%Y-%m-%d %H:%M" %> </p>
     </div>
 
     <script type="text/javascript">
