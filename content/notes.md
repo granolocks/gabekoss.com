@@ -25,10 +25,10 @@ Unless otherwise specified assume these notes were created on Crunchbang Waldorf
 
 ### Pentesting Tools
 
-* [Batch Mangle w/ JTR & Ruby](/notes/pentesting_tools/john_the_ripper_mangle_with_ruby.md)
-* [Kippo](/notes/pentesting_tools/kippo.md)
-* [Kismet](/notes/pentesting_tools/kismet.md)
-* [Metasploit](/notes/pentesting_tools/metasploit.md)
+* [Batch Mangle w/ JTR & Ruby](/notes/pentesting_tools/john_the_ripper_mangle_with_ruby)
+* [Kippo](/notes/pentesting_tools/kippo)
+* [Kismet](/notes/pentesting_tools/kismet)
+* [Metasploit](/notes/pentesting_tools/metasploit)
 
 ### Tools & Snippets
 
