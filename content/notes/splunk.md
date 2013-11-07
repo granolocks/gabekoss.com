@@ -1,3 +1,8 @@
+---
+title:
+updated_at: 2013-11-07 6:59am
+---
+
 # Splunk
 
 Splunk is a cool log agregation tool. Here is some hints on getting the forwarder installed on Ubuntu 12.04.

@@ -1,3 +1,8 @@
+---
+title:
+updated_at: 2013-11-07 6:59am
+---
+
 # Communicating Through the Terminal
 
 There are a lot of different situations where you might be a on a server via

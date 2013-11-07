@@ -1,3 +1,8 @@
+---
+title:
+updated_at: 2013-11-07 6:59am
+---
+
 # `ffmpeg`
 
 `ffmpeg` is a tool to help in processing of various media files. I mostly use

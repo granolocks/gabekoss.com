@@ -1,3 +1,8 @@
+---
+title: 
+updated_at: 2013-11-07 6:55am
+---
+
 # Ubuntu 11.10 Setup Notes:
 
 Once you have an Ubuntu 11.10 ISO flashed on to a USB Stick and have gone

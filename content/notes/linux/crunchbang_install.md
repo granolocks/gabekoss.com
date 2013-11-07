@@ -1,3 +1,8 @@
+---
+title: 
+updated_at: 2013-11-07 6:55am
+---
+
 # Install Crunchbang
 
 Here are some random notes from install Crunchbang. The install is pretty good

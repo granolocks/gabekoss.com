@@ -1,3 +1,8 @@
+---
+title:
+updated_at: 2013-11-07 6:59am
+---
+
 # tee
 
 Split output to a command at different stages of processing like: 

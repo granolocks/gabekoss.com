@@ -1,3 +1,8 @@
+---
+title:
+updated_at: 2013-11-07 6:59am
+---
+
 # `script`
 
 `script` and `scriptreplay` are part of the `bsdutils` package. 

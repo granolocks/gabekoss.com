@@ -1,3 +1,8 @@
+---
+title:
+updated_at: 2013-11-07 6:59am
+---
+
 # `ntp`
 
 These notes were from an Ubuntu system

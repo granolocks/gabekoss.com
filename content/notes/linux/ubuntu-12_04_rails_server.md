@@ -1,3 +1,8 @@
+---
+title: 
+updated_at: 2013-11-07 6:55am
+---
+
 # Ubuntu 12.04 Rails Server
 
 ## Install from ISO 

@@ -1,4 +1,9 @@
 ---
+title:
+updated_at: 2013-11-07 6:59am
+---
+
+---
 title: Writing with Vim
 ---
 

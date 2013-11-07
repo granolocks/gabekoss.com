@@ -1,3 +1,8 @@
+---
+title:
+updated_at: 2013-11-07 6:59am
+---
+
 # `rsync`
 
 `rsync` is a tool which is used top synch two directory structures on local or remote filesystems.

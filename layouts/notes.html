@@ -10,8 +10,7 @@
   </head>
   <body>
     <div id="sidebar">
-      <ul>
-        <li>
+      <ul> <li>
           <a href="/">Home</a>
         </li>
         <li>
@@ -22,7 +21,7 @@
     <div id="main">
       <%= yield %>
       <hr/>
-      <p>Last updated at: <%= Time.now.strftime "%Y-%m-%d %H:%M" %> </p>
+      <p>Last updated at: <%= item[:updated_at] || Time.now.strftime("%Y-%m-%d %H:%M") %> </p>
     </div>
 
     <script type="text/javascript">

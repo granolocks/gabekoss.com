@@ -1,3 +1,8 @@
+---
+title:
+updated_at: 2013-11-07 6:59am
+---
+
 # Vim. 
 
 I love vim. I really need to write up some information about vim, but for now this can just be a few random tricks.

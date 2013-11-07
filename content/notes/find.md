@@ -1,3 +1,8 @@
+---
+title:
+updated_at: 2013-11-07 6:59am
+---
+
 # `find`
 
 `find` is a command used to search for files on unix filesystems. 

@@ -1,3 +1,8 @@
+---
+title:
+updated_at: 2013-11-07 6:59am
+---
+
 # `git`
 
 `git` is the best version control software. Okay, that is subject, but I still think so. 

@@ -1,3 +1,8 @@
+---
+title:
+updated_at: 2013-11-07 6:59am
+---
+
 # `grep`
 
 `grep` is a universal tool to search *g*lobally for a *r*egular *e*xpression

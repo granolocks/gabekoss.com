@@ -1,3 +1,8 @@
+---
+title:
+updated_at: 2013-11-07 6:59am
+---
+
 # Ssh
 
 Here are some ssh things I've jotted down.
