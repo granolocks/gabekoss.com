@@ -15,9 +15,9 @@ Unless otherwise specified assume these notes were created on Crunchbang Waldorf
 
 ## Linux Guides
 
-* Install Crunchbang
-* Install Ubuntu 11.10 
-* Install 12.04 Rails Server
+* [Install Crunchbang](/notes/linux/crunchbang_install)
+* [Install Ubuntu 11.10 ](/notes/linux/ubuntu-11_10_install)
+* [Install 12.04 Rails Server](/notes/linux/ubuntu-12_04_rails_server)
 * [View tcp port activity](/notes/view_tcp_port_activity)
 
 ## Pentesting Tools

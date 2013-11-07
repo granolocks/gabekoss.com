@@ -23,30 +23,39 @@
       </ul>
     </div>
     <div id="main">
-      <h1>Prep usb stick:</h1>
+      <h1>Install Crunchbang</h1>
 
-<h1>format as ext2 with gparted</h1>
+<p>Here are some random notes from install Crunchbang. The install is pretty good
+so not a ton here.</p>
 
-<pre><code class="sh">sudo dd if=crunchbang.iso of=/dev/sdf bs=4M;sync
+<h2>Prep usb stick:</h2>
+
+<p>Start by downloading the ISO you want from <a href="http://crunchbang.org">crunchbang.org</a>.</p>
+
+<p>While this is downloading you can format your USB stick as EXT2 with something like <code>gparted</code>.</p>
+
+<p>Use <code>dd</code> to flash the iso to your USB drive (mine is <code>/dev/sdf</code> here).</p>
+
+<pre><code class="bash">sudo dd if=crunchbang.iso of=/dev/sdf bs=4M;sync
 </code></pre>
 
-<h1>:)</h1>
+<h2>Install some neat pkgs</h2>
 
-<h1>install some neat pkgs ;)</h1>
+<p>There are some standard Packages</p>
 
-<pre><code class="sh">sudo dpkg --configure -a
+<pre><code class="bash">sudo dpkg --configure -a
 sudo apt-get update
 sudo apt-get install vim tmux git-core ruby curl nmap wireshark tshark meld wget finch gpsd gpsd-clients
 </code></pre>
 
-<h1>follow rvm install notes on rvm.io</h1>
+<p>I also usually install RVM to manage my rubies.</p>
 
-<pre><code class="sh">curl -L https://get.rvm.io | bash -s stable --rails --autolibs=enabled 
+<pre><code class="bash">curl -L https://get.rvm.io | bash -s stable --rails --autolibs=enabled 
 rvm install ruby-2.0.0
 </code></pre>
 
       <hr/>
-      <p>Last updated at: 2013-11-04 20:38 </p>
+      <p>Last updated at: 2013-11-06 21:56 </p>
     </div>
 
     <script type="text/javascript">

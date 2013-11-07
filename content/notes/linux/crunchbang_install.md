@@ -1,19 +1,33 @@
-# Prep usb stick:
-# format as ext2 with gparted
-```sh
+# Install Crunchbang
+
+Here are some random notes from install Crunchbang. The install is pretty good
+so not a ton here.
+
+## Prep usb stick:
+
+Start by downloading the ISO you want from [crunchbang.org](http://crunchbang.org).
+
+While this is downloading you can format your USB stick as EXT2 with something like `gparted`.
+
+Use `dd` to flash the iso to your USB drive (mine is `/dev/sdf` here).
+
+```bash
 sudo dd if=crunchbang.iso of=/dev/sdf bs=4M;sync
 ```
-# :)
 
-# install some neat pkgs ;)
-```sh
+## Install some neat pkgs 
+
+There are some standard Packages
+
+```bash
 sudo dpkg --configure -a
 sudo apt-get update
 sudo apt-get install vim tmux git-core ruby curl nmap wireshark tshark meld wget finch gpsd gpsd-clients
 ```
 
-# follow rvm install notes on rvm.io
-```sh
+I also usually install RVM to manage my rubies.
+
+```bash
 curl -L https://get.rvm.io | bash -s stable --rails --autolibs=enabled 
 rvm install ruby-2.0.0
 ```

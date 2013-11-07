@@ -1,8 +1,9 @@
 # Ubuntu 12.04 Rails Server
 
-
 ## Install from ISO 
-Installing from an Ubuntu 12.04 64bit ISO I opted to install several packages:
+
+After doing the initial install from an Ubuntu 12.04 64bit ISO I opted to
+install some optional packages:
 
 * OpenSSH Server
 * Postgres
@@ -13,34 +14,39 @@ Just a few packages I want to make sure are on the system.
 
 Gotta have my pops...
 
-```sh
+```bash
 sudo apt-get -y update
 sudo apt-get -y install tmux vim git tree build-essential zlib1g-dev libssl-dev libreadline-dev libyaml-dev libcurl4-openssl-dev curl git-core python-software-properties
 ```
 
-## Enable UFW :C
+## Hardening
 
-I don't like `ufw` but I probably need it...
+### Configure `ufw`
 
-```sh
+```bash
 sudo ufw enable
 sudo ufw status verbose
 sudo ufw allow ssh
 sudo ufw allow http
 ```
 
-## Shared Memory
+### Shared Memory
 
 Secure shared memory in `/dev/shm` by adding the following line to the bottom
-of `/etc/fstab`. 
+of `/etc/fstab`.  
 
 ```
-tmpfs     /dev/shm     tmpfs     defaults,noexec,nosuid     0     0
+# Add to bottom /etc/fstab
+tmpfs /dev/shm tmpfs defaults,noexec,nosuid 0 0
 ```
 
 A reboot is required.
 
-## Securing SSH
+```bash
+sudo reboot
+```
+
+### Securing SSH
 
 In `/etc/ssh/sshd_config` make the following changes:
 
@@ -52,12 +58,13 @@ DebianBanner no
 
 A restart of the ssh service is now required. 
 
-```sh
+```bash
 sudo service ssh restart
 ```
 
-## Restrict `su` privileges to admin group
-```sh
+### Restrict `su` privileges to admin group
+
+```bash
 sudo groupadd admin
 sudo usermod -a -G admin <admin user>
 sudo dpkg-statoverride --update --add root admin 4750 /bin/su
@@ -67,13 +74,13 @@ sudo dpkg-statoverride --update --add root admin 4750 /bin/su
 
 Create a user `deploy` to run the rails app.
 
-```sh
+```bash
 sudo adduser deploy
 ```
 
 ## Install Ruby
 
-```sh
+```bash
 wget http://ftp.ruby-lang.org/pub/ruby/1.9/ruby-1.9.3-p448.tar.gz
 tar -xvzf ruby-1.9.3-p447.tar.gz
 cd ruby-1.9.3-p447/
@@ -84,9 +91,9 @@ echo "gem: --no-ri --no-rdoc" >> ~/.gemrc
 sudo gem install bundler
 ```
 
-## Install Passenger + nginx
+## Install Passenger + Nginx
 
-```sh
+```bash
 sudo gem install passenger
 sudo passenger-install-nginx-module
 ```
@@ -96,20 +103,20 @@ then select `1. Yes: download, compile and install Nginx for me. (recommended)`
 when prompted. Press `enter` to continue selecting defaults until installation
 completes.
 
-### nginx init script
+### Nginx init script
 
 Place this script (or something like it) in `/etc/init.d/nginx`
 
 After setting the script file, run: 
 
-```sh
+```bash
 sudo chmod +x /etc/init.d/nginx
 sudo /usr/sbin/update-rc.d -f nginx defaults
 ```
 
 #### Script Body: 
 
-```sh
+```bash
 #! /bin/sh
 
 ### BEGIN INIT INFO
@@ -180,13 +187,13 @@ exit 0
 
 Just make sure everything is there:
 
-```sh
+```bash
 sudo apt-get -y install postgresql libpq-dev
 ```
 
 Set up the database:
 
-```sh
+```bash
 sudo -u postgres psql
 ```
 
@@ -198,7 +205,11 @@ CREATE DATABASE projectname_production OWNER username;
 
 
 ### Nodejs
-```sh
+
+Node is just included here as a javascript runtime environment for rails but it
+is a useful tool to have anyway and an alternate server.
+
+```bash
 sudo apt-add-repository ppa:chris-lea/node.js
 sudo apt-get -y update
 sudo apt-get -y install nodejs`
@@ -207,6 +218,7 @@ sudo apt-get -y install nodejs`
 ### Configure nginx.conf
 
 Add something like the following to `/opt/nginx/conf/nginx.conf`
+
 ```
 server {
   listen 80;
@@ -226,18 +238,19 @@ gem 'capistrano-ext'
 ```
 Once added:
 
-```sh
+```bash
 bundle install
 capify .
 ```
 
 Configure SSH forwarding and then update the application `config/deploy.rb` as follows:
+
 ```ruby
 require "bundler/capistrano"
 
-set :repository, "git@github.com:granolocks/roots-crm.git"  # Your clone URL
+set :repository, "git@github.com:my-user/my-app.git"  # Your clone URL
 set :scm, "git"
-set :user, "deploy"  # The server's user for deploys
+set :user, "deploy"  # The servers user for deploys
 set :ssh_options, { :forward_agent => true, :port => 55522 }
 set :branch, "master"
 set :deploy_via, :remote_cache
@@ -248,6 +261,7 @@ role :app, "192.168.1.102"
 role :web, "192.168.1.102"
 role :db, "192.168.1.102", :primary => true
 
+# sample task to be run on the remote
 task :ls do
   run "ls ~"
 end
