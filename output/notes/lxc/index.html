@@ -1,0 +1,100 @@
+
+<!doctype html>
+<html>
+  <head>
+    <title>LXC on Ubuntu 12.04 Server</title>
+    <link type='text/css' href='/css/notes.css' rel='stylesheet'/>
+    <link rel="stylesheet" href="/css/zenburn.css">
+    <script src="/js/highlight-pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </head>
+  <body>
+    <div id="sidebar">
+      <ul> <li>
+          <a href="/">Home</a>
+        </li>
+        <li>
+          <a href="/notes">Notes</a>
+        </li>
+      </ul>
+    </div>
+    <div id="main">
+      <h1>LXC on Ubuntu 12.04 Server</h1>
+
+<p>For the LXC host I am using Ubuntu 12.04.3 LTS Server. I downloaded the image
+from the <a href="http://www.ubuntu.com/download/server">Ubuntu Server Download Page</a></p>
+
+<h2>Base Platform</h2>
+
+<p>I created a VM for this. I configured and hardened the VM as follows.</p>
+
+<h3>Helpful Packages</h3>
+
+<pre><code class="bash">sudo apt-get -y update
+sudo apt-get -y install vim git openssh-server
+</code></pre>
+
+<h3>Harden Ubuntu</h3>
+
+<p>Set up <code>ufw</code>:</p>
+
+<pre><code class="bash">sudo ufw enable
+sudo ufw status verbose
+sudo ufw allow ssh
+</code></pre>
+
+<p>Harden <code>ssh</code> by updating  <code>/etc/ssh/sshd_config</code>:</p>
+
+<pre><code>Port &lt;new_port&gt;
+PermitRootLogin no
+DebianBanner no
+</code></pre>
+
+<p>A restart of the ssh service is now required. </p>
+
+<pre><code class="bash">sudo service ssh restart
+</code></pre>
+
+<p>Secure Shared Memory (<code>/dev/shm</code>) by adding the following line to <code>/etc/fstab</code>:</p>
+
+<pre><code>tmpfs /dev/shm tmpfs defaults,noexec,nosuid 0 0
+</code></pre>
+
+<p>To apply this setting reboot the VM.</p>
+
+<h2>Install LXC</h2>
+
+<p>With the Ubuntu repos you can install LXC with <code>apt-get install</code>. </p>
+
+<pre><code class="bash">sudo apt-get install lxc
+</code></pre>
+
+<h2>Resources:</h2>
+
+<ul>
+<li><a href="http://linuxcontainers.org/">http://linuxcontainers.org/</a></li>
+<li><a href="https://launchpad.net/ubuntu/+source/lxc">https://launchpad.net/ubuntu/+source/lxc</a></li>
+<li><a href="https://github.com/lxc/lxc">https://github.com/lxc/lxc</a></li>
+</ul>
+
+      <hr/>
+      <p>Last updated at: 2013-11-07 4:22pm </p>
+    </div>
+
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-12795044-1']);
+      _gaq.push(['_setDomainName', 'gabekoss.com']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+       })();
+
+     </script>
+   </body>
+ </html>
+
