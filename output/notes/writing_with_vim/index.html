@@ -2,7 +2,7 @@
 <!doctype html>
 <html>
   <head>
-    <title></title>
+    <title>Writing with Vim</title>
     <link type='text/css' href='/css/notes.css' rel='stylesheet'/>
     <link rel="stylesheet" href="/css/zenburn.css">
     <script src="/js/highlight-pack.js"></script>
@@ -20,16 +20,31 @@
       </ul>
     </div>
     <div id="main">
-      <h1>sed</h1>
+      <h1>Writing with Vim</h1>
 
-<h2>Delete a specific line with from a file</h2>
+<h2>Customize Vim for Writing</h2>
 
-<p>To specify the line to delete with the comman <code>40d</code> and make sure to pass the <code>-i</code> flag so it saves the target file.</p>
-
-<pre><code class="bash">
-sed -i -e &#39;40d&#39; ~/.ssh/known_hosts
-
+<pre><code class="vim">set nonumber
+set wrap linebreak nolist
+imap &lt;c-l&gt; &lt;Esc&gt;&lt;c-l&gt;
+noremap &lt;c-l&gt; :nohl&lt;cr&gt;
+noremap j gj 
+noremap k gk
+au BufRead *.md set ft= 
+setlocal spell spelllang=en_us
 </code></pre>
+
+<h2>Rendering Markdown</h2>
+
+<h2><code>gq</code> &amp; <code>gqip</code></h2>
+
+<h2>Vim spellcheck</h2>
+
+<ul>
+<li><code>]s</code>,<code>[s</code></li>
+<li><code>z=</code></li>
+<li><code>zg</code></li>
+</ul>
 
       <hr/>
       <p>Last updated at: 2013-11-07 06:47 </p>
