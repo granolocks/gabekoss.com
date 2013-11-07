@@ -13,21 +13,24 @@ tasks over time.
 
 Unless otherwise specified assume these notes were created on Crunchbang Waldorf.
 
-## Linux Guides
+### Linux Installation
 
 * [Install Crunchbang](/notes/linux/crunchbang_install)
 * [Install Ubuntu 11.10 ](/notes/linux/ubuntu-11_10_install)
 * [Install 12.04 Rails Server](/notes/linux/ubuntu-12_04_rails_server)
+
+### Guides
+
 * [View tcp port activity](/notes/view_tcp_port_activity)
 
-## Pentesting Tools
+### Pentesting Tools
 
-* JTR
-* Kippo
-* Kismet
-* Metasploit
+* [Batch Mangle w/ JTR & Ruby](/notes/pentesting_tools/john_the_ripper_mangle_with_ruby.md)
+* [Kippo](/notes/pentesting_tools/kippo.md)
+* [Kismet](/notes/pentesting_tools/kismet.md)
+* [Metasploit](/notes/pentesting_tools/metasploit.md)
 
-## Various  Tools
+### Tools & Snippets
 
 * [cp](/notes/cp)
 * [ffmpeg](/notes/ffmpeg)
