@@ -1,13 +1,10 @@
 ---
-title:
+title: Writing with Vim
 updated_at: 2013-11-07 6:59am
 ---
+# Writing with `vim`
 
----
-title: Writing with Vim
----
-
-# Writing with Vim
+As much as I love `vim`
 
 ## Customize Vim for Writing
 
