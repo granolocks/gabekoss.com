@@ -15,13 +15,7 @@ sudo nmap -T Aggressive -A -v 127.0.0.1 -p 1-65535
 ```
 
 ## `netstat`
-Get a list of listening 
-
-```sh
-sudo netstat --tcp --udp --listening --program
-```
-
-Short version of this would be: 
+Get a list of listening ports
 
 ```bash
 netstat -lntup

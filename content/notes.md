@@ -1,6 +1,6 @@
 ---
 title: Notes Documentation
-updated_at: 2013-11-07 6:55am
+updated_at: 2013-11-08 10:30pm
 --- 
 
 # Notes & Documentation 
@@ -22,7 +22,8 @@ Unless otherwise specified assume these notes were created on Crunchbang Waldorf
 
 ### Guides
 
-* [View tcp port activity](/notes/view_tcp_port_activity)
+* [View TCP port activity](/notes/view_tcp_port_activity)
+* [Writing with Vim](/notes/writing_with_vim)
 
 ### Pentesting Tools
 

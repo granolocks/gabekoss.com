@@ -2,7 +2,7 @@
 <!doctype html>
 <html>
   <head>
-    <title></title>
+    <title>Writing with Vim</title>
     <link type='text/css' href='/css/notes.css' rel='stylesheet'/>
     <link rel="stylesheet" href="/css/zenburn.css">
     <script src="/js/highlight-pack.js"></script>
@@ -19,38 +19,131 @@
       </ul>
     </div>
     <div id="main">
-      <hr>
+      <h1>Writing with <code>vim</code></h1>
 
-<h2>title: Writing with Vim</h2>
+<p>As much as I love <code>vim</code> for working on code projects I also enjoy using <code>vim</code>
+for writing non-technical work.</p>
 
-<h1>Writing with Vim</h1>
+<p>There are a lot of different approaches to this but I have figured out a few
+useful things.</p>
 
-<h2>Customize Vim for Writing</h2>
+<h2>Markdown is your friend</h2>
 
-<pre><code class="vim">set nonumber
-set wrap linebreak nolist
-imap &lt;c-l&gt; &lt;Esc&gt;&lt;c-l&gt;
-noremap &lt;c-l&gt; :nohl&lt;cr&gt;
-noremap j gj 
-noremap k gk
-au BufRead *.md set ft= 
-setlocal spell spelllang=en_us
+<p>Since I love using vim I need to be able to format plaintext documents for
+viewing outside of the command line. Markdown syntaxt is very handy for this
+and so I do a lot of writing in this way. </p>
+
+<p>If you use Github for storing you writing can view Markdown files directly
+throught that interface pre-rendered in a nice way. I also often use a static
+site generation tool such as Nanoc or Jekyll to view rendered markdown
+templates. </p>
+
+<p>I find working with plaintext to be very liberating. Here is the <a href="http://daringfireball.net/projects/markdown/syntax">official markdown syntax guide</a>.</p>
+
+<p>If you are feeling hardcore you can also use Latex but I haven&#39;t gone down that
+rabbit hole just yet. </p>
+
+<h2>Customize <code>.vimrc</code> for Writing</h2>
+
+<p>At the bottom of my main <code>.vimrc</code> file I added the following lines:</p>
+
+<pre><code class="vim">if filereadable(&quot;.vim.custom&quot;)
+  so .vim.custom
+endif
 </code></pre>
 
-<h2>Rendering Markdown</h2>
+<p>This checks for the presence of a <code>.vim.custom</code> file and loads those custom
+configurations if <em>it is present in the directory where <code>vim</code> was started</em>.</p>
 
-<h2><code>gq</code> &amp; <code>gqip</code></h2>
+<p>This file takes the same syntax as <code>.vimrc</code> and I add some settings to help
+with writing things that aren&#39;t code.  Here are some handy ones:</p>
 
-<h2>Vim spellcheck</h2>
+<h4>Disable Line Numbers</h4>
 
-<ul>
-<li><code>]s</code>,<code>[s</code></li>
-<li><code>z=</code></li>
-<li><code>zg</code></li>
-</ul>
+<pre><code class="vim">set nonumber
+</code></pre>
+
+<h4>Improve Linebreaks</h4>
+
+<pre><code class="vim">set wrap linebreak nolist 
+</code></pre>
+
+<p>Cause linebreaks in wrapped lines of text to break at normal word boundaries
+rather than cutting words in half</p>
+
+<h4>Clear highlighting.</h4>
+
+<pre><code class="vim">noremap &lt;c-l&gt; :nohl&lt;cr&gt;
+</code></pre>
+
+<p>Map <code>&lt;Ctrl&gt;+l</code> to be equivalient to the vim command <code>:nohl</code> which disables
+search result highlighting after searching with <code>?</code> or <code>/</code>. </p>
+
+<h4>Improve naviation on wrapped lines</h4>
+
+<pre><code class="vim">noremap j gj
+noremap k gk
+</code></pre>
+
+<p>When long text lines wrap it is sometimes helpful to be able to travel directly
+above or below your current cursor location on the line. Unfortunately the
+traditional keys for this movement (<code>j</code> and <code>k</code>) will hop to the next line even
+if the line is wrapped. When writing in a long paragraph this can be very
+ disruptive. </p>
+
+<p>This  can be helped by using the <code>gj</code> and <code>gk</code> commands instead, but this is
+tedious to have to remember, by adding the alias above <code>j</code> and <code>k</code> will behave
+just like <code>gj</code> and <code>gk</code>.</p>
+
+<h4>Disable Syntax in Markdown Files</h4>
+
+<pre><code class="vim">au BufRead *.md set ft= 
+</code></pre>
+
+<p>This sets the filetype of any file with a <code>*.md*</code> file extention to a null
+value which effectivel disables syntax highlighting. This helps with <code>vim</code>
+trying to syntax highlight things like a hyphen as an unclosed single quoted
+string.</p>
+
+<h4>Enable spellcheck</h4>
+
+<pre><code class="vim">setlocal spell spelllang=en_us
+</code></pre>
+
+<p>This turns on the spell check feature of <code>vim</code> and sets it check against the
+English US dictionary file. </p>
+
+<p>Mispelled words will be highlighted. There are many features to the
+spellchecker which can be accessed in <code>:help spell</code>. Realistically I use only a
+fraction of the features of the spellchecker to do 99% of what I need.</p>
+
+<p><code>]s</code>,<code>[s</code>: Hop to previous/next mispelled word.</p>
+
+<p><code>z=</code>: Show a list of suggested spellings. Run this when the cursor is over a
+mispelled word.</p>
+
+<p><code>zg</code>: Add this word to the custom dictionary. This dictionary is location in
+<code>~/.vim/spell/en.utf-8.add</code>. Words added here will no longer show up as
+mis-spelled. this file can be editted directly to prune or add words.</p>
+
+<h2>Formatting Text with <code>gq</code></h2>
+
+<p>The <code>gq</code> command is an awesome tool for formatting text</p>
+
+<p><code>gq</code>
+<code>gqip</code></p>
+
+<p>Incidentally, the <code>gq</code> commands are bound to the textwidth setting. It defaults
+to 78 with a max of 79. This setting can be adjusted to affect the width that
+gqip will wrap the lines. </p>
+
+<pre><code class="vim">:set textwidth=79
+</code></pre>
+
+<p>For more about this cool function visit <code>:help gq</code>.</p>
 
       <hr/>
-      <p>Last updated at: 2013-11-07 6:59am </p>
+      <p>Last updated at: 2013-11-08 10:30pm </p>
     </div>
 
     <script type="text/javascript">

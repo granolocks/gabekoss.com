@@ -50,9 +50,10 @@ PermitRootLogin no
 DebianBanner no
 </code></pre>
 
-<p>A restart of the ssh service is now required. </p>
+<p>Back to the console <new_port>.</p>
 
-<pre><code class="bash">sudo service ssh restart
+<pre><code class="bash">sudo ufw allow
+sudo service ssh restart
 </code></pre>
 
 <p>Secure Shared Memory (<code>/dev/shm</code>) by adding the following line to <code>/etc/fstab</code>:</p>
