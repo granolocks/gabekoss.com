@@ -253,23 +253,18 @@ Configure SSH forwarding and then update the application `config/deploy.rb` as f
 ```ruby
 require "bundler/capistrano"
 
-set :repository, "git@github.com:my-user/my-app.git"  # Your clone URL
-set :scm, "git"
-set :user, "deploy"  # The servers user for deploys
-set :ssh_options, { :forward_agent => true, :port => 55522 }
-set :branch, "master"
-set :deploy_via, :remote_cache
-set :deploy_to, "/home/#{user}/www"
-set :use_sudo, false
+set :repository,   "git@github.com:my-user/my-app.git"  # Your clone URL
+set :scm,          "git"
+set :user,         "deploy"  # The servers user for deploys
+set :ssh_options,  { :forward_agent => true, :port => 22222 }
+set :branch,       "master"
+set :deploy_via,   :remote_cache
+set :deploy_to,    "/home/#{user}/www"
+set :use_sudo,     false
 
-role :app, "192.168.1.102"
-role :web, "192.168.1.102"
-role :db, "192.168.1.102", :primary => true
-
-# sample task to be run on the remote
-task :ls do
-  run "ls ~"
-end
+role :app, "my-app-server.com"
+role :web, "my-app-server.com"
+role :db,  "my-app-server.com", :primary => true
 ```
 
 Once you have configure `config/database.yml` with the right postgres info

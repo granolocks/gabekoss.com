@@ -1,6 +1,6 @@
 ---
 title: Writing with Vim
-updated_at: 2013-11-08 10:30pm
+updated_at: 2013-11-09 11:56am
 ---
 
 # Writing with `vim`
@@ -13,16 +13,16 @@ useful things.
 
 ## Markdown is your friend
 
-Since I love using vim I need to be able to format plaintext documents for
-viewing outside of the command line. Markdown syntaxt is very handy for this
+Since I love using vim I need to be able to format plain text documents for
+viewing outside of the command line. Markdown syntax is very handy for this
 and so I do a lot of writing in this way. 
 
 If you use Github for storing you writing can view Markdown files directly
-throught that interface pre-rendered in a nice way. I also often use a static
+through that interface pre-rendered in a nice way. I also often use a static
 site generation tool such as Nanoc or Jekyll to view rendered markdown
 templates. 
 
-I find working with plaintext to be very liberating. Here is the [official markdown syntax guide](http://daringfireball.net/projects/markdown/syntax).
+I find working with plain text to be very liberating. Here is the [official markdown syntax guide](http://daringfireball.net/projects/markdown/syntax).
 
 If you are feeling hardcore you can also use Latex but I haven't gone down that
 rabbit hole just yet. 
@@ -90,8 +90,8 @@ just like `gj` and `gk`.
 au BufRead *.md set ft= 
 ```
 
-This sets the filetype of any file with a `*.md*` file extention to a null
-value which effectivel disables syntax highlighting. This helps with `vim`
+This sets the file type of any file with a `*.md*` file extension to a null
+value which effective disables syntax highlighting. This helps with `vim`
 trying to syntax highlight things like a hyphen as an unclosed single quoted
 string.
 
@@ -104,18 +104,18 @@ setlocal spell spelllang=en_us
 This turns on the spell check feature of `vim` and sets it check against the
 English US dictionary file. 
 
-Mispelled words will be highlighted. There are many features to the
-spellchecker which can be accessed in `:help spell`. Realistically I use only a
-fraction of the features of the spellchecker to do 99% of what I need.
+Misspelled words will be highlighted. There are many features to the
+spell checker which can be accessed in `:help spell`. Realistically I use only a
+fraction of the features of the spell checker to do 99% of what I need.
 
-`]s`,`[s`: Hop to previous/next mispelled word.
+`]s`,`[s`: Hop to previous/next misspelled word.
 
 `z=`: Show a list of suggested spellings. Run this when the cursor is over a
-mispelled word.
+misspelled word.
 
 `zg`: Add this word to the custom dictionary. This dictionary is location in
 `~/.vim/spell/en.utf-8.add`. Words added here will no longer show up as
-mis-spelled. this file can be editted directly to prune or add words.
+mis-spelled. this file can be edited directly to prune or add words.
 
 ## Formatting Text with `gq`
 
@@ -125,12 +125,12 @@ are two ways to use it.
 Select text and type `gq` to format selection. There must be blank lines
 between the paragraphs.
 
-Alternately you can format the current paragraph your curosr is in with `gqip`.
-Play with it any ou will be pleasantly surprised!
+Alternately you can format the current paragraph your cursor is in with `gqip`.
+Play with it and you will be pleasantly surprised!
 
-The `gq` commands are bound to the textwidth setting. It defaults
+The `gq` commands are bound to the `textwidth` setting. It defaults
 to 78 with a max of 79. This setting can be adjusted to affect the width that
-gqip will wrap the lines. 
+`gqip` will wrap the lines. 
 
 ```vim
 :set textwidth=79

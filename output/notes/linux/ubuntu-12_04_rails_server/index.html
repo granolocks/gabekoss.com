@@ -251,23 +251,18 @@ capify .
 
 <pre><code class="ruby">require &quot;bundler/capistrano&quot;
 
-set :repository, &quot;git@github.com:my-user/my-app.git&quot;  # Your clone URL
-set :scm, &quot;git&quot;
-set :user, &quot;deploy&quot;  # The servers user for deploys
-set :ssh_options, { :forward_agent =&gt; true, :port =&gt; 55522 }
-set :branch, &quot;master&quot;
-set :deploy_via, :remote_cache
-set :deploy_to, &quot;/home/#{user}/www&quot;
-set :use_sudo, false
+set :repository,   &quot;git@github.com:my-user/my-app.git&quot;  # Your clone URL
+set :scm,          &quot;git&quot;
+set :user,         &quot;deploy&quot;  # The servers user for deploys
+set :ssh_options,  { :forward_agent =&gt; true, :port =&gt; 22222 }
+set :branch,       &quot;master&quot;
+set :deploy_via,   :remote_cache
+set :deploy_to,    &quot;/home/#{user}/www&quot;
+set :use_sudo,     false
 
-role :app, &quot;192.168.1.102&quot;
-role :web, &quot;192.168.1.102&quot;
-role :db, &quot;192.168.1.102&quot;, :primary =&gt; true
-
-# sample task to be run on the remote
-task :ls do
-  run &quot;ls ~&quot;
-end
+role :app, &quot;my-app-server.com&quot;
+role :web, &quot;my-app-server.com&quot;
+role :db,  &quot;my-app-server.com&quot;, :primary =&gt; true
 </code></pre>
 
 <p>Once you have configure <code>config/database.yml</code> with the right postgres info
