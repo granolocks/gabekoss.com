@@ -41,6 +41,7 @@ Unless otherwise specified assume these notes were created on Crunchbang Waldorf
 * [git](/notes/git)
 * [grep](/notes/grep)
 * [iptraf](/notes/iptraf)
+* [lxc](/notes/lxc)
 * [mkdir](/notes/mkdir)
 * [mpd](/notes/mpd)
 * [mysql](/notes/mysql)
