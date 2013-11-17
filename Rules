@@ -38,9 +38,6 @@ route '/stylesheet/' do
   '/style.css'
 end
 
-route '/sitemap/' do
-  '/sitemap.xml'
-end
 
 route '*' do
   if item.binary? || %w{ txt jpg png js css }.include?(item.attributes[:extension]) 

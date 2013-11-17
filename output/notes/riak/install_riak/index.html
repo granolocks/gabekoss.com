@@ -2,7 +2,7 @@
 <!doctype html>
 <html>
   <head>
-    <title>Riak</title>
+    <title>Install Riak</title>
     <link type='text/css' href='/css/notes.css' rel='stylesheet'/>
     <link rel="stylesheet" href="/css/zenburn.css">
     <script src="/js/highlight-pack.js"></script>
@@ -19,17 +19,43 @@
       </ul>
     </div>
     <div id="main">
-      <h1>Riak</h1>
+      <h1>Install Riak</h1>
 
-<p>Riak is a distributed document store style NoSQL database created by a company called Basho Technologies. </p>
+<p>Generally based on the documentation found at http://docs.basho.com/riak/latest/tutorials/installation/</p>
 
-<ul>
-<li><a href="/notes/riak/install_riak">Install Riak</a></li>
-<li><a href="/notes/riak/ruby_and_riak">Ruby and Riak</a></li>
-</ul>
+<p>Fresh system needs curl, these notes are from an Ubuntu 12.04</p>
+
+<pre><code class="bash">sudo apt-get install curl
+</code></pre>
+
+<p>Add repo &amp;  grab gpg</p>
+
+<pre><code class="bash">curl http://apt.basho.com/gpg/basho.apt.key | sudo apt-key add -
+sudo bash -c &quot;echo deb http://apt.basho.com $(lsb_release -sc) main &gt; /etc/apt/sources.list.d/basho.list&quot;
+sudo apt-get update
+</code></pre>
+
+<p>Install that mother</p>
+
+<pre><code class="bash">sudo apt-get install riak
+and dat erlang
+sudo apt-get install build-essential libncurses5-dev openssl libssl-dev fop xsltproc unixodbc-dev
+</code></pre>
+
+<p>Check if running.</p>
+
+<pre><code class="bash">riak ping # =&gt; pong
+riak-admin test
+curl -v http://127.0.0.1:8098/riak/test
+</code></pre>
+
+<p>Get riak shell on running process.</p>
+
+<pre><code class="bash">riak attach
+</code></pre>
 
       <hr/>
-      <p>Last updated at: 2013-11-17 5:43pm </p>
+      <p>Last updated at: 2013-11-17 5:42pm </p>
     </div>
 
     <script type="text/javascript">
