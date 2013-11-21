@@ -10,14 +10,15 @@
   </head>
   <body>
     <div id="sidebar">
-      <ul> <li>
+      <ul>
+        <li>
           <a href="/">Home</a>
         </li>
         <li>
-          <a href="/notes">Notes</a>
+          <a href="/blog">Blog</a>
         </li>
         <li>
-          <a href="/blog">Blog</a>
+          <a href="/notes">Notes</a>
         </li>
       </ul>
     </div>
@@ -25,7 +26,7 @@
       <h1>Elastic Search</h1>
 
 <p>I became interested in a Elastic Search after seeing a talk at the 
-<a href="http://twitter.com/btvwag">btvwag</a> NoSQL meetup by <a href="http://evan-borden.com">Evan Borden</a>. 
+<a href="http://twitter.com/btvwag">@btvwag</a> NoSQL meetup by <a href="http://evan-borden.com">Evan Borden</a>. 
 I was really intrigued by the ability to do searching across nested 
 and complex JSON structures. </p>
 
@@ -52,7 +53,7 @@ development or experimentation.</em></p>
 
 <p>It should respond with a JSON status hash.</p>
 
-<h2>Set record</h2>
+<h3>Store or update a record</h3>
 
 <p>I wanted to experiment with complex JSON so I decided to dump a variety of fake
 network host records into a <code>network/host</code> bucket.</p>
@@ -69,45 +70,49 @@ network host records into a <code>network/host</code> bucket.</p>
 }&#39;
 </code></pre>
 
-<h2>Get Record</h2>
+<h3>Get a record</h3>
 
 <p>Records could easily be retrieved with a simple GET.</p>
 
 <pre><code class="bash">curl -XGET &quot;http://localhost:9200/network/host/4&quot;
 </code></pre>
 
-<h2>Query Samples</h2>
+<h3>Query Samples</h3>
 
-<h3>Filters</h3>
+<h4>Filters</h4>
+
+<p>One of my goals with elastic search was being able to query into the nested
+objects. I was able to accomplish this with a filtered search like: </p>
 
 <pre><code class="bash">curl -XGET &#39;http://localhost:9200/network/host/_search&#39; -d &#39;{
-    &quot;query&quot;: {
-        &quot;filtered&quot; : {
-            &quot;query&quot; : {
-                &quot;query_string&quot; : {
-                    &quot;query&quot; : &quot;linux&quot;
-                }
-            },
-            &quot;filter&quot; : {
-                &quot;term&quot; : {&quot;ports[vulnerable]&quot;: &quot;very-yes&quot; }
-            }
-        }
+  &quot;query&quot;: {
+    &quot;filtered&quot; : {
+      &quot;query&quot; : { &quot;query_string&quot; : { &quot;query&quot; : &quot;linux&quot; } },
+      &quot;filter&quot; : { &quot;term&quot; : {&quot;ports.vulnerable&quot;: &quot;very-yes&quot; } }
     }
-}
-&#39;
+  }
+}&#39;
 </code></pre>
 
-<h3>Search with Facets</h3>
+<h4>Search with Facets</h4>
+
+<p>Another of my priority searches was to be able to define facets for a search
+result so that iterative searching via drill down and filtering can be
+acomplished.</p>
 
 <pre><code class="bash">curl -X POST &quot;http://localhost:9200/network/_search&quot; -d &#39;
   {
     &quot;query&quot; : { &quot;query_string&quot; : {&quot;query&quot; : &quot;*.1.4&quot;} },
-    &quot;facets&quot; : {
-        &quot;ports&quot; : { &quot;terms&quot; : {&quot;field&quot; : &quot;ports.port&quot;} }
-    }
+    &quot;facets&quot; : { &quot;ports&quot; : { &quot;terms&quot; : {&quot;field&quot; : &quot;ports.port&quot;} } }
   }
 &#39;
 </code></pre>
+
+<h3>Summary</h3>
+
+<p>In general I have been impressed with the ease of getting started with Elastic
+Search and its rich query interface. I look forward to experimenting with it
+more and determining if it meets my production neeeds.</p>
 
       <hr/>
       <p>Last updated at: 2013-11-26 10:25am </p>
