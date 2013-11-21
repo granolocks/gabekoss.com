@@ -1,7 +1,5 @@
 * { font-family: sans }
-
 html { background-color: #DEFFCD; }
-
 code, code *{font-family: monospace; font-size: 110%;}
 
 pre { 
@@ -21,6 +19,15 @@ h1 code,  p code, li code{
  border: #aaa 1px solid;
  border-radius: 3px;
  overflow: scroll;
+}
+
+blockquote {
+  background-color: #eee;
+  color: #333;
+  padding: 1em;
+  margin: 1em;
+  width: 80%;
+  border-left: 2px solid #333;
 }
 
 #sidebar {
@@ -53,4 +60,12 @@ h1 code,  p code, li code{
 #main {
   padding-left: 130px;
   width: 900px;
+}
+
+.post-summary {
+ background-color: #ddd;
+ background: rgba(20,20,20,0.2);
+ margin: 1em;
+ padding: 1em;
+ border-radius: 7px;
 }

@@ -25,7 +25,7 @@ compile '/sitemap/' do
 end
 
 compile '*' do
-  if item.binary? || %w{ txt jpg png js css }.include?(item.attributes[:extension]) || item.identifier == '/sitemap/'
+  if item.binary? || %w{ pdf txt jpg png js css }.include?(item.attributes[:extension]) || item.identifier == '/sitemap/'
     # don’t filter binary items
   elsif item.attributes[:extension] == 'md'
     filter :redcarpet, :options => {:fenced_code_blocks => true}
@@ -55,7 +55,7 @@ route '/sitemap/' do
 end
 
 route '*' do
-  if item.binary? || %w{ txt jpg png js css }.include?(item.attributes[:extension]) 
+  if item.binary? || %w{ pdf txt jpg png js css }.include?(item.attributes[:extension]) 
 
     # Write item with identifier /foo/ to /foo.ext
     item.identifier.chop + '.' + item[:extension] 
