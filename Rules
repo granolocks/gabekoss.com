@@ -37,13 +37,13 @@ compile '*' do
   end
 end
 
-route '/stylesheet/' do
-  '/style.css'
-end
-
 route '/sitemap/' do
   filter :erb
   '/sitemap.xml'
+end
+
+route '/stylesheet/' do
+  '/style.css'
 end
 
 route '/blog/*' do
