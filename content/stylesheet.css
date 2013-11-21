@@ -1,12 +1,17 @@
 * { font-family: sans }
 
-html {
-  background-color: #DEFFCD;
-}
+html { background-color: #DEFFCD; }
 
 code, code *{font-family: monospace; font-size: 110%;}
 
-pre { background-color: #000; }
+pre { 
+ background-color: #333;
+ color: #eee;
+ margin: 5px;
+ padding: 5px;
+ border-radius: 3px;
+ overflow: scroll;
+}
 
 h1 code,  p code, li code{ 
  background-color: #eee;
@@ -49,19 +54,3 @@ h1 code,  p code, li code{
   padding-left: 130px;
   width: 900px;
 }
-
-#portrait {
-  background: url('/images/me.jpeg') no-repeat center center; 
-  -webkit-background-size: 100%;
-  -moz-background-size: 100%;
-  -o-background-size: 100%;
-  background-size: 100%;
-  -webkit-border-radius: 100px;
-  -moz-border-radius: 100px;
-  -o-border-radius: 100px;
-  border-radius: 100px;
-  width: 180px;
-  height: 180px;
-  margin: 0 auto;
-}
-
