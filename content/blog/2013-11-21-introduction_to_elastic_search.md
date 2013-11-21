@@ -1,7 +1,7 @@
 ---
 title: Introduction To Elastic Search
-created_at: 2013-11-26 08:30am
-updated_at: 2013-11-26 10:25am
+created_at: 2013-11-21 08:30am
+updated_at: 2013-11-21 10:25am
 kind: blog-post
 summary: A simple introduction to Elastic Search investigating saving some data and doing simple querying.
 tags: 
@@ -10,12 +10,12 @@ tags:
   - facets
 --- 
 
-# Elastic Search
+# Introduction to Elastic Search
 
-I became interested in a Elastic Search after seeing a talk at the 
-[@btvwag](http://twitter.com/btvwag) NoSQL meetup by [Evan Borden](http://evan-borden.com). 
-I was really intrigued by the ability to do searching across nested 
-and complex JSON structures. 
+I became interested in [Elastic Search](http://www.elasticsearch.org) after
+seeing a talk at the [@btvwag](http://twitter.com/btvwag) NoSQL meetup by [Evan
+Borden](http://evan-borden.com).  I was really intrigued by the ability to do
+searching across nested and complex JSON structures. 
 
 We had recently evaluated Riak for work and determined that it didn't meet our
 requirements for various reasons.
