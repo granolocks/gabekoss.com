@@ -8,7 +8,7 @@ Title: Blog
 <% posts.each do |post| %>
   <div class="post-summary">
     <h2><a href="<%= post.path %>"><%= post[:title] %></a></h2>
-    <p><em>Created at: <%= post[:created_at] %></em></p>
     <p><%= post[:summary] %></p>
+    <p><small><em>Created at: <%= post[:created_at] %></em></small></p>
   </div>
 <% end %>

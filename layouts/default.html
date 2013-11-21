@@ -25,7 +25,7 @@
       <%= yield %>
       <div id="footer">
         <hr/>
-        <p>&copy; <%= Time.now.year %> &mdash; <a href="mailto:gabe@gabekoss.com">Gabe Koss</a></p>
+        <p>&copy; <%= Time.now.year %> <a href="mailto:gabe@gabekoss.com">Gabe Koss</a></p>
         <p><small>Last updated at: <%= item[:updated_at] || Time.now.strftime("%Y-%m-%d %H:%M") %><small></p>
       </div>
     </div>
