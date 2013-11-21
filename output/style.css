@@ -57,6 +57,15 @@ blockquote {
 
 #sidebar ul li a:hover { background: rgba(0,50,0,0.6); }
 
+.img-links {} 
+.img-links a { 
+  float: left;
+  background: rgba(0,0,0,0.6);
+}
+.img-links a:hover { 
+  background: rgba(0,50,0,0.6);
+}
+
 #main {
   padding-left: 130px;
   width: 900px;
@@ -69,3 +78,4 @@ blockquote {
  padding: 1em;
  border-radius: 7px;
 }
+
