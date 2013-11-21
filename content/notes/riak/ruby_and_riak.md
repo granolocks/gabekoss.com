@@ -38,3 +38,48 @@ require 'riak'
 # => #<Riak::RObject {files,my_life_story.txt} [#<Riak::RContent [text/plain]:"blah blah blah">]>
 ```
 
+## Map Reduce
+
+First, lets create a more interesting use case by seeding some data about people we
+know. 
+
+```ruby
+SIMPSONS = [
+ { father:   { first_name: "Homer",      last_name: "Simpson" }},
+ { mother:   { first_name: "Marge",      last_name: "Simpson" }},
+ { son:      { first_name: "Bart",       last_name: "Simpson" }},
+ { daughter: { first_name: "Lisa",       last_name: "Simpson" }},
+ { baby:     { first_name: "Maggie",     last_name: "Simpson" }},
+ { enemy:    { first_name: "Montgomery", last_name: "Burns"   }},
+]
+
+@client = Riak::Client.new
+@bucket = @client.bucket('people')
+
+SIMPSONS.each do |member|
+  person = @bucket.new(member.keys.first)
+  person.content_type = "application/json"
+  person.data =  member.values.first
+  person.store
+end
+```
+
+Now that we have created some data can do a map reduction to get a list of
+last names.
+
+## Searching
+
+Before using the [Riak
+Search](http://docs.basho.com/riak/latest/dev/using/search/) feature you will
+need to enable this functionality in `app.config`. 
+
+Add the following to `/etc/riak/app.config`:
+
+```erlang
+%% Riak Search Config
+{riak_search, [
+      {enabled, true}
+    ]},
+```
+
+

@@ -1,0 +1,8 @@
+curl -X POST "http://localhost:9200/network/_search" -d '
+  {
+    "query" : { "query_string" : {"query" : "*.1.4"} },
+    "facets" : {
+        "ports" : { "terms" : {"field" : "ports.port"} }
+    }
+  }
+'

@@ -16,6 +16,9 @@
         <li>
           <a href="/notes">Notes</a>
         </li>
+        <li>
+          <a href="/blog">Blog</a>
+        </li>
       </ul>
     </div>
     <div id="main">
@@ -42,7 +45,6 @@ require &#39;riak&#39;
 
 # Get or create an object from the bucket
 @object = @bucket.get_or_new(&quot;my_life_story.txt&quot;) 
-
 # =&gt; #&lt;Riak::RObject {files,my_life_story.txt} [#&lt;Riak::RContent [application/json]:nil&gt;]&gt;
 
 @object.raw_data = &quot;blah blah blah&quot;
@@ -52,6 +54,48 @@ require &#39;riak&#39;
 # Use hash style Access once saved
 @client[&quot;files&quot;][&quot;my_life_story.txt&quot;]
 # =&gt; #&lt;Riak::RObject {files,my_life_story.txt} [#&lt;Riak::RContent [text/plain]:&quot;blah blah blah&quot;&gt;]&gt;
+</code></pre>
+
+<h2>Map Reduce</h2>
+
+<p>First, lets create a more interesting use case by seeding some data about people we
+know. </p>
+
+<pre><code class="ruby">SIMPSONS = [
+ { father:   { first_name: &quot;Homer&quot;,      last_name: &quot;Simpson&quot; }},
+ { mother:   { first_name: &quot;Marge&quot;,      last_name: &quot;Simpson&quot; }},
+ { son:      { first_name: &quot;Bart&quot;,       last_name: &quot;Simpson&quot; }},
+ { daughter: { first_name: &quot;Lisa&quot;,       last_name: &quot;Simpson&quot; }},
+ { baby:     { first_name: &quot;Maggie&quot;,     last_name: &quot;Simpson&quot; }},
+ { enemy:    { first_name: &quot;Montgomery&quot;, last_name: &quot;Burns&quot;   }},
+]
+
+@client = Riak::Client.new
+@bucket = @client.bucket(&#39;people&#39;)
+
+SIMPSONS.each do |member|
+  person = @bucket.new(member.keys.first)
+  person.content_type = &quot;application/json&quot;
+  person.data =  member.values.first
+  person.store
+end
+</code></pre>
+
+<p>Now that we have created some data can do a map reduction to get a list of
+last names.</p>
+
+<h2>Searching</h2>
+
+<p>Before using the <a href="http://docs.basho.com/riak/latest/dev/using/search/">Riak
+Search</a> feature you will
+need to enable this functionality in <code>app.config</code>. </p>
+
+<p>Add the following to <code>/etc/riak/app.config</code>:</p>
+
+<pre><code class="erlang">%% Riak Search Config
+{riak_search, [
+      {enabled, true}
+    ]},
 </code></pre>
 
       <hr/>

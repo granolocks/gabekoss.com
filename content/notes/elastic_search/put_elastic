@@ -1,0 +1,7 @@
+curl -XPUT "http://localhost:9200/network/host/4" -d '{
+  ip: "192.168.1.4",
+  os: "linux",
+  ports: [
+    { port:22, service: "ssh"}
+  ]
+}'
