@@ -3,11 +3,30 @@
   <head>
     <title><%= item[:title] %></title>
     <link type='text/css' href='/style.css' rel='stylesheet'/>
+    <link rel="stylesheet" href="/css/zenburn.css">
+    <script src="/js/highlight-pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
   </head>
   <body>
-    <div id="some-text-yo">
-      <%= yield %>
+    <div id="sidebar">
+      <ul>
+        <li>
+          <a href="/">Home</a>
+        </li>
+        <li>
+          <a href="/blog">Blog</a>
+        </li>
+        <li>
+          <a href="/notes">Notes</a>
+        </li>
+      </ul>
     </div>
+    <div id="main">
+      <%= yield %>
+      <hr/>
+      <p>Last updated at: <%= item[:updated_at] || Time.now.strftime("%Y-%m-%d %H:%M") %> </p>
+    </div>
+
     <script type="text/javascript">
 
       var _gaq = _gaq || [];

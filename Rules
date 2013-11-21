@@ -17,7 +17,7 @@ end
 
 compile '/blog/' do
  filter :erb
- layout 'notes'
+ layout 'default'
 end
 
 compile '/sitemap/' do
@@ -29,7 +29,7 @@ compile '*' do
     # don’t filter binary items
   elsif item.attributes[:extension] == 'md'
     filter :redcarpet, :options => {:fenced_code_blocks => true}
-    layout 'notes'
+    layout 'default'
   else
     filter :erb
     layout 'default'

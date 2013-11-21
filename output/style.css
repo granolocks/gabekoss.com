@@ -1,29 +1,54 @@
-html { 
-  background: url('/images/bg.gif') no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  text-align: center;
+* { font-family: sans }
+
+html {
+  background-color: #DEFFCD;
 }
 
-h3 {text-align: left;}
+code, code *{font-family: monospace; font-size: 110%;}
 
-#some-text-yo {
-  font-family: sans-serif;
-  margin: 1em; 
-  padding: 1em;
-  /* Fallback for web browsers that doesn't support RGBa */
+pre { background-color: #000; }
+
+h1 code,  p code, li code{ 
+ background-color: #eee;
+ padding: 3px;
+ margin: 3px;
+ line-height: 1.7em;
+ border: #aaa 1px solid;
+ border-radius: 3px;
+ overflow: scroll;
+}
+
+#sidebar {
+  height: 100%;
   background: rgb(188,255,0);
   /* RGBa with 0.6 opacity */
   background: rgba(188,255,0, 0.6);
-  color: #3b3f81;
-  position: absolute;
-  right: 10%;
-  width: 200px;
+  width: 120px;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 
-.img-links { text-align: center; }
+#sidebar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+#sidebar ul li a {
+  display: block;
+  padding: .5em;
+  color: #fff;
+  /* RGBa with 0.6 opacity */
+  background: rgba(0,0,0,0.6);
+}
+
+#sidebar ul li a:hover { background: rgba(0,50,0,0.6); }
+
+#main {
+  padding-left: 130px;
+  width: 900px;
+}
 
 #portrait {
   background: url('/images/me.jpeg') no-repeat center center; 
@@ -39,7 +64,4 @@ h3 {text-align: left;}
   height: 180px;
   margin: 0 auto;
 }
-
-a {color: #4400ff;}
-a:hover,a:visited {color: #bcff00;}
 
