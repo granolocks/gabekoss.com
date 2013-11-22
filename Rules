@@ -10,12 +10,47 @@
 #   “content/about.html”). To select all children, grandchildren, … of an
 #   item, use the pattern “/about/*/”; “/about/*” will also select the parent,
 #   because “*” matches zero or more characters.
+preprocess do 
+  def create_post_tag_pages
+
+    tags = blog_post_tags_hash(@items)
+
+    tmpl = <<ERB
+  <h1><%= @item[:title] %></h1>
+  <% @item[:posts].each do |p| %>
+    <p>
+      <strong>
+        <a href="<%= p.path %>">
+          <%= p[:title] %>
+        </a>
+      </strong><br/> 
+      <%= p[:summary] %>
+    </p>
+  <% end %>
+ERB
+
+    tags.each do |tag, posts|
+      @items << Nanoc::Item.new(
+        tmpl,
+        {extension: "erb", title: tag.capitalize, tag: tag, posts: posts},
+        "/tags/#{tag.gsub(/ /,'_')}"
+      )
+    end
+  end
+
+  create_post_tag_pages
+end
 
 compile '/stylesheet/' do
   # don’t filter or layout
 end
 
 compile '/blog/' do
+ filter :erb
+ layout 'default'
+end
+
+compile '/tags/*' do
  filter :erb
  layout 'default'
 end
@@ -39,6 +74,14 @@ end
 
 route '/stylesheet/' do
   '/style.css'
+end
+
+route '/tags/*' do
+  if item.identifier == '/tags/'
+    '/tags/index.html'
+  else 
+    "/tags/#{item[:tag].gsub(/ /,'_')}/index.html"
+  end
 end
 
 route '/blog/*' do

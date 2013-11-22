@@ -6,11 +6,19 @@ title: Blog
 
 <% posts = @items.reject {|i| !(i[:kind] == 'blog-post') } %>
 
-<% posts.reverse.each do |post| %>
+<% posts.each do |post| %>
   <div class="post-summary">
     <p><small><em><%= post[:created_at] %></em></small></p>
     <h2><a href="<%= post.path %>"><%= post[:title] %></a></h2>
     <p><%= post[:summary] %></p>
     <p><a href="<%= post.path %>">read post ...</a></p>
+    <% if post[:tags] %>
+      <hr/>
+      <p class='tags'>
+        <% post[:tags].each do |t| %>
+          <a href="/tags/<%=t.gsub(/ /,'_') %>"><%= t %></a>
+        <% end %>
+      </p>
+    <% end %>
   </div>
 <% end %>

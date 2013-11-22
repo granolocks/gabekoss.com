@@ -46,3 +46,19 @@ def xml_sitemap(params={})
   # Return sitemap
   buffer
 end
+
+def blog_post_tags_hash(items)
+  posts = items.reject {|i| !(i[:kind] == 'blog-post') }
+
+  posts.inject({}) do |hash,post|
+    tags =* post[:tags]
+
+    tags.each do |t|
+      cur =* hash[t]
+      hash[t] = cur << post
+    end
+
+    hash
+  end
+end
+

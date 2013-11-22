@@ -6,7 +6,7 @@
   </url>
   <url>
     <loc>http://gabekoss.com/blog/</loc>
-    <lastmod>2013-11-21</lastmod>
+    <lastmod>2013-11-22</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/blog/2013/11/introduction_to_elastic_search/</loc>
@@ -15,6 +15,10 @@
   <url>
     <loc>http://gabekoss.com/blog/2013/11/riak_101/</loc>
     <lastmod>2013-11-21</lastmod>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/blog/2013/11/be_your_own_boss/</loc>
+    <lastmod>2013-11-22</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/css/notes.css</loc>
@@ -202,7 +206,26 @@
   </url>
   <url>
     <loc>http://gabekoss.com/style.css</loc>
-    <lastmod>2013-11-21</lastmod>
+    <lastmod>2013-11-22</lastmod>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/</loc>
+    <lastmod>2013-11-22</lastmod>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/elastic_search/</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/facets/</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/nosql/</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/personal_development/</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/riak/</loc>
   </url>
 </urlset>
 
