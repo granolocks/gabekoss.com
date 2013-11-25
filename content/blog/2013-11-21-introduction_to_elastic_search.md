@@ -1,7 +1,7 @@
 ---
 title: Introduction To Elastic Search
-created_at: 2013-11-21 08:30am
-updated_at: 2013-11-21 10:25am
+created_at: 2013-11-21 08:30
+updated_at: 2013-11-21 10:25
 kind: blog-post
 summary: A simple introduction to Elastic Search investigating saving some data and doing simple querying.
 tags: 

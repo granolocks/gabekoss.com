@@ -1,6 +1,6 @@
 ---
 title:
-updated_at: 2013-11-07 6:59am
+updated_at: 2013-11-07 06:59
 ---
 
 # `rsync`

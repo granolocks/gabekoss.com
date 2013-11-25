@@ -1,6 +1,6 @@
 ---
 title: LXC on Ubuntu 12.04 Server
-updated_at: 2013-11-07 4:22pm
+updated_at: 2013-11-07 16:22
 ---
 
 # LXC on Ubuntu 12.04 Server
