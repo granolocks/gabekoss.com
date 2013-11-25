@@ -5,6 +5,8 @@ title: Blog
 <h1>Blog Posts</h1>
 
 <% posts = @items.reject {|i| !(i[:kind] == 'blog-post') } %>
+<% posts.sort_by! {|i| i[:created_at] } %>
+<% posts.reverse! %>
 
 <% posts.each do |post| %>
   <div class="post-summary">

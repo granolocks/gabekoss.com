@@ -23,7 +23,6 @@ Unless otherwise specified assume these notes were created on Crunchbang Waldorf
 ### Guides
 
 * [View TCP port activity](/notes/view_tcp_port_activity)
-* [Writing with Vim](/notes/writing_with_vim)
 
 ### Pentesting Tools
 

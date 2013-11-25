@@ -62,6 +62,8 @@ end
 compile '*' do
   if item.binary? || %w{ pdf txt jpg png js css }.include?(item.attributes[:extension]) || item.identifier == '/sitemap/'
     # don’t filter binary items
+  elsif item[:redirect] 
+    layout 'redirect'
   elsif item.attributes[:extension] == 'md'
     filter :redcarpet, :options => {:fenced_code_blocks => true}
     layout 'default'
