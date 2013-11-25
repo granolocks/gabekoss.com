@@ -17,6 +17,10 @@
     <lastmod>2013-11-21</lastmod>
   </url>
   <url>
+    <loc>http://gabekoss.com/blog/2013/11/ruby_string_interpolation_weirdness/</loc>
+    <lastmod>2013-11-24</lastmod>
+  </url>
+  <url>
     <loc>http://gabekoss.com/css/notes.css</loc>
     <lastmod>2013-11-06</lastmod>
   </url>
@@ -219,6 +223,9 @@
   </url>
   <url>
     <loc>http://gabekoss.com/tags/riak/</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/ruby/</loc>
   </url>
 </urlset>
 

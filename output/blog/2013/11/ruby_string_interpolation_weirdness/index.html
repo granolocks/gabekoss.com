@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
   <head>
-    <title>Blog</title>
+    <title>Ruby String Interpolation Weirdness</title>
     <link type='text/css' href='/style.css' rel='stylesheet'/>
     <link rel="stylesheet" href="/css/zenburn.css">
     <script src="/js/highlight-pack.js"></script>
@@ -46,67 +46,69 @@
     </div>
     <div id="main">
       
-      <h1>Blog Posts</h1>
+        <p><small><a href='/blog'>Back to Blog</a></small></p>
+      
+      <h1>Ruby String Interpolation Weirdness</h1>
 
+<p>I think it is interesting some of the variations on the standard Ruby string
+interpolation.</p>
 
+<h2>Basics.</h2>
 
+<p>Generally you can interpolate double quote (<code>&quot;</code>) delimited strings with
+<code>#{...}</code> like so:</p>
 
-  <div class="post-summary">
-    <p><small><em>2013-11-24 20:15</em></small></p>
-    <h2><a href="/blog/2013/11/ruby_string_interpolation_weirdness/">Ruby String Interpolation Weirdness</a></h2>
-    <p>Just a little bit of quirkyness around Ruby String interpolation I've noticed.</p>
-    <p><a href="/blog/2013/11/ruby_string_interpolation_weirdness/">read post ...</a></p>
-    
-      <hr/>
-      <p class='tags'>
-        
-          <a href="/tags/ruby">ruby</a>
-        
-      </p>
-    
-  </div>
+<pre><code class="ruby">value = &quot;String&quot;
+&quot;This is a #{ value }!&quot;
+</code></pre>
 
-  <div class="post-summary">
-    <p><small><em>2013-11-21 08:30am</em></small></p>
-    <h2><a href="/blog/2013/11/introduction_to_elastic_search/">Introduction To Elastic Search</a></h2>
-    <p>A simple introduction to Elastic Search investigating saving some data and doing simple querying.</p>
-    <p><a href="/blog/2013/11/introduction_to_elastic_search/">read post ...</a></p>
-    
-      <hr/>
-      <p class='tags'>
-        
-          <a href="/tags/nosql">nosql</a>
-        
-          <a href="/tags/elastic_search">elastic search</a>
-        
-          <a href="/tags/facets">facets</a>
-        
-      </p>
-    
-  </div>
+<p>With single quote (<code>&#39;</code>) strings, you can&#39;t interpolate, you must use concatenation:</p>
 
-  <div class="post-summary">
-    <p><small><em>2013-11-21 04:30pm</em></small></p>
-    <h2><a href="/blog/2013/11/riak_101/">Riak 101</a></h2>
-    <p>A simple introduction to Riak based on a presentation I gave with Sam Stelfox at a Burlington Web Development Group meetup.</p>
-    <p><a href="/blog/2013/11/riak_101/">read post ...</a></p>
-    
-      <hr/>
-      <p class='tags'>
-        
-          <a href="/tags/nosql">nosql</a>
-        
-          <a href="/tags/riak">riak</a>
-        
-      </p>
-    
-  </div>
+<pre><code class="ruby">value = &#39;String&#39;
+&#39;This is also a &#39; + value + &#39;!&#39;
+</code></pre>
+
+<p>Okay, so that&#39;s pretty straight forward.</p>
+
+<h2>Weirdness.</h2>
+
+<p>What ruby lets you do however, it interpolate some special variables in a
+different way.</p>
+
+<h3><code>$globals</code> and <code>@instance_variables</code></h3>
+
+<p>Globals and instance variables can be interpolated with or without the curly braces. </p>
+
+<pre><code class="ruby"># Global Var
+$foo = &quot;bar&quot;
+
+&quot;#{$foo} #$foo $foo&quot;
+#=&gt; &quot;bar bar $foo&quot;
+
+# Instance Var
+@foo = &quot;bar&quot;
+
+&quot;#{@foo} #@foo @foo&quot;
+#=&gt; &quot;bar bar @foo&quot;
+</code></pre>
+
+<p>Just for comparison: </p>
+
+<pre><code class="ruby">foo = FOO = &quot;bar&quot;
+
+&quot;#{foo} #foo foo #{FOO} #FOO FOO&quot;
+#=&gt; &quot;bar #foo foo bar #FOO FOO&quot; 
+</code></pre>
+
+<p>Nothing earth shattering, just a litle bit weird. </p>
+
+<p>This was originally posted as a <a href="https://gist.github.com/granolocks/5164206">Github Gist</a>             .</p>
 
       <div id="footer">
         <hr/>
         <p>&copy; 2013 <a href="mailto:gabe@gabekoss.com">Gabe Koss</a></p>
         
-          <p><small>Last updated at: 2013-11-24 20:31<small></p>
+          <p><small>Last updated at: 2013-11-24 20:15<small></p>
         
       </div>
     </div>
