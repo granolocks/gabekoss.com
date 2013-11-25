@@ -29,6 +29,10 @@
     <lastmod>2013-11-24</lastmod>
   </url>
   <url>
+    <loc>http://gabekoss.com/blog/2013/11/ssh_port_forwarding_with_ruby_net_ssh/</loc>
+    <lastmod>2013-11-25</lastmod>
+  </url>
+  <url>
     <loc>http://gabekoss.com/css/notes.css</loc>
     <lastmod>2013-11-06</lastmod>
   </url>
@@ -237,6 +241,9 @@
   </url>
   <url>
     <loc>http://gabekoss.com/tags/ruby/</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/ssh/</loc>
   </url>
   <url>
     <loc>http://gabekoss.com/tags/vim/</loc>

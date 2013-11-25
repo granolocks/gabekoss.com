@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
   <head>
-    <title>Elastic search</title>
+    <title>SSH Port Forwarding with Ruby Net::SSH</title>
     <link type='text/css' href='/style.css' rel='stylesheet'/>
     <link rel="stylesheet" href="/css/zenburn.css">
     <script src="/js/highlight-pack.js"></script>
@@ -46,23 +46,63 @@
     </div>
     <div id="main">
       
-        <h1>Elastic search</h1>
-  
-    <p>
-      <strong>
-        <a href="/blog/2013/11/introduction_to_elastic_search/">
-          Introduction To Elastic Search
-        </a>
-      </strong><br/> 
-      A simple introduction to Elastic Search investigating saving some data and doing simple querying.
-    </p>
-  
+        <p><small><a href='/blog'>Back to Blog</a></small></p>
+      
+      <h1>SSH Port Forwarding with Ruby Net::SSH</h1>
+
+<p>It can be handy to use SSH to forward out access to a local port from a remote
+system. </p>
+
+<p>There is a Ruby friendly implementation of SSH called <code>Net::SSH</code>. It can be
+installed as a gem via <code>gem install net-ssh</code>. Project source is on
+<a href="https://github.com/net-ssh/net-ssh">github</a>.</p>
+
+<p><strong>Note:</strong> This guide does not cover setting up key-based authentication. This
+will not work if your SSH connection requires a password.</p>
+
+<h2>Examples</h2>
+
+<h3>Port Forward Sinatra port out to internet host.</h3>
+
+<p>Given I have a Sinatra app running on <code>tcp/4567</code> and I want to make it
+accessible to another system which I can SSH into.</p>
+
+<pre><code class="ruby">require &#39;rubygems&#39;
+require &#39;net/ssh&#39;
+
+Net::SSH.start(&quot;remote_host&quot;, &quot;remote_user&quot;) do |ssh|
+  ssh.forward.remote(4567, &quot;localhost&quot;, 43210)
+  ssh.loop { true }
+end
+</code></pre>
+
+<p>I should now be able to connect to the tunnel on the <code>remote_host</code> system on port <code>tcp/43210</code></p>
+
+<p>This is similar to running:</p>
+
+<pre><code class="sh">ssh -R 4567:localhost:43210 remote_user@remote_host
+</code></pre>
+
+<h3>Reverse Shell</h3>
+
+<p>Sending a Reverse Shell connection</p>
+
+<pre><code class="ruby">Net::SSH.start(&quot;remote_host&quot;, &quot;remote_user&quot;) do |ssh|
+  ssh.forward.remote(22, &quot;localhost&quot;, 43210)
+  ssh.loop { true }
+end
+</code></pre>
+
+<p>From the <code>remote_host</code> I can now ssh back into my local system with something like:</p>
+
+<pre><code class="sh">ssh forward-system-user@localhost -p 43210
+</code></pre>
 
       <div id="footer">
         <hr/>
         <p>&copy; 2013 <a href="mailto:gabe@gabekoss.com">Gabe Koss</a></p>
         
-          <p><small>Last updated at: 2013-11-25 09:36<small></p>
+          <p><small>Last updated at: 2013-11-25 09:46<small></p>
         
       </div>
     </div>

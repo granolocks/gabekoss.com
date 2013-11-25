@@ -1,7 +1,7 @@
 CONTENT_DIR = File.expand_path('../content',__FILE__)
 BLOG_DIR    = CONTENT_DIR + '/blog'
 
-URLIFY = Proc.new { |str| str.downcase.gsub(/[^a-z0-9]/,'_').gsub(/_+/,'_').gsub(/_$/,'')}
+URLIFY      = Proc.new { |str| str.downcase.gsub(/[^a-z0-9]/,'_').gsub(/_+/,'_').gsub(/_$/,'')}
 
 TEMPLATE = Proc.new do |args|
 <<TMPL
@@ -55,4 +55,3 @@ namespace :generate do
     end
   end
 end
-
