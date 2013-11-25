@@ -72,8 +72,8 @@ interpolation.</p>
 
 <h2>Weirdness.</h2>
 
-<p>What ruby lets you do however, it interpolate some special variables in a
-different way.</p>
+<p>What ruby lets you do however, is interpolate some special variables in a
+different way: using only <code>#</code>.</p>
 
 <h3><code>$globals</code> and <code>@instance_variables</code></h3>
 
@@ -92,7 +92,7 @@ $foo = &quot;bar&quot;
 #=&gt; &quot;bar bar @foo&quot;
 </code></pre>
 
-<p>Just for comparison: </p>
+<p>Just for clarity this doesn&#39;t work with constants or local variables: </p>
 
 <pre><code class="ruby">foo = FOO = &quot;bar&quot;
 

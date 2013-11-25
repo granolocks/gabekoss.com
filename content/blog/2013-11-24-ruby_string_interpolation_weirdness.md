@@ -34,8 +34,8 @@ Okay, so that's pretty straight forward.
 
 ##  Weirdness.
 
-What ruby lets you do however, it interpolate some special variables in a
-different way.
+What ruby lets you do however, is interpolate some special variables in a
+different way: using only `#`.
 
 ### `$globals` and `@instance_variables`
 
@@ -55,7 +55,7 @@ $foo = "bar"
 #=> "bar bar @foo"
 ```
 
-Just for comparison: 
+Just for clarity this doesn't work with constants or local variables: 
 
 ```ruby
 foo = FOO = "bar"
