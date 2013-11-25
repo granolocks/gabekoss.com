@@ -62,3 +62,5 @@ From the `remote_host` I can now ssh back into my local system with something li
 ```sh
 ssh forward-system-user@localhost -p 43210
 ```
+
+This was originally a [github gist](https://gist.github.com/granolocks/4342324).
