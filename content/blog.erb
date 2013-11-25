@@ -11,9 +11,22 @@ title: Blog
 <% posts.each do |post| %>
   <div class="post-summary">
     <p><small><em><%= post[:created_at] %></em></small></p>
-    <h2><a href="<%= post.path %>"><%= post[:title] %></a></h2>
+
+    <h2>
+    <% if post[:redirect] %>
+      <a href="<%= post[:redirect_path] %>"><%= post[:title] %></a>
+    <% else %>
+      <a href="<%= post.path %>"><%= post[:title] %></a>
+    <% end %>
+  </h2>
     <p><%= post[:summary] %></p>
-    <p><a href="<%= post.path %>">read post ...</a></p>
+
+    <% if post[:redirect] %>
+      <p><a href="<%= post[:redirect_path] %>">visit link ...</a></p>
+    <% else %>
+      <p><a href="<%= post.path %>">read post ...</a></p>
+    <% end %>
+
     <% if post[:tags] %>
       <hr/>
       <p class='tags'>
