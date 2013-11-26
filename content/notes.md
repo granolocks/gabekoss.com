@@ -51,6 +51,7 @@ Unless otherwise specified assume these notes were created on Crunchbang Waldorf
 * [Openarena](/notes/openarena)
 * [riak](/notes/riak)
 * [rsync](/notes/rsync)
+* [screen](/notes/screen)
 * [script](/notes/script)
 * [sed](/notes/sed)
 * [sound](/notes/sound)
