@@ -1,9 +1,8 @@
 ---
-title:
+title: Vmware
 updated_at: 2013-11-07 06:59
 ---
 
-# Vmware
 
 ## Disable ports 443 and 902
 

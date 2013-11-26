@@ -1,9 +1,8 @@
 ---
-title:
+title: NetHog
 updated_at: 2013-11-07 6:59
 ---
 
-# nethog
 
 Nethog is a tool similar to top which will show you some useful tabular
 information on network activity for a given interface including relevant

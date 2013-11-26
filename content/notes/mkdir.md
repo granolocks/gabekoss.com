@@ -3,8 +3,6 @@ title: mkdir
 updated_at: 2013-11-07 6:59
 ---
 
-# `mkdir`
-
 `mkdir` a universal utility to create a directory in a *nix OS. 
 
 ```bash

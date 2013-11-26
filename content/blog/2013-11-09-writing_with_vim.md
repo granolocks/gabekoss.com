@@ -8,8 +8,6 @@ tags:
  - vim
 --- 
 
-# Writing with `vim`
-
 As much as I love `vim` for working on code projects I also enjoy using `vim`
 for writing non-technical work.
 

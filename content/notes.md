@@ -1,9 +1,7 @@
 ---
-title: Notes Documentation
+title: Notes & Documentation
 updated_at: 2013-11-24 22:03
 --- 
-
-# Notes & Documentation 
 
 Welcome to my notes and documentation section. A lot of this content derives
 from the files hosted in [my notes repository on github](https://github.com/granolocks/notes).

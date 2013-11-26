@@ -9,8 +9,6 @@ tags:
  - open source
 --- 
 
-# My Open Source Report Card
-
 [Sam Stelfox](http://stelfox.net) linked me to a cool site which creates an
 open source report card based on your public github activty.
 

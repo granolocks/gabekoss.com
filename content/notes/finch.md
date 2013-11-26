@@ -1,9 +1,8 @@
 ---
-title:
+title: finch
 updated_at: 2013-11-07 06:59
 ---
 
-## `finch`
 
 `finch` is a CLI verision of the Pidgin chat client. More information can be
 found in the [official docs](https://developer.pidgin.im/wiki/Using%20Finch)

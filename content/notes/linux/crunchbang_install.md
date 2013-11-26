@@ -1,9 +1,8 @@
 ---
-title: 
+title: Install Crunchbang
 updated_at: 2013-11-07 6:55
 ---
 
-# Install Crunchbang
 
 Here are some random notes from install Crunchbang. The install is pretty good
 so not a ton here.

@@ -8,8 +8,6 @@ tags:
   - ruby
 --- 
 
-# Ruby String Interpolation Weirdness
-
 I think it is interesting some of the variations on the standard Ruby string
 interpolation.
 

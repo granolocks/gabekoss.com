@@ -1,9 +1,7 @@
 ---
-title:
+title: tshark
 updated_at: 2013-11-07 06:59
 ---
-
-# `tshark`
 
 `tshark` is the command line tool behind wireshark. Very useful for extracting and analyzing TCP streams.
 

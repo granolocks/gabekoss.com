@@ -1,9 +1,8 @@
 ---
-title:
+title: NTP
 updated_at: 2013-11-07 06:59
 ---
 
-# `ntp`
 
 These notes were from an Ubuntu system
 

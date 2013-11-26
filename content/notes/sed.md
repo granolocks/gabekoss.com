@@ -1,9 +1,7 @@
 ---
-title:
+title: Sed
 updated_at: 2013-11-07 06:59
 ---
-
-# sed
 
 ## Delete a specific line with from a file
 

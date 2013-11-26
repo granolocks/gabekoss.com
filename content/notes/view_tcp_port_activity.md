@@ -1,9 +1,8 @@
 ---
-title:
+title: Viewing TCP network and port activity
 updated_at: 2013-11-07 06:59
 ---
 
-# Viewing TCP network and port activity
 
 Here are a few tools to help you identify what your computer is doing on the
 network. See also [iptraf](/notes/iptraf) and [nethog](/notes/nethog).

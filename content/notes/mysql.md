@@ -1,9 +1,8 @@
 ---
-title:
+title: mysql
 updated_at: 2013-11-07 06:59
 ---
 
-# `mysql`
 
 ## connect to remote instance
 

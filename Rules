@@ -16,7 +16,6 @@ preprocess do
     tags = blog_post_tags_hash(@items)
 
     tmpl = <<ERB
-  <h1><%= @item[:title] %></h1>
   <% @item[:posts].each do |p| %>
     <p>
       <strong>

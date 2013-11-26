@@ -1,9 +1,8 @@
 ---
-title:
+title: Install Nodejs on Crunchbang
 updated_at: 2013-11-07 6:59
 ---
 
-# Install Nodejs on Crunchbang
 
 ```bash
 apt-get install python g++ make

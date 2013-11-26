@@ -1,4 +1,7 @@
-# Screen
+---
+title: Screen
+updated_at: 2013-11-26 14:21
+---
 
 Screen is a common terminal multiplexer and terminal sharing tool.
 

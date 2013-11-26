@@ -10,8 +10,6 @@ tags:
   - facets
 --- 
 
-# Introduction to Elastic Search
-
 I became interested in [Elastic Search](http://www.elasticsearch.org) after
 seeing a talk at the [@btvwag](http://twitter.com/btvwag) NoSQL meetup by [Evan
 Borden](http://evan-borden.com).  I was really intrigued by the ability to do

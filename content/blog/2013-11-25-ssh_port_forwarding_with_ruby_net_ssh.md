@@ -9,7 +9,6 @@ tags:
   - ssh
 --- 
 
-# SSH Port Forwarding with Ruby Net::SSH
 
 It can be handy to use SSH to forward out access to a local port from a remote
 system. 

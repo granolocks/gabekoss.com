@@ -3,8 +3,6 @@ title: LXC on Ubuntu 12.04 Server
 updated_at: 2013-11-07 16:22
 ---
 
-# LXC on Ubuntu 12.04 Server
-
 For the LXC host I am using Ubuntu 12.04.3 LTS Server. I downloaded the image
 from the [Ubuntu Server Download Page](http://www.ubuntu.com/download/server)
 

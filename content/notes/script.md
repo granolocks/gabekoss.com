@@ -1,9 +1,8 @@
 ---
-title:
+title: Terminal Capture with Script
 updated_at: 2013-11-07 06:59
 ---
 
-# `script`
 
 `script` and `scriptreplay` are part of the `bsdutils` package. 
 

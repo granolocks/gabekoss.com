@@ -1,9 +1,8 @@
 ---
-title:
+title: Sound on linux
 updated_at: 2013-11-07 06:59
 ---
 
-# Sound on linux
 
 Just a couple tools useful for debugging sound issues in linux.
 

@@ -1,9 +1,8 @@
 ---
-title:
+title: Music Player Daemon
 updated_at: 2013-11-07 06:59
 ---
 
-#  Music Player Daemon
 
 [Source](http://crunchbang.org/forums/viewtopic.php?id=17386)
 

@@ -1,9 +1,7 @@
 ---
-title:
+title: grep
 updated_at: 2013-11-07 06:59
 ---
-
-# `grep`
 
 `grep` is a universal tool to search *g*lobally for a *r*egular *e*xpression
 *p*attern match in a document or group of documents. 

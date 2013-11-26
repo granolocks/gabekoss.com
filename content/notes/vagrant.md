@@ -1,9 +1,8 @@
 ---
-title:
+title: Vagrant VM
 updated_at: 2013-11-07 06:59
 ---
 
-# Vagrant VM
 
 ## Steps:
 

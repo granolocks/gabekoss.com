@@ -1,9 +1,8 @@
 ---
-title:
+title: ffmpeg
 updated_at: 2013-11-07 06:59
 ---
 
-# `ffmpeg`
 
 `ffmpeg` is a tool to help in processing of various media files. I mostly use
 it to extract audio from video files. 
