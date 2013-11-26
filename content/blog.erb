@@ -10,7 +10,13 @@ title: Blog
 
 <% posts.each do |post| %>
   <div class="post-summary">
-    <p><small><em><%= post[:created_at] %></em></small></p>
+    <p>
+      <small>
+        <em>
+          Created <%= post[:created_at] %> by <%= post[:author] || "Gabe Koss" %>
+        </em>
+      </small>
+    </p>
 
     <h2>
     <% if post[:redirect] %>
