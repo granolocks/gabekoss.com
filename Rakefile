@@ -10,6 +10,7 @@ title: #{args[:title]}
 created_at: #{args[:created_at]}
 updated_at: #{args[:updated_at]}
 kind: #{args[:kind]}
+author: #{args[:author]}
 summary: 
 tags: 
 --- 
@@ -44,6 +45,7 @@ namespace :generate do
       created_at:  Time.now.strftime('%Y-%m-%d %H:%M'),
       updated_at:  Time.now.strftime('%Y-%m-%d %H:%M'),
       kind:        "blog-post"
+      author:      "Gabe Koss"
     })
 
     begin
