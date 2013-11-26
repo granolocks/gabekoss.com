@@ -57,6 +57,16 @@
 <pre><code class="sh">screen -d -m -S my_session_name
 </code></pre>
 
+<h2>List Screen Sessions</h2>
+
+<p>List existing screen sessions your user can acess with the <code>-ls</code> flag.</p>
+
+<pre><code class="sh">user@host-vm:~# screen -ls
+There is a screen on:
+        23249.my_session_name (11/26/2013 05:08:55 PM)        (Attached)
+        1 Socket in /var/run/screen/S-root.
+</code></pre>
+
 <h2>Connect to a session</h2>
 
 <p>To attach to an existing screen session simply run:</p>
@@ -70,7 +80,7 @@
         <hr/>
         <p>&copy; 2013 <a href="mailto:gabe@gabekoss.com">Gabe Koss</a></p>
         
-          <p><small>Last updated at: 2013-11-26 12:07<small></p>
+          <p><small>Last updated at: 2013-11-26 12:19<small></p>
         
       </div>
     </div>
