@@ -13,9 +13,9 @@ kind: homepage
 <% posts.reverse! %>
 
 <% posts[0...4].each do |post| %>
-  <p>
+  <p class="post-summary">
     <strong>
-      <a href="<%= post.path %>"><%= post[:title] %></a>
+      <a  href="<%= post.path %>"><%= post[:title] %></a>
     </strong><br/>
     <small><em>Created <%= post[:created_at] %> by <%= post[:author] || "Gabe Koss" %></em></small><br/>
     <%= post[:summary] %></a>

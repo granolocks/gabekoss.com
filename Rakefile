@@ -15,8 +15,6 @@ summary:
 tags: 
 --- 
 
-# #{args[:title]}
- 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam adipiscing,
 urna sed egestas eleifend, risus dui semper erat, vel aliquet nibh lorem quis
 nibh. Morbi facilisis malesuada bibendum. Vivamus semper risus justo, sit
@@ -44,7 +42,7 @@ namespace :generate do
       title:       title,
       created_at:  Time.now.strftime('%Y-%m-%d %H:%M'),
       updated_at:  Time.now.strftime('%Y-%m-%d %H:%M'),
-      kind:        "blog-post"
+      kind:        "blog-post",
       author:      "Gabe Koss"
     })
 

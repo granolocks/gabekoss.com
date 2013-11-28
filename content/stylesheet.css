@@ -80,16 +80,17 @@ blockquote {
 
 
 a {
- color: #3434D1;
- text-decoration: none;
+ color: #333;
+ text-decoration: underline;
 }
 
 a:visited {
- color: #6D34D1;
+ color: #444;
 }
 
 a:hover {
- text-decoration: underline;
+ color: #444;
+ text-decoration: none;
 }
 
 

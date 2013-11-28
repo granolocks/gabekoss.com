@@ -41,6 +41,10 @@
     <lastmod>2013-11-26</lastmod>
   </url>
   <url>
+    <loc>http://gabekoss.com/blog/2013/11/running_rspec_from_vim/</loc>
+    <lastmod>2013-11-27</lastmod>
+  </url>
+  <url>
     <loc>http://gabekoss.com/css/notes.css</loc>
     <lastmod>2013-11-06</lastmod>
   </url>
@@ -98,7 +102,7 @@
   </url>
   <url>
     <loc>http://gabekoss.com/notes/lxc/</loc>
-    <lastmod>2013-11-26</lastmod>
+    <lastmod>2013-11-27</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/notes/mkdir/</loc>
@@ -210,7 +214,7 @@
   </url>
   <url>
     <loc>http://gabekoss.com/notes/vim/</loc>
-    <lastmod>2013-11-26</lastmod>
+    <lastmod>2013-11-27</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/notes/vmware/</loc>
@@ -226,11 +230,11 @@
   </url>
   <url>
     <loc>http://gabekoss.com/style.css</loc>
-    <lastmod>2013-11-22</lastmod>
+    <lastmod>2013-11-26</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/tags/</loc>
-    <lastmod>2013-11-26</lastmod>
+    <lastmod>2013-11-27</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/tags/elastic_search/</loc>
@@ -249,6 +253,9 @@
   </url>
   <url>
     <loc>http://gabekoss.com/tags/riak/</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/rspec/</loc>
   </url>
   <url>
     <loc>http://gabekoss.com/tags/ruby/</loc>

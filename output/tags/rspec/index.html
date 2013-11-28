@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
   <head>
-    <title>Vim</title>
+    <title>Rspec</title>
     <link type='text/css' href='/style.css' rel='stylesheet'/>
     <link rel="stylesheet" href="/css/zenburn.css">
     <script src="/js/highlight-pack.js"></script>
@@ -46,23 +46,18 @@
     </div>
     <div id="main">
       
-      <h1>Vim</h1>
+      <h1>Rspec</h1>
       
-      <p>I love vim. I really need to write up some information about vim, but for now this can just be a few random tricks.</p>
-
-<h2>Replace ^M characters globally (without doing EOL Conversion)</h2>
-
-<p>Those pesky pesky end-of-line characters from windows.</p>
-
-<pre><code class="vim">%s/&lt;Ctrl-V&gt;&lt;Ctrl-M&gt;//g
-</code></pre>
-
-<h2>Run a command across all buffers with vim or ex</h2>
-
-<pre><code class="vim">:set hidden
-:bufdo %s/# @return /# @returns /g
-:wa
-</code></pre>
+        
+    <p>
+      <strong>
+        <a href="/blog/2013/11/running_rspec_from_vim/">
+          Running Rspec from Vim
+        </a>
+      </strong><br/> 
+      When working on Rspec tests for Ruby code it can be helpful to run your tests with finite control
+    </p>
+  
 
 
       
@@ -70,7 +65,7 @@
         <hr/>
         <p>&copy; 2013 <a href="mailto:gabe@gabekoss.com">Gabe Koss</a></p>
         
-          <p><small>Last updated at: 2013-11-07 06:59<small></p>
+          <p><small>Last updated at: 2013-11-27 22:20<small></p>
         
       </div>
     </div>
