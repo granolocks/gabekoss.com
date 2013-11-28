@@ -19,7 +19,7 @@ summary: A collection or articles written by me and others as well as links to u
 
     <h2>
     <% if post[:redirect] %>
-      <a href="<%= post[:redirect_path] %>"><%= post[:title] %></a>
+      <a href="<%= post[:redirect_path] %>" target="_blank"><%= post[:title] %></a>
     <% else %>
       <a href="<%= post.path %>"><%= post[:title] %></a>
     <% end %>
@@ -27,7 +27,8 @@ summary: A collection or articles written by me and others as well as links to u
     <p><%= post[:summary] %></p>
 
     <% if post[:redirect] %>
-      <p><a href="<%= post[:redirect_path] %>">visit link ...</a></p>
+      <p><a href="<%= post[:redirect_path] %>" target="_blank">visit link ...</a><br/>
+      <small>This is an external link.</small></p>
     <% else %>
       <p><a href="<%= post.path %>">read post ...</a></p>
     <% end %>
