@@ -19,3 +19,4 @@ _yardoc
 doc/
 crash.log
 .sass-cache
+push_site.sh
