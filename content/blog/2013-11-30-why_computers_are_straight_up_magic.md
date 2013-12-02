@@ -48,9 +48,6 @@ by the naked eye.
 <div style="background: url('http://i.imgur.com/KFJEZZ7.png'); height: 200px; background-size: 100%;"></div>
 <p><small><em>Code snippet is a screenshot from grothe.c, a winner of the [IOCCC Obfuscated code contest](http://www.ioccc.org/years.html).</em></small><p>
 
-Lets recap, what process am I describing; ancient sorcery or run of the mill
-computer technology?
-
 I'm not saying that science doesn't give us lots of handy explanations for all
 of this, but lets face it, very few people really understand the tech they use.
 When the mass of the population relies day to day on devices which allow them
