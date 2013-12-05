@@ -95,7 +95,7 @@ def inverted_index_for(file_hash)
   h = Hash.new { |h,k| h[k] = [] }
 
   file_hash.inject(h) do |index_array,(filename,contents)|
-    contents.split.uniq.each do |word|
+    contents.split(' ').uniq.each do |word|
       index_array[word] << filename
     end
     index_array

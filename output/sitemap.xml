@@ -61,6 +61,10 @@
     <lastmod>2013-12-05</lastmod>
   </url>
   <url>
+    <loc>http://gabekoss.com/blog/2013/12/benchmark_inject_versus_each_with_object/</loc>
+    <lastmod>2013-12-05</lastmod>
+  </url>
+  <url>
     <loc>http://gabekoss.com/blog/2013/12/create_an_array_of_symbols_with_i_in_ruby_2/</loc>
     <lastmod>2013-12-05</lastmod>
   </url>
@@ -258,6 +262,9 @@
   </url>
   <url>
     <loc>http://gabekoss.com/tags/android/</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/benchmarking/</loc>
   </url>
   <url>
     <loc>http://gabekoss.com/tags/crunchbang/</loc>
