@@ -146,3 +146,6 @@ inverted_index["round"]
 chained `map()` or `each()` functions I can usually accomplish the same thing
 with a single `inject()`.
 
+_Update:_ After some feedback on the comments below as well as on Reddit I did
+a little of benchmarking around this. [Those results are
+here](/blog/2013/12/benchmark_inject_versus_each_with_object/).

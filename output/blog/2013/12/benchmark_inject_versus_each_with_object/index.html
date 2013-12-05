@@ -71,7 +71,8 @@ simply using <code>each()</code> or <code>each_with_object()</code>. </p>
 
 <p>I took the original function I had used (which has since been replaced with a
 slightly improved variant, still using <code>inject()</code>). I then rewrotie it with a
-small internal optimization for <code>inject()</code>, using just <code>each()</code> and then <code>each_with_object()</code>.</p>
+small internal optimization for <code>inject()</code>, using just <code>each()</code> and then
+<code>each_with_object()</code>.</p>
 
 <p>Here are the results:</p>
 
@@ -83,10 +84,10 @@ EACH:              2.710000   0.000000   2.710000  (  2.711724)
 EACH_WITH_OBJECT:  2.810000   0.000000   2.810000  (  2.822959)
 </code></pre>
 
-<p>Clearly <code>each()</code> is the most performant solution. although the diference
-between the better <code>inject()</code> and <code>each_with_object()</code> is fairly slight.</p>
+<p>Clearly <code>each()</code> is the most performant solution. The diference between the
+better <code>inject()</code> and <code>each_with_object()</code> is fairly slight.</p>
 
-<p>Here is the script I used, for the curious.</p>
+<p>Here is the script I used:</p>
 
 <pre><code class="ruby">
 require &#39;benchmark&#39;
