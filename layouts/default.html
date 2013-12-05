@@ -59,12 +59,11 @@
       <% if item[:kind] == 'blog-post' %>
         <p>
           <em>
-            Post created <%= item[:created_at] %> by <%= item[:author] || "Gabe Koss" %>
+            Post created <%= item[:created_at] %> by <%= item[:author] || "Gabe Koss" %>.<br/>
           </em>
         </p>
       <% end %>
       <%= yield %>
-
       <% if item[:kind] == 'blog-post' %>
         <hr/>
         <div id="disqus_thread"></div>

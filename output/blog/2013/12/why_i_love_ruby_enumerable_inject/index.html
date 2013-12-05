@@ -59,7 +59,7 @@
       
         <p>
           <em>
-            Post created 2013-12-04 13:58 by Gabe Koss
+            Post created 2013-12-04 13:58 by Gabe Koss.<br/>
           </em>
         </p>
       
@@ -87,6 +87,19 @@ sum([1,2,3])
 <code>sum</code> initializes to the argument passed to the <code>inject()</code> method call, in this
 case <code>0</code>. As the array is iterated across the return value of the block is
 returned as the next <code>sum</code> when the next element in the array is yielded as <code>i</code>.</p>
+
+<p>In several Reddit comments as well as a note in the comments from Victor Kmita
+I was reminded of the simplest format for this to work. When all that is being
+done in the block is a single method call this can be simplified by passing the
+method call in as a symbol and dropping the block entirely. </p>
+
+<pre><code class="ruby">def sum(arr)
+  arr.inject(:+)
+end
+
+sum([1,2,3])
+#=&gt; 6
+</code></pre>
 
 <h2>Complex Counting</h2>
 
@@ -122,10 +135,17 @@ lookup for a keyword and provides a list of locations where that word occurred.<
 #
 #    { &quot;/path/to/file&quot; =&gt; &quot;contents of file&quot; }
 #
+#  
+# #  Edit: Thanks to reddit users jhawthorn and treetrouble for suggesting the
+# #  improvement of using `Hash.new{|h,k| h[k] = []}` instead of `Hash.new([])` to
+# #  greatly improve the readability of this example.
+# 
 def inverted_index_for(file_hash)
-  file_hash.inject(Hash.new([])) do |index_array,(filename,contents)|
-    contents.split(&#39; &#39;).uniq.each do |word|
-      index_array[word] = ((index_array[word] == []) ? [filename] : index_array[word].push(filename))
+  h = Hash.new { |h,k| h[k] = [] }
+
+  file_hash.inject(h) do |index_array,(filename,contents)|
+    contents.split.uniq.each do |word|
+      index_array[word] &lt;&lt; filename
     end
     index_array
   end
@@ -147,7 +167,6 @@ files[&#39;~/file_3&#39;] = &quot;round and round&quot;
 files[&#39;~/file_4&#39;] = &quot;the wheels on the bus go&quot;
 files[&#39;~/file_5&#39;] = &quot;round and round&quot;
 files[&#39;~/file_6&#39;] = &quot;all through the town&quot;
-files[&#39;~/file_7&#39;] = &quot;granolocks is awesome&quot;
 
 inverted_index = inverted_index_for(files)
 # =&gt; {
@@ -160,10 +179,7 @@ inverted_index = inverted_index_for(files)
 #      &quot;and&quot;        =&gt; [&quot;~/file_1&quot;, &quot;~/file_2&quot;, &quot;~/file_3&quot;, &quot;~/file_5&quot;],
 #      &quot;all&quot;        =&gt; [&quot;~/file_6&quot;],
 #      &quot;through&quot;    =&gt; [&quot;~/file_6&quot;],
-#      &quot;town&quot;       =&gt; [&quot;~/file_6&quot;],
-#      &quot;granolocks&quot; =&gt; [&quot;~/file_7&quot;],
-#      &quot;is&quot;         =&gt; [&quot;~/file_7&quot;],
-#      &quot;awesome&quot;    =&gt; [&quot;~/file_7&quot;]
+#      &quot;town&quot;       =&gt; [&quot;~/file_6&quot;]
 #     } 
 
 # Look up a word to find where it occurred:
@@ -176,7 +192,6 @@ inverted_index[&quot;round&quot;]
 <p><code>inject()</code> is hugely useful for many different tasks. Anywhere I find myself using
 chained <code>map()</code> or <code>each()</code> functions I can usually accomplish the same thing
 with a single <code>inject()</code>.</p>
-
 
       
         <hr/>
@@ -200,7 +215,7 @@ with a single <code>inject()</code>.</p>
         <hr/>
         <p>&copy; 2013 <a href="mailto:gabe@gabekoss.com">Gabe Koss</a></p>
         
-          <p><small>Last updated at: 2013-12-04 17:31<small></p>
+          <p><small>Last updated at: 2013-12-05 7:31<small></p>
         
       </div>
     </div>

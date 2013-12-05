@@ -1,13 +1,13 @@
 <!doctype html>
 <html>
   <head>
-    <title>Nosql</title>
+    <title>Create an Array of Symbols with %i{} in Ruby 2</title>
     <link type='text/css' href='/style.css' rel='stylesheet'/>
     <link rel="stylesheet" href="/css/zenburn.css">
-    <meta property="og:title" content="Nosql" />
-    <meta property="og:url" content="http://www.gabekoss.com/tags/nosql/" />
+    <meta property="og:title" content="Create an Array of Symbols with %i{} in Ruby 2" />
+    <meta property="og:url" content="http://www.gabekoss.com/blog/2013/12/create_an_array_of_symbols_with_i_in_ruby_2/" />
     <meta property="og:type" content="website" />
-    <meta property="og:description" content="" />
+    <meta property="og:description" content="The helpful %i{} method can be used in Ruby 2 to return an array of." />
     <meta property="og:image" content="http://www.gabekoss.com/images/og.png" />
     
       <script src="/js/highlight-pack.js"></script>
@@ -53,34 +53,65 @@
     </div>
     <div id="main">
       
-      <h1>Nosql</h1>
+        <p><small><a href='/blog'>Back to Blog</a></small></p>
       
-        
-    <p>
-      <strong>
-        <a href="/blog/2013/11/introduction_to_elastic_search/">
-          Introduction To Elastic Search
-        </a>
-      </strong><br/> 
-      A simple introduction to Elastic Search investigating saving some data and doing simple querying.
-    </p>
-  
-    <p>
-      <strong>
-        <a href="/blog/2013/11/riak_101/">
-          Riak 101
-        </a>
-      </strong><br/> 
-      A simple introduction to Riak based on a presentation I gave with Sam Stelfox at a Burlington Web Development Group meetup.
-    </p>
-  
+      <h1>Create an Array of Symbols with %i{} in Ruby 2</h1>
+      
+        <p>
+          <em>
+            Post created 2013-12-05 07:55 by Gabe Koss.<br/>
+          </em>
+        </p>
+      
+      <p>Ruby has long has many nice pieces of syntactic sugar but one of my favorites
+is the new <code>%i{}</code> Array constructor.</p>
+
+<p>There has long been the <code>%w{}</code> operator to create an array of strings with
+minimal characters. This works as follows:</p>
+
+<pre><code class="ruby">%w{ this is an array }
+# =&gt; [&quot;this&quot;, &quot;is&quot;, &quot;an&quot;, &quot;array&quot;] 
+</code></pre>
+
+<p>All too often I end up doing something like this:</p>
+
+<pre><code class="ruby">%w{ this is an array }.map(&amp;:to_sym)
+# =&gt; [:this, :is, :an, :array] 
+</code></pre>
+
+<p>In Ruby 2 this can be accomplished with:</p>
+
+<pre><code class="ruby">%i{ these are symbols }
+# =&gt; [:these, :are, :symbols] 
+</code></pre>
+
+<p>When I realized it worked this way:</p>
+
+<p><img src="http://i.imgur.com/ufsaGGZ.jpg" alt="It was a good day"></p>
+
+      
+        <hr/>
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+          /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'gabekoss'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+         })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
       
       <div id="footer">
         <hr/>
         <p>&copy; 2013 <a href="mailto:gabe@gabekoss.com">Gabe Koss</a></p>
         
-          <p><small>Last updated at: 2013-12-05 08:06<small></p>
+          <p><small>Last updated at: 2013-12-05 07:55<small></p>
         
       </div>
     </div>
