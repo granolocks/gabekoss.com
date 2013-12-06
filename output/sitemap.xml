@@ -5,8 +5,20 @@
     <lastmod>2013-11-27</lastmod>
   </url>
   <url>
+    <loc>http://gabekoss.com/api/v1/blog/0.json</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/api/v1/blog/1.json</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/api/v1/blog/2.json</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/api/v1/blog/3.json</loc>
+  </url>
+  <url>
     <loc>http://gabekoss.com/blog/</loc>
-    <lastmod>2013-11-28</lastmod>
+    <lastmod>2013-12-06</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/blog/2013/11/writing_with_vim/</loc>
@@ -74,7 +86,7 @@
   </url>
   <url>
     <loc>http://gabekoss.com/css/notes.css</loc>
-    <lastmod>2013-11-06</lastmod>
+    <lastmod>2013-12-06</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/css/zenburn.css</loc>
@@ -258,7 +270,7 @@
   </url>
   <url>
     <loc>http://gabekoss.com/style.css</loc>
-    <lastmod>2013-11-26</lastmod>
+    <lastmod>2013-12-06</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/tags/</loc>

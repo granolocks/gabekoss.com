@@ -3,11 +3,12 @@ title: Blog Posts
 summary: A collection or articles written by me and others as well as links to useful resources.
 ---
 
+<% require 'json' %>
 <% posts = @items.reject {|i| !(i[:kind] == 'blog-post') } %>
 <% posts.sort_by! {|i| i[:created_at] } %>
 <% posts.reverse! %>
 
-<% posts.each do |post| %>
+<% posts[0..4].each do |post| %>
   <div class="post-summary">
     <p>
       <small>
@@ -43,3 +44,90 @@ summary: A collection or articles written by me and others as well as links to u
     <% end %>
   </div>
 <% end %>
+<span id="page-location" style="display:none;">1</div>
+
+<script type="text/javascript">
+
+  function buildPost(post) {
+    var output;
+    var h2;
+    var readmore;
+    var tags;
+
+    output = "<p> <small> <em> Created "+ post.created_at +" by "+ post.author +" </em> </small> </p>";
+
+    if (post.redirect == null) {
+      h2 = "<a href='"+ post.path +"'>"+ post.title +"</a>";
+      readmore = "<p><a href='"+ post.path +"'>read post ...</a></p>"
+    } else {
+      h2 = "<a href='"+ post.redirect_path +"' target='_blank'>"+ post.title +"</a>";
+      readmore = "<p><a href='"+ post.path +"'>visit link ...</a><br/><small>This is an external link.</p>"
+
+    }
+
+    output += "<h2>"+h2+"</h2>";
+    output += "<p>"+ post.summary +"</p>";
+    output += readmore;
+
+    if (post.tags) {
+      tags = "<hr/> <p class='tags'>"
+      for (var i in post.tags) {
+        tag = post.tags[i];
+
+        tags += "<a href='/tags/'"+ tag.replace(' ', '_') +"'>"+ tag +"</a> "
+      }
+      tags += "</p>"
+      output += tags
+    }
+
+    return output;
+  }
+
+  function addPosts(posts_array){
+    el = document.getElementById("main");
+    for (var index in posts_array) {
+      post = posts_array[index];
+      var p = document.createElement('div');
+      p.className += "post-summary"
+      p.innerHTML = buildPost(post);
+      el.appendChild(p);
+    }
+
+  }
+
+  function curPage(){
+    cp = document.getElementById('page-location');
+    return parseInt(cp.innerText);
+  }
+
+  function incrementCurPage() {
+    cp = document.getElementById('page-location');
+    page = curPage();
+    cp.innerText =  1 + page
+  }
+
+  function doSomethingWithPosts(posts_array) {
+    incrementCurPage();
+    addPosts(posts_array);
+  }
+
+  function getNextPageOfPosts() {
+
+    xhr = new XMLHttpRequest;
+
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState === 4 && xhr.status === 200) {
+        doSomethingWithPosts(JSON.parse(xhr.response));
+      }
+    };
+
+    xhr.open("GET","/api/v1/blog/"+curPage()+".json",true);
+    xhr.send();
+  };
+
+  window.onscroll = function(ev) {
+    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+      getNextPageOfPosts();
+    }
+  }
+</script>

@@ -60,6 +60,7 @@
 
 
 
+
   <div class="post-summary">
     <p>
       <small>
@@ -219,362 +220,101 @@
     
   </div>
 
-  <div class="post-summary">
-    <p>
-      <small>
-        <em>
-          Created 2013-11-30 20:03 by Gabe Koss
-        </em>
-      </small>
-    </p>
+<span id="page-location" style="display:none;">1</div>
 
-    <h2>
-    
-      <a href="/blog/2013/11/why_computers_are_straight_up_magic/">Why Computers are Straight up Magic</a>
-    
-  </h2>
-    <p>I see no functional difference between computer technology today and the magic of ancient sorcerers. Seriously.</p>
+<script type="text/javascript">
 
-    
-      <p><a href="/blog/2013/11/why_computers_are_straight_up_magic/">read post ...</a></p>
-    
+  function buildPost(post) {
+    var output;
+    var h2;
+    var readmore;
+    var tags;
 
-    
-      <hr/>
-      <p class='tags'>
-        
-          <a href="/tags/funny">funny</a>
-        
-      </p>
-    
-  </div>
+    output = "<p> <small> <em> Created "+ post.created_at +" by "+ post.author +" </em> </small> </p>";
 
-  <div class="post-summary">
-    <p>
-      <small>
-        <em>
-          Created 2013-11-27 22:26 by Unknown
-        </em>
-      </small>
-    </p>
+    if (post.redirect == null) {
+      h2 = "<a href='"+ post.path +"'>"+ post.title +"</a>";
+      readmore = "<p><a href='"+ post.path +"'>read post ...</a></p>"
+    } else {
+      h2 = "<a href='"+ post.redirect_path +"' target='_blank'>"+ post.title +"</a>";
+      readmore = "<p><a href='"+ post.path +"'>visit link ...</a><br/><small>This is an external link.</p>"
 
-    <h2>
-    
-      <a href="/blog/2013/11/ode_to_c/">Ode to C</a>
-    
-  </h2>
-    <p>A humorous poem devoted to the love of a language.</p>
+    }
 
-    
-      <p><a href="/blog/2013/11/ode_to_c/">read post ...</a></p>
-    
+    output += "<h2>"+h2+"</h2>";
+    output += "<p>"+ post.summary +"</p>";
+    output += readmore;
 
-    
-      <hr/>
-      <p class='tags'>
-        
-          <a href="/tags/funny">funny</a>
-        
-          <a href="/tags/link">link</a>
-        
-      </p>
-    
-  </div>
+    if (post.tags) {
+      tags = "<hr/> <p class='tags'>"
+      for (var i in post.tags) {
+        tag = post.tags[i];
 
-  <div class="post-summary">
-    <p>
-      <small>
-        <em>
-          Created 2013-11-27 22:02 by Gabe Koss
-        </em>
-      </small>
-    </p>
+        tags += "<a href='/tags/'"+ tag.replace(' ', '_') +"'>"+ tag +"</a> "
+      }
+      tags += "</p>"
+      output += tags
+    }
 
-    <h2>
-    
-      <a href="/blog/2013/11/running_rspec_from_vim/">Running Rspec from Vim</a>
-    
-  </h2>
-    <p>When working on Rspec tests for Ruby code it can be helpful to run your tests with finite control</p>
+    return output;
+  }
 
-    
-      <p><a href="/blog/2013/11/running_rspec_from_vim/">read post ...</a></p>
-    
+  function addPosts(posts_array){
+    el = document.getElementById("main");
+    for (var index in posts_array) {
+      post = posts_array[index];
+      var p = document.createElement('div');
+      p.className += "post-summary"
+      p.innerHTML = buildPost(post);
+      el.appendChild(p);
+    }
 
-    
-      <hr/>
-      <p class='tags'>
-        
-          <a href="/tags/vim">vim</a>
-        
-          <a href="/tags/ruby">ruby</a>
-        
-          <a href="/tags/rspec">rspec</a>
-        
-      </p>
-    
-  </div>
+  }
 
-  <div class="post-summary">
-    <p>
-      <small>
-        <em>
-          Created 2013-11-26 11:36 by Gabe Koss
-        </em>
-      </small>
-    </p>
+  function curPage(){
+    cp = document.getElementById('page-location');
+    return parseInt(cp.innerText);
+  }
 
-    <h2>
-    
-      <a href="/blog/2013/11/my_open_source_report_card/">My Open Source Report Card</a>
-    
-  </h2>
-    <p>A cool site which creates an dopen source report card based on your public github activty.</p>
+  function incrementCurPage() {
+    cp = document.getElementById('page-location');
+    page = curPage();
+    cp.innerText =  1 + page
+  }
 
-    
-      <p><a href="/blog/2013/11/my_open_source_report_card/">read post ...</a></p>
-    
+  function doSomethingWithPosts(posts_array) {
+    incrementCurPage();
+    addPosts(posts_array);
+  }
 
-    
-      <hr/>
-      <p class='tags'>
-        
-          <a href="/tags/link">link</a>
-        
-          <a href="/tags/open_source">open source</a>
-        
-      </p>
-    
-  </div>
+  function getNextPageOfPosts() {
 
-  <div class="post-summary">
-    <p>
-      <small>
-        <em>
-          Created 2013-11-26 07:46 by Gabe Koss
-        </em>
-      </small>
-    </p>
+    xhr = new XMLHttpRequest;
 
-    <h2>
-    
-      <a href="http://textfiles.com/" target="_blank">textfiles.com</a>
-    
-  </h2>
-    <p>I am a lover of ASCII art and text files in general. I love vim and writing in markdown and plaintext. You can bet I was excited when I stumbled across textfiles.com.</p>
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState === 4 && xhr.status === 200) {
+        doSomethingWithPosts(JSON.parse(xhr.response));
+      }
+    };
 
-    
-      <p><a href="http://textfiles.com/" target="_blank">visit link ...</a><br/>
-      <small>This is an external link.</small></p>
-    
+    xhr.open("GET","/api/v1/blog/"+curPage()+".json",true);
+    xhr.send();
+  };
 
-    
-      <hr/>
-      <p class='tags'>
-        
-          <a href="/tags/link">link</a>
-        
-      </p>
-    
-  </div>
-
-  <div class="post-summary">
-    <p>
-      <small>
-        <em>
-          Created 2013-11-25 09:32 by Gabe Koss
-        </em>
-      </small>
-    </p>
-
-    <h2>
-    
-      <a href="/blog/2013/11/ssh_port_forwarding_with_ruby_net_ssh/">SSH Port Forwarding with Ruby Net::SSH</a>
-    
-  </h2>
-    <p>A simple way that Ruby can be used to manage a reverse SSH tunnel for port forwarding.</p>
-
-    
-      <p><a href="/blog/2013/11/ssh_port_forwarding_with_ruby_net_ssh/">read post ...</a></p>
-    
-
-    
-      <hr/>
-      <p class='tags'>
-        
-          <a href="/tags/ruby">ruby</a>
-        
-          <a href="/tags/ssh">ssh</a>
-        
-      </p>
-    
-  </div>
-
-  <div class="post-summary">
-    <p>
-      <small>
-        <em>
-          Created 2013-11-24 22:14 by Gabe Koss
-        </em>
-      </small>
-    </p>
-
-    <h2>
-    
-      <a href="http://www.tldrlegal.com/" target="_blank">TL;DR Legal</a>
-    
-  </h2>
-    <p>tl;dr Legal does an awesome job making the various open source licenses accessible and understandable.</p>
-
-    
-      <p><a href="http://www.tldrlegal.com/" target="_blank">visit link ...</a><br/>
-      <small>This is an external link.</small></p>
-    
-
-    
-      <hr/>
-      <p class='tags'>
-        
-          <a href="/tags/link">link</a>
-        
-      </p>
-    
-  </div>
-
-  <div class="post-summary">
-    <p>
-      <small>
-        <em>
-          Created 2013-11-24 20:15 by Gabe Koss
-        </em>
-      </small>
-    </p>
-
-    <h2>
-    
-      <a href="/blog/2013/11/ruby_string_interpolation_weirdness/">Ruby String Interpolation Weirdness</a>
-    
-  </h2>
-    <p>Just a little bit of quirkyness around Ruby String interpolation I've noticed.</p>
-
-    
-      <p><a href="/blog/2013/11/ruby_string_interpolation_weirdness/">read post ...</a></p>
-    
-
-    
-      <hr/>
-      <p class='tags'>
-        
-          <a href="/tags/ruby">ruby</a>
-        
-      </p>
-    
-  </div>
-
-  <div class="post-summary">
-    <p>
-      <small>
-        <em>
-          Created 2013-11-21 16:30 by Gabe Koss
-        </em>
-      </small>
-    </p>
-
-    <h2>
-    
-      <a href="/blog/2013/11/riak_101/">Riak 101</a>
-    
-  </h2>
-    <p>A simple introduction to Riak based on a presentation I gave with Sam Stelfox at a Burlington Web Development Group meetup.</p>
-
-    
-      <p><a href="/blog/2013/11/riak_101/">read post ...</a></p>
-    
-
-    
-      <hr/>
-      <p class='tags'>
-        
-          <a href="/tags/nosql">nosql</a>
-        
-          <a href="/tags/riak">riak</a>
-        
-      </p>
-    
-  </div>
-
-  <div class="post-summary">
-    <p>
-      <small>
-        <em>
-          Created 2013-11-21 08:30 by Gabe Koss
-        </em>
-      </small>
-    </p>
-
-    <h2>
-    
-      <a href="/blog/2013/11/introduction_to_elastic_search/">Introduction To Elastic Search</a>
-    
-  </h2>
-    <p>A simple introduction to Elastic Search investigating saving some data and doing simple querying.</p>
-
-    
-      <p><a href="/blog/2013/11/introduction_to_elastic_search/">read post ...</a></p>
-    
-
-    
-      <hr/>
-      <p class='tags'>
-        
-          <a href="/tags/nosql">nosql</a>
-        
-          <a href="/tags/elastic_search">elastic search</a>
-        
-          <a href="/tags/facets">facets</a>
-        
-      </p>
-    
-  </div>
-
-  <div class="post-summary">
-    <p>
-      <small>
-        <em>
-          Created 2013-11-09 11:56 by Gabe Koss
-        </em>
-      </small>
-    </p>
-
-    <h2>
-    
-      <a href="/blog/2013/11/writing_with_vim/">Writing with Vim</a>
-    
-  </h2>
-    <p>Some useful tricks that I have picked up by writing fiction and non fiction using the Vim text editor.</p>
-
-    
-      <p><a href="/blog/2013/11/writing_with_vim/">read post ...</a></p>
-    
-
-    
-      <hr/>
-      <p class='tags'>
-        
-          <a href="/tags/vim">vim</a>
-        
-      </p>
-    
-  </div>
-
+  window.onscroll = function(ev) {
+    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+      getNextPageOfPosts();
+    }
+  }
+</script>
       
-      <div id="footer">
-        <hr/>
-        <p>&copy; 2013 <a href="mailto:gabe@gabekoss.com">Gabe Koss</a></p>
+    </div>
+    <div id="footer">
+      <hr/>
+      <p>&copy; 2013 <a href="mailto:gabe@gabekoss.com">Gabe Koss</a></p>
         
-          <p><small>Last updated at: 2013-12-05 12:11<small></p>
+          <p><small>Last updated at: 2013-12-06 12:32</small></p>
         
-      </div>
     </div>
 
     <script type="text/javascript">

@@ -11,6 +11,45 @@
 #   item, use the pattern “/about/*/”; “/about/*” will also select the parent,
 #   because “*” matches zero or more characters.
 preprocess do 
+  def blog_json_index
+    tmpl = <<ERB
+<%=
+  require 'json' 
+  posts = @item[:posts].dup 
+  posts.map! do |post|              
+    {                                  
+      path:          post.path,     
+      title:         post[:title],        
+      tags:          post[:tags],         
+      created_at:    post[:created_at],   
+      updated_at:    post[:updated_at],   
+      summary:       post[:summary],      
+      redirect:      post[:redirect],     
+      redirect_path: post[:redirect_path],
+      author:        (post[:author] || "Gabe Koss")
+    }                                     
+  end 
+  JSON.generate(posts) 
+%>
+ERB
+
+    post_chunk_size = 5
+    posts = @items.reject { |i| !(i[:kind] == 'blog-post') }
+    posts.sort_by! {|i| i[:created_at] } 
+    posts.reverse! 
+
+    posts_array = [] 
+    posts.each_slice(post_chunk_size) { |slice| posts_array << slice }
+
+    posts_array.each_with_index do |posts, index|
+      @items << Nanoc::Item.new(
+        tmpl,
+        {extension: "erb",  posts: posts},
+        "/api/v1/blog/#{index}.json"
+      )
+    end
+  end
+
   def create_post_tag_pages
 
     tags = blog_post_tags_hash(@items)
@@ -38,6 +77,7 @@ ERB
   end
 
   create_post_tag_pages
+  blog_json_index
 end
 
 compile '/stylesheet/' do
@@ -52,6 +92,10 @@ end
 compile '/tags/*' do
  filter :erb
  layout 'default'
+end
+
+compile '/api/v1/blog/*' do
+ filter :erb
 end
 
 compile '/sitemap/' do
@@ -84,6 +128,12 @@ route '/tags/*' do
     "/tags/#{item[:tag].gsub(/ /,'_')}/index.html"
   end
 end
+
+route '/api/v1/blog/*' do
+  # remove trailing '/'
+  item.identifier.gsub(/\/$/,'')
+end
+
 
 route '/blog/*' do
   begin
