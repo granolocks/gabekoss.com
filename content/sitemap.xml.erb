@@ -1,5 +1,5 @@
 <%= 
- xml_sitemap(:items => @items.reject{ |i| i[:is_hidden] || i.binary? || i.path == '/sitemap.xml'})
+ xml_sitemap(:items => @items.reject{ |i| i[:is_hidden] || i.binary? || i.path == '/sitemap.xml' || !( i.path.scan(/api\/v1\/blog/).empty? )})
 %>
 
  
