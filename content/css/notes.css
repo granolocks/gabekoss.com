@@ -42,9 +42,8 @@ h1 code, pre code, p code, li code{
 
 #sidebar ul li a:hover { background: rgba(0,50,0,0.6); }
 
-#main {
+#footer, #main {
   padding-left: 130px;
   width: 900px;
 }
-
 
