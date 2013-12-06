@@ -220,30 +220,31 @@
     
   </div>
 
-<span id="page-location" style="display:none;">1</div>
 
+<span id="page-location" style="display:none;">1</div>
 <script type="text/javascript">
 
   function buildPost(post) {
     var output;
     var h2;
+    var summary = post.summary
     var readmore;
     var tags;
 
     output = "<p> <small> <em> Created "+ post.created_at +" by "+ post.author +" </em> </small> </p>";
 
     if (post.redirect == null) {
-      h2 = "<a href='"+ post.path +"'>"+ post.title +"</a>";
-      readmore = "<p><a href='"+ post.path +"'>read post ...</a></p>"
+      h2       = "<a href='"+ post.path +"'>"+ post.title +"</a>";
+      readmore = "<a href='"+ post.path +"'>read post ...</a>"
     } else {
-      h2 = "<a href='"+ post.redirect_path +"' target='_blank'>"+ post.title +"</a>";
-      readmore = "<p><a href='"+ post.path +"'>visit link ...</a><br/><small>This is an external link.</p>"
+      h2       = "<a href='"+ post.redirect_path +"' target='_blank'>"+ post.title +"</a>";
+      readmore = "<a href='"+ post.path +"'>visit link ...</a><br/><small>This is an external link.</small>"
 
     }
 
-    output += "<h2>"+h2+"</h2>";
-    output += "<p>"+ post.summary +"</p>";
-    output += readmore;
+    output += "<h2>" + h2       + "</h2>";
+    output += "<p>"  + summary  + "</p>";
+    output += "<p>"  + readmore + "</p>";
 
     if (post.tags) {
       tags = "<hr/> <p class='tags'>"
@@ -261,26 +262,37 @@
   }
 
   function addPosts(posts_array){
-    el = document.getElementById("main");
+    mainDiv = document.getElementById("main");
 
-    for (var index in posts_array) {
-      post = posts_array[index];
-      var p = document.createElement('div');
-      p.className += "post-summary"
-      p.innerHTML = buildPost(post);
-      el.appendChild(p);
+    for (var i in posts_array) {
+      post = posts_array[i];
+
+      var postDiv = document.createElement('div');
+      postDiv.className += "post-summary"
+      postDiv.innerHTML = buildPost(post);
+
+      mainDiv.appendChild(postDiv);
     }
   }
 
   function curPage(){
-    cp = document.getElementById('page-location');
-    return parseInt(cp.innerText);
+    return parseInt(document.getElementById('page-location').innerText);
   }
 
   function incrementCurPage() {
-    cp = document.getElementById('page-location');
-    page = curPage();
-    cp.innerText =  1 + page
+    document.getElementById('page-location').innerText = (1 + curPage());
+  }
+
+  function setCurPageToZero() {
+    document.getElementById('page-location').innerText = 0;
+  }
+
+  function addFinalDiv() {
+    mainDiv = document.getElementById("main");
+    var div = document.createElement('div');
+    div.className += "no-more-posts";
+    div.innerHTML = "<p style='text-align:center'>You've reached the very end...</p>";
+    mainDiv.appendChild(div);
   }
 
   function doSomethingWithPosts(posts_array) {
@@ -291,17 +303,28 @@
   function getNextPageOfPosts() {
     xhr = new XMLHttpRequest;
     xhr.onreadystatechange = function() {
-      if (xhr.readyState === 4 && xhr.status === 200) {
-        doSomethingWithPosts(JSON.parse(xhr.response));
+      if (xhr.readyState === 4) {
+        if (xhr.status === 200) {
+          doSomethingWithPosts(JSON.parse(xhr.response));
+        } else {
+          setCurPageToZero();
+          addFinalDiv();
+        }
       }
     };
     xhr.open("GET","/api/v1/blog/"+curPage()+".json",true);
-    xhr.send();
+
+    if (curPage() >= 1) {
+      xhr.send();
+    }
+
   };
 
-  window.onscroll = function(ev) {
-    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-      getNextPageOfPosts();
+  window.onscroll = function(x) {
+    if ( curPage() != 0) {
+      if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+        getNextPageOfPosts();
+      }
     }
   }
 </script>
@@ -311,7 +334,7 @@
       <hr/>
       <p>&copy; 2013 <a href="mailto:gabe@gabekoss.com">Gabe Koss</a></p>
         
-          <p><small>Last updated at: 2013-12-06 14:17</small></p>
+          <p><small>Last updated at: 2013-12-06 15:02</small></p>
         
     </div>
 
