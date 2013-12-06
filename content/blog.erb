@@ -13,7 +13,7 @@ summary: A collection or articles written by me and others as well as links to u
     <p>
       <small>
         <em>
-          Created <%= post[:created_at] %> by <%= post[:author] || "Gabe Koss" %>
+          Written <%= post[:created_at] %> by <%= post[:author] || "Gabe Koss" %>
         </em>
       </small>
     </p>
@@ -55,7 +55,7 @@ summary: A collection or articles written by me and others as well as links to u
     var readmore;
     var tags;
 
-    output = "<p> <small> <em> Created "+ post.created_at +" by "+ post.author +" </em> </small> </p>";
+    output = "<p> <small> <em> Written "+ post.created_at +" by "+ post.author +" </em> </small> </p>";
 
     if (post.redirect == null) {
       h2       = "<a href='"+ post.path +"'>"+ post.title +"</a>";
@@ -113,15 +113,11 @@ summary: A collection or articles written by me and others as well as links to u
 
   function addFinalDiv() {
     mainDiv = document.getElementById("main");
+    
     var div = document.createElement('div');
     div.className += "no-more-posts";
     div.innerHTML = "<p style='text-align:center'>You've reached the very end...</p>";
     mainDiv.appendChild(div);
-  }
-
-  function doSomethingWithPosts(posts_array) {
-    incrementCurPage();
-    addPosts(posts_array);
   }
 
   function getNextPageOfPosts() {
@@ -129,7 +125,8 @@ summary: A collection or articles written by me and others as well as links to u
     xhr.onreadystatechange = function() {
       if (xhr.readyState === 4) {
         if (xhr.status === 200) {
-          doSomethingWithPosts(JSON.parse(xhr.response));
+          incrementCurPage();
+          addPosts(JSON.parse(xhr.response));
         } else {
           setCurPageToZero();
           addFinalDiv();
@@ -141,7 +138,6 @@ summary: A collection or articles written by me and others as well as links to u
     if (curPage() >= 1) {
       xhr.send();
     }
-
   };
 
   window.onscroll = function(x) {

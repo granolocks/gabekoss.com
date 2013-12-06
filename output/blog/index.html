@@ -65,7 +65,7 @@
     <p>
       <small>
         <em>
-          Created 2013-12-05 12:07 by Gabe Koss
+          Written 2013-12-05 12:07 by Gabe Koss
         </em>
       </small>
     </p>
@@ -98,7 +98,7 @@
     <p>
       <small>
         <em>
-          Created 2013-12-05 08:48 by Gabe Koss
+          Written 2013-12-05 08:48 by Gabe Koss
         </em>
       </small>
     </p>
@@ -130,7 +130,7 @@
     <p>
       <small>
         <em>
-          Created 2013-12-05 07:55 by Gabe Koss
+          Written 2013-12-05 07:55 by Gabe Koss
         </em>
       </small>
     </p>
@@ -160,7 +160,7 @@
     <p>
       <small>
         <em>
-          Created 2013-12-04 13:58 by Gabe Koss
+          Written 2013-12-04 13:58 by Gabe Koss
         </em>
       </small>
     </p>
@@ -190,7 +190,7 @@
     <p>
       <small>
         <em>
-          Created 2013-12-03 14:02 by Gabe Koss
+          Written 2013-12-03 14:02 by Gabe Koss
         </em>
       </small>
     </p>
@@ -231,7 +231,7 @@
     var readmore;
     var tags;
 
-    output = "<p> <small> <em> Created "+ post.created_at +" by "+ post.author +" </em> </small> </p>";
+    output = "<p> <small> <em> Written "+ post.created_at +" by "+ post.author +" </em> </small> </p>";
 
     if (post.redirect == null) {
       h2       = "<a href='"+ post.path +"'>"+ post.title +"</a>";
@@ -289,15 +289,11 @@
 
   function addFinalDiv() {
     mainDiv = document.getElementById("main");
+    
     var div = document.createElement('div');
     div.className += "no-more-posts";
     div.innerHTML = "<p style='text-align:center'>You've reached the very end...</p>";
     mainDiv.appendChild(div);
-  }
-
-  function doSomethingWithPosts(posts_array) {
-    incrementCurPage();
-    addPosts(posts_array);
   }
 
   function getNextPageOfPosts() {
@@ -305,7 +301,8 @@
     xhr.onreadystatechange = function() {
       if (xhr.readyState === 4) {
         if (xhr.status === 200) {
-          doSomethingWithPosts(JSON.parse(xhr.response));
+          incrementCurPage();
+          addPosts(JSON.parse(xhr.response));
         } else {
           setCurPageToZero();
           addFinalDiv();
@@ -317,7 +314,6 @@
     if (curPage() >= 1) {
       xhr.send();
     }
-
   };
 
   window.onscroll = function(x) {
@@ -334,7 +330,7 @@
       <hr/>
       <p>&copy; 2013 <a href="mailto:gabe@gabekoss.com">Gabe Koss</a></p>
         
-          <p><small>Last updated at: 2013-12-06 15:02</small></p>
+          <p><small>Last updated at: 2013-12-06 15:10</small></p>
         
     </div>
 
