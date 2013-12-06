@@ -72,9 +72,10 @@ summary: A collection or articles written by me and others as well as links to u
     if (post.tags) {
       tags = "<hr/> <p class='tags'>"
       for (var i in post.tags) {
-        tag = post.tags[i];
+        tag = post.tags[i]
+        url_tag = tag.replace(" ","_")
 
-        tags += "<a href='/tags/'"+ tag.replace(' ', '_') +"'>"+ tag +"</a> "
+        tags += "<a href='/tags/"+ url_tag +"'>"+ tag +"</a> "
       }
       tags += "</p>"
       output += tags
@@ -85,6 +86,7 @@ summary: A collection or articles written by me and others as well as links to u
 
   function addPosts(posts_array){
     el = document.getElementById("main");
+
     for (var index in posts_array) {
       post = posts_array[index];
       var p = document.createElement('div');
@@ -92,7 +94,6 @@ summary: A collection or articles written by me and others as well as links to u
       p.innerHTML = buildPost(post);
       el.appendChild(p);
     }
-
   }
 
   function curPage(){
@@ -112,15 +113,12 @@ summary: A collection or articles written by me and others as well as links to u
   }
 
   function getNextPageOfPosts() {
-
     xhr = new XMLHttpRequest;
-
     xhr.onreadystatechange = function() {
       if (xhr.readyState === 4 && xhr.status === 200) {
         doSomethingWithPosts(JSON.parse(xhr.response));
       }
     };
-
     xhr.open("GET","/api/v1/blog/"+curPage()+".json",true);
     xhr.send();
   };

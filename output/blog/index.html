@@ -248,9 +248,10 @@
     if (post.tags) {
       tags = "<hr/> <p class='tags'>"
       for (var i in post.tags) {
-        tag = post.tags[i];
+        tag = post.tags[i]
+        url_tag = tag.replace(" ","_")
 
-        tags += "<a href='/tags/'"+ tag.replace(' ', '_') +"'>"+ tag +"</a> "
+        tags += "<a href='/tags/"+ url_tag +"'>"+ tag +"</a> "
       }
       tags += "</p>"
       output += tags
@@ -261,6 +262,7 @@
 
   function addPosts(posts_array){
     el = document.getElementById("main");
+
     for (var index in posts_array) {
       post = posts_array[index];
       var p = document.createElement('div');
@@ -268,7 +270,6 @@
       p.innerHTML = buildPost(post);
       el.appendChild(p);
     }
-
   }
 
   function curPage(){
@@ -288,15 +289,12 @@
   }
 
   function getNextPageOfPosts() {
-
     xhr = new XMLHttpRequest;
-
     xhr.onreadystatechange = function() {
       if (xhr.readyState === 4 && xhr.status === 200) {
         doSomethingWithPosts(JSON.parse(xhr.response));
       }
     };
-
     xhr.open("GET","/api/v1/blog/"+curPage()+".json",true);
     xhr.send();
   };
@@ -313,7 +311,7 @@
       <hr/>
       <p>&copy; 2013 <a href="mailto:gabe@gabekoss.com">Gabe Koss</a></p>
         
-          <p><small>Last updated at: 2013-12-06 12:32</small></p>
+          <p><small>Last updated at: 2013-12-06 13:07</small></p>
         
     </div>
 
