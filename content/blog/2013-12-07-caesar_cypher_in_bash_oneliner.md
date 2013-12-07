@@ -10,6 +10,18 @@ tags:
  - bash
 --- 
 
+I got this problem from [karans Project](https://github.com/karan/Projects) repository. The challenge is as follows:
+
+>
+> **Caesar cipher** - Implement a Caesar cipher, both encoding and decoding. The key
+> is an integer from 1 to 25. This cipher rotates the letters of the alphabet (A
+> to Z). The encoding replaces each letter with the 1st to 25th next letter in
+> the alphabet (wrapping Z to A). So key 2 encrypts "HI" to "JK", but key 20
+> encrypts "HI" to "BC". This simple "monoalphabetic substitution cipher"
+> provides almost no security, because an attacker who has the encoded message
+> can either use frequency analysis to guess the key, or just try all 25 keys.
+> 
+
 ## Code 
 
 There is probably a more elegant solution to this but it seems to work as expected. 
@@ -34,7 +46,7 @@ export A=$(echo {a..z} | sed -r 's/ //g';); export C=$(echo $A | sed -r "s/^.{$1
 
 This wants to be written as script and called with two arguments: 
 
-* The key (`$1`) should be a numeric value between 0-26
+* The key (`$1`) should be a numeric value between 0-26. Realistically the keyspace is 1-25 but 0 and 26 both work as a complete rotation. if you go over problems you get into trouble with the negative numbers being passed into a regex.
 * The input file (`$2`) should be the path to a text file 
 
 ### Alphabet string
@@ -64,7 +76,7 @@ echo $A | sed -r "s/^.{$1}//g"
 This deletes all characters in the space defined by the key `$1`. For example
 if the key is 2 this will return `cdefghijklmnopqrstuvwxyz`.
 
-### Append `$1` characters
+### Append `26 - $1` characters
 
 ```bash
 echo $A | sed -r "s/.{$( expr 26 - $1 )}$//g"
