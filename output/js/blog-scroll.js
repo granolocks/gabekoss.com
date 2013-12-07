@@ -48,18 +48,23 @@ function addPosts(posts_array){
   }
 }
 
+
+// Current Page Number, Should Be '1' When it first loads.
 function curPage(){
   return parseInt(document.getElementById('page-location').innerText);
 }
 
+// Increment Current Page Number by 1
 function incrementCurPage() {
   document.getElementById('page-location').innerText = (1 + curPage());
 }
 
+// Set Current Page Number to 0 so it stops working
 function setCurPageToZero() {
   document.getElementById('page-location').innerText = 0;
 }
 
+// Append content when there is nothing else to load
 function addFinalDiv() {
   mainDiv = document.getElementById("main");
 
