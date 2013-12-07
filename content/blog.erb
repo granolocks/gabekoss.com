@@ -6,7 +6,7 @@ summary: A collection or articles written by me and others as well as links to u
 <% require 'json' %>
 <% posts = Post.all_from(@items) %>
 
-<% posts[0..4].each do |post| %>
+<% posts[0..(Post::AJAX_SLICE_SIZE-1)].each do |post| %>
   <div class="post-summary">
     <p>
       <small>
