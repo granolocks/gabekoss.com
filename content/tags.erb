@@ -3,7 +3,7 @@ title: Blog Post Tags
 ---
 
 <ul>
-<% blog_post_tags_hash(@items).sort.each do |arg| %>
+<% TagHelper.tags_hash(@items).sort.each do |arg| %>
   <% tag = arg[0]   %>
   <% posts = arg[1] %>
   <li><a href="/tags/<%= tag.gsub(' ','_') %>"><%= tag %></a> (<%= posts.count %>)</li>

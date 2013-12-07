@@ -12,38 +12,14 @@
 #   because “*” matches zero or more characters.
 preprocess do 
   def blog_json_index
-    tmpl = <<ERB
-<%=
-  require 'json' 
-  posts = @item[:posts].dup 
-  posts.map! do |post|              
-    {                                  
-      path:          post.path,     
-      title:         post[:title],        
-      tags:          post[:tags],         
-      created_at:    post[:created_at],   
-      updated_at:    post[:updated_at],   
-      summary:       post[:summary],      
-      redirect:      post[:redirect],     
-      redirect_path: post[:redirect_path],
-      author:        (post[:author] || "Gabe Koss")
-    }                                     
-  end 
-  JSON.generate(posts) 
-%>
-ERB
-
-    post_chunk_size = 5
-    posts = @items.reject { |i| !(i[:kind] == 'blog-post') }
-    posts.sort_by! {|i| i[:created_at] } 
-    posts.reverse! 
-
     posts_array = [] 
-    posts.each_slice(post_chunk_size) { |slice| posts_array << slice }
+    Post.all_from(@items).each_slice(Post::AJAX_SLICE_SIZE) do |slice| 
+      posts_array << slice 
+    end
 
     posts_array.each_with_index do |posts, index|
       @items << Nanoc::Item.new(
-        tmpl,
+        Post.json_erb,
         {extension: "erb",  posts: posts},
         "/api/v1/blog/#{index}.json"
       )
@@ -51,25 +27,11 @@ ERB
   end
 
   def create_post_tag_pages
-
-    tags = blog_post_tags_hash(@items)
-
-    tmpl = <<ERB
-  <% @item[:posts].each do |p| %>
-    <p>
-      <strong>
-        <a href="<%= p.path %>">
-          <%= p[:title] %>
-        </a>
-      </strong><br/> 
-      <%= p[:summary] %>
-    </p>
-  <% end %>
-ERB
+    tags = TagHelper.tags_hash( Post.all_from(items))
 
     tags.each do |tag, posts|
       @items << Nanoc::Item.new(
-        tmpl,
+        TagHelper.erb_template,
         {extension: "erb", title: tag.capitalize, tag: tag, posts: posts},
         "/tags/#{tag.gsub(/ /,'_')}"
       )
