@@ -1,0 +1,5 @@
+<hr/>
+<p>&copy; <%= Time.now.year %> <a href="mailto:gabe@gabekoss.com">Gabe Koss</a></p>
+<% unless item[:kind] == 'homepage' %>
+  <p><small>Last updated at: <%= item[:updated_at] || Time.now.strftime("%Y-%m-%d %H:%M") %></small></p>
+<% end %>
