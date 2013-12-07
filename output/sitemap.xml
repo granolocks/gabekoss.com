@@ -73,6 +73,10 @@
     <lastmod>2013-12-05</lastmod>
   </url>
   <url>
+    <loc>http://gabekoss.com/blog/2013/12/caesar_cypher_in_bash_oneliner/</loc>
+    <lastmod>2013-12-07</lastmod>
+  </url>
+  <url>
     <loc>http://gabekoss.com/css/notes.css</loc>
     <lastmod>2013-12-06</lastmod>
   </url>
@@ -82,7 +86,7 @@
   </url>
   <url>
     <loc>http://gabekoss.com/js/blog-scroll.js</loc>
-    <lastmod>2013-12-06</lastmod>
+    <lastmod>2013-12-07</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/js/highlight-pack.js</loc>
@@ -272,7 +276,13 @@
     <loc>http://gabekoss.com/tags/android/</loc>
   </url>
   <url>
+    <loc>http://gabekoss.com/tags/bash/</loc>
+  </url>
+  <url>
     <loc>http://gabekoss.com/tags/benchmarking/</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/code_golf/</loc>
   </url>
   <url>
     <loc>http://gabekoss.com/tags/crunchbang/</loc>
