@@ -1,5 +1,10 @@
 module GabeKossDotCom
   class TagHelper
+
+    def self.sorted_tags(items)
+      tags_hash(items).to_a.sort_by! {|i| i[-1].count }.reverse
+    end
+
     def self.tags_hash(items)
       items.inject({}) do |hash,item|
         tags =* item[:tags]
