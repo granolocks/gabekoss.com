@@ -1,24 +1,26 @@
 * { font-family: sans }
 html { background-color: #DEFFCD; }
-code, code *{font-family: monospace; font-size: 110%;}
-
-pre { 
- background-color: #333;
- color: #eee;
- margin: 5px;
- padding: 5px;
- border-radius: 3px;
- overflow: scroll;
+pre {
+  margin: 5px;
+  padding: 5px;
+  border-radius: 3px;
+  overflow: scroll;
+  color: #eee;
+}
+code, code *, pre, pre * { 
+  font-family: monospace; 
+  font-size: 106% !important;
+  line-height: 1.1em;
 }
 
 h1 code,  p code, li code{ 
- background-color: #eee;
- padding: 3px;
- margin: 3px;
- line-height: 1.7em;
- border: #aaa 1px solid;
- border-radius: 3px;
- overflow: scroll;
+  background-color: #eee;
+  padding: 3px;
+  margin: 3px;
+  line-height: 1.7em;
+  border: #aaa 1px solid;
+  border-radius: 3px;
+  overflow: scroll;
 }
 
 blockquote {
@@ -72,39 +74,39 @@ blockquote {
 }
 
 .post-summary {
- background: rgba(20,20,20,0.2);
- margin: 1em;
- padding: 1em;
- border-radius: 7px;
+  background: rgba(20,20,20,0.2);
+  margin: 1em;
+  padding: 1em;
+  border-radius: 7px;
 }
 
 
 a {
- color: #333;
- text-decoration: underline;
+  color: #333;
+  text-decoration: underline;
 }
 
 a:visited {
- color: #444;
+  color: #444;
 }
 
 a:hover {
- color: #444;
- text-decoration: none;
+  color: #444;
+  text-decoration: none;
 }
 
 
 p.tags a:visited, p.tags a { 
- color: #333;
- background: rgba(20,20,20,0.2);
- text-decoration: none;
- border-radius: 7px;
- border: 1px solid black;
- padding: 2px;
+  color: #333;
+  background: rgba(20,20,20,0.2);
+  text-decoration: none;
+  border-radius: 7px;
+  border: 1px solid black;
+  padding: 2px;
 }
 
 p.tags a:hover { 
- color: #ccc;
- background: rgba(90,90,90,0.6);
+  color: #ccc;
+  background: rgba(90,90,90,0.6);
 }
 

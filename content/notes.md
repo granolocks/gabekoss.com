@@ -21,6 +21,7 @@ Unless otherwise specified assume these notes were created on Crunchbang Waldorf
 ### Nanoc
 
 * [Create a collection with Nanoc](/notes/nanoc/create_a_collection/)
+* [Load a Nanoc collection asynchronously](/notes/nanoc/load_collection_asynchronously/)
 
 ### Pentesting Tools
 
