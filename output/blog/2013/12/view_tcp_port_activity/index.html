@@ -55,7 +55,7 @@
         <p>Here are a few tools to help you identify what your linux computer is doing on the
 network. See also <a href="/notes/iptraf">iptraf</a> and <a href="/notes/nethog">nethog</a>.</p>
 
-<h2><code>netstat</code> &amp; <code>ss</code></h2>
+<h2>Netstat &amp; Ss</h2>
 
 <p>Get a list of listening ports with the <code>-l</code> flag. </p>
 
@@ -68,14 +68,14 @@ the <code>ss</code> package. <code>ss</code> stands for &quot;socket statistics&
 <pre><code class="bash">ss -lntup
 </code></pre>
 
-<h2><code>lsof</code></h2>
+<h2>Lsof</h2>
 
 <p><code>lsof</code> which has a wide range of other uses can be used to look at ipv4 network ports.</p>
 
 <pre><code class="sh">sudo lsof +M -i4
 </code></pre>
 
-<h2>Scan self with nmap</h2>
+<h2>Scan self with Nmap</h2>
 
 <p>If this can give you very indepth information about what listening ports you
 have open on a system. Often this is a last resort to help identify suspicious
@@ -84,7 +84,7 @@ ports.</p>
 <pre><code class="bash">sudo nmap -T Aggressive -A -v 127.0.0.1 -p 1-65535
 </code></pre>
 
-<h2><code>fuser</code></h2>
+<h2>Fuser</h2>
 
 <p>Fuser allows you to inspect out a specific port and protocol.</p>
 

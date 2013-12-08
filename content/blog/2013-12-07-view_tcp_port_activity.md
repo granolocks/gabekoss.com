@@ -13,7 +13,7 @@ Here are a few tools to help you identify what your linux computer is doing on t
 network. See also [iptraf](/notes/iptraf) and [nethog](/notes/nethog).
 
 
-## `netstat` & `ss`
+## Netstat & Ss
 
 Get a list of listening ports with the `-l` flag. 
 
@@ -28,7 +28,7 @@ the `ss` package. `ss` stands for "socket statistics".
 ss -lntup
 ```
 
-## `lsof`
+## Lsof
 
 `lsof` which has a wide range of other uses can be used to look at ipv4 network ports.
  
@@ -36,7 +36,7 @@ ss -lntup
 sudo lsof +M -i4
 ```
 
-## Scan self with nmap
+## Scan self with Nmap
 
 If this can give you very indepth information about what listening ports you
 have open on a system. Often this is a last resort to help identify suspicious
@@ -46,7 +46,7 @@ ports.
 sudo nmap -T Aggressive -A -v 127.0.0.1 -p 1-65535
 ```
 
-## `fuser`
+## Fuser
 
 Fuser allows you to inspect out a specific port and protocol.
 
