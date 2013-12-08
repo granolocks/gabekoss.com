@@ -34,7 +34,7 @@
   </url>
   <url>
     <loc>http://gabekoss.com/blog/2013/11/my_open_source_report_card/</loc>
-    <lastmod>2013-11-28</lastmod>
+    <lastmod>2013-12-07</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/blog/2013/11/textfiles_com/</loc>
@@ -70,10 +70,14 @@
   </url>
   <url>
     <loc>http://gabekoss.com/blog/2013/12/create_an_array_of_symbols_with_i_in_ruby_2/</loc>
-    <lastmod>2013-12-05</lastmod>
+    <lastmod>2013-12-07</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/blog/2013/12/caesar_cypher_in_bash_oneliner/</loc>
+    <lastmod>2013-12-07</lastmod>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/blog/2013/12/view_tcp_port_activity/</loc>
     <lastmod>2013-12-07</lastmod>
   </url>
   <url>
@@ -250,7 +254,7 @@
   </url>
   <url>
     <loc>http://gabekoss.com/notes/view_tcp_port_activity/</loc>
-    <lastmod>2013-11-26</lastmod>
+    <lastmod>2013-12-07</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/notes/vim/</loc>
@@ -302,6 +306,9 @@
   </url>
   <url>
     <loc>http://gabekoss.com/tags/link/</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/networking/</loc>
   </url>
   <url>
     <loc>http://gabekoss.com/tags/nexus_7/</loc>

@@ -1,126 +1,88 @@
-<!doctype html>
-<html>
+<!DOCTYPE HTML>
+<html lang="en-US">
   <head>
-    <title>Viewing TCP network and port activity</title>
-<link type='text/css' href='/style.css' rel='stylesheet'/>
-<link rel="stylesheet" href="/css/zenburn.css">
-<meta property="og:title" content="Viewing TCP network and port activity" />
-<meta property="og:url" content="http://www.gabekoss.com/notes/view_tcp_port_activity/" />
-<meta property="og:type" content="website" />
-<meta property="og:description" content="" />
-<meta property="og:image" content="http://www.gabekoss.com/images/og.png" />
-
-  <script src="/js/highlight-pack.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script>
-
-<!--                                                                                              -->
-<!--       ___ ___         .__  .__           ___________      .__                   .___._.      -->
-<!--      /   |   \   ____ |  | |  |   ____   \_   _____/______|__| ____   ____    __| _/| |      -->
-<!--     /    ~    \_/ __ \|  | |  |  /  _ \   |    __) \_  __ \  |/ __ \ /    \  / __ | | |      -->
-<!--     \    Y    /\  ___/|  |_|  |_(  <_> )  |     \   |  | \/  \  ___/|   |  \/ /_/ |  \|      -->
-<!--      \___|_  /  \___  >____/____/\____/   \___  /   |__|  |__|\___  >___|  /\____ |  __      -->
-<!--            \/       \/                        \/                  \/     \/      \/  \/      -->
-<!--                                                                                              -->
-<!--                                                                                              -->
-<!--     My sweet site was generated using love, ruby & nanoc [http://nanoc.ws/]                  -->
-<!--                                                                                              -->
-<!--                                                                                              -->
-<!--     "Anytime I see something screech across a room and latch onto someones neck,             -->
-<!--     and the guy screams and tries to get it off, I have to laugh,                            -->
-<!--     because what is that thing?"                                                             -->
-<!--                                                                                              -->
-<!--                           - Jack Handy                                                       -->
-<!--                                                                                              -->
-
+    <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="1;url=/blog/2013/12/view_tcp_port_activity/">
+    <script type="text/javascript">
+      window.location.href = "/blog/2013/12/view_tcp_port_activity/"
+    </script>
+    <title>Page has Moved</title>
   </head>
   <body>
-    <div id="sidebar">
-      <ul>
-  <li><a href="/">Home</a></li>
-  <li><a href="/blog">Blog</a></li>
-  <li><a href="/notes">Notes</a></li>
-</ul>
-<div class="img-links">
-  <a href="https://github.com/granolocks"><img src="/images/github.png"></a>
-  <a href="https://twitter.com/granolocks"><img src="/images/twitter.png"></a>
-  <div style="clear:both"></div>
-</div>
-
-    </div>
-    <div id="main">
-      
-        <h1>Viewing TCP network and port activity</h1>
-        <p>Here are a few tools to help you identify what your computer is doing on the
-network. See also <a href="/notes/iptraf">iptraf</a> and <a href="/notes/nethog">nethog</a>.</p>
-
-<h2>Scan self with nmap</h2>
-
-<pre><code class="bash">sudo nmap -T Aggressive -A -v 127.0.0.1 -p 1-65535
-</code></pre>
-
-<h2><code>netstat</code></h2>
-
-<p>Get a list of listening ports</p>
-
-<pre><code class="bash">netstat -lntup
-</code></pre>
-
-<h2><code>ss</code></h2>
-
-<p><code>netstat</code> is being deprecated so if that doesn&#39;t work on a system you can try the <code>ss</code> package. <code>ss</code> stands for &quot;socket statistics&quot;.</p>
-
-<pre><code class="bash">ss -lntup
-</code></pre>
-
-<h2><code>lsof</code></h2>
-
-<p><code>lsof</code> which had a wide range of other uses can be used to look at ipv4 network ports.</p>
-
-<pre><code class="sh">sudo lsof +M -i4
-</code></pre>
-
-<h2><code>fuser</code></h2>
-
-<p>Fuser allows you to check out a specific port and protocol</p>
-
-<pre><code class="bash">sudo fuser -v &lt;port&gt;/&lt;tcp|udp&gt;
-</code></pre>
-
-<p>The output is like:</p>
-
-<pre><code class="bash">$ sudo fuser -v 3143/tcp
-             USER       PID  ACCESS COMMAND
-3143/tcp:    db-user    2763 F....  apt-cacher
-</code></pre>
-
-<p>If you need to kill the process run it again with <code>-kv &lt;port&gt;&lt;protp&gt;</code></p>
-
-<pre><code class="bash">sudo fuser -vk 3143/tcp
-</code></pre>
-
-      
-    </div>
-    <div id="footer">
-      <hr/>
-<p>&copy; 2013 <a href="mailto:gabe@gabekoss.com">Gabe Koss</a></p>
-
-  <p><small>Last updated at: 2013-11-07 06:59</small></p>
-
-
-    </div>
-    <script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-12795044-1']);
-  _gaq.push(['_setDomainName', 'gabekoss.com']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-   var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-   ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-   var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-   })();
-</script>
-
+    <h1>It's Dangerous to go alone!</h1>
+    <a href='/blog/2013/12/view_tcp_port_activity/'>
+      <h2>Take This!</h2>
+      <pre style="font-size: xx-small; line-height: .7em">
+                                                                  ..
+                                                              `....,
+                                                            ......,,
+                                                          `....``.,,
+                                                         ......``.:.
+                                                        .........,: 
+                                                       ....`..``.,: 
+                                                      ....``````.:: 
+                                                     ...```````.::` 
+                                                    ...````````,::  
+                                                   ...````````,::`  
+                                                  ...````````,::    
+                                                 ...``  ` ``,::`    
+                                                ...``    ``,::`     
+                                               ...``   ```,::.      
+                                              ...``   ```,::.       
+                                             ...`     ``,::.        
+                                            ...`   ````,::.         
+                                           ...````````,::.          
+                                          ...````````,::.           
+                                         ...````````,::,            
+                                        ...```````.,::,             
+                                       ...``.````.,::,              
+                                      ...``..````,::,               
+                                     ...````````,::,                
+                                    ...````````,::,                 
+                                   ...````````,::,                  
+                                  ...````````,::,                   
+                                 .``````````.::,                    
+                                `.````````.,::,                     
+                                ..`````...,:::                      
+            ::`                 ``````...,:::                       
+             :;;               .`````...`,::                        
+             :;;:.            .``````````,:                         
+             ,;;;;:          .```````````,                          
+             `;;;;;:        .```````````.                           
+              ;;;;;:       .```````.....                            
+              ;;;;;`      ..``````..,..                             
+              ;;;';      ...`````..:                                
+              ;';',     ......``.,,                                 
+              ;';;     ..,;;,``..:                                  
+              ;';;  :;,.;;:;,``.:                                   
+             `;;;:;;;';;,.,;.`.:                                    
+             .;;;;;;;';,.,,;..,                                     
+                ,:;;;;;.,:;...                                      
+                  ;;;;.,:';,,                                       
+                ,;;;;',;'';:                                        
+                :;;;;''''';;                                        
+                ::;;''''';''                                        
+                ;:;;'''''''`   :;:                                  
+                ;;;'''';'';  .;;;;;                                 
+               ;:;''''; ;;;;;;;';;;:                                
+              ::;;';'': ,;;;;;;;;;;;                                
+             :::;:       :;;;;'';;;;:                               
+            ;,;;'        :;;::::;;::;                               
+           :::;;         .`     `::;:,                              
+          :::;'                     ..                              
+        `::;;;                                                      
+     ::;;;';'                                                       
+    ,';;;;''                                                        
+   `:;;;''''                                                        
+:::;;;;;''''                                                        
+,;;;;;;;''''                                                        
+  :';;:;;'+;                                                        
+   :';;;;:                                                          
+    :';;;                                                           
+     ';;,                                                           
+      ;;                                                            
+      :;                                                            
+      </pre>
+    </a>
   </body>
 </html>
-

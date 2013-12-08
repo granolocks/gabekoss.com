@@ -4,7 +4,7 @@ created_at: 2013-12-05 07:55
 updated_at: 2013-12-05 07:55
 kind: blog-post
 author: Gabe Koss
-summary: The helpful %i{} method can be used in Ruby 2 to return an array of. 
+summary: The helpful %i{} method can be used in Ruby 2 to return an array of strings as with %w{}. 
 tags: 
  - ruby
 --- 

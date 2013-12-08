@@ -1,13 +1,13 @@
 <!doctype html>
 <html>
   <head>
-    <title>Nosql</title>
+    <title>View TCP Port Activity</title>
 <link type='text/css' href='/style.css' rel='stylesheet'/>
 <link rel="stylesheet" href="/css/zenburn.css">
-<meta property="og:title" content="Nosql" />
-<meta property="og:url" content="http://www.gabekoss.com/tags/nosql/" />
+<meta property="og:title" content="View TCP Port Activity" />
+<meta property="og:url" content="http://www.gabekoss.com/blog/2013/12/view_tcp_port_activity/" />
 <meta property="og:type" content="website" />
-<meta property="og:description" content="" />
+<meta property="og:description" content="Here are a few tools to help you identify what your computer is doing on the network." />
 <meta property="og:image" content="http://www.gabekoss.com/images/og.png" />
 
   <script src="/js/highlight-pack.js"></script>
@@ -49,26 +49,69 @@
     </div>
     <div id="main">
       
-        <h1>Nosql</h1>
-          
-    <p>
-      <strong>
-        <a href="/blog/2013/11/riak_101/">
-          Riak 101
-        </a>
-      </strong><br/>
-      A simple introduction to Riak based on a presentation I gave with Sam Stelfox at a Burlington Web Development Group meetup.
-    </p>
-  
-    <p>
-      <strong>
-        <a href="/blog/2013/11/introduction_to_elastic_search/">
-          Introduction To Elastic Search
-        </a>
-      </strong><br/>
-      A simple introduction to Elastic Search investigating saving some data and doing simple querying.
-    </p>
-  
+        <p><small><a href='/blog'>Back to Blog</a></small></p>
+        <h1>View TCP Port Activity</h1>
+        <p><em>Post created 2013-12-07 21:30 by Gabe Koss.<br/></em></p>
+        <p>Here are a few tools to help you identify what your computer is doing on the
+network. See also <a href="/notes/iptraf">iptraf</a> and <a href="/notes/nethog">nethog</a>.</p>
+
+<h2>Scan self with nmap</h2>
+
+<pre><code class="bash">sudo nmap -T Aggressive -A -v 127.0.0.1 -p 1-65535
+</code></pre>
+
+<h2><code>netstat</code></h2>
+
+<p>Get a list of listening ports</p>
+
+<pre><code class="bash">netstat -lntup
+</code></pre>
+
+<h2><code>ss</code></h2>
+
+<p><code>netstat</code> is being deprecated so if that doesn&#39;t work on a system you can try the <code>ss</code> package. <code>ss</code> stands for &quot;socket statistics&quot;.</p>
+
+<pre><code class="bash">ss -lntup
+</code></pre>
+
+<h2><code>lsof</code></h2>
+
+<p><code>lsof</code> which had a wide range of other uses can be used to look at ipv4 network ports.</p>
+
+<pre><code class="sh">sudo lsof +M -i4
+</code></pre>
+
+<h2><code>fuser</code></h2>
+
+<p>Fuser allows you to check out a specific port and protocol</p>
+
+<pre><code class="bash">sudo fuser -v &lt;port&gt;/&lt;tcp|udp&gt;
+</code></pre>
+
+<p>The output is like:</p>
+
+<pre><code class="bash">$ sudo fuser -v 3143/tcp
+             USER       PID  ACCESS COMMAND
+3143/tcp:    db-user    2763 F....  apt-cacher
+</code></pre>
+
+<p>If you need to kill the process run it again with <code>-kv &lt;port&gt;&lt;protp&gt;</code></p>
+
+<pre><code class="bash">sudo fuser -vk 3143/tcp
+</code></pre>
+
+        <div id="disqus_thread"></div>
+<script type="text/javascript">
+var disqus_shortname = 'gabekoss'; 
+
+(function() {
+ var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+ dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+ (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+ })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
       
     </div>
@@ -76,7 +119,7 @@
       <hr/>
 <p>&copy; 2013 <a href="mailto:gabe@gabekoss.com">Gabe Koss</a></p>
 
-  <p><small>Last updated at: 2013-12-07 21:32</small></p>
+  <p><small>Last updated at: 2013-12-07 21:30</small></p>
 
 
     </div>
