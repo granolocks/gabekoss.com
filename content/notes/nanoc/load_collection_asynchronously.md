@@ -56,11 +56,11 @@ preprocess do
   add_doge_api
 end
 
-compile '/api/v1/blog/*' do
+compile '/api/v1/doge_blog/*' do
  filter :erb
 end
 
-route '/api/v1/dogeblog/*' do
+route '/api/v1/doge_blog/*' do
   # remove trailing '/'
   item.identifier.gsub(/\/$/,'')
 end

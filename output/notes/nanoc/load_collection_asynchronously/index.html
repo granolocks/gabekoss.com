@@ -106,11 +106,11 @@ to load the images.</p>
   add_doge_api
 end
 
-compile &#39;/api/v1/blog/*&#39; do
+compile &#39;/api/v1/doge_blog/*&#39; do
  filter :erb
 end
 
-route &#39;/api/v1/dogeblog/*&#39; do
+route &#39;/api/v1/doge_blog/*&#39; do
   # remove trailing &#39;/&#39;
   item.identifier.gsub(/\/$/,&#39;&#39;)
 end
@@ -201,7 +201,7 @@ first page of additional data to request is page 1.</p>
       <hr/>
 <p>&copy; 2013 <a href="mailto:gabe@gabekoss.com">Gabe Koss</a></p>
 
-  <p><small>Last updated at: 2013-12-07 23:39</small></p>
+  <p><small>Last updated at: 2013-12-07 23:45</small></p>
 
 
     </div>
