@@ -31,7 +31,6 @@ Unless otherwise specified assume these notes were created on Crunchbang Waldorf
 
 ### Tools & Snippets
 
-* [View TCP port activity](/notes/view_tcp_port_activity)
 * [cp](/notes/cp)
 * [ffmpeg](/notes/ffmpeg)
 * [finch](/notes/finch)

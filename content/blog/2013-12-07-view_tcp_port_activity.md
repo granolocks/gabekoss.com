@@ -4,12 +4,12 @@ created_at: 2013-12-07 21:30
 updated_at: 2013-12-07 21:30
 kind: blog-post
 author: Gabe Koss
-summary: Here are a few tools to help you identify what your computer is doing on the network.
+summary: Here are a few tools to help you identify what linux your computer is doing on the network.
 tags: 
   - networking
 --- 
 
-Here are a few tools to help you identify what your computer is doing on the
+Here are a few tools to help you identify what your linux computer is doing on the
 network. See also [iptraf](/notes/iptraf) and [nethog](/notes/nethog).
 
 ## Scan self with nmap
