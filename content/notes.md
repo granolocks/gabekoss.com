@@ -18,9 +18,9 @@ Unless otherwise specified assume these notes were created on Crunchbang Waldorf
 * [Install Ubuntu 11.10 ](/notes/linux/ubuntu-11_10_install)
 * [Install 12.04 Rails Server](/notes/linux/ubuntu-12_04_rails_server)
 
-### Guides
+### Nanoc
 
-* [View TCP port activity](/notes/view_tcp_port_activity)
+* [Create a collection with Nanoc](/notes/nanoc/create_a_collection/)
 
 ### Pentesting Tools
 
@@ -31,6 +31,7 @@ Unless otherwise specified assume these notes were created on Crunchbang Waldorf
 
 ### Tools & Snippets
 
+* [View TCP port activity](/notes/view_tcp_port_activity)
 * [cp](/notes/cp)
 * [ffmpeg](/notes/ffmpeg)
 * [finch](/notes/finch)
