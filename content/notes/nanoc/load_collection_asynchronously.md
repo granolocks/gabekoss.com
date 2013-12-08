@@ -1,3 +1,12 @@
+---
+title: Nanoc Collections 
+updated_at: 2013-12-07 00:35
+created_at: 2013-12-07 00:35
+---
+
+This assumes that there exists a collection similar to the one outlined in the
+notes about [generic collection pages](/notes/nanoc/create_a_collection/).
+
 ## Doge Helper
 
 To manage some of the things that are useful you can create a helper object. 

@@ -5,7 +5,7 @@ created_at: 2013-12-07 00:35
 ---
 
 These are notes about organizing a collection of some type of content (such as
-a blog) in nanoc.  
+a blog) in nanoc. 
 
 _This is in no way complete or definitive. Just some of my own notes._
 
@@ -80,3 +80,6 @@ route '/doge_blog/*' do
 end
 ```
 
+Extend this simple collection with a slightly more interesting method for
+[asynchronous loading](/notes/nanoc/create_a_collection/) to provide pagination
+of a sort.
