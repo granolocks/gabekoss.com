@@ -17,21 +17,66 @@ only the following metadata:
 
 ```markdown
 ---
-title: Doge Images
+title: Such doge
 description: Wow. So doge. Very image.
-source: http://gabekoss.com/images/doge/wow_so_image.jpg
+source: http://i.imgur.com/eh9GPzx.jpg
+kind: doge-pic
 ---
 ```
 
 This is effectively the 'model' I am using to store the images. This does not
 take into account storing images on your site, 
 
-## Set up your routes and items
+## Set up your index page and content items
 
-I'm going to host this at
-[http://gabekoss.com/doge_blog](http://gabekoss.com/doge_blog) so I create the
+First create an index page for the collection in `content/doge_blog.erb`. Add a
+simple loop into this page like:
+
+```rb
+<% doges = @items.reject {|i| !(i[:kind] == 'doge-pic') } %>
+<% doges.each do |doge| %>
+  <div class="doge-pic">
+    <img src="<%= doge[:source] %>" title="<%= doge[:title] %>" />
+    <h2><%= doge[:title] %></h2>
+    <p><%= doge[:description] %></p>
+  </div>
+<% end %>
+```
+
+I'm going to host this at `/doge_blog` so I also create the directory
 `contents/doge_blog` and make some markdown files in it containing this sort of
-item meta data. 
+item meta data. Here is the contents of the `/doge_blog` directory.
 
-## Collection page
+```
+content/doge_blog/
+-- 001_doge.md
+-- 002_doge.md
+-- 003_doge.md
+-- 004_doge.md
+-- 005_doge.md
+-- ...
+-- 999_doge.md
+```
+
+## Update Rules Files
+
+Add compilation rule to render index.
+
+```ruby
+compile '/doge_blog/' do
+ filter :erb
+ layout 'default'
+end
+```
+
+Also add a route definition which excludes items in the `/doge_blog/*` path if
+they are one of the image items. These could be easily managed seperately. 
+
+```ruby
+route '/doge_blog/*' do
+  unless item[:kind] == "doge-pic"
+    '/doge_blog/index.html'
+  end
+end
+```
 

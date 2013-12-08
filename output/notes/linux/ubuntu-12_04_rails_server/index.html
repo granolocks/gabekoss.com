@@ -1,0 +1,343 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Ubuntu 12.04 Rails Server</title>
+<link type='text/css' href='/style.css' rel='stylesheet'/>
+<link rel="stylesheet" href="/css/zenburn.css">
+<meta property="og:title" content="Ubuntu 12.04 Rails Server" />
+<meta property="og:url" content="http://www.gabekoss.com/notes/linux/ubuntu-12_04_rails_server/" />
+<meta property="og:type" content="website" />
+<meta property="og:description" content="" />
+<meta property="og:image" content="http://www.gabekoss.com/images/og.png" />
+
+  <script src="/js/highlight-pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+<!--                                                                                              -->
+<!--       ___ ___         .__  .__           ___________      .__                   .___._.      -->
+<!--      /   |   \   ____ |  | |  |   ____   \_   _____/______|__| ____   ____    __| _/| |      -->
+<!--     /    ~    \_/ __ \|  | |  |  /  _ \   |    __) \_  __ \  |/ __ \ /    \  / __ | | |      -->
+<!--     \    Y    /\  ___/|  |_|  |_(  <_> )  |     \   |  | \/  \  ___/|   |  \/ /_/ |  \|      -->
+<!--      \___|_  /  \___  >____/____/\____/   \___  /   |__|  |__|\___  >___|  /\____ |  __      -->
+<!--            \/       \/                        \/                  \/     \/      \/  \/      -->
+<!--                                                                                              -->
+<!--                                                                                              -->
+<!--     My sweet site was generated using love, ruby & nanoc [http://nanoc.ws/]                  -->
+<!--                                                                                              -->
+<!--                                                                                              -->
+<!--     "Anytime I see something screech across a room and latch onto someones neck,             -->
+<!--     and the guy screams and tries to get it off, I have to laugh,                            -->
+<!--     because what is that thing?"                                                             -->
+<!--                                                                                              -->
+<!--                           - Jack Handy                                                       -->
+<!--                                                                                              -->
+
+  </head>
+  <body>
+    <div id="sidebar">
+      <ul>
+  <li><a href="/">Home</a></li>
+  <li><a href="/blog">Blog</a></li>
+  <li><a href="/notes">Notes</a></li>
+</ul>
+<div class="img-links">
+  <a href="https://github.com/granolocks"><img src="/images/github.png"></a>
+  <a href="https://twitter.com/granolocks"><img src="/images/twitter.png"></a>
+  <div style="clear:both"></div>
+</div>
+
+    </div>
+    <div id="main">
+      
+        <h1>Ubuntu 12.04 Rails Server</h1>
+        <h2>Install from ISO</h2>
+
+<p>After doing the initial install from an Ubuntu 12.04 64bit ISO I opted to
+install some optional packages:</p>
+
+<ul>
+<li>OpenSSH Server</li>
+<li>Postgres</li>
+</ul>
+
+<h2>Install helpful packages I like</h2>
+
+<p>Just a few packages I want to make sure are on the system.</p>
+
+<p>Gotta have my pops...</p>
+
+<pre><code class="bash">sudo apt-get -y update
+sudo apt-get -y install tmux vim git tree build-essential zlib1g-dev libssl-dev libreadline-dev libyaml-dev libcurl4-openssl-dev curl git-core python-software-properties
+</code></pre>
+
+<h2>Hardening</h2>
+
+<h3>Configure <code>ufw</code></h3>
+
+<pre><code class="bash">sudo ufw enable
+sudo ufw status verbose
+sudo ufw allow ssh
+sudo ufw allow http
+</code></pre>
+
+<h3>Shared Memory</h3>
+
+<p>Secure shared memory in <code>/dev/shm</code> by adding the following line to the bottom
+of <code>/etc/fstab</code>.  </p>
+
+<pre><code># Add to bottom /etc/fstab
+tmpfs /dev/shm tmpfs defaults,noexec,nosuid 0 0
+</code></pre>
+
+<p>A reboot is required.</p>
+
+<pre><code class="bash">sudo reboot
+</code></pre>
+
+<h3>Securing SSH</h3>
+
+<p>In <code>/etc/ssh/sshd_config</code> make the following changes:</p>
+
+<pre><code>Port &lt;new_port&gt;
+PermitRootLogin no
+DebianBanner no
+</code></pre>
+
+<p>A restart of the ssh service is now required. </p>
+
+<pre><code class="bash">sudo service ssh restart
+</code></pre>
+
+<h3>Restrict <code>su</code> privileges to admin group</h3>
+
+<pre><code class="bash">sudo groupadd admin
+sudo usermod -a -G admin &lt;admin user&gt;
+sudo dpkg-statoverride --update --add root admin 4750 /bin/su
+</code></pre>
+
+<h2>Setting up the deploy user</h2>
+
+<p>Create a user <code>deploy</code> to run the rails app.</p>
+
+<pre><code class="bash">sudo adduser deploy
+</code></pre>
+
+<h2>Install Ruby</h2>
+
+<pre><code class="bash">wget http://ftp.ruby-lang.org/pub/ruby/1.9/ruby-1.9.3-p448.tar.gz
+tar -xvzf ruby-1.9.3-p447.tar.gz
+cd ruby-1.9.3-p447/
+./configure
+make
+sudo make install
+echo &quot;gem: --no-ri --no-rdoc&quot; &gt;&gt; ~/.gemrc
+sudo gem install bundler
+</code></pre>
+
+<h2>Install Passenger + Nginx</h2>
+
+<pre><code class="bash">sudo gem install passenger
+sudo passenger-install-nginx-module
+</code></pre>
+
+<p>In the nginx module installation process press <code>enter</code> at the first screen,
+then select <code>1. Yes: download, compile and install Nginx for me. (recommended)</code>
+when prompted. Press <code>enter</code> to continue selecting defaults until installation
+completes.</p>
+
+<h3>Nginx init script</h3>
+
+<p>Place this script (or something like it) in <code>/etc/init.d/nginx</code></p>
+
+<p>After setting the script file, run: </p>
+
+<pre><code class="bash">sudo chmod +x /etc/init.d/nginx
+sudo /usr/sbin/update-rc.d -f nginx defaults
+</code></pre>
+
+<h4>Script Body:</h4>
+
+<pre><code class="bash">#! /bin/sh
+
+### BEGIN INIT INFO
+# Provides:          nginx
+# Required-Start:    $all
+# Required-Stop:     $all
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: starts the nginx web server
+# Description:       starts nginx using start-stop-daemon
+### END INIT INFO
+
+# Original source: http://library.linode.com/assets/660-init-deb.sh
+
+PATH=/opt/nginx/sbin:/sbin:/bin:/usr/sbin:/usr/bin
+DAEMON=/opt/nginx/sbin/nginx
+NAME=nginx
+DESC=nginx
+
+test -x $DAEMON || exit 0
+
+# Include nginx defaults if available
+if [ -f /etc/default/nginx ] ; then
+  . /etc/default/nginx
+fi
+
+set -e
+
+case &quot;$1&quot; in
+  start)
+    echo -n &quot;Starting $DESC: &quot;
+    start-stop-daemon --start --quiet --pidfile /opt/nginx/logs/$NAME.pid \
+            --exec $DAEMON -- $DAEMON_OPTS
+    echo &quot;$NAME.&quot;
+    ;;
+  stop)
+    echo -n &quot;Stopping $DESC: &quot;
+    start-stop-daemon --stop --quiet --pidfile /opt/nginx/logs/$NAME.pid \
+            --exec $DAEMON
+    echo &quot;$NAME.&quot;
+    ;;
+  restart|force-reload)
+    echo -n &quot;Restarting $DESC: &quot;
+    start-stop-daemon --stop --quiet --pidfile \
+            /opt/nginx/logs/$NAME.pid --exec $DAEMON
+    sleep 1
+    start-stop-daemon --start --quiet --pidfile \
+            /opt/nginx/logs/$NAME.pid --exec $DAEMON -- $DAEMON_OPTS
+    echo &quot;$NAME.&quot;
+    ;;
+  reload)
+    echo -n &quot;Reloading $DESC configuration: &quot;
+    start-stop-daemon --stop --signal HUP --quiet --pidfile     /opt/nginx/logs/$NAME.pid \
+        --exec $DAEMON
+    echo &quot;$NAME.&quot;
+    ;;
+  *)
+    N=/etc/init.d/$NAME
+    echo &quot;Usage: $N {start|stop|restart|reload|force-reload}&quot; &gt;&amp;2
+    exit 1
+    ;;
+esac
+
+exit 0
+</code></pre>
+
+<h3>Postgres</h3>
+
+<p>Just make sure everything is there:</p>
+
+<pre><code class="bash">sudo apt-get -y install postgresql libpq-dev
+</code></pre>
+
+<p>Set up the database:</p>
+
+<pre><code class="bash">sudo -u postgres psql
+</code></pre>
+
+<pre><code class="sql">CREATE USER username WITH PASSWORD &#39;password&#39;;
+ALTER ROLE username superuser createrole createdb replication;
+CREATE DATABASE projectname_production OWNER username;
+</code></pre>
+
+<h3>Nodejs</h3>
+
+<p>Node is just included here as a javascript runtime environment for rails but it
+is a useful tool to have anyway and an alternate server.</p>
+
+<pre><code class="bash">sudo apt-add-repository ppa:chris-lea/node.js
+sudo apt-get -y update
+sudo apt-get -y install nodejs`
+</code></pre>
+
+<h3>Configure nginx.conf</h3>
+
+<p>Add something like the following to <code>/opt/nginx/conf/nginx.conf</code></p>
+
+<pre><code>server {
+  listen 80;
+  server_name my-domain.com;
+  root /home/deploy/www/public;   
+  passenger_enabled on;
+}
+</code></pre>
+
+<h3>Capistrano</h3>
+
+<p>First go into the project and add the following to <code>Gemfile</code>.</p>
+
+<pre><code class="ruby">gem &#39;capistrano&#39;
+gem &#39;capistrano-ext&#39;
+</code></pre>
+
+<p>Once added:</p>
+
+<pre><code class="bash">bundle install
+capify .
+</code></pre>
+
+<p>Configure SSH forwarding and then update the application <code>config/deploy.rb</code> as follows:</p>
+
+<pre><code class="ruby">require &quot;bundler/capistrano&quot;
+
+set :repository,   &quot;git@github.com:my-user/my-app.git&quot;  # Your clone URL
+set :scm,          &quot;git&quot;
+set :user,         &quot;deploy&quot;  # The servers user for deploys
+set :ssh_options,  { :forward_agent =&gt; true, :port =&gt; 22222 }
+set :branch,       &quot;master&quot;
+set :deploy_via,   :remote_cache
+set :deploy_to,    &quot;/home/#{user}/www&quot;
+set :use_sudo,     false
+
+role :app, &quot;my-app-server.com&quot;
+role :web, &quot;my-app-server.com&quot;
+role :db,  &quot;my-app-server.com&quot;, :primary =&gt; true
+</code></pre>
+
+<p>Once you have configure <code>config/database.yml</code> with the right postgres info
+run something like</p>
+
+<pre><code class="sh">cap deploy:setup
+cap deploy
+</code></pre>
+
+<h4>Sources</h4>
+
+<p>These notes were culled from two primary sources in addition to my own process +
+ordering + additional notes.</p>
+
+<ul>
+<li><a href="http://www.thefanclub.co.za/how-to/how-secure-ubuntu-1204-lts-server-part-1-basics">How to Secure Ubuntu 1204 LTS
+Server</a></li>
+<li><a href="http://excid3.com/blog/setting-up-ubuntu-12-04-with-ruby-1-9-3-nginx-passenger-and-postgresql-or-mysql/">Setting Up Ubuntu 12.04 with ruby 1.9.3 nginx passenger and
+postgres</a></li>
+<li><a href="https://github.com/capistrano/capistrano/wiki/2.x-From-The-Beginning">Capistrano 2.x From the Begining</a></li>
+<li><a href="https://coderwall.com/p/yz8cha">Deploying Rails app using Nginx, Unicorn, Postgres and Capistrano to Digital Ocean</a></li>
+</ul>
+
+      
+    </div>
+    <div id="footer">
+      <hr/>
+<p>&copy; 2013 <a href="mailto:gabe@gabekoss.com">Gabe Koss</a></p>
+
+  <p><small>Last updated at: 2013-11-07 6:55</small></p>
+
+
+    </div>
+    <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-12795044-1']);
+  _gaq.push(['_setDomainName', 'gabekoss.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+   var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+   ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+   var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+   })();
+</script>
+
+  </body>
+</html>
+

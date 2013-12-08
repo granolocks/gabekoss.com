@@ -1,0 +1,130 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Mounting Nexus 7 Files on Crunchbang</title>
+<link type='text/css' href='/style.css' rel='stylesheet'/>
+<link rel="stylesheet" href="/css/zenburn.css">
+<meta property="og:title" content="Mounting Nexus 7 Files on Crunchbang" />
+<meta property="og:url" content="http://www.gabekoss.com/blog/2013/12/mounting_nexus_7_files_on_crunchbang/" />
+<meta property="og:type" content="website" />
+<meta property="og:description" content="I have a Google Nexus 7 Gen 1 and I have struggled to get it mounted on my Crunbang Linux systems." />
+<meta property="og:image" content="http://www.gabekoss.com/images/og.png" />
+
+  <script src="/js/highlight-pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+<!--                                                                                              -->
+<!--       ___ ___         .__  .__           ___________      .__                   .___._.      -->
+<!--      /   |   \   ____ |  | |  |   ____   \_   _____/______|__| ____   ____    __| _/| |      -->
+<!--     /    ~    \_/ __ \|  | |  |  /  _ \   |    __) \_  __ \  |/ __ \ /    \  / __ | | |      -->
+<!--     \    Y    /\  ___/|  |_|  |_(  <_> )  |     \   |  | \/  \  ___/|   |  \/ /_/ |  \|      -->
+<!--      \___|_  /  \___  >____/____/\____/   \___  /   |__|  |__|\___  >___|  /\____ |  __      -->
+<!--            \/       \/                        \/                  \/     \/      \/  \/      -->
+<!--                                                                                              -->
+<!--                                                                                              -->
+<!--     My sweet site was generated using love, ruby & nanoc [http://nanoc.ws/]                  -->
+<!--                                                                                              -->
+<!--                                                                                              -->
+<!--     "Anytime I see something screech across a room and latch onto someones neck,             -->
+<!--     and the guy screams and tries to get it off, I have to laugh,                            -->
+<!--     because what is that thing?"                                                             -->
+<!--                                                                                              -->
+<!--                           - Jack Handy                                                       -->
+<!--                                                                                              -->
+
+  </head>
+  <body>
+    <div id="sidebar">
+      <ul>
+  <li><a href="/">Home</a></li>
+  <li><a href="/blog">Blog</a></li>
+  <li><a href="/notes">Notes</a></li>
+</ul>
+<div class="img-links">
+  <a href="https://github.com/granolocks"><img src="/images/github.png"></a>
+  <a href="https://twitter.com/granolocks"><img src="/images/twitter.png"></a>
+  <div style="clear:both"></div>
+</div>
+
+    </div>
+    <div id="main">
+      
+        <p><small><a href='/blog'>Back to Blog</a></small></p>
+        <h1>Mounting Nexus 7 Files on Crunchbang</h1>
+        <p><em>Post created 2013-12-03 14:02 by Gabe Koss.<br/></em></p>
+        <p>I have a Google Nexus 7 Gen 1 and I have struggled to get it mounted on my
+Crunbang Linux systems. The best solution I have found on this topic was from
+Crunchbang Forum user <a href="http://crunchbang.org/forums/profile.php?id=12994">damo</a>
+on <a href="http://crunchbang.org/forums/viewtopic.php?id=29717">this post</a>. </p>
+
+<p>I have not tried all the approaches outlined by damo but this approach allowed
+me to get files on to the tablet which I could then move around with Astro.</p>
+
+<h4>Install <code>gphotofs</code></h4>
+
+<pre><code>sudo apt-get install gphotofs
+</code></pre>
+
+<h4>Create Mountpoint</h4>
+
+<pre><code>mkdir ~/nexus7
+</code></pre>
+
+<h4>Put the tablet in USB Debugging mode</h4>
+
+<p>On the tablet go to <code>Settings</code> &gt; <code>Developer options</code> &gt; <code>USB Debugging</code> and make
+sure this is enabled.</p>
+
+<h4>Choose Camera (PTP) connection option</h4>
+
+<p>On the tablet USB connection settings uncheck the <code>MTP</code> option in favor of the
+<code>PTP</code> setting.</p>
+
+<h4>Mount device</h4>
+
+<pre><code>gphotofs ~/nexus7
+</code></pre>
+
+<p>Now you should be able to access the DCIM and Pictures directory of your
+tablet. You can put non-image files here and then retrieve them from your
+tablet filebrowser.</p>
+
+        <div id="disqus_thread"></div>
+<script type="text/javascript">
+var disqus_shortname = 'gabekoss'; 
+
+(function() {
+ var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+ dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+ (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+ })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+      
+    </div>
+    <div id="footer">
+      <hr/>
+<p>&copy; 2013 <a href="mailto:gabe@gabekoss.com">Gabe Koss</a></p>
+
+  <p><small>Last updated at: 2013-12-03 14:02</small></p>
+
+
+    </div>
+    <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-12795044-1']);
+  _gaq.push(['_setDomainName', 'gabekoss.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+   var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+   ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+   var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+   })();
+</script>
+
+  </body>
+</html>
+

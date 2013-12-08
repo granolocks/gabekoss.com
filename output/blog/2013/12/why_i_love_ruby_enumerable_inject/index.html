@@ -1,0 +1,227 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Why I love Ruby Enumerable#inject</title>
+<link type='text/css' href='/style.css' rel='stylesheet'/>
+<link rel="stylesheet" href="/css/zenburn.css">
+<meta property="og:title" content="Why I love Ruby Enumerable#inject" />
+<meta property="og:url" content="http://www.gabekoss.com/blog/2013/12/why_i_love_ruby_enumerable_inject/" />
+<meta property="og:type" content="website" />
+<meta property="og:description" content="Rubys Enumerable class is one of the most powerful tools the language has to offer. In particular, I love the `Enumerable#inject` method." />
+<meta property="og:image" content="http://www.gabekoss.com/images/og.png" />
+
+  <script src="/js/highlight-pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+<!--                                                                                              -->
+<!--       ___ ___         .__  .__           ___________      .__                   .___._.      -->
+<!--      /   |   \   ____ |  | |  |   ____   \_   _____/______|__| ____   ____    __| _/| |      -->
+<!--     /    ~    \_/ __ \|  | |  |  /  _ \   |    __) \_  __ \  |/ __ \ /    \  / __ | | |      -->
+<!--     \    Y    /\  ___/|  |_|  |_(  <_> )  |     \   |  | \/  \  ___/|   |  \/ /_/ |  \|      -->
+<!--      \___|_  /  \___  >____/____/\____/   \___  /   |__|  |__|\___  >___|  /\____ |  __      -->
+<!--            \/       \/                        \/                  \/     \/      \/  \/      -->
+<!--                                                                                              -->
+<!--                                                                                              -->
+<!--     My sweet site was generated using love, ruby & nanoc [http://nanoc.ws/]                  -->
+<!--                                                                                              -->
+<!--                                                                                              -->
+<!--     "Anytime I see something screech across a room and latch onto someones neck,             -->
+<!--     and the guy screams and tries to get it off, I have to laugh,                            -->
+<!--     because what is that thing?"                                                             -->
+<!--                                                                                              -->
+<!--                           - Jack Handy                                                       -->
+<!--                                                                                              -->
+
+  </head>
+  <body>
+    <div id="sidebar">
+      <ul>
+  <li><a href="/">Home</a></li>
+  <li><a href="/blog">Blog</a></li>
+  <li><a href="/notes">Notes</a></li>
+</ul>
+<div class="img-links">
+  <a href="https://github.com/granolocks"><img src="/images/github.png"></a>
+  <a href="https://twitter.com/granolocks"><img src="/images/twitter.png"></a>
+  <div style="clear:both"></div>
+</div>
+
+    </div>
+    <div id="main">
+      
+        <p><small><a href='/blog'>Back to Blog</a></small></p>
+        <h1>Why I love Ruby Enumerable#inject</h1>
+        <p><em>Post created 2013-12-04 13:58 by Gabe Koss.<br/></em></p>
+        <p>Rubys Enumerable class is one of the most powerful tools the language has to
+offer. In particular, I love the <code>Enumerable#inject</code> method. </p>
+
+<h2>How does it work?</h2>
+
+<p>Lets start with a simple example. </p>
+
+<p>Given I have an array of numbers (<code>[1,2,3]</code>), lets use inject to sum
+them up. </p>
+
+<pre><code class="ruby">def sum(array)
+  array.inject(0) do |sum, i|
+    sum += i
+  end
+end
+
+sum([1,2,3])
+#=&gt; 6
+</code></pre>
+
+<p>You&#39;ll notice that I passed two arguments to the block: <code>sum</code> and <code>i</code>. The
+<code>sum</code> initializes to the argument passed to the <code>inject()</code> method call, in this
+case <code>0</code>. As the array is iterated across the return value of the block is
+returned as the next <code>sum</code> when the next element in the array is yielded as <code>i</code>.</p>
+
+<p>In several Reddit comments as well as a note in the comments from Victor Kmita
+I was reminded of the simplest format for this to work. When all that is being
+done in the block is a single method call this can be simplified by passing the
+method call in as a symbol and dropping the block entirely. </p>
+
+<pre><code class="ruby">def sum(arr)
+  arr.inject(:+)
+end
+
+sum([1,2,3])
+#=&gt; 6
+</code></pre>
+
+<h2>Complex Counting</h2>
+
+<p>Lets try a slightly more complex example. Lets take a sentence and return a
+hash, indexed by word with a value of the count of occurences of that word in
+the sentence.</p>
+
+<pre><code class="ruby">def count_of_words(str)
+  str.split(&#39; &#39;).inject(Hash.new(0)) do |count_hash, word|
+    count_hash[word] += 1
+    count_hash
+  end
+end
+
+count_of_words(&#39;ruby is awesome and ruby is great&#39;)
+# =&gt; {&quot;ruby&quot;=&gt;2, &quot;is&quot;=&gt;2, &quot;awesome&quot;=&gt;1, &quot;and&quot;=&gt;1, &quot;great&quot;=&gt;1} 
+</code></pre>
+
+<p>You&#39;ll notice that in this case I have to explicitly call the <code>count_hash</code> at the
+end of the block. This is because the <code>count_hash[word] += 1</code> line will return
+the value of <code>word</code> and that would (incorrectly) get passed as the next <code>count_hash</code></p>
+
+<p>An obvious improvement on this would be a more robust mechanism used to convert
+the input <code>str</code> into an array.  Splitting on whitespace is fine for this example.</p>
+
+<h2>Inverted Index</h2>
+
+<p>Another similar example to the word counting trick would be to do a reverse
+index. An inverted index is a simple data structure which allows you to do a
+lookup for a keyword and provides a list of locations where that word occurred.</p>
+
+<pre><code class="ruby"># Assumes an input format like: 
+#
+#    { &quot;/path/to/file&quot; =&gt; &quot;contents of file&quot; }
+#
+#  
+# #  Edit: Thanks to reddit users jhawthorn and treetrouble for suggesting the
+# #  improvement of using `Hash.new{|h,k| h[k] = []}` instead of `Hash.new([])` to
+# #  greatly improve the readability of this example.
+# 
+def inverted_index_for(file_hash)
+  h = Hash.new { |h,k| h[k] = [] }
+
+  file_hash.inject(h) do |index_array,(filename,contents)|
+    contents.split(&#39; &#39;).uniq.each do |word|
+      index_array[word] &lt;&lt; filename
+    end
+    index_array
+  end
+end
+</code></pre>
+
+<p>This has many improvements and could stand to be refactored out into some other
+methods as well as deal with case sensitivity (<code>&#39;round&#39; != &#39;Round&#39;</code>) and
+special characters but for the purposes of demonstrating <code>inject()</code> it is good
+enough!</p>
+
+<p>Lets see it at work.</p>
+
+<pre><code class="ruby">files = {}
+files[&#39;~/file_0&#39;] = &quot;the wheels on the bus go&quot;
+files[&#39;~/file_1&#39;] = &quot;round and round&quot;
+files[&#39;~/file_2&#39;] = &quot;round and round&quot;
+files[&#39;~/file_3&#39;] = &quot;round and round&quot;
+files[&#39;~/file_4&#39;] = &quot;the wheels on the bus go&quot;
+files[&#39;~/file_5&#39;] = &quot;round and round&quot;
+files[&#39;~/file_6&#39;] = &quot;all through the town&quot;
+
+inverted_index = inverted_index_for(files)
+# =&gt; {
+#      &quot;the&quot;        =&gt; [&quot;~/file_0&quot;, &quot;~/file_4&quot;, &quot;~/file_6&quot;],
+#      &quot;wheels&quot;     =&gt; [&quot;~/file_0&quot;, &quot;~/file_4&quot;],
+#      &quot;on&quot;         =&gt; [&quot;~/file_0&quot;, &quot;~/file_4&quot;],
+#      &quot;bus&quot;        =&gt; [&quot;~/file_0&quot;, &quot;~/file_4&quot;],
+#      &quot;go&quot;         =&gt; [&quot;~/file_0&quot;, &quot;~/file_4&quot;],
+#      &quot;round&quot;      =&gt; [&quot;~/file_1&quot;, &quot;~/file_2&quot;, &quot;~/file_3&quot;, &quot;~/file_5&quot;],
+#      &quot;and&quot;        =&gt; [&quot;~/file_1&quot;, &quot;~/file_2&quot;, &quot;~/file_3&quot;, &quot;~/file_5&quot;],
+#      &quot;all&quot;        =&gt; [&quot;~/file_6&quot;],
+#      &quot;through&quot;    =&gt; [&quot;~/file_6&quot;],
+#      &quot;town&quot;       =&gt; [&quot;~/file_6&quot;]
+#     } 
+
+# Look up a word to find where it occurred:
+inverted_index[&quot;round&quot;]
+# =&gt; [&quot;~/file_1&quot;, &quot;~/file_2&quot;, &quot;~/file_3&quot;, &quot;~/file_5&quot;] 
+</code></pre>
+
+<h2>Bottom Line</h2>
+
+<p><code>inject()</code> is hugely useful for many different tasks. Anywhere I find myself using
+chained <code>map()</code> or <code>each()</code> functions I can usually accomplish the same thing
+with a single <code>inject()</code>.</p>
+
+<p><em>Update:</em> After some feedback on the comments below as well as on Reddit I did
+a little of benchmarking around this. <a href="/blog/2013/12/benchmark_inject_versus_each_with_object/">Those results are
+here</a>.</p>
+
+        <div id="disqus_thread"></div>
+<script type="text/javascript">
+var disqus_shortname = 'gabekoss'; 
+
+(function() {
+ var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+ dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+ (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+ })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+      
+    </div>
+    <div id="footer">
+      <hr/>
+<p>&copy; 2013 <a href="mailto:gabe@gabekoss.com">Gabe Koss</a></p>
+
+  <p><small>Last updated at: 2013-12-05 7:31</small></p>
+
+
+    </div>
+    <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-12795044-1']);
+  _gaq.push(['_setDomainName', 'gabekoss.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+   var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+   ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+   var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+   })();
+</script>
+
+  </body>
+</html>
+
