@@ -1,6 +1,6 @@
 ---
-title: Nanoc Collections 
-updated_at: 2013-12-07 00:35
+title: Load a Nanoc Collection Asynchronously
+updated_at: 2013-12-07 10:40
 created_at: 2013-12-07 00:35
 ---
 
@@ -17,8 +17,8 @@ require 'json'
 class Doge
   PER_PAGE = 5
 
-  def self.all(itesm)
-    items.reject {|i| !(i[:kind] == 'doge-pic') }
+  def self.all(items)
+    items.select {|i| i[:kind] == 'doge-pic' }
   end
 
    def self.jsonify(doges)
@@ -48,7 +48,7 @@ preprocess do
   
   def add_doge_api
     doge_pages = []
-    Doge.all(@itesm).each_slice(Doge::PER_PAGE) do |slice| 
+    Doge.all(@items).each_slice(Doge::PER_PAGE) do |slice| 
       doge_pages << slice 
     end
 
@@ -79,7 +79,7 @@ end
 ## Javascript 'Client'
 
 Okay, I'll be the first to admit this Javascript is pretty gnarly but hey,
-Nanoc is great for one off code and this does the job. 
+Nanoc is great for one off code and this does the job. Plus no need for Jquery.
 
 ```js
 // Current Page Number, Should Be '1' When it first loads.

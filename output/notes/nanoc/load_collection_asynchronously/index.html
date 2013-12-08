@@ -1,10 +1,10 @@
 <!doctype html>
 <html>
   <head>
-    <title>Nanoc Collections</title>
+    <title>Load a Nanoc Collection Asynchronously</title>
 <link type='text/css' href='/style.css' rel='stylesheet'/>
 <link rel="stylesheet" href="/css/zenburn.css">
-<meta property="og:title" content="Nanoc Collections" />
+<meta property="og:title" content="Load a Nanoc Collection Asynchronously" />
 <meta property="og:url" content="http://www.gabekoss.com/notes/nanoc/load_collection_asynchronously/" />
 <meta property="og:type" content="website" />
 <meta property="og:description" content="" />
@@ -49,7 +49,7 @@
     </div>
     <div id="main">
       
-        <h1>Nanoc Collections</h1>
+        <h1>Load a Nanoc Collection Asynchronously</h1>
         <p>This assumes that there exists a collection similar to the one outlined in the
 notes about <a href="/notes/nanoc/create_a_collection/">generic collection pages</a>.</p>
 
@@ -62,8 +62,8 @@ require &#39;json&#39;
 class Doge
   PER_PAGE = 5
 
-  def self.all(itesm)
-    items.reject {|i| !(i[:kind] == &#39;doge-pic&#39;) }
+  def self.all(items)
+    items.select {|i| i[:kind] == &#39;doge-pic&#39; }
   end
 
    def self.jsonify(doges)
@@ -92,7 +92,7 @@ to load the images.</p>
 
   def add_doge_api
     doge_pages = []
-    Doge.all(@itesm).each_slice(Doge::PER_PAGE) do |slice| 
+    Doge.all(@items).each_slice(Doge::PER_PAGE) do |slice| 
       doge_pages &lt;&lt; slice 
     end
 
@@ -122,7 +122,7 @@ end
 <h2>Javascript &#39;Client&#39;</h2>
 
 <p>Okay, I&#39;ll be the first to admit this Javascript is pretty gnarly but hey,
-Nanoc is great for one off code and this does the job. </p>
+Nanoc is great for one off code and this does the job. Plus no need for Jquery.</p>
 
 <pre><code class="js">// Current Page Number, Should Be &#39;1&#39; When it first loads.
 function curPage(){
@@ -204,7 +204,7 @@ first page of additional data to request is page 1.</p>
       <hr/>
 <p>&copy; 2013 <a href="mailto:gabe@gabekoss.com">Gabe Koss</a></p>
 
-  <p><small>Last updated at: 2013-12-07 00:35</small></p>
+  <p><small>Last updated at: 2013-12-07 10:40</small></p>
 
 
     </div>

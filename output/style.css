@@ -6,6 +6,7 @@ pre {
   border-radius: 3px;
   overflow: scroll;
   color: #eee;
+  background-color: #3F3F3F;
 }
 code, code *, pre, pre * { 
   font-family: monospace; 
