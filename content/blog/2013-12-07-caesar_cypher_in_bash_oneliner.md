@@ -1,7 +1,7 @@
 ---
 title: Caesar Cypher in Bash Oneliner
 created_at: 2013-12-07 16:57
-updated_at: 2013-12-07 16:57
+updated_at: 2013-12-09 14:20
 kind: blog-post
 author: Gabe Koss
 summary: A Caesar Cypher Script implemented in a bash onliner
@@ -22,9 +22,20 @@ I got this problem from [karans Project](https://github.com/karan/Projects) repo
 > can either use frequency analysis to guess the key, or just try all 25 keys.
 > 
 
-## Code 
+## Mimimal Solution
 
-There is probably a more elegant solution to this but it seems to work as expected. 
+Here is the tightest and most 'one-liney' I could make this:
+
+```bash
+# Sample usage:
+# ./bash_caesar <key (1-25)> <input file>
+tr 'A-Z' 'a-z' < $2  | tr 'a-z' $( echo {a..z} | sed -r 's/ //g' | sed -r "s/(.{$1})(.*)/\2\1/" )
+```
+
+## Readable Solution 
+
+
+Here is some very similar logic split out into a couple lines to make it more understandable:
 
 ```bash
 #!/bin/bash
@@ -37,7 +48,10 @@ There is probably a more elegant solution to this but it seems to work as expect
 # user@pc:~$ ./bash_caesar.sh 20 sample
 # bc
 
-export A=$(echo {a..z} | sed -r 's/ //g';); export C=$(echo $A | sed -r "s/^.{$1}//g")$(echo $A | sed -r "s/.{$( expr 26 - $1 )}$//g"); tr '[A-Z]' $A < $2  | tr $A $C
+export A=$(echo {a..z} | sed -r 's/ //g')
+export C=$(echo $A | sed -r "s/^.{$1}//g")$(echo $A | sed -r "s/.{$( expr 26 - $1 )}$//g")
+
+tr '[A-Z]' $A < $2  | tr $A $C
 ```
 
 ## Explanation
@@ -116,4 +130,3 @@ swapping the `$A` and `$C` variables in the final `tr:
 ```bash
 tr $C $A
 ```
-
