@@ -4,7 +4,7 @@ created_at: 2013-12-09 22:49
 updated_at: 2013-12-09 22:49
 kind: blog-post
 author: Gabe Koss
-summary: An initial comparison between 
+summary: An initial comparison between using native Ruby code versus shelling out to the system and using Unix utils.
 tags: 
   - linux
   - benchmarking
