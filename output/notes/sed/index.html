@@ -54,9 +54,32 @@
 
 <p>To specify the line to delete with the comman <code>40d</code> and make sure to pass the <code>-i</code> flag so it saves the target file.</p>
 
-<pre><code class="bash">
-sed -i -e &#39;40d&#39; ~/.ssh/known_hosts
+<pre><code class="bash">sed -i -e &#39;40d&#39; ~/.ssh/known_hosts
+</code></pre>
 
+<h2>Reference a self match</h2>
+
+<p>If you want to look for repeating patterns you can use self referencial
+matching in the regex, pretty sexy.</p>
+
+<pre><code class="bash">$ echo &quot;no no more more doubles doubles&quot; | sed -r &#39;s/([A-Za-z]*)(\s)\1/\1\2/g&#39;
+no  more  doubles
+</code></pre>
+
+<h2>Oneline Caesar Cypher</h2>
+
+<p>This is just for fun and was originally a <a href="/blog/2013/12/caesar_cypher_in_bash_oneliner/">blog post</a>.</p>
+
+<pre><code class="bash">#!/bin/bash
+# example usage:
+# ./bash_caesar &lt;key (1-25)&gt; &lt;input file&gt;
+#
+# user@pc:~$ echo &quot;hi&quot; &gt; sample
+# user@pc:~$ ./bash_caesar.sh 2 sample
+# jk
+# user@pc:~$ ./bash_caesar.sh 20 sample
+# bc
+tr &#39;A-Z&#39; &#39;a-z&#39; &lt; $2  | tr &#39;a-z&#39; $( echo {a..z} | sed -r &#39;s/ //g&#39; | sed -r &quot;s/(.{$1})(.*)/\2\1/&quot; )
 </code></pre>
 
       
@@ -65,7 +88,7 @@ sed -i -e &#39;40d&#39; ~/.ssh/known_hosts
       <hr/>
 <p>&copy; 2013 <a href="mailto:gabe@gabekoss.com">Gabe Koss</a></p>
 
-  <p><small>Last updated at: 2013-11-07 06:59</small></p>
+  <p><small>Last updated at: 2013-11-07 18:59</small></p>
 
 
     </div>
