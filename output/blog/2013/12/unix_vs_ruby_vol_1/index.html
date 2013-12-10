@@ -96,7 +96,7 @@ Ruby accomplished this with File.read(). The Unix variant used <code>cat</code>.
   end
   bmark.report(:unix) do
     100.times do
-      result = `cat /usr/share/dict/words&quot;`
+      result = `cat /usr/share/dict/words`
     end
   end
 end

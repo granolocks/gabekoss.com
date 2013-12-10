@@ -58,7 +58,7 @@ Benchmark.bm do |bmark|
   end
   bmark.report(:unix) do
     100.times do
-      result = `cat /usr/share/dict/words"`
+      result = `cat /usr/share/dict/words`
     end
   end
 end
