@@ -21,9 +21,26 @@ $ echo "no no more more doubles doubles" | sed -r 's/([A-Za-z]*)(\s)\1/\1\2/g'
 no  more  doubles
 ```
 
+## Print _n_ lines of a file
+
+The following example reads in the file `cool_names.txt` and then prints the
+first `6` lines before `q`uitting.
+
+```bash
+$ sed 6q < cool_names.txt
+
+Aaron
+Abelard
+Abraham
+Alfalfa
+Arnold
+Aspen
+```
+
 ## Oneline Caesar Cypher
 
-This is just for fun and was originally a [blog post](/blog/2013/12/caesar_cypher_in_bash_oneliner/).
+This is just for fun and was originally a [blog
+post](/blog/2013/12/caesar_cypher_in_bash_oneliner/).
 
 ```bash
 #!/bin/bash

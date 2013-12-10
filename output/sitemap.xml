@@ -85,6 +85,10 @@
     <lastmod>2013-12-08</lastmod>
   </url>
   <url>
+    <loc>http://gabekoss.com/blog/2013/12/unix_vs_ruby_vol_1/</loc>
+    <lastmod>2013-12-09</lastmod>
+  </url>
+  <url>
     <loc>http://gabekoss.com/css/notes.css</loc>
     <lastmod>2013-12-06</lastmod>
   </url>
@@ -316,6 +320,9 @@
     <loc>http://gabekoss.com/tags/link/</loc>
   </url>
   <url>
+    <loc>http://gabekoss.com/tags/linux/</loc>
+  </url>
+  <url>
     <loc>http://gabekoss.com/tags/networking/</loc>
   </url>
   <url>
@@ -341,6 +348,9 @@
   </url>
   <url>
     <loc>http://gabekoss.com/tags/ssh/</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/unix/</loc>
   </url>
   <url>
     <loc>http://gabekoss.com/tags/vim/</loc>

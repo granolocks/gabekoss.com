@@ -1,0 +1,256 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Unix Vs. Ruby --  Simple Tasks</title>
+<link type='text/css' href='/style.css' rel='stylesheet'/>
+<link rel="stylesheet" href="/css/zenburn.css">
+<meta property="og:title" content="Unix Vs. Ruby --  Simple Tasks" />
+<meta property="og:url" content="http://www.gabekoss.com/blog/2013/12/unix_vs_ruby_vol_1/" />
+<meta property="og:type" content="website" />
+<meta property="og:description" content="An initial comparison between" />
+<meta property="og:image" content="http://www.gabekoss.com/images/og.png" />
+
+  <script src="/js/highlight-pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+<!--                                                                                              -->
+<!--       ___ ___         .__  .__           ___________      .__                   .___._.      -->
+<!--      /   |   \   ____ |  | |  |   ____   \_   _____/______|__| ____   ____    __| _/| |      -->
+<!--     /    ~    \_/ __ \|  | |  |  /  _ \   |    __) \_  __ \  |/ __ \ /    \  / __ | | |      -->
+<!--     \    Y    /\  ___/|  |_|  |_(  <_> )  |     \   |  | \/  \  ___/|   |  \/ /_/ |  \|      -->
+<!--      \___|_  /  \___  >____/____/\____/   \___  /   |__|  |__|\___  >___|  /\____ |  __      -->
+<!--            \/       \/                        \/                  \/     \/      \/  \/      -->
+<!--                                                                                              -->
+<!--                                                                                              -->
+<!--     My sweet site was generated using love, ruby & nanoc [http://nanoc.ws/]                  -->
+<!--                                                                                              -->
+<!--                                                                                              -->
+<!--     "Anytime I see something screech across a room and latch onto someones neck,             -->
+<!--     and the guy screams and tries to get it off, I have to laugh,                            -->
+<!--     because what is that thing?"                                                             -->
+<!--                                                                                              -->
+<!--                           - Jack Handy                                                       -->
+<!--                                                                                              -->
+
+  </head>
+  <body>
+    <div id="sidebar">
+      <ul>
+  <li><a href="/">Home</a></li>
+  <li><a href="/blog">Blog</a></li>
+  <li><a href="/notes">Notes</a></li>
+</ul>
+<div class="img-links">
+  <a href="https://github.com/granolocks"><img src="/images/github.png"></a>
+  <a href="https://twitter.com/granolocks"><img src="/images/twitter.png"></a>
+  <div style="clear:both"></div>
+</div>
+
+    </div>
+    <div id="main">
+      
+        <p><small><a href='/blog'>Back to Blog</a></small></p>
+        <h1>Unix Vs. Ruby --  Simple Tasks</h1>
+        <p><em>Post created 2013-12-09 22:49 by Gabe Koss.<br/></em></p>
+        <p>I am often conflicted about whether or not it is alright to use Unix command
+line utilities when I am writing Ruby code. Specifically I mean shellescaping
+to run an outside command like <code>cat #{@config_path}</code>.</p>
+
+<p>I generally feel like, for portability reasons if nothing else, it is best to
+stay &#39;within&#39; Ruby and utilize the language itself. Unfortunately there are
+many situations where reaching out to into the server environment and accessing
+common tools is much simpler to code. </p>
+
+<p>I decided to create some tests cases to see what the impact of these two
+approaches might be for different, commont tasks. </p>
+
+<p><strong>Disclaimer:</strong> These tests are in no way complete, nor will they ever be. Each
+of these scenarios has many different solutions. I&#39;m open to any feedback or
+additional tests.</p>
+
+<p>These tests were done on a pretty beefy laptop with Ruby-2.0.0 and running
+Crunchbang linux.</p>
+
+<h2>Setup</h2>
+
+<p>I ran each of these tests  from the same file, which had this in the header. </p>
+
+<pre><code class="ruby">require &#39;benchmark&#39;
+</code></pre>
+
+<p>The source of the test are available
+<a href="https://gist.github.com/granolocks/7885555">here</a></p>
+
+<h2>Test 1: Read a string</h2>
+
+<p>The goal of the first test was to read a large file into a ruby variable.
+Ruby accomplished this with File.read(). The Unix variant used <code>cat</code>.</p>
+
+<h3>Code</h3>
+
+<pre><code class="ruby">Benchmark.bm do |bmark|
+  bmark.report(:ruby) do
+    100.times do
+      result = File.read(&quot;/usr/share/dict/words&quot;)
+    end
+  end
+  bmark.report(:unix) do
+    100.times do
+      result = `cat /usr/share/dict/words&quot;`
+    end
+  end
+end
+</code></pre>
+
+<h3>Results</h3>
+
+<pre><code class="bash">       user     system      total        real
+ruby  0.090000   0.030000   0.120000 (  0.126570)
+unix  0.370000   0.150000   0.520000 (  0.786349)
+</code></pre>
+
+<p>I had somehow expected that the Unix variant would be faster. I was very
+surprised that ruby was so much faster, but I have not investigated further.  </p>
+
+<h2>Test 2: First element from a list</h2>
+
+<p>In the second test I used the same file and ran three tests:</p>
+
+<ul>
+<li>Ruby 1: Read the file, split on newlines, retrieve first Array element</li>
+<li>Ruby 2: Read the file and grab the first line which matches the regex <code>/\A^[a-zA-Z]*$/</code>. </li>
+<li>Ruby 3: Read the file and grab the lines which matches the regex <code>/^[a-zA-Z]*$/</code>. </li>
+<li>Unix: Use <code>sed 1q &lt;</code> to grab the first line </li>
+</ul>
+
+<h3>Code</h3>
+
+<pre><code class="ruby">Benchmark.bm do |bmark|
+  bmark.report(:ruby1) do
+    100.times do
+      result = File.read(&quot;/usr/share/dict/words&quot;).split(&quot;\n&quot;)[0]
+    end
+  end
+  bmark.report(:ruby2) do
+    100.times do
+      result = File.read(&quot;/usr/share/dict/words&quot;).scan(/\A^[a-zA-Z]*$/)[0]
+    end
+  end
+  bmark.report(:ruby3) do
+    100.times do
+      result = File.read(&quot;/usr/share/dict/words&quot;).scan(/^[a-zA-Z]*$/)[0]
+    end
+  end
+  bmark.report(:unix) do
+    100.times do
+      result = `sed 1q &lt; /usr/share/dict/words`
+    end
+  end
+end
+</code></pre>
+
+<h3>Results</h3>
+
+<pre><code class="bash">       user     system      total        real
+ruby1  3.090000   0.040000   3.130000 (  3.144695)
+ruby2  0.060000   0.040000   0.100000 (  0.098774)
+ruby3 10.760000   0.030000  10.790000 ( 10.815407)
+unix  0.000000   0.090000   0.090000 (  0.411978)
+</code></pre>
+
+<p>The second ruby one is fast, but limited in flexibility because the <code>\A</code> in
+the regex only grabs the first match at the top of the file.  As expected
+accessing the large arrays in the first and third examples is pretty sluggish!</p>
+
+<h2>Test 3: Pattern Matching!</h2>
+
+<p>So In this final test I decided to hunt for the word &quot;sass&quot; in my file. </p>
+
+<p>For this there were several variants:</p>
+
+<ul>
+<li>Ruby 1: Read file, split into array and grab matches using <code>Array#select</code>
+and <code>=~</code>.</li>
+<li>Ruby 2: Read file and scan for <code>/sass/</code></li>
+<li>Unix 1: Use grep to search for the pattern</li>
+<li>Unix 2: Hybrid variant which introduces the overhead of converting results
+into a Ruby Array object.</li>
+</ul>
+
+<h3>Code</h3>
+
+<pre><code class="ruby">Benchmark.bm do |bmark|
+  bmark.report(:ruby1) do
+    100.times do
+      result = File.read(&quot;/usr/share/dict/words&quot;).split(&quot;\n&quot;).select{|i| i =~ /sass/ }
+    end
+  end
+  bmark.report(:ruby2) do
+    100.times do
+      result = File.read(&quot;/usr/share/dict/words&quot;).scan(/sass/)
+    end
+  end
+  bmark.report(:unix1) do
+    100.times do
+      result = `grep sass /usr/share/dict/words`
+    end
+  end
+  bmark.report(:unix2) do
+    100.times do
+      result = `grep sass /usr/share/dict/words`.split(&quot;\n&quot;)
+    end
+  end
+end
+</code></pre>
+
+<h3>Result</h3>
+
+<pre><code class="bash">       user     system      total        real
+ruby1  8.190000   0.060000   8.250000 (  8.265246)
+ruby2  0.310000   0.060000   0.370000 (  0.366516)
+unix1  0.050000   0.800000   2.150000 (  2.454367)
+unix2  0.050000   0.790000   2.070000 (  2.387839)
+</code></pre>
+
+<p>This one surprised me a bit. I expected straight <code>grep</code> to be way faster even
+then <code>String#scan</code>. This bears further investigation as well.</p>
+
+        <div id="disqus_thread"></div>
+<script type="text/javascript">
+var disqus_shortname = 'gabekoss'; 
+
+(function() {
+ var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+ dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+ (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+ })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+      
+    </div>
+    <div id="footer">
+      <hr/>
+<p>&copy; 2013 <a href="mailto:gabe@gabekoss.com">Gabe Koss</a></p>
+
+  <p><small>Last updated at: 2013-12-09 22:49</small></p>
+
+
+    </div>
+    <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-12795044-1']);
+  _gaq.push(['_setDomainName', 'gabekoss.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+   var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+   ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+   var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+   })();
+</script>
+
+  </body>
+</html>
+

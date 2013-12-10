@@ -66,9 +66,25 @@ matching in the regex, pretty sexy.</p>
 no  more  doubles
 </code></pre>
 
+<h2>Print <em>n</em> lines of a file</h2>
+
+<p>The following example reads in the file <code>cool_names.txt</code> and then prints the
+first <code>6</code> lines before <code>q</code>uitting.</p>
+
+<pre><code class="bash">$ sed 6q &lt; cool_names.txt
+
+Aaron
+Abelard
+Abraham
+Alfalfa
+Arnold
+Aspen
+</code></pre>
+
 <h2>Oneline Caesar Cypher</h2>
 
-<p>This is just for fun and was originally a <a href="/blog/2013/12/caesar_cypher_in_bash_oneliner/">blog post</a>.</p>
+<p>This is just for fun and was originally a <a href="/blog/2013/12/caesar_cypher_in_bash_oneliner/">blog
+post</a>.</p>
 
 <pre><code class="bash">#!/bin/bash
 # example usage:
