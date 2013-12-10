@@ -14,7 +14,7 @@ tags:
 
 I am often conflicted about whether or not it is alright to use Unix command
 line utilities when I am writing Ruby code. Specifically I mean shellescaping
-to run an outside command like `cat #{@config_path}`.
+to run an outside command like `cat #{@config_path}`. 
 
 I generally feel like, for portability reasons if nothing else, it is best to
 stay 'within' Ruby and utilize the language itself. Unfortunately there are
@@ -26,7 +26,10 @@ approaches might be for different, commont tasks.
 
 **Disclaimer:** These tests are in no way complete, nor will they ever be. Each
 of these scenarios has many different solutions. I'm open to any feedback or
-additional tests.
+additional tests. I also apprciate that is incredible hard to do meaningful
+benchmarks but my goal was to see if there were any instances where even adding
+the overhead of the seperate process to run the Unix tool was more efficient
+than handling in native Ruby.
 
 These tests were done on a pretty beefy laptop with Ruby-2.0.0 and running
 Crunchbang linux.
@@ -135,7 +138,7 @@ For this there were several variants:
 
 * Ruby 1: Read file, split into array and grab matches using `Array#select`
   and `=~`.
-* Ruby 2: Read file and scan for `/sass/`
+* Ruby 2: Read file and scan for `/^[a-z]*sass[a-z]*$/i`
 * Unix 1: Use grep to search for the pattern
 * Unix 2: Hybrid variant which introduces the overhead of converting results
   into a Ruby Array object.
@@ -151,7 +154,7 @@ Benchmark.bm do |bmark|
   end
   bmark.report(:ruby2) do
     100.times do
-      result = File.read("/usr/share/dict/words").scan(/sass/)
+      result = File.read("/usr/share/dict/words").scan(/^[a-z]*sass[a-z]*$/i)
     end
   end
   bmark.report(:unix1) do
@@ -168,14 +171,14 @@ end
 ```
 
 ### Result
-
 ```bash
-       user     system      total        real
-ruby1  8.190000   0.060000   8.250000 (  8.265246)
-ruby2  0.310000   0.060000   0.370000 (  0.366516)
-unix1  0.050000   0.800000   2.150000 (  2.454367)
-unix2  0.050000   0.790000   2.070000 (  2.387839)
+user     system      total        real
+ruby1  8.180000   0.050000   8.230000 (  8.245998)
+ruby2 15.930000   0.030000  15.960000 ( 15.995523)
+unix1  0.010000   0.140000   0.940000 (  1.225480)
+unix2  0.010000   0.140000   0.930000 (  1.208540)
 ```
 
-This one surprised me a bit. I expected straight `grep` to be way faster even
-then `String#scan`. This bears further investigation as well.
+As expected, working with huge strings like this is where the tiny unix utils
+really start to shine even with the overhead of a being run from inside Ruby.
+
