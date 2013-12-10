@@ -1,6 +1,6 @@
 ---
 title: Sed
-updated_at: 2013-11-07 18:59
+updated_at: 2013-12-09 18:59
 ---
 
 ## Delete a specific line with from a file
