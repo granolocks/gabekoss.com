@@ -89,6 +89,10 @@
     <lastmod>2013-12-10</lastmod>
   </url>
   <url>
+    <loc>http://gabekoss.com/blog/2013/12/give_a_man_a_regex/</loc>
+    <lastmod>2013-12-16</lastmod>
+  </url>
+  <url>
     <loc>http://gabekoss.com/css/notes.css</loc>
     <lastmod>2013-12-06</lastmod>
   </url>
@@ -336,6 +340,9 @@
   </url>
   <url>
     <loc>http://gabekoss.com/tags/personal_development/</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/regex/</loc>
   </url>
   <url>
     <loc>http://gabekoss.com/tags/riak/</loc>
