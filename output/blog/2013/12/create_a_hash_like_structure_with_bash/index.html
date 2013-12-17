@@ -1,13 +1,13 @@
 <!doctype html>
 <html>
   <head>
-    <title>Unix</title>
+    <title>Create a Hash-like structure with Bash</title>
 <link type='text/css' href='/style.css' rel='stylesheet'/>
 <link rel="stylesheet" href="/css/zenburn.css">
-<meta property="og:title" content="Unix" />
-<meta property="og:url" content="http://www.gabekoss.com/tags/unix/" />
+<meta property="og:title" content="Create a Hash-like structure with Bash" />
+<meta property="og:url" content="http://www.gabekoss.com/blog/2013/12/create_a_hash_like_structure_with_bash/" />
 <meta property="og:type" content="website" />
-<meta property="og:description" content="" />
+<meta property="og:description" content="TIL you can create a hash like structure using bashes 'declare'" />
 <meta property="og:image" content="http://www.gabekoss.com/images/og.png" />
 
   <script src="/js/highlight-pack.js"></script>
@@ -49,17 +49,49 @@
     </div>
     <div id="main">
       
-        <h1>Unix</h1>
-          
-    <p>
-      <strong>
-        <a href="/blog/2013/12/unix_vs_ruby_vol_1/">
-          Unix Vs. Ruby --  Simple Tasks
-        </a>
-      </strong><br/>
-      An initial comparison between using native Ruby code versus shelling out to the system and using Unix utils.
-    </p>
-  
+        <p><small><a href='/blog'>Back to Blog</a></small></p>
+        <h1>Create a Hash-like structure with Bash</h1>
+        <p><em>Post created 2013-12-17 13:55 by Gabe Koss.<br/></em></p>
+        <p>This is pretty cool and worth sharing. In Bash you can use <code>declare -A VarName</code>
+to create a Hash-like structure which you can use to store key / value pairs
+in.</p>
+
+<p>Lets take a look:</p>
+
+<pre><code class="bash">$ declare -A CapitalCity
+$ CapitalCity[France]=&quot;Paris&quot;
+$ echo &quot;${CapitalCity[&#39;France&#39;]}&quot;
+Paris
+</code></pre>
+
+<p>Pretty damn cool. I discovered this trick in Jason Brittains &#39;Bash as a Modern
+Programming Language&#39; presentation. <a href="http://digital-era.net/wp-content/uploads/2013/12/BASH-as-a-Modern-Programming-Language-Presentation-1.pdf">Slides are
+available.</a></p>
+
+<h2>Enumerate set values from <code>declare</code></h2>
+
+<p>To get a list of set values you can run <code>declare -A</code> and it will print a list
+similar to the following:</p>
+
+<pre><code class="bash">$ declare -A
+declare -A BASH_ALIASES=&#39;()&#39;
+declare -A BASH_CMDS=&#39;()&#39;
+declare -A CapitalCity=&#39;([France]=&quot;Paris&quot; )&#39;
+declare -A _xspecs=&#39;(... &lt;many many&gt; ...)&#39;
+</code></pre>
+
+        <div id="disqus_thread"></div>
+<script type="text/javascript">
+var disqus_shortname = 'gabekoss'; 
+
+(function() {
+ var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+ dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+ (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+ })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
       
     </div>
@@ -67,7 +99,7 @@
       <hr/>
 <p>&copy; 2013 <a href="mailto:gabe@gabekoss.com">Gabe Koss</a></p>
 
-  <p><small>Last updated at: 2013-12-17 14:00</small></p>
+  <p><small>Last updated at: 2013-12-17 13:55</small></p>
 
 
     </div>
