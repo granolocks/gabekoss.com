@@ -97,6 +97,10 @@
     <lastmod>2013-12-17</lastmod>
   </url>
   <url>
+    <loc>http://gabekoss.com/blog/2013/12/simple_data_exchange_with_ruby_tcp_sockets/</loc>
+    <lastmod>2013-12-18</lastmod>
+  </url>
+  <url>
     <loc>http://gabekoss.com/css/notes.css</loc>
     <lastmod>2013-12-06</lastmod>
   </url>
@@ -356,6 +360,9 @@
   </url>
   <url>
     <loc>http://gabekoss.com/tags/ruby/</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/sockets/</loc>
   </url>
   <url>
     <loc>http://gabekoss.com/tags/ssh/</loc>

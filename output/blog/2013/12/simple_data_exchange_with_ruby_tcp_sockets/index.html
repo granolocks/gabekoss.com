@@ -1,13 +1,13 @@
 <!doctype html>
 <html>
   <head>
-    <title>Link</title>
+    <title>Simple Data Exchange with Ruby TCP Sockets</title>
 <link type='text/css' href='/style.css' rel='stylesheet'/>
 <link rel="stylesheet" href="/css/zenburn.css">
-<meta property="og:title" content="Link" />
-<meta property="og:url" content="http://www.gabekoss.com/tags/link/" />
+<meta property="og:title" content="Simple Data Exchange with Ruby TCP Sockets" />
+<meta property="og:url" content="http://www.gabekoss.com/blog/2013/12/simple_data_exchange_with_ruby_tcp_sockets/" />
 <meta property="og:type" content="website" />
-<meta property="og:description" content="" />
+<meta property="og:description" content="Create a simple TCP server and client with Ruby Sockets." />
 <meta property="og:image" content="http://www.gabekoss.com/images/og.png" />
 
   <script src="/js/highlight-pack.js"></script>
@@ -49,53 +49,76 @@
     </div>
     <div id="main">
       
-        <h1>Link</h1>
-          
-    <p>
-      <strong>
-        <a href="/blog/2013/12/captain_haddock_insult_generator/">
-          Captain Haddock Insult Generator
-        </a>
-      </strong><br/>
-      When I was a kid I loved Tintin comics and so a little while back I made a Captain Haddock insult generator using the various curses the Captain utters through out the series.
-    </p>
-  
-    <p>
-      <strong>
-        <a href="/blog/2013/11/ode_to_c/">
-          Ode to C
-        </a>
-      </strong><br/>
-      A humorous poem devoted to the love of a language.
-    </p>
-  
-    <p>
-      <strong>
-        <a href="/blog/2013/11/my_open_source_report_card/">
-          My Open Source Report Card
-        </a>
-      </strong><br/>
-      A cool site which creates an open source report card based on your public github activty.
-    </p>
-  
-    <p>
-      <strong>
-        <a href="/blog/2013/11/textfiles_com/">
-          textfiles.com
-        </a>
-      </strong><br/>
-      I am a lover of ASCII art and text files in general. I love vim and writing in markdown and plaintext. You can bet I was excited when I stumbled across textfiles.com.
-    </p>
-  
-    <p>
-      <strong>
-        <a href="/blog/2013/11/tl_dr_legal/">
-          TL;DR Legal
-        </a>
-      </strong><br/>
-      tl;dr Legal does an awesome job making the various open source licenses accessible and understandable.
-    </p>
-  
+        <p><small><a href='/blog'>Back to Blog</a></small></p>
+        <h1>Simple Data Exchange with Ruby TCP Sockets</h1>
+        <p><em>Post created 2013-12-18 15:08 by Gabe Koss.<br/></em></p>
+        <p>Socket programming with Ruby is something I am just starting to explore, but so
+far it has been a joy. </p>
+
+<h2>Server</h2>
+
+<p>First, create a simple TCP server which I store as <code>server.rb</code>. This
+will simply open a socket on port <code>tcp/7777</code> and print out anything which is
+submitted to that port. </p>
+
+<pre><code class="ruby"># server.rb
+require &#39;socket&#39;
+
+server = TCPServer.new(7777)
+
+Socket.accept_loop(server) do |conn|
+  puts conn.read
+  conn.close
+end
+</code></pre>
+
+<p>Test this by running opening a terminal window and running the server file.
+Echo some text to it from another terminal with <code>nc</code>.</p>
+
+<p><em>Terminal 1</em></p>
+
+<pre><code class="bash">$ ruby server.rb 
+Hello Socket
+^C
+</code></pre>
+
+<p><em>Terminal 2</em></p>
+
+<pre><code class="bash">$ echo &quot;Hello Socket&quot; | nc localhost 7777
+</code></pre>
+
+<h2>Client</h2>
+
+<p>Next, create a client file to test this with. For this example I set the server
+address and message as constants, but more realistically this would be passed
+to the client dynamically.</p>
+
+<pre><code class="ruby"># client.rb
+require &#39;socket&#39;
+
+def send_message(address, port, message)
+  Socket.tcp(address, port) do |conn|
+    conn.write(message)
+    conn.close
+  end
+end
+
+
+send_message(&#39;localhost&#39;, 7777, &#39;Hello World&#39;)
+</code></pre>
+
+        <div id="disqus_thread"></div>
+<script type="text/javascript">
+var disqus_shortname = 'gabekoss'; 
+
+(function() {
+ var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+ dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+ (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+ })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
       
     </div>
@@ -103,7 +126,7 @@
       <hr/>
 <p>&copy; 2013 <a href="mailto:gabe@gabekoss.com">Gabe Koss</a></p>
 
-  <p><small>Last updated at: 2013-12-18 15:12</small></p>
+  <p><small>Last updated at: 2013-12-18 15:08</small></p>
 
 
     </div>
