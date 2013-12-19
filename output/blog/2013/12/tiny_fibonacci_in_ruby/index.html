@@ -1,13 +1,13 @@
 <!doctype html>
 <html>
   <head>
-    <title>Sockets</title>
+    <title>Tiny Fibonacci in Ruby</title>
 <link type='text/css' href='/style.css' rel='stylesheet'/>
 <link rel="stylesheet" href="/css/zenburn.css">
-<meta property="og:title" content="Sockets" />
-<meta property="og:url" content="http://www.gabekoss.com/tags/sockets/" />
+<meta property="og:title" content="Tiny Fibonacci in Ruby" />
+<meta property="og:url" content="http://www.gabekoss.com/blog/2013/12/tiny_fibonacci_in_ruby/" />
 <meta property="og:type" content="website" />
-<meta property="og:description" content="" />
+<meta property="og:description" content="An attempt at golfing generation of the fibonacci sequence." />
 <meta property="og:image" content="http://www.gabekoss.com/images/og.png" />
 
   <script src="/js/highlight-pack.js"></script>
@@ -49,17 +49,43 @@
     </div>
     <div id="main">
       
-        <h1>Sockets</h1>
-          
-    <p>
-      <strong>
-        <a href="/blog/2013/12/simple_data_exchange_with_ruby_tcp_sockets/">
-          Simple Data Exchange with Ruby TCP Sockets
-        </a>
-      </strong><br/>
-      Create a simple TCP server and client with Ruby Sockets.
-    </p>
-  
+      
+      
+        <p>
+          <small>
+            
+              <a href='/blog/2013/12/simple_data_exchange_with_ruby_tcp_sockets/' title='Simple Data Exchange with Ruby TCP Sockets'>&#8656; Previous</a>
+            
+             
+            
+          </small> 
+        </p>
+        <h1>Tiny Fibonacci in Ruby</h1>
+        <p><em>Post created 2013-12-19 00:09 by Gabe Koss.<br/></em></p>
+        <p>I really enjoy golfing with code; solving a problem in as few characters as
+possible.  Here is my smallest attempt at the classic Fibonacci sequence in
+Ruby.</p>
+
+<pre><code class="ruby">def f(s,a=[])
+  s.times{a&lt;&lt;(a.size&gt;1?a[-2]+a[-1]:a.size)};a
+end
+
+print f(10)
+#=&gt; [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
+</code></pre>
+
+        <div id="disqus_thread"></div>
+<script type="text/javascript">
+var disqus_shortname = 'gabekoss'; 
+
+(function() {
+ var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+ dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+ (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+ })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
       
     </div>
@@ -67,7 +93,7 @@
       <hr/>
 <p>&copy; 2013 <a href="mailto:gabe@gabekoss.com">Gabe Koss</a></p>
 
-  <p><small>Last updated at: 2013-12-19 00:37</small></p>
+  <p><small>Last updated at: 2013-12-19 00:09</small></p>
 
 
     </div>
