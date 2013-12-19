@@ -10,6 +10,33 @@ module GabeKossDotCom
       posts
     end
 
+    def self.previous_for(item,items)
+      posts = all_from(items)
+      index = posts.index(item) + 1
+
+      # Skip redirect / link posts
+      while posts[index] && posts[index][:redirect]
+        index += 1
+      end
+
+      posts[index]
+    end
+
+    def self.next_for(item,items)
+      posts = all_from(items)
+      index = posts.index(item) - 1
+
+      # Skip redirect / link posts
+      while posts[index] && posts[index][:redirect]
+        index -= 1
+      end
+
+      # if we have wrapped around the negative index ('early') posts do no need
+      # to be handled included
+      #
+      index >= 0 ? posts[index] : nil
+    end
+
     def self.json_erb
       <<ERB
       <%=
