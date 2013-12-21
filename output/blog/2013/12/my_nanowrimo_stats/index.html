@@ -7,7 +7,7 @@
 <meta property="og:title" content="My NaNoWrimo Stats" />
 <meta property="og:url" content="http://www.gabekoss.com/blog/2013/12/my_nanowrimo_stats/" />
 <meta property="og:type" content="website" />
-<meta property="og:description" content="" />
+<meta property="og:description" content="A look at the progress I made on the National Novel writing Month challenge." />
 <meta property="og:image" content="http://www.gabekoss.com/images/og.png" />
 
   <script src="/js/highlight-pack.js"></script>
@@ -69,12 +69,102 @@
 <script src="/js/nano.js"></script>
 
 <style type="text/css">
-.wc-graph-bar:hover { fill: #C9FE51; }
+  .wc-graph-bar:hover { fill: #508320; }
+  #graph-wrapper {padding: 10px; background-color: rgba(20, 20, 20,0.2); } 
 </style>
 
-<div id="wc-line"></div>
+<p>On a total whim I decided to participate in <a href="http://nanowrimo.org/">National Novel Writing
+Month</a>.  This is a month long writing marathon in which
+particpants attempt to write a 50,000 word novel in the month of November. I
+cheated a little bit and started on October 26.</p>
 
-<div id="wc-graph"></div>
+<table>
+  <tr>
+    <td><strong>Total Words</strong></td>
+    <td>54173</td>
+  </tr>
+  <tr>
+    <td><strong>October Words</strong></td>
+    <td>2917</td>
+  </tr>
+  <tr>
+    <td><strong>November Words</strong></td>
+    <td>51256</td>
+  </tr>
+  <tr>
+    <td><strong>Avg Words/Day (Nov)</strong></td>
+    <td>1709</td>
+  </tr>
+</table>
+
+<h2>Common Words</h2>
+
+<p>After excluding common English stop words such as &quot;that&quot; or &quot;is&quot; the 10 most
+common words in my story were as follows:</p>
+
+<table>
+  <tr><td><strong>sage</strong></td><td>631 instances</td></tr>
+  <tr><td><strong>out</strong></td><td>315 instances</td></tr>
+  <tr><td><strong>rama</strong></td><td>249 instances</td></tr>
+  <tr><td><strong>back</strong></td><td>184 instances</td></tr>
+  <tr><td><strong>one</strong></td><td>165 instances</td></tr>
+  <tr><td><strong>down</strong></td><td>144 instances</td></tr>
+  <tr><td><strong>looked</strong></td><td>139 instances</td></tr>
+  <tr><td><strong>here</strong></td><td>138 instances</td></tr>
+  <tr><td><strong>more</strong></td><td>125 instances</td></tr>
+  <tr><td><strong>know</strong></td><td>124 instances</td></tr>
+</table>
+
+<h2>Common Bigrams</h2>
+
+<p>Bigrams are two word units such as &quot;depraved heathen&quot; or &quot;kind soul&quot;. The most
+common two word groupings were as follows:</p>
+
+<table>
+  <tr><td><strong>of the</strong></td><td>390 instances</td></tr>
+  <tr><td><strong>in the</strong></td><td>222 instances</td></tr>
+  <tr><td><strong>to the</strong></td><td>188 instances</td></tr>
+  <tr><td><strong>on the</strong></td><td>163 instances</td></tr>
+  <tr><td><strong>into the</strong></td><td>151 instances</td></tr>
+  <tr><td><strong>she had</strong></td><td>107 instances</td></tr>
+  <tr><td><strong>was a</strong></td><td>104 instances</td></tr>
+  <tr><td><strong>from the</strong></td><td>92 instances</td></tr>
+  <tr><td><strong>out of</strong></td><td>91 instances</td></tr>
+  <tr><td><strong>she was</strong></td><td>90 instances</td></tr>
+</table>
+
+<h2>Progress Over Time</h2>
+
+<div id="graph-wrapper">
+  <div id="wc-graph"></div>
+</div>
+
+<p>Each bar indicates a date any will show you the exact number of words reached
+on that date. The light line is created from the word count at time I made
+a substantial save. </p>
+
+<h2>Code snippets:</h2>
+
+<p>I wrote the story with <a href="/blog/2013/11/writing_with_vim/">Vim</a> and tracked my
+progress with Git. I did the analysis on this data using a combination of Ruby,
+D3.js and the Linux command line. Much of my data analysis was inspired by the
+classic <a href="http://www.stanford.edu/class/cs124/kwc-unix-for-poets.pdf">Unix for
+Poets</a>.</p>
+
+<p>Here are some of the tools I used to do this analysis.</p>
+
+<p><strong>Extract top 10 words:</strong></p>
+
+<pre><code class="bash">tr -sc &#39;[A-Z][a-z]&#39; &#39;[\012*]&#39; &lt; story.md | tr &#39;[A-Z]&#39; &#39;[a-z]&#39; | sort | grep -E -v &#39;^.{,2}$&#39; | grep -E -v -f ../stop_words.grep |uniq -c | sort -n | tail -n 10
+</code></pre>
+
+<p><strong>Extract top 10 bigrams</strong></p>
+
+<pre><code class="bash">tr -sc &#39;[A-Z][a-z]&#39; &#39;[\012*]&#39; &lt; story.md &gt; nano.words                                   
+tail -c +2 nano.words &gt; nano.next
+paste nano.words nano.next | sort | uniq -c | sort -n &gt; nano.bigrams    
+tail -n 10 nano.bigrams
+</code></pre>
 
         <div id="disqus_thread"></div>
 <script type="text/javascript">
