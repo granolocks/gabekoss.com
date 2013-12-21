@@ -41,6 +41,16 @@ cheated a little bit and started on October 26.
   </tr>
 </table>
 
+## Progress Over Time
+
+<div id="graph-wrapper">
+  <div id="wc-graph"></div>
+</div>
+
+Each bar indicates a date any will show you the exact number of words reached
+on that date. The light line is created from the word count at time I made
+a substantial save. 
+
 ## Common Words
 
 After excluding common English stop words such as "that" or "is" the 10 most
@@ -78,15 +88,6 @@ common two word groupings were as follows:
 </table>
 
 
-## Progress Over Time
-
-<div id="graph-wrapper">
-  <div id="wc-graph"></div>
-</div>
-
-Each bar indicates a date any will show you the exact number of words reached
-on that date. The light line is created from the word count at time I made
-a substantial save. 
 
 ## Code snippets:
 
