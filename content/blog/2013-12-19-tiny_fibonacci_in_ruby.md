@@ -23,3 +23,4 @@ print f(10)
 #=> [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
 ```
 
+*Edit:* Whoa, there are some crazy variants I found at [Stack Exchange](http://codegolf.stackexchange.com/questions/4676/code-golf-first-n-fibonacci-sequence-elements).

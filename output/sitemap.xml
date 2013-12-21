@@ -5,6 +5,21 @@
     <lastmod>2013-11-27</lastmod>
   </url>
   <url>
+    <loc>http://gabekoss.com/api/v1/blog/0.json</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/api/v1/blog/1.json</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/api/v1/blog/2.json</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/api/v1/blog/3.json</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/api/v1/blog/4.json</loc>
+  </url>
+  <url>
     <loc>http://gabekoss.com/blog/</loc>
     <lastmod>2013-12-06</lastmod>
   </url>
@@ -105,6 +120,10 @@
     <lastmod>2013-12-19</lastmod>
   </url>
   <url>
+    <loc>http://gabekoss.com/blog/2013/12/my_nanowrimo_stats/</loc>
+    <lastmod>2013-12-21</lastmod>
+  </url>
+  <url>
     <loc>http://gabekoss.com/css/notes.css</loc>
     <lastmod>2013-12-06</lastmod>
   </url>
@@ -113,12 +132,40 @@
     <lastmod>2013-11-06</lastmod>
   </url>
   <url>
+    <loc>http://gabekoss.com/images/github.png</loc>
+    <lastmod>2013-11-21</lastmod>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/images/og.png</loc>
+    <lastmod>2013-11-27</lastmod>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/images/riak_ring.png</loc>
+    <lastmod>2013-11-18</lastmod>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/images/twitter.png</loc>
+    <lastmod>2013-11-21</lastmod>
+  </url>
+  <url>
     <loc>http://gabekoss.com/js/blog-scroll.js</loc>
     <lastmod>2013-12-07</lastmod>
   </url>
   <url>
+    <loc>http://gabekoss.com/js/d3-v3-min.js</loc>
+    <lastmod>2013-12-16</lastmod>
+  </url>
+  <url>
     <loc>http://gabekoss.com/js/highlight-pack.js</loc>
     <lastmod>2013-11-06</lastmod>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/js/jquery-1-10-1-min.js</loc>
+    <lastmod>2013-07-25</lastmod>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/js/nano.js</loc>
+    <lastmod>2013-12-21</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/notes/</loc>
@@ -297,8 +344,16 @@
     <lastmod>2013-11-24</lastmod>
   </url>
   <url>
+    <loc>http://gabekoss.com/riak_slides.pdf</loc>
+    <lastmod>2013-11-21</lastmod>
+  </url>
+  <url>
     <loc>http://gabekoss.com/robots.txt</loc>
     <lastmod>2013-11-09</lastmod>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/sitemap.xml</loc>
+    <lastmod>2013-12-07</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/style.css</loc>
@@ -337,6 +392,9 @@
   </url>
   <url>
     <loc>http://gabekoss.com/tags/linux/</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/nanowrimo/</loc>
   </url>
   <url>
     <loc>http://gabekoss.com/tags/networking/</loc>

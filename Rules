@@ -65,7 +65,7 @@ compile '/sitemap/' do
 end
 
 compile '*' do
-  if item.binary? || %w{ pdf txt jpg png js css }.include?(item.attributes[:extension]) || item.identifier == '/sitemap/'
+  if item.binary? || %w{ json pdf txt jpg png js css }.include?(item.attributes[:extension]) || item.identifier == '/sitemap/'
     # don’t filter binary items
   elsif item[:redirect] 
     layout 'redirect'
@@ -111,7 +111,7 @@ route '/sitemap/' do
 end
 
 route '*' do
-  if item.binary? || %w{ pdf txt jpg png js css }.include?(item.attributes[:extension]) 
+  if item.binary? || %w{ json pdf txt jpg png js css }.include?(item.attributes[:extension]) 
 
     # Write item with identifier /foo/ to /foo.ext
     item.identifier.chop + '.' + item[:extension] 
