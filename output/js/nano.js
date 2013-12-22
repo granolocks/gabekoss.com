@@ -38,14 +38,15 @@ $(document).ready(function(){
     attr("stroke", scaleLineColor).
     attr("class", "yTicks");
 
+
   // Draw Count
   edgeGroup.selectAll(".yCount").
     data( d3.range(1,yTickCount+1).reverse() ).
     enter().append("svg:text").
     // cheating here because i know the final max ;)
-    text(function(d){return(Math.floor(55000/d))}).
+    text(function(d){return(Math.floor(55000/20)*d)}).
     attr("x", 0).
-    attr("y", function(d,i) { return height - (i*yTickGap); }).
+    attr("y", function(d,i) { return (i*yTickGap); }).
     attr("fill", yCountColor)
 
   // left edge
