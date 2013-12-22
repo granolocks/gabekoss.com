@@ -6,7 +6,7 @@ kind: blog-post
 author: Gabe Koss
 summary: A look at the progress I made on the National Novel writing Month challenge.
 tags: 
- - nanowrimo
+ - nanowrimo 
 --- 
 
 <script src="/js/d3-v3-min.js" charset="utf-8"></script>
@@ -47,9 +47,10 @@ cheated a little bit and started on October 26.
   <div id="wc-graph"></div>
 </div>
 
-Each bar indicates a date any will show you the exact number of words reached
-on that date. The light line is created from the word count at time I made
-a substantial save. 
+The vertical axis represents the word count of the story as it grew.  Each bar
+indicates the total number of words reached per day. Hovering your mouse will
+show you the exact number of words reached on that date. The light line is
+created from the word count done each time I made a substantial save. 
 
 ## Common Words
 
