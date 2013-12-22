@@ -21,7 +21,7 @@
   </url>
   <url>
     <loc>http://gabekoss.com/blog/</loc>
-    <lastmod>2013-12-06</lastmod>
+    <lastmod>2013-12-21</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/blog/2013/11/writing_with_vim/</loc>
@@ -165,6 +165,10 @@
   </url>
   <url>
     <loc>http://gabekoss.com/js/nano.js</loc>
+    <lastmod>2013-12-21</lastmod>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/js/search.js</loc>
     <lastmod>2013-12-21</lastmod>
   </url>
   <url>
@@ -365,14 +369,20 @@
   </url>
   <url>
     <loc>http://gabekoss.com/style.css</loc>
-    <lastmod>2013-12-08</lastmod>
+    <lastmod>2013-12-21</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/tags/</loc>
-    <lastmod>2013-12-08</lastmod>
+    <lastmod>2013-12-21</lastmod>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/ajax/</loc>
   </url>
   <url>
     <loc>http://gabekoss.com/tags/android/</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/aplay/</loc>
   </url>
   <url>
     <loc>http://gabekoss.com/tags/bash/</loc>
@@ -384,7 +394,19 @@
     <loc>http://gabekoss.com/tags/code_golf/</loc>
   </url>
   <url>
+    <loc>http://gabekoss.com/tags/compression/</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/cp/</loc>
+  </url>
+  <url>
     <loc>http://gabekoss.com/tags/crunchbang/</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/database/</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/db/</loc>
   </url>
   <url>
     <loc>http://gabekoss.com/tags/elastic_search/</loc>
@@ -393,7 +415,43 @@
     <loc>http://gabekoss.com/tags/facets/</loc>
   </url>
   <url>
+    <loc>http://gabekoss.com/tags/ffmpeg/</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/finch/</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/find/</loc>
+  </url>
+  <url>
     <loc>http://gabekoss.com/tags/funny/</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/git/</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/grep/</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/honeypot/</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/installation/</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/iptraf/</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/john/</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/jtr/</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/kippo/</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/kismet/</loc>
   </url>
   <url>
     <loc>http://gabekoss.com/tags/link/</loc>
@@ -402,7 +460,46 @@
     <loc>http://gabekoss.com/tags/linux/</loc>
   </url>
   <url>
+    <loc>http://gabekoss.com/tags/logs/</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/lxc/</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/metasploit/</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/metasploitable/</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/mkdir/</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/mp3/</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/mpd/</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/mysql/</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/nanoc/</loc>
+  </url>
+  <url>
     <loc>http://gabekoss.com/tags/nanowrimo/</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/nc/</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/netcat/</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/nethog/</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/network/</loc>
   </url>
   <url>
     <loc>http://gabekoss.com/tags/networking/</loc>
@@ -411,16 +508,43 @@
     <loc>http://gabekoss.com/tags/nexus_7/</loc>
   </url>
   <url>
+    <loc>http://gabekoss.com/tags/nodejs/</loc>
+  </url>
+  <url>
     <loc>http://gabekoss.com/tags/nosql/</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/ntp/</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/open_arena/</loc>
   </url>
   <url>
     <loc>http://gabekoss.com/tags/open_source/</loc>
   </url>
   <url>
+    <loc>http://gabekoss.com/tags/password/</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/pentesting/</loc>
+  </url>
+  <url>
     <loc>http://gabekoss.com/tags/personal_development/</loc>
   </url>
   <url>
+    <loc>http://gabekoss.com/tags/port_forwarding/</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/rails/</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/record_terminal/</loc>
+  </url>
+  <url>
     <loc>http://gabekoss.com/tags/regex/</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/reverse_shell/</loc>
   </url>
   <url>
     <loc>http://gabekoss.com/tags/riak/</loc>
@@ -429,19 +553,106 @@
     <loc>http://gabekoss.com/tags/rspec/</loc>
   </url>
   <url>
+    <loc>http://gabekoss.com/tags/rsync/</loc>
+  </url>
+  <url>
     <loc>http://gabekoss.com/tags/ruby/</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/screen/</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/script/</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/security/</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/sed/</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/server/</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/shell/</loc>
   </url>
   <url>
     <loc>http://gabekoss.com/tags/sockets/</loc>
   </url>
   <url>
+    <loc>http://gabekoss.com/tags/software/</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/sound/</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/speaker-test/</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/splunk/</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/sql/</loc>
+  </url>
+  <url>
     <loc>http://gabekoss.com/tags/ssh/</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/tar/</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/tcp/ip/</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/tee/</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/text_editing/</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/tplink/</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/tr/</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/translate/</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/tshark/</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/ubuntu/</loc>
   </url>
   <url>
     <loc>http://gabekoss.com/tags/unix/</loc>
   </url>
   <url>
+    <loc>http://gabekoss.com/tags/utilities/</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/vagrant/</loc>
+  </url>
+  <url>
     <loc>http://gabekoss.com/tags/vim/</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/virtual_machine/</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/vm/</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/vmware/</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/vsftpd/</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/wireless/</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/xhr/</loc>
   </url>
 </urlset>
 

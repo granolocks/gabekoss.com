@@ -87,7 +87,6 @@ $(document).ready(function(){
   })
 
   $.getJSON('/json/nano_stats.json', function(data){
-
     var x = d3.scale.linear().domain([0, data.length]).range([graphPadding, fullWidth]);
     var y = d3.scale.linear().domain([0, d3.max(data, function(d) { return d.wc; })]).rangeRound([0, height]);
 
@@ -104,5 +103,4 @@ $(document).ready(function(){
       attr("stroke-width", 2).
       attr("fill", "none");
   })
-
 });
