@@ -1,13 +1,33 @@
 ---
-title: Blog Post Tags
+title: Search Site Content
 ---
 
-<ul>
-  <% TagHelper.sorted_tags(@items).each do |arg| %>
-    <% tag   = arg[0]   %>
-    <% posts = arg[1] %>
-    <li><a href="/tags/<%= tag.gsub(' ','_') %>"><%= tag %></a> (<%= posts.count %>)</li>
-  <% end %>
-</ul>
+<input id="search" placeholder="Begin typing to search..."></input>
 
+<div id="results">
+  <ul>
+    <% TagHelper.tagged_items_from(@items).each do |item| %>
+      <li class="search-result" name="<%=item[:tags].join(' ')%> <%= item[:title].downcase.gsub(/[^a-z0-9 ]/i,'') %> ">
+       <strong><a href="<%= item.path %>"><%= item[:title] %></a></strong><br/>
+       <span class="<%= item[:kind] %>"><em><%= item[:kind] == "note" ? "Note" : "Blog Post" %></em><span> &mdash;
+           <% if item[:summary] %>
+             <%= item[:summary] %>
+           <% else %>
+             Summary unavailable...
+           <% end %>
+       <p class='tags'>
+         <small>
+           <% item[:tags].each do |t| %>
+             <a href="/tags/<%=t.gsub(/ /,'_') %>"><%= t %></a>
+           <% end %>
+         </small>
+       </p>
+       <hr/>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+<script src="/js/jquery-1-10-1-min.js"></script>
+<script src="/js/search.js"></script>
 

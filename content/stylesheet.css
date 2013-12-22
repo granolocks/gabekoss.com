@@ -3,8 +3,7 @@ html { background-color: #DEFFCD; }
 pre {
   margin: 5px;
   padding: 5px;
-  border-radius: 3px;
-  overflow: scroll;
+  border-radius: 3px; overflow: scroll;
   color: #eee;
   background-color: #3F3F3F;
 }
@@ -111,3 +110,15 @@ p.tags a:hover {
   background: rgba(90,90,90,0.6);
 }
 
+#results ul{
+  list-style: none;
+  padding-left: 0;
+}
+
+#search {
+  width: 100%;
+  font-size; 110%;
+  height: 2em;
+  padding: .5em;
+
+}

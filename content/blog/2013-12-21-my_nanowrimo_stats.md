@@ -7,6 +7,8 @@ author: Gabe Koss
 summary: A look at the progress I made on the National Novel writing Month challenge.
 tags: 
  - nanowrimo 
+ - writing
+ - tr
 --- 
 
 <script src="/js/d3-v3-min.js" charset="utf-8"></script>
@@ -87,8 +89,6 @@ common two word groupings were as follows:
   <tr><td><strong>out of</strong></td><td>91 instances</td></tr>
   <tr><td><strong>she was</strong></td><td>90 instances</td></tr>
 </table>
-
-
 
 ## Code snippets:
 

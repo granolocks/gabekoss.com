@@ -27,12 +27,12 @@ preprocess do
   end
 
   def create_post_tag_pages
-    tags = TagHelper.tags_hash( Post.all_from(items))
+    tags = TagHelper.tags_hash(@items)
 
-    tags.each do |tag, posts|
+    tags.each do |tag, pages|
       @items << Nanoc::Item.new(
         TagHelper.erb_template,
-        {extension: "erb", title: tag.capitalize, tag: tag, posts: posts},
+        {extension: "erb", title: tag.capitalize, tag: tag, pages: pages},
         "/tags/#{tag.gsub(/ /,'_')}"
       )
     end

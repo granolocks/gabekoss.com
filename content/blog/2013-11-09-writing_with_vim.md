@@ -6,6 +6,7 @@ kind: blog-post
 summary: Some useful tricks that I have picked up by writing fiction and non fiction using the Vim text editor.
 tags: 
  - vim
+ - writing
 --- 
 
 As much as I love `vim` for working on code projects I also enjoy using `vim`
