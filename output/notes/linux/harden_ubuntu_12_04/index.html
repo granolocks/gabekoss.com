@@ -1,11 +1,11 @@
 <!doctype html>
 <html>
   <head>
-    <title>Nexus 7</title>
+    <title>Basic Ubuntu 12.04 Hardening</title>
 <link type='text/css' href='/style.css' rel='stylesheet'/>
 <link rel="stylesheet" href="/css/zenburn.css">
-<meta property="og:title" content="Nexus 7" />
-<meta property="og:url" content="http://www.gabekoss.com/tags/nexus_7/" />
+<meta property="og:title" content="Basic Ubuntu 12.04 Hardening" />
+<meta property="og:url" content="http://www.gabekoss.com/notes/linux/harden_ubuntu_12_04/" />
 <meta property="og:type" content="website" />
 <meta property="og:description" content="" />
 <meta property="og:image" content="http://www.gabekoss.com/images/og.png" />
@@ -49,17 +49,41 @@
     </div>
     <div id="main">
       
-        <h1>Nexus 7</h1>
-          
-    <p>
-      <strong>
-        <a href="/blog/2013/12/mounting_nexus_7_files_on_crunchbang/">
-          Mounting Nexus 7 Files on Crunchbang
-        </a>
-      </strong><br/>
-      I have a Google Nexus 7 Gen 1 and I have struggled to get it mounted on my Crunbang Linux systems.
-    </p>
-  
+        <h1>Basic Ubuntu 12.04 Hardening</h1>
+        <h3>Helpful Packages</h3>
+
+<pre><code class="bash">sudo apt-get -y update
+sudo apt-get -y install vim git openssh-server
+</code></pre>
+
+<h3>Harden Ubuntu</h3>
+
+<p>Set up <code>ufw</code>:</p>
+
+<pre><code class="bash">sudo ufw enable
+sudo ufw status verbose
+sudo ufw allow ssh
+</code></pre>
+
+<p>Harden <code>ssh</code> by updating  <code>/etc/ssh/sshd_config</code>:</p>
+
+<pre><code>Port &lt;new_port&gt;
+PermitRootLogin no
+DebianBanner no
+</code></pre>
+
+<p>Back to the console <new_port>.</p>
+
+<pre><code class="bash">sudo ufw allow
+sudo service ssh restart
+</code></pre>
+
+<p>Secure Shared Memory (<code>/dev/shm</code>) by adding the following line to <code>/etc/fstab</code>:</p>
+
+<pre><code>tmpfs /dev/shm tmpfs defaults,noexec,nosuid 0 0
+</code></pre>
+
+<p>To apply this setting reboot the VM.</p>
 
       
     </div>
@@ -67,7 +91,7 @@
       <hr/>
 <p>&copy; 2013 <a href="mailto:gabe@gabekoss.com">Gabe Koss</a></p>
 
-  <p><small>Last updated at: 2013-12-21 20:59</small></p>
+  <p><small>Last updated at: 2013-12-21 20:39</small></p>
 
 
     </div>
