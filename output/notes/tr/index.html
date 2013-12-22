@@ -1,11 +1,11 @@
 <!doctype html>
 <html>
   <head>
-    <title>Android</title>
+    <title>tr - Translate</title>
 <link type='text/css' href='/style.css' rel='stylesheet'/>
 <link rel="stylesheet" href="/css/zenburn.css">
-<meta property="og:title" content="Android" />
-<meta property="og:url" content="http://www.gabekoss.com/tags/android/" />
+<meta property="og:title" content="tr - Translate" />
+<meta property="og:url" content="http://www.gabekoss.com/notes/tr/" />
 <meta property="og:type" content="website" />
 <meta property="og:description" content="" />
 <meta property="og:image" content="http://www.gabekoss.com/images/og.png" />
@@ -49,17 +49,71 @@
     </div>
     <div id="main">
       
-        <h1>Android</h1>
-          
-    <p>
-      <strong>
-        <a href="/blog/2013/12/mounting_nexus_7_files_on_crunchbang/">
-          Mounting Nexus 7 Files on Crunchbang
-        </a>
-      </strong><br/>
-      I have a Google Nexus 7 Gen 1 and I have struggled to get it mounted on my Crunbang Linux systems.
-    </p>
-  
+        <h1>tr - Translate</h1>
+        <p><code>tr</code> is quickly becoming one of my favorite unix utilities. It is incredibly
+versatile and incredibly powerful. It can also be easier on the eyes for simple
+subsitutions than <a href="/notes/sed.md">sed</a>.</p>
+
+<h2>Basics of tr</h2>
+
+<p>The easiest and most common way to explain is that it <strong>tr</strong>anslates characters from one set to their equivalent match in the second set. Lets see some examples.</p>
+
+<pre><code class="bash">$ echo &quot;Hello World&quot; | tr &#39;elo&#39; &#39;310&#39;
+H3110 W0r1d
+</code></pre>
+
+<p>It subsituted the &#39;e&#39; for the &#39;3&#39; and &#39;l&#39; for &#39;1&#39; and so on. </p>
+
+<p>Notice how it was not a literal subsituation but rather a <em>per-character
+transposition</em>. The input and output sets don&#39;t always have to match in size, but if they do the translation will be most easy to understand. </p>
+
+<p>For example, this is pretty easy to understand:</p>
+
+<pre><code class="bash">$ echo &quot;Hello World&quot; |tr &#39;AEIOUaeiou&#39; &#39;X&#39;
+HXllX WXrld
+</code></pre>
+
+<p>But this is a bit more suprising.</p>
+
+<pre><code class="bash">$ echo &quot;foo&quot; | tr &#39;foo&#39; &#39;bar&#39;
+brr
+</code></pre>
+
+<h2>Snippets:</h2>
+
+<h3>Convert a string to lowercase</h3>
+
+<pre><code class="bash">$ echo UPPERCASE | tr &#39;[A-Z]&#39; &#39;[a-z]&#39;
+uppercase
+</code></pre>
+
+<h3>Atomize a string</h3>
+
+<pre><code class="bash">$ echo &quot;these are some words&quot; | tr -sc &#39;[A-Z][a-z]&#39; &#39;[\012*]&#39;
+these
+are
+some
+words
+</code></pre>
+
+<h3>Clean up a filename</h3>
+
+<p>This is pretty opinionated about how a filename should look... Also, this may
+look long but the nice thing is the filenames can often be auto completed.</p>
+
+<pre><code class="bash">$ mv id-prefer-if-this-was-underscore-delimited.txt $( ls id-prefer-if-this-was-underscore-delimited.txt | tr &#39;-&#39; &#39;_&#39; )
+id_prefer_if_this_was_underscore_delimited.txt
+</code></pre>
+
+<h3>Simple Caesar Cypher</h3>
+
+<p>I wrote this up as a <a href="/blog/2013/12/caesar_cypher_in_bash_oneliner/">blog post</a>
+but wanted to capture the snippet on this page. </p>
+
+<pre><code class="bash"># Sample usage:
+# ./bash_caesar &lt;key (1-25)&gt; &lt;input file&gt;
+tr &#39;A-Z&#39; &#39;a-z&#39; &lt; $2  | tr &#39;a-z&#39; $( echo {a..z} | sed -r &#39;s/ //g&#39; | sed -r &quot;s/(.{$1})(.*)/\2\1/&quot; )
+</code></pre>
 
       
     </div>
@@ -67,7 +121,7 @@
       <hr/>
 <p>&copy; 2013 <a href="mailto:gabe@gabekoss.com">Gabe Koss</a></p>
 
-  <p><small>Last updated at: 2013-12-21 20:30</small></p>
+  <p><small>Last updated at: 2013-12-21 19:53</small></p>
 
 
     </div>
