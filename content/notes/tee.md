@@ -1,6 +1,11 @@
 ---
+kind: note
 title: tee
 updated_at: 2013-11-07 06:59
+tags: 
+  - tee 
+  - linux
+  - utilities
 ---
 
 Split output to a command at different stages of processing like: 

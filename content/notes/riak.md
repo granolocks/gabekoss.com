@@ -1,6 +1,12 @@
 ---
 title: Riak
 updated_at: 2013-11-21 16:25
+kind: note
+tags:
+ - riak
+ - database
+ - db
+ - nosql
 ---
 
 Riak is a distributed document store style NoSQL database created by a company called Basho Technologies. 

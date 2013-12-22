@@ -1,6 +1,11 @@
 ---
+kind: note
 title: cp
 updated_at: 2013-11-07 06:59
+tags:
+ - cp
+ - utilities
+ - linux
 ---
 
 `cp` is a common unix utility to copy a file. 

@@ -1,6 +1,16 @@
 ---
+kind: note
 title: SSH
 updated_at: 2013-11-07 06:59
+tags: 
+  - reverse shell
+  - shell
+  - port forwarding
+  - ssh
+  - linux
+  - security
+  - network
+  - utilities
 ---
 
 

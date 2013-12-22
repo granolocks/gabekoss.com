@@ -1,6 +1,14 @@
 ---
+kind: note
 title: Netcat
 updated_at: 2013-11-07 6:59
+tags:
+ - nc
+ - netcat
+ - network
+ - utilities
+ - linux
+ - security
 ---
 
 

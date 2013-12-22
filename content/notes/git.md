@@ -1,6 +1,11 @@
 ---
+kind: note
 title: git
 updated_at: 2013-11-07 06:59
+tags:
+ - git
+ - utilities
+ - linux
 ---
 
 `git` is the best version control software. Okay, that is subject, but I still think so. 

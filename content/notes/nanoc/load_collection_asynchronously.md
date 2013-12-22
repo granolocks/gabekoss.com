@@ -1,7 +1,13 @@
 ---
+kind: note
 title: Load a Nanoc Collection Asynchronously
 updated_at: 2013-12-07 10:40
 created_at: 2013-12-07 00:35
+tags:
+  - nanoc
+  - ruby
+  - ajax
+  - xhr
 ---
 
 This assumes that there exists a collection similar to the one outlined in the

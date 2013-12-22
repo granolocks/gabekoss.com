@@ -1,6 +1,11 @@
 ---
+kind: note
 title: find
 updated_at: 2013-11-07 06:59
+tags:
+ - find
+ - utilities
+ - linux
 ---
 
 `find` is a command used to search for files on unix filesystems. 

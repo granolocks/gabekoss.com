@@ -1,6 +1,11 @@
 ---
+kind: note
 title: Ubuntu 11.10 Setup Notes
 updated_at: 2013-11-07 06:55
+tags:
+  - linux
+  - installation
+  - ubuntu
 ---
 
 

@@ -1,6 +1,11 @@
 ---
+kind: note
 title: Install Nodejs on Crunchbang
 updated_at: 2013-11-07 6:59
+tags:
+ - nodejs
+ - software
+ - server
 ---
 
 

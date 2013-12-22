@@ -1,6 +1,13 @@
 ---
+kind: note
 title: Ubuntu 12.04 Rails Server
 updated_at: 2013-11-07 6:55
+tags:
+  - linux
+  - installation
+  - ubuntu
+  - rails
+  - server
 ---
 
 

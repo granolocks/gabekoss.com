@@ -1,6 +1,12 @@
 ---
+kind: note
 title: Sed
 updated_at: 2013-12-09 18:59
+tags:
+  - sed
+  - text editing
+  - linux
+  - utilities
 ---
 
 ## Delete a specific line with from a file

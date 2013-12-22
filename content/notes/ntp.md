@@ -1,6 +1,11 @@
 ---
+kind: note
 title: NTP
 updated_at: 2013-11-07 06:59
+tags:
+ - ntp
+ - linux
+ - utilities
 ---
 
 

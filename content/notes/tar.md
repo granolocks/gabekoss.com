@@ -1,6 +1,12 @@
 ---
+kind: note
 title: tar
 updated_at: 2013-11-07 06:59
+tags: 
+  - tar 
+  - compression
+  - linux
+  - utilities
 ---
 
 

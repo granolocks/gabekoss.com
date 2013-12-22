@@ -1,6 +1,13 @@
 ---
+kind: note
 title: NetHog
 updated_at: 2013-11-07 6:59
+tags:
+ - nethog
+ - network
+ - utilities
+ - linux
+ - security
 ---
 
 

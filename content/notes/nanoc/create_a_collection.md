@@ -1,7 +1,11 @@
 ---
+kind: note
 title: Nanoc Collections 
 updated_at: 2013-12-07 00:35
 created_at: 2013-12-07 00:35
+tags:
+  - nanoc
+  - ruby
 ---
 
 These are notes about organizing a collection of some type of content (such as

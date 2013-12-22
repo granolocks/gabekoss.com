@@ -1,6 +1,12 @@
 ---
-title: Iptraft
+kind: note
+title: Iptraf
 updated_at: 2013-11-07 06:59
+tags:
+ - iptraf
+ - utilities
+ - network
+ - linux
 ---
 
 `iptraf` is a useful tool which allows network activity to be viewed through a

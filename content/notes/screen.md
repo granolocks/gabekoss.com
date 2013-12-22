@@ -1,6 +1,11 @@
 ---
 title: Screen
 updated_at: 2013-11-26 14:21
+kind: note
+tags:
+  - screen
+  - linux
+  - utilities
 ---
 
 Screen is a common terminal multiplexer and terminal sharing tool.

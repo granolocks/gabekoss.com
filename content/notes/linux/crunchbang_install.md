@@ -1,6 +1,11 @@
 ---
+kind: note
 title: Install Crunchbang
 updated_at: 2013-11-07 6:55
+tags:
+  - linux
+  - installation
+  - crunchbang
 ---
 
 

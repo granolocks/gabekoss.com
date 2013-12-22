@@ -1,6 +1,10 @@
 ---
+kind: note
 title: Open Arena on Ubuntu 12.04
 updated_at: 2013-11-07 06:59
+tags:
+ - open arena
+ - linux
 ---
 
 

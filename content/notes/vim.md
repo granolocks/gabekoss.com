@@ -1,6 +1,12 @@
 ---
+kind: note
 title: Vim
 updated_at: 2013-11-07 06:59
+tags:
+  - vim
+  - text editing
+  - linux
+  - utilities
 ---
 
 I love vim. I really need to write up some information about vim, but for now this can just be a few random tricks.

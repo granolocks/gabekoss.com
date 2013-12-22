@@ -1,6 +1,12 @@
 ---
+kind: note
 title: Music Player Daemon
 updated_at: 2013-11-07 06:59
+tags:
+ - mpd
+ - utilities
+ - linux
+ - mp3
 ---
 
 

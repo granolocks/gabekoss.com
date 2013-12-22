@@ -1,6 +1,11 @@
 ---
+kind: note
 title: grep
 updated_at: 2013-11-07 06:59
+tags:
+ - grep
+ - utilities
+ - linux
 ---
 
 `grep` is a universal tool to search *g*lobally for a *r*egular *e*xpression

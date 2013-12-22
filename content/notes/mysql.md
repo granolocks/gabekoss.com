@@ -1,6 +1,12 @@
 ---
+kind: note
 title: mysql
 updated_at: 2013-11-07 06:59
+tags:
+ - mysql
+ - database
+ - db
+ - sql
 ---
 
 

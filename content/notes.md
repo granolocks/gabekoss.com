@@ -58,6 +58,7 @@ Unless otherwise specified assume these notes were created on Crunchbang Waldorf
 * [ssh](/notes/ssh)
 * [tar](/notes/tar)
 * [tee](/notes/tee)
+* [tr](/notes/tr)
 * [tshark](/notes/tshark)
 * [vagrant](/notes/vagrant)
 * [vim](/notes/vim)

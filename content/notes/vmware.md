@@ -1,6 +1,12 @@
 ---
+kind: note
 title: Vmware
 updated_at: 2013-11-07 06:59
+tags:
+  - vm
+  - virtual machine
+  - utilities
+  - vmware
 ---
 
 

@@ -1,6 +1,12 @@
 ---
+kind: note
 title: Sound on linux
 updated_at: 2013-11-07 06:59
+tags: 
+  - sound
+  - linux
+  - aplay
+  - speaker-test
 ---
 
 

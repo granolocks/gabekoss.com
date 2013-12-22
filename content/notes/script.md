@@ -1,6 +1,12 @@
 ---
+kind: note
 title: Terminal Capture with Script
 updated_at: 2013-11-07 06:59
+tags:
+  - script
+  - linux
+  - utilities
+  - record terminal
 ---
 
 
