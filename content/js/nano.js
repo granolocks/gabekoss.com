@@ -82,9 +82,6 @@ $(document).ready(function(){
       attr("width", barWidth).
       attr("fill", barColor).
       attr("class", "wc-graph-bar").
-      attr("data-date", function(d){return d.date;}).
-      attr("data-wc", function(d){return d.wc;}).
-      attr("data-commit", function(d){return d.commit;}).
       append("svg:title").
       text(function(d){ return (d[0]+"\nWords:"+d[1])});
   })
