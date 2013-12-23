@@ -7,7 +7,7 @@ title: Search Site Content
 <div id="results">
   <ul>
     <% TagHelper.tagged_items_from(@items).each do |item| %>
-      <li class="search-result" name="<%=item[:tags].join(' ')%> <%= item[:title].downcase.gsub(/[^a-z0-9 ]/i,'') %> ">
+      <li style="display:none;" class="search-result" name="<%=item[:tags].join(' ')%> <%= item[:title].downcase.gsub(/[^a-z0-9 ]/i,'') %> ">
        <strong><a href="<%= item.path %>"><%= item[:title] %></a></strong><br/>
        <span class="<%= item[:kind] %>"><em><%= item[:kind] == "note" ? "Note" : "Blog Post" %></em><span> &mdash;
            <% if item[:summary] %>
