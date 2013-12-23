@@ -34,9 +34,9 @@ blockquote {
 
 #sidebar {
   height: 100%;
-  background: rgb(188,255,0);
+  background: rgb(0,0,0);
   /* RGBa with 0.6 opacity */
-  background: rgba(188,255,0, 0.6);
+  background: rgba(0,0,0, 0.6);
   width: 120px;
   position: fixed;
   top: 0;

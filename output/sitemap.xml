@@ -20,6 +20,9 @@
     <loc>http://gabekoss.com/api/v1/blog/4.json</loc>
   </url>
   <url>
+    <loc>http://gabekoss.com/api/v1/blog/5.json</loc>
+  </url>
+  <url>
     <loc>http://gabekoss.com/blog/</loc>
     <lastmod>2013-12-21</lastmod>
   </url>
@@ -124,6 +127,10 @@
     <lastmod>2013-12-21</lastmod>
   </url>
   <url>
+    <loc>http://gabekoss.com/blog/2013/12/graphing_bitcoin_data_with_d3_js/</loc>
+    <lastmod>2013-12-23</lastmod>
+  </url>
+  <url>
     <loc>http://gabekoss.com/css/notes.css</loc>
     <lastmod>2013-12-06</lastmod>
   </url>
@@ -154,6 +161,10 @@
   <url>
     <loc>http://gabekoss.com/js/d3-v3-min.js</loc>
     <lastmod>2013-12-16</lastmod>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/js/d3_bitcoin.js</loc>
+    <lastmod>2013-12-23</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/js/highlight-pack.js</loc>
@@ -369,7 +380,7 @@
   </url>
   <url>
     <loc>http://gabekoss.com/style.css</loc>
-    <lastmod>2013-12-21</lastmod>
+    <lastmod>2013-12-23</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/tags/</loc>
@@ -391,6 +402,9 @@
     <loc>http://gabekoss.com/tags/benchmarking/</loc>
   </url>
   <url>
+    <loc>http://gabekoss.com/tags/bitcoin/</loc>
+  </url>
+  <url>
     <loc>http://gabekoss.com/tags/code_golf/</loc>
   </url>
   <url>
@@ -401,6 +415,9 @@
   </url>
   <url>
     <loc>http://gabekoss.com/tags/crunchbang/</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/d3/</loc>
   </url>
   <url>
     <loc>http://gabekoss.com/tags/database/</loc>
@@ -440,6 +457,9 @@
   </url>
   <url>
     <loc>http://gabekoss.com/tags/iptraf/</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/javascript/</loc>
   </url>
   <url>
     <loc>http://gabekoss.com/tags/john/</loc>
