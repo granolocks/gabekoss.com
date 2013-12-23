@@ -8,22 +8,36 @@ $(document).ready(function(){
     mergedResults = [];
     searchTerm = $("#search").val();
 
-    if( searchTerm != ""){
+    if( (searchTerm != "") && (searchTerm != null)){
       searchParts = searchTerm.split(' ');
 
       $(searchParts).each(function(i,tag){
-        selector = "li[name*='"+tag.toLowerCase()+"']";
-        x = $(selector);
-        results.push(x);
+        if(tag != ""){
+          selector = "li[name*='"+tag.toLowerCase()+"']";
+          x = $(selector);
+          results.push(x);
+        }
       });
 
-      $(results).each(function(i,resultsArray){
-        $(resultsArray).each(function(i,page){
-          if(mergedResults.indexOf(page) == -1){
-            mergedResults.push(page);
+      //
+      // results = [[x,y],[x,z]..]
+      //
+      $(results[0]).each(function(i,page){
+        var include = true;
+
+        $(results).each(function(i,resultsArray){
+          resultsArray = $.makeArray(resultsArray);
+
+          if(resultsArray.indexOf(page) == -1){
+            include = false;
           }
         });
+
+        if(include == true){
+          mergedResults.push(page);
+        }
       });
+
 
       $("li.search-result").each(function(i,li){
         if(mergedResults.indexOf(li) == -1){
@@ -34,7 +48,7 @@ $(document).ready(function(){
       });
     } else {
       $("li.search-result").each(function(i,li){
-        $(li).show();
+        $(li).hide();
       });
     }
   });
