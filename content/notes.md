@@ -33,6 +33,7 @@ Unless otherwise specified assume these notes were created on Crunchbang Waldorf
 ### Tools & Snippets
 
 * [cp](/notes/cp)
+* [D programming language](/notes/d)
 * [ffmpeg](/notes/ffmpeg)
 * [finch](/notes/finch)
 * [find](/notes/find)
@@ -53,6 +54,7 @@ Unless otherwise specified assume these notes were created on Crunchbang Waldorf
 * [screen](/notes/screen)
 * [script](/notes/script)
 * [sed](/notes/sed)
+* [seahorse](/notes/seahorse)
 * [sound](/notes/sound)
 * [splunk](/notes/splunk)
 * [ssh](/notes/ssh)

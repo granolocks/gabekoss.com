@@ -1,7 +1,7 @@
 ---
-kind: note
 title: cp
 updated_at: 2013-11-07 06:59
+kind: note
 tags:
  - cp
  - utilities
