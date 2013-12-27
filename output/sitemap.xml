@@ -184,11 +184,15 @@
   </url>
   <url>
     <loc>http://gabekoss.com/notes/</loc>
-    <lastmod>2013-12-21</lastmod>
+    <lastmod>2013-12-27</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/notes/cp/</loc>
-    <lastmod>2013-12-21</lastmod>
+    <lastmod>2013-12-27</lastmod>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/notes/d/</loc>
+    <lastmod>2013-12-27</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/notes/ffmpeg/</loc>
@@ -315,6 +319,10 @@
     <lastmod>2013-12-21</lastmod>
   </url>
   <url>
+    <loc>http://gabekoss.com/notes/seahorse/</loc>
+    <lastmod>2013-12-27</lastmod>
+  </url>
+  <url>
     <loc>http://gabekoss.com/notes/sed/</loc>
     <lastmod>2013-12-21</lastmod>
   </url>
@@ -344,7 +352,7 @@
   </url>
   <url>
     <loc>http://gabekoss.com/notes/tshark/</loc>
-    <lastmod>2013-12-21</lastmod>
+    <lastmod>2013-12-24</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/notes/vagrant/</loc>
@@ -415,6 +423,9 @@
   </url>
   <url>
     <loc>http://gabekoss.com/tags/crunchbang/</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/d/</loc>
   </url>
   <url>
     <loc>http://gabekoss.com/tags/d3/</loc>
@@ -546,6 +557,9 @@
     <loc>http://gabekoss.com/tags/password/</loc>
   </url>
   <url>
+    <loc>http://gabekoss.com/tags/passwords/</loc>
+  </url>
+  <url>
     <loc>http://gabekoss.com/tags/pentesting/</loc>
   </url>
   <url>
@@ -553,6 +567,9 @@
   </url>
   <url>
     <loc>http://gabekoss.com/tags/port_forwarding/</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/programming_languages/</loc>
   </url>
   <url>
     <loc>http://gabekoss.com/tags/rails/</loc>
@@ -583,6 +600,9 @@
   </url>
   <url>
     <loc>http://gabekoss.com/tags/script/</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/seahorse/</loc>
   </url>
   <url>
     <loc>http://gabekoss.com/tags/security/</loc>

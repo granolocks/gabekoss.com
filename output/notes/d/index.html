@@ -1,0 +1,160 @@
+<!doctype html>
+<html>
+  <head>
+    <title>D programming language</title>
+<link type='text/css' href='/style.css' rel='stylesheet'/> <link rel="stylesheet" href="/css/zenburn.css">
+<meta property="og:title" content="D programming language" />
+<meta property="og:url" content="http://www.gabekoss.com/notes/d/" />
+<meta property="og:type" content="website" />
+<meta property="og:description" content="" />
+<meta property="og:image" content="http://www.gabekoss.com/images/og.png" />
+
+  <script src="/js/highlight-pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+<!--                                                                                              -->
+<!--       ___ ___         .__  .__           ___________      .__                   .___._.      -->
+<!--      /   |   \   ____ |  | |  |   ____   \_   _____/______|__| ____   ____    __| _/| |      -->
+<!--     /    ~    \_/ __ \|  | |  |  /  _ \   |    __) \_  __ \  |/ __ \ /    \  / __ | | |      -->
+<!--     \    Y    /\  ___/|  |_|  |_(  <_> )  |     \   |  | \/  \  ___/|   |  \/ /_/ |  \|      -->
+<!--      \___|_  /  \___  >____/____/\____/   \___  /   |__|  |__|\___  >___|  /\____ |  __      -->
+<!--            \/       \/                        \/                  \/     \/      \/  \/      -->
+<!--                                                                                              -->
+<!--                                                                                              -->
+<!--     My sweet site was generated using love, ruby & nanoc [http://nanoc.ws/]                  -->
+<!--                                                                                              -->
+<!--                                                                                              -->
+<!--     "Anytime I see something screech across a room and latch onto someones neck,             -->
+<!--     and the guy screams and tries to get it off, I have to laugh,                            -->
+<!--     because what is that thing?"                                                             -->
+<!--                                                                                              -->
+<!--                           - Jack Handy                                                       -->
+<!--                                                                                              -->
+
+  </head>
+  <body>
+    <div id="sidebar">
+      <ul>
+  <li><a href="/">Home</a></li>
+  <li><a href="/blog">Blog</a></li>
+  <li><a href="/notes">Notes</a></li>
+  <li><a href="/tags">Search</a></li>
+</ul>
+<div class="img-links">
+  <a href="https://github.com/granolocks"><img src="/images/github.png"></a>
+  <a href="https://twitter.com/granolocks"><img src="/images/twitter.png"></a>
+  <div style="clear:both"></div>
+</div>
+
+    </div>
+    <div id="main">
+      
+        <h1>D programming language</h1>
+        <p><a href="http://dlang.org/">D</a> is a relatively new programming language. The official
+site describes it as:</p>
+
+<blockquote>
+<p>D is a language with C-like syntax and static typing. It pragmatically
+combines efficiency, control, and modeling power, with safety and programmer
+productivity.</p>
+</blockquote>
+
+<p>Sounds good, lets give it a try! :) </p>
+
+<h2>Install on Crunchbang</h2>
+
+<p>Installing was pretty straightforward on Crunchbang. I grabbed the <code>.deb</code> from
+the <a href="http://dlang.org/download.html">official download page</a>. </p>
+
+<pre><code class="bash">$ apt-get install gcc-multilib
+$ dpkg -i dmd_2.064.2-0_amd64.deb
+</code></pre>
+
+<h2>Hello World</h2>
+
+<p>I found the Hello World to be quite elegant and familiar. </p>
+
+<pre><code class="d">#!/usr/bin/env rdmd
+
+import std.stdio;
+
+void main(){
+  writeln(&quot;Hello World!&quot;);
+}
+</code></pre>
+
+<h2>First Compile</h2>
+
+<p>The easiest way to run this program is to run it like a script. Thanks to the
+magic of the <code>#!/usr/bin/env rdmd</code> line at the top of the file we can simply
+run it like a script.</p>
+
+<pre><code class="bash">$ chmod +x hello_world.d
+$ ./hello_world.d
+Hello World!
+</code></pre>
+
+<p>A more complete compilation can also be accomplished with the <code>dmd</code> command:</p>
+
+<pre><code class="bash">$ dmd hello_world.d 
+$ ls
+hello_world  hello_world.d  hello_world.o
+$ ./hello_world
+Hello World!
+</code></pre>
+
+<p>The other file that was created (<code>hello_world.o</code>) is a D object file and can be
+ignored for now. </p>
+
+<h2>Debug</h2>
+
+<p>D files can be compiled with a <code>-debug</code> flag to enable debugging options. This
+is part of D&#39;s <a href="http://dlang.org/version.html">conditional compiling</a> system.</p>
+
+<p>Given a D file like: </p>
+
+<pre><code class="d">#!/usr/bin/env rdmd
+import std.stdio;
+void main(){
+  writeln(&quot;Hello&quot;);
+  debug writeln(&quot;World!&quot;);
+}
+</code></pre>
+
+<p>We can compile as follows:</p>
+
+<pre><code class="bash">$ dmd debug.d 
+$ ./debug
+Hello
+$ dmd -debug debug.d
+$ ./debug
+Hello
+World!
+</code></pre>
+
+      
+    </div>
+    <div id="footer">
+      <hr/>
+<p>&copy; 2013 <a href="mailto:gabe@gabekoss.com">Gabe Koss</a></p>
+
+  <p><small>Last updated at: 2013-12-27 18:59</small></p>
+
+
+    </div>
+    <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-12795044-1']);
+  _gaq.push(['_setDomainName', 'gabekoss.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+   var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+   ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+   var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+   })();
+</script>
+
+  </body>
+</html>
+
