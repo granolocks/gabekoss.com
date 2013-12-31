@@ -188,7 +188,7 @@
   </url>
   <url>
     <loc>http://gabekoss.com/notes/</loc>
-    <lastmod>2013-12-27</lastmod>
+    <lastmod>2013-12-31</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/notes/cp/</loc>
@@ -321,10 +321,6 @@
   <url>
     <loc>http://gabekoss.com/notes/script/</loc>
     <lastmod>2013-12-21</lastmod>
-  </url>
-  <url>
-    <loc>http://gabekoss.com/notes/seahorse/</loc>
-    <lastmod>2013-12-27</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/notes/sed/</loc>
@@ -601,9 +597,6 @@
   </url>
   <url>
     <loc>http://gabekoss.com/tags/script/</loc>
-  </url>
-  <url>
-    <loc>http://gabekoss.com/tags/seahorse/</loc>
   </url>
   <url>
     <loc>http://gabekoss.com/tags/security/</loc>
