@@ -54,7 +54,6 @@ Unless otherwise specified assume these notes were created on Crunchbang Waldorf
 * [screen](/notes/screen)
 * [script](/notes/script)
 * [sed](/notes/sed)
-* [seahorse](/notes/seahorse)
 * [sound](/notes/sound)
 * [splunk](/notes/splunk)
 * [ssh](/notes/ssh)
