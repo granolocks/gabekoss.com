@@ -59,6 +59,29 @@ and analyzing TCP streams.</p>
 the <a href="http://www.wireshark.org/docs/man-pages/wireshark-filter.html">wireshark
 website</a>.</p>
 
+<h2>Convert local system requests into pseudo-JSON.</h2>
+
+<p>expressions. This assumes my active internet connection is from <code>wlan0</code> and
+that my IP address on that interface is <code>10.1.10.10</code>.</p>
+
+<pre><code class="sh">sudo tshark -i wlan0 -R &quot;ip.src == 10.1.10.10&quot; |
+sed -r &quot;s/^\s?+([0-9.]+)\s+([0-9.]+)\s+->\s+([0-9.]+)\s+([A-Z]+).*$/{&#39;time&#39;:&#39;\1&#39;,&#39;src&#39;:&#39;\2&#39;,&#39;dst&#39;:&#39;\3&#39;,&#39;proto&#39;:&#39;\4&#39;}/g&quot;
+</code></pre>
+
+<pre><code>root@pc# ./grab_data.sh 
+Capturing on wlan0
+{&#39;time&#39;:&#39;0.000000&#39;,&#39;src&#39;:&#39;10.1.10.10&#39;,&#39;dst&#39;:&#39;192.168.1.250&#39;,&#39;proto&#39;:&#39;TCP&#39;}
+{&#39;time&#39;:&#39;0.063996&#39;,&#39;src&#39;:&#39;10.1.10.10&#39;,&#39;dst&#39;:&#39;74.125.226.208&#39;,&#39;proto&#39;:&#39;TCP&#39;}
+{&#39;time&#39;:&#39;1.715579&#39;,&#39;src&#39;:&#39;10.1.10.10&#39;,&#39;dst&#39;:&#39;74.125.226.208&#39;,&#39;proto&#39;:&#39;TCP&#39;}
+{&#39;time&#39;:&#39;1.715604&#39;,&#39;src&#39;:&#39;10.1.10.10&#39;,&#39;dst&#39;:&#39;74.125.226.208&#39;,&#39;proto&#39;:&#39;TLS&#39;}
+{&#39;time&#39;:&#39;1.715667&#39;,&#39;src&#39;:&#39;10.1.10.10&#39;,&#39;dst&#39;:&#39;74.125.226.208&#39;,&#39;proto&#39;:&#39;TLS&#39;}
+...
+</code></pre>
+
+<p>This is a total hack and could be massively improved with some better Regular
+expressions to search for the <code>src</code> and <code>dst</code> addresses as well as producing
+valid JSON.</p>
+
 <h2>Use tshark to print out header files</h2>
 
 <p>In this example we used grep to check for an arbitrary header (<code>my_header</code>)that
@@ -71,7 +94,7 @@ I set in my app.</p>
     </div>
     <div id="footer">
       <hr/>
-<p>&copy; 2013 <a href="mailto:gabe@gabekoss.com">Gabe Koss</a></p>
+<p>&copy; 2014 <a href="mailto:gabe@gabekoss.com">Gabe Koss</a></p>
 
   <p><small>Last updated at: 2013-11-07 06:59</small></p>
 
