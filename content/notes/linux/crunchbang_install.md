@@ -14,7 +14,7 @@ so not a ton here.
 
 ## Prep usb stick:
 
-Start by downloading the ISO you want from [crunchbang.org](http://crunchbang.org).
+Start by downloading the ISO you want from [crunchbang.org](http://crunchbang.org/download).
 
 While this is downloading you can format your USB stick as EXT2 with something like `gparted`.
 
