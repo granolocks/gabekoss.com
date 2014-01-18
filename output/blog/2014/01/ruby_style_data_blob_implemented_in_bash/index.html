@@ -1,10 +1,10 @@
 <!doctype html>
 <html>
   <head>
-    <title>Open source</title>
+    <title>Ruby-style data blob implemented in bash</title>
 <link type='text/css' href='/style.css' rel='stylesheet'/> <link rel="stylesheet" href="/css/zenburn.css">
-<meta property="og:title" content="Open source" />
-<meta property="og:url" content="http://www.gabekoss.com/tags/open_source/" />
+<meta property="og:title" content="Ruby-style data blob implemented in bash" />
+<meta property="og:url" content="http://www.gabekoss.com/blog/2014/01/ruby_style_data_blob_implemented_in_bash/" />
 <meta property="og:type" content="website" />
 <meta property="og:description" content="" />
 <meta property="og:image" content="http://www.gabekoss.com/images/og.png" />
@@ -49,20 +49,118 @@
     </div>
     <div id="main">
       
-        <h1>Open source</h1>
-          
-    <p>
-      <strong>
-        <a href="/blog/2013/11/my_open_source_report_card/">
-          My Open Source Report Card
-        </a>
-      </strong><br/>
-      <span class="blog-post"><em>Blog Post</em><span> &mdash;
       
-        A cool site which creates an open source report card based on your public github activty.
       
-    </p>
-  
+        <p>
+          <small>
+            
+              <a href='/blog/2014/01/make_your_terminal_vomit_rainbows/' title='Make your terminal vomit rainbows!'>&#8656; Previous</a>
+            
+             
+            
+          </small> 
+        </p>
+        <h1>Ruby-style data blob implemented in bash</h1>
+        <p><em>Post created 2014-01-18 12:20 by Gabe Koss.<br/></em></p>
+        <h2>Ruby DATA</h2>
+
+<p>Ruby has a nice feature where if place the string <code>__END__</code> after the end of
+your scripts functionality, the text after that delimeter is loaded into a
+<code>DATA</code> File object. </p>
+
+<p>For example the following script:</p>
+
+<pre><code class="ruby">puts DATA.read
+
+__END__
+Hello Data World
+</code></pre>
+
+<p>Contain the following output:</p>
+
+<pre><code class="bash">$ ruby data.rb
+Hello Data World
+</code></pre>
+
+<h2>Bash Variant</h2>
+
+<p>Someone wanted to have this functionality in bash so here is my attemped
+solution to this problem:</p>
+
+<pre><code class="sh">f_data(){
+ tail -n $(expr $(wc -l $BASH_SOURCE | cut -d &quot; &quot; -f 1) - $(grep -ne &#39;#\s__END__&#39; $BASH_SOURCE|cut -d &quot;:&quot; -f 1)) $BASH_SOURCE | sed -r &#39;s/^#\s//g&#39;
+}
+
+f_data
+
+# __END__
+# Hello Bash Data
+# Foo
+# Bar
+</code></pre>
+
+<p>Results in the following output:</p>
+
+<pre><code class="sh">$ bash bash_data.sh
+Hello Bash Data
+Foo
+Bar
+</code></pre>
+
+<h2>Readable variant</h2>
+
+<p>Here is what is really going on, its not particularly complicated when you break it apart: </p>
+
+<pre><code class="sh">f_data(){
+  local current_file=$BASH_SOURCE
+  echo &quot;[+] Current File: $current_file&quot;
+
+  local total_line_count=$(wc -l $current_file | cut -d &quot; &quot; -f 1)
+  echo &quot;[+] Line Count: $total_line_count&quot;
+
+  local delimiter_line_number=$(grep -ne &#39;#\s__END__&#39; $current_file | cut -d &quot;:&quot; -f 1)
+  echo &quot;[+] Delimiter found on line $delimiter_line_number&quot;
+
+  local lines_to_print=$(expr $total_line_count - $delimiter_line_number)
+  echo &quot;[+] Printing $lines_to_print lines&quot;
+  echo
+
+  tail -n $lines_to_print $current_file | sed -r &#39;s/^#\s//g&#39;
+}
+
+f_data
+
+# __END__
+# Hello Bash Data
+# Foo
+# Bar
+</code></pre>
+
+<p>The output of this is as follows:</p>
+
+<pre><code class="sh">$ bash_data2.sh
+[+] Current File: /home/gabe/bash_data.sh
+[+] Line Count: 27
+[+] Delimiter found on line 24
+[+] Printing 3 lines
+
+Hello Bash Data
+Foo
+Bar
+</code></pre>
+
+        <div id="disqus_thread"></div>
+<script type="text/javascript">
+var disqus_shortname = 'gabekoss'; 
+
+(function() {
+ var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+ dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+ (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+ })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
       
     </div>
@@ -70,7 +168,7 @@
       <hr/>
 <p>&copy; 2014 <a href="mailto:gabe@gabekoss.com">Gabe Koss</a></p>
 
-  <p><small>Last updated at: 2014-01-18 12:43</small></p>
+  <p><small>Last updated at: 2014-01-18 12:20</small></p>
 
 
     </div>
