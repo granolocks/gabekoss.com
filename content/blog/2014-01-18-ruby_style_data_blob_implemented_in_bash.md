@@ -92,7 +92,7 @@ f_data
 The output of this is as follows:
 
 ```sh
-$ bash_data2.sh
+$ bash bash_data2.sh
 [+] Current File: /home/gabe/bash_data.sh
 [+] Line Count: 27
 [+] Delimiter found on line 24
