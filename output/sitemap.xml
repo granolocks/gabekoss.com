@@ -169,6 +169,10 @@
     <lastmod>2013-12-31</lastmod>
   </url>
   <url>
+    <loc>http://gabekoss.com/notes/arp-scan/</loc>
+    <lastmod>2014-01-22</lastmod>
+  </url>
+  <url>
     <loc>http://gabekoss.com/notes/cp/</loc>
     <lastmod>2013-12-27</lastmod>
   </url>
@@ -285,6 +289,10 @@
     <lastmod>2013-12-21</lastmod>
   </url>
   <url>
+    <loc>http://gabekoss.com/notes/ranger/</loc>
+    <lastmod>2014-01-22</lastmod>
+  </url>
+  <url>
     <loc>http://gabekoss.com/notes/riak/</loc>
     <lastmod>2013-12-21</lastmod>
   </url>
@@ -374,6 +382,9 @@
     <loc>http://gabekoss.com/tags/aplay/</loc>
   </url>
   <url>
+    <loc>http://gabekoss.com/tags/arp-scan/</loc>
+  </url>
+  <url>
     <loc>http://gabekoss.com/tags/bash/</loc>
   </url>
   <url>
@@ -407,6 +418,9 @@
     <loc>http://gabekoss.com/tags/db/</loc>
   </url>
   <url>
+    <loc>http://gabekoss.com/tags/discovery/</loc>
+  </url>
+  <url>
     <loc>http://gabekoss.com/tags/elastic_search/</loc>
   </url>
   <url>
@@ -414,6 +428,9 @@
   </url>
   <url>
     <loc>http://gabekoss.com/tags/ffmpeg/</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/file_management/</loc>
   </url>
   <url>
     <loc>http://gabekoss.com/tags/finch/</loc>
@@ -540,6 +557,9 @@
   </url>
   <url>
     <loc>http://gabekoss.com/tags/rails/</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/ranger/</loc>
   </url>
   <url>
     <loc>http://gabekoss.com/tags/record_terminal/</loc>
