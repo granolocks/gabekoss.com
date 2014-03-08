@@ -59,6 +59,25 @@
 <pre><code class="vim">%s/&lt;Ctrl-V&gt;&lt;Ctrl-M&gt;//g
 </code></pre>
 
+<h2>Encrypt a file with vim</h2>
+
+<p>Vim can be used to encrypt text files for security purposes. The default
+encryption used by some versions of vim is not good and so before encrypting
+files before to set the following in your <code>.vimrc</code>. This forces vim to use
+Blowfish 256bit encryption.</p>
+
+<pre><code>set cryptmethod=blowfish
+</code></pre>
+
+<p>Alternately this can be run in command mode.  </p>
+
+<p>Once set you can run a file by entering <code>:X</code>. Vim will prompt you for a
+password and then require that password each time you open the file!</p>
+
+<p><em>Warning!</em> If you enter the wrong password Vim will open the encrypted file and
+attempt to display the binary contents. Simply close the file at this point. If
+you modify and save the file you will corrupt the file. </p>
+
 <h2>Run a command across all buffers with vim or ex</h2>
 
 <pre><code class="vim">:set hidden
