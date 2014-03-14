@@ -1,12 +1,12 @@
 <!doctype html>
 <html>
   <head>
-    <title>Unix</title>
+    <title>Serving Static Nanoc Site Files With Ruby 1.8</title>
 <link type='text/css' href='/style.css' rel='stylesheet'/> <link rel="stylesheet" href="/css/zenburn.css">
-<meta property="og:title" content="Unix" />
-<meta property="og:url" content="http://www.gabekoss.com/tags/unix/" />
+<meta property="og:title" content="Serving Static Nanoc Site Files With Ruby 1.8" />
+<meta property="og:url" content="http://www.gabekoss.com/blog/2014/03/serving_static_site_files_with_ruby_1_8/" />
 <meta property="og:type" content="website" />
-<meta property="og:description" content="" />
+<meta property="og:description" content="Using a simple Sinatra app to serve a simple index.html based static site." />
 <meta property="og:image" content="http://www.gabekoss.com/images/og.png" />
 
   <script src="/js/highlight-pack.js"></script>
@@ -49,20 +49,67 @@
     </div>
     <div id="main">
       
-        <h1>Unix</h1>
-          
-    <p>
-      <strong>
-        <a href="/blog/2013/12/unix_vs_ruby_vol_1/">
-          Unix Vs. Ruby --  Simple Tasks
-        </a>
-      </strong><br/>
-      <span class="blog-post"><em>Blog Post</em><span> &mdash;
       
-        An initial comparison between using native Ruby code versus shelling out to the system and using Unix utils.
       
-    </p>
-  
+        <p>
+          <small>
+            
+              <a href='/blog/2014/03/everybody_owns_the_great_ideas/' title='Everybody Owns the Great Ideas'>&#8656; Previous</a>
+            
+             
+            
+          </small> 
+        </p>
+        <h1>Serving Static Nanoc Site Files With Ruby 1.8</h1>
+        <p><em>Post created 2014-03-14 16:56 by Gabe Koss.<br/></em></p>
+        <p>This blog is written using a static site generator called Nanoc. Nanoc is a
+great tool to generate fast and stable static sites (like this one!).</p>
+
+<p>I recently created a small Nanoc based wiki type site for a friend.
+Unfortunately due to a legacy laptop she can only run Ruby 1.8 so I was trying
+to figure out a good way to serve the files. </p>
+
+<p>They file tree looks something like this.</p>
+
+<pre><code>blog/2013/11/be_your_own_boss/index.html
+blog/2013/11/introduction_to_elastic_search/index.html
+...
+</code></pre>
+
+<p>I assumed I could do this simply enough with Sinatra and this is what I came up
+with. </p>
+
+<pre><code class="ruby">#!/usr/bin/env ruby
+require &#39;rubygems&#39;
+require &#39;sinatra&#39;
+
+class Ruby18App &lt; Sinatra::Base
+  set :public_folder, Proc.new { File.join(root, &quot;output&quot;) }
+
+  get &quot;*&quot; do
+    unless request.path.split(&#39;/&#39;).last == &quot;index.html&quot;
+      new_path = File.join(request.path, &quot;index.html&quot;)
+      redirect to(new_path)
+    end
+  end
+  run! if app_file == $0
+end
+</code></pre>
+
+<p>Note that I had to redirect paths to take into account the <code>index.html</code> files.</p>
+
+        <div id="disqus_thread"></div>
+<script type="text/javascript">
+var disqus_shortname = 'gabekoss'; 
+
+(function() {
+ var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+ dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+ (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+ })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
       
     </div>
@@ -70,7 +117,7 @@
       <hr/>
 <p>&copy; 2014 <a href="mailto:gabe@gabekoss.com">Gabe Koss</a></p>
 
-  <p><small>Last updated at: 2014-03-14 17:10</small></p>
+  <p><small>Last updated at: 2014-03-14 16:56</small></p>
 
 
     </div>

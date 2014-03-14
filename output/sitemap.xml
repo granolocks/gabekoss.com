@@ -133,6 +133,10 @@
     <lastmod>2014-03-10</lastmod>
   </url>
   <url>
+    <loc>http://gabekoss.com/blog/2014/03/serving_static_site_files_with_ruby_1_8/</loc>
+    <lastmod>2014-03-14</lastmod>
+  </url>
+  <url>
     <loc>http://gabekoss.com/css/notes.css</loc>
     <lastmod>2013-12-06</lastmod>
   </url>
@@ -584,6 +588,9 @@
     <loc>http://gabekoss.com/tags/rsync/</loc>
   </url>
   <url>
+    <loc>http://gabekoss.com/tags/ruby-1.8/</loc>
+  </url>
+  <url>
     <loc>http://gabekoss.com/tags/ruby/</loc>
   </url>
   <url>
@@ -603,6 +610,9 @@
   </url>
   <url>
     <loc>http://gabekoss.com/tags/shell/</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/sinatra/</loc>
   </url>
   <url>
     <loc>http://gabekoss.com/tags/sockets/</loc>
