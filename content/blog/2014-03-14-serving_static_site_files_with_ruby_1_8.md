@@ -4,7 +4,7 @@ created_at: 2014-03-14 16:56
 updated_at: 2014-03-14 16:56
 kind: blog-post
 author: Gabe Koss
-summary: Using a simple Sinatra app to serve a simple index.html based static site.
+summary: Using a simple Sinatra app to serve an index.html based static site.
 tags: 
   - nanoc
   - sinatra
@@ -18,9 +18,14 @@ I recently created a small Nanoc based wiki type site for a friend.
 Unfortunately due to a legacy laptop she can only run Ruby 1.8 so I was trying
 to figure out a good way to serve the files. 
 
-They file tree looks something like this.
+I knew that Sinatra could be still be installed on 1.8 without too much trouble
+but when i set the nanoc `output/` dir as the Sintra public dir I had to access
+the pages by manually adding an `index.html` extension. 
+
+The Nanoc generated file tree looks something like this.
 
 ```
+blog/index.html
 blog/2013/11/be_your_own_boss/index.html
 blog/2013/11/introduction_to_elastic_search/index.html
 ...

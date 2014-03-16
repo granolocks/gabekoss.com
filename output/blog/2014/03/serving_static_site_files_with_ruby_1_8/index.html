@@ -6,7 +6,7 @@
 <meta property="og:title" content="Serving Static Nanoc Site Files With Ruby 1.8" />
 <meta property="og:url" content="http://www.gabekoss.com/blog/2014/03/serving_static_site_files_with_ruby_1_8/" />
 <meta property="og:type" content="website" />
-<meta property="og:description" content="Using a simple Sinatra app to serve a simple index.html based static site." />
+<meta property="og:description" content="Using a simple Sinatra app to serve an index.html based static site." />
 <meta property="og:image" content="http://www.gabekoss.com/images/og.png" />
 
   <script src="/js/highlight-pack.js"></script>
@@ -69,9 +69,14 @@ great tool to generate fast and stable static sites (like this one!).</p>
 Unfortunately due to a legacy laptop she can only run Ruby 1.8 so I was trying
 to figure out a good way to serve the files. </p>
 
-<p>They file tree looks something like this.</p>
+<p>I knew that Sinatra could be still be installed on 1.8 without too much trouble
+but when i set the nanoc <code>output/</code> dir as the Sintra public dir I had to access
+the pages by manually adding an <code>index.html</code> extension. </p>
 
-<pre><code>blog/2013/11/be_your_own_boss/index.html
+<p>The Nanoc generated file tree looks something like this.</p>
+
+<pre><code>blog/index.html
+blog/2013/11/be_your_own_boss/index.html
 blog/2013/11/introduction_to_elastic_search/index.html
 ...
 </code></pre>
