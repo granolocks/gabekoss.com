@@ -137,6 +137,10 @@
     <lastmod>2014-03-16</lastmod>
   </url>
   <url>
+    <loc>http://gabekoss.com/blog/2014/03/introducing_snapi_the_snap_in_api_generator/</loc>
+    <lastmod>2014-03-24</lastmod>
+  </url>
+  <url>
     <loc>http://gabekoss.com/css/notes.css</loc>
     <lastmod>2013-12-06</lastmod>
   </url>
@@ -162,7 +166,7 @@
   </url>
   <url>
     <loc>http://gabekoss.com/js/jquery-1-10-1-min.js</loc>
-    <lastmod>2013-07-25</lastmod>
+    <lastmod>2014-03-21</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/js/nano.js</loc>
@@ -492,6 +496,9 @@
     <loc>http://gabekoss.com/tags/lxc/</loc>
   </url>
   <url>
+    <loc>http://gabekoss.com/tags/metaprogramming/</loc>
+  </url>
+  <url>
     <loc>http://gabekoss.com/tags/metasploit/</loc>
   </url>
   <url>
@@ -613,6 +620,9 @@
   </url>
   <url>
     <loc>http://gabekoss.com/tags/sinatra/</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/snapi/</loc>
   </url>
   <url>
     <loc>http://gabekoss.com/tags/sockets/</loc>

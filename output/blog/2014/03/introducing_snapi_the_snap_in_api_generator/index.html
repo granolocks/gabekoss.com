@@ -1,0 +1,244 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Introducing Snapi! Snapi-In API Generator</title>
+<link type='text/css' href='/style.css' rel='stylesheet'/> <link rel="stylesheet" href="/css/zenburn.css">
+<meta property="og:title" content="Introducing Snapi! Snapi-In API Generator" />
+<meta property="og:url" content="http://www.gabekoss.com/blog/2014/03/introducing_snapi_the_snap_in_api_generator/" />
+<meta property="og:type" content="website" />
+<meta property="og:description" content="" />
+<meta property="og:image" content="http://www.gabekoss.com/images/og.png" />
+
+  <script src="/js/highlight-pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+<!--                                                                                              -->
+<!--       ___ ___         .__  .__           ___________      .__                   .___._.      -->
+<!--      /   |   \   ____ |  | |  |   ____   \_   _____/______|__| ____   ____    __| _/| |      -->
+<!--     /    ~    \_/ __ \|  | |  |  /  _ \   |    __) \_  __ \  |/ __ \ /    \  / __ | | |      -->
+<!--     \    Y    /\  ___/|  |_|  |_(  <_> )  |     \   |  | \/  \  ___/|   |  \/ /_/ |  \|      -->
+<!--      \___|_  /  \___  >____/____/\____/   \___  /   |__|  |__|\___  >___|  /\____ |  __      -->
+<!--            \/       \/                        \/                  \/     \/      \/  \/      -->
+<!--                                                                                              -->
+<!--                                                                                              -->
+<!--     My sweet site was generated using love, ruby & nanoc [http://nanoc.ws/]                  -->
+<!--                                                                                              -->
+<!--                                                                                              -->
+<!--     "Anytime I see something screech across a room and latch onto someones neck,             -->
+<!--     and the guy screams and tries to get it off, I have to laugh,                            -->
+<!--     because what is that thing?"                                                             -->
+<!--                                                                                              -->
+<!--                           - Jack Handy                                                       -->
+<!--                                                                                              -->
+
+  </head>
+  <body>
+    <div id="sidebar">
+      <ul>
+  <li><a href="/">Home</a></li>
+  <li><a href="/blog">Blog</a></li>
+  <li><a href="/notes">Notes</a></li>
+  <li><a href="/tags">Search</a></li>
+</ul>
+<div class="img-links">
+  <a href="https://github.com/granolocks"><img src="/images/github.png"></a>
+  <a href="https://twitter.com/granolocks"><img src="/images/twitter.png"></a>
+  <div style="clear:both"></div>
+</div>
+
+    </div>
+    <div id="main">
+      
+      
+      
+        <p>
+          <small>
+            
+              <a href='/blog/2014/03/serving_static_site_files_with_ruby_1_8/' title='Serving Static Nanoc Site Files With Ruby 1.8'>&#8656; Previous</a>
+            
+             
+            
+          </small> 
+        </p>
+        <h1>Introducing Snapi! Snapi-In API Generator</h1>
+        <p><em>Post created 2014-03-24 19:31 by Gabe Koss.<br/></em></p>
+        <p>One of the challenges I have been working on at work surrounds rapid creation
+of liteweight web APIs. We develop functionality for a variety of different
+network security sensors and have to be able to quickly disclose to a variety
+of clients the capabilities of the different APIs. </p>
+
+<p>As a result of this I created a Ruby Gem called <code>Snapi</code> which we have released
+under GPLv3.</p>
+
+<p>The <a href="https://github.com/pwnieexpress/snapi">Github Project is here</a>. I also maintain a <a href="https://github.com/granolocks/snapi">personal fork</a>.</p>
+
+<h2>Sample Code</h2>
+
+<p>I want to expose the functionality of a <code>Ninja</code> through a web API. Lets see
+what that looks like in pure Ruby.</p>
+
+<p>First a simple ninja:</p>
+
+<pre><code class="ruby">class Ninja
+  def self.attack(params={})
+    &quot;Ninja attacks #{params[:foe]}!&quot;
+  end
+
+  def self.defend(params={})
+    &quot;Ninja defends against #{params[:weapon]}!&quot;
+  end
+end
+</code></pre>
+
+<p>Next, I introduce the concept of a <code>Snapi::Capability</code>. A <code>Capability</code> is a
+collection <code>Snapi::Function</code> objects. These in turn accept <em>n</em>
+<code>Snapi::Arguments</code> defined for them. </p>
+
+<p>I add the following to the <code>Ninja</code>.</p>
+
+<pre><code class="ruby"> include Snapi::Capability
+</code></pre>
+
+<p>Technically at this point Snapi has created an API but since it has no
+functions defined for it I&#39;ll add a couple <code>Snapi::Function</code> definitions. </p>
+
+<p>My complete class looks like this:</p>
+
+<pre><code class="ruby">require &#39;snapi&#39;
+require &#39;sinatra&#39;
+require &#39;sinatra/contrib&#39;
+
+class Ninja
+
+  include Snapi::Capability
+
+  function :sneak
+
+  function :attack do |fn|
+    fn.argument :foe do |arg|
+      arg.required true
+      arg.type :string
+    end
+  end
+
+  function :defend do |fn|
+    fn.argument :weapon do |arg|
+      arg.required true
+      arg.type :string
+    end
+  end
+
+  def self.sneak(params={})
+    &quot;Ninja sneaks...&quot;
+  end
+
+  def self.attack(params={})
+    &quot;Ninja attacks #{params[:foe]}!&quot;
+  end
+
+  def self.defend(params={})
+    &quot;Ninja defends against #{params[:weapon]}!&quot;
+  end
+end
+</code></pre>
+
+<h2>Ruby API</h2>
+
+<p>This just got a bit more interesting! We have defined the two ruby class
+methods as <code>Snapi</code> functions and our API is all built. </p>
+
+<p>Note that the methods have an arity of one and expect to take a single hash
+argument. This makes them extremely flexible and adaptable so that additional
+functionality can be introduced without disrupting the external facing API. </p>
+
+<p>Lets check out the basic functionality. This is still a bit rough!</p>
+
+<pre><code class="ruby">Snapi.capabilities
+#=&gt; {:ninja=&gt;Ninja}
+
+Snapi.capability_hash
+#=&gt; {:ninja=&gt;
+#  {:sneak=&gt;{:return_type=&gt;nil, :arguments=&gt;[]},
+#   :attack=&gt;
+#    {:return_type=&gt;nil,
+#     :arguments=&gt;[{:name=&gt;:foe, :required=&gt;true, :type=&gt;:string}]},
+#   :defend=&gt;
+#    {:return_type=&gt;nil,
+#     :arguments=&gt;[{:name=&gt;:weapon, :required=&gt;true, :type=&gt;:string}]}}}
+
+Snapi.capabilities[:ninja].run_function(:attack, {foe: &quot;Samurai&quot;})
+#=&gt; &quot;Ninja attacks Samurai!&quot;
+</code></pre>
+
+<h2>Sinatra Extension</h2>
+
+<p>My favorite part of this is how easy it is to start</p>
+
+<p>In the same file as the <code>Ninja</code> class I&#39;ll add the following: </p>
+
+<pre><code class="ruby">class Dojo &lt; Sinatra::Base
+  register Snapi::SinatraExtension
+  run! if app_file == $0
+end
+</code></pre>
+
+<p>When we run the file we get a nice little Sinatra webserver on <code>localhost:4567</code>. Lets give it a whirl:</p>
+
+<pre><code>curl --data weapon=sword localhost:4567/ninja/defend
+{&quot;status&quot;:200,&quot;data&quot;:{&quot;raw_result&quot;:&quot;Ninja defends against sword!&quot;},&quot;execution_time&quot;:0.000423193}
+</code></pre>
+
+<h2>Future Improvements</h2>
+
+<p>This is far from a finished product. <code>Snapi</code> has just started its life and has
+many improvements to be made. In the (nearish) future I hope to see:</p>
+
+<ul>
+<li>Dynamic HTML form / view generation</li>
+<li>Dynamic CLI generation</li>
+<li>API Authentication</li>
+<li>Fix Gem Dependencies</li>
+<li>Better handling of list arguments</li>
+<li>Logging</li>
+<li>Cleaner error handling / meaningful feedback</li>
+</ul>
+
+        <div id="disqus_thread"></div>
+<script type="text/javascript">
+var disqus_shortname = 'gabekoss'; 
+
+(function() {
+ var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+ dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+ (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+ })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+      
+    </div>
+    <div id="footer">
+      <hr/>
+<p>&copy; 2014 <a href="mailto:gabe@gabekoss.com">Gabe Koss</a></p>
+
+  <p><small>Last updated at: 2014-03-24 19:31</small></p>
+
+
+    </div>
+    <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-12795044-1']);
+  _gaq.push(['_setDomainName', 'gabekoss.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+   var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+   ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+   var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+   })();
+</script>
+
+  </body>
+</html>
+
