@@ -15,10 +15,10 @@ tags:
 One of the challenges I have been working on at work surrounds rapid creation
 of liteweight web APIs. We develop functionality for a variety of different
 network security sensors and have to be able to quickly disclose to a variety
-of clients the capabilities of the different APIs. 
+of clients the capabilities of the individual systems. 
 
-As a result of this I created a Ruby Gem called `Snapi` which we have released
-under GPLv3.
+In light of this I have started developing a Ruby Gem called `Snapi` which we
+have released under GPLv3.
 
 The [Github project is here](https://github.com/pwnieexpress/snapi). I also
 maintain a [personal fork](https://github.com/granolocks/snapi).
@@ -59,6 +59,8 @@ My complete class looks like this:
 
 ```ruby
 require 'snapi'
+
+# These requirements should go away...
 require 'sinatra'
 require 'sinatra/contrib'
 
@@ -98,7 +100,7 @@ end
 
 ## Ruby API
 
-This just got a bit more interesting! We have defined the two ruby class
+This just got a bit more interesting! We have defined the ruby class
 methods as `Snapi` functions and our API is all built. 
 
 Note that the methods have an arity of one and expect to take a single hash
@@ -148,7 +150,7 @@ curl --data weapon=sword localhost:4567/ninja/defend
 ## Future Improvements
 
 This is far from a finished product. `Snapi` has just started its life and has
-many improvements to be made. In the (nearish) future I hope to see:
+many improvements to be made! In the (nearish) future I hope to see:
 
 * Dynamic HTML form / view generation
 * Dynamic CLI generation

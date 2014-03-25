@@ -65,10 +65,10 @@
         <p>One of the challenges I have been working on at work surrounds rapid creation
 of liteweight web APIs. We develop functionality for a variety of different
 network security sensors and have to be able to quickly disclose to a variety
-of clients the capabilities of the different APIs. </p>
+of clients the capabilities of the individual systems. </p>
 
-<p>As a result of this I created a Ruby Gem called <code>Snapi</code> which we have released
-under GPLv3.</p>
+<p>In light of this I have started developing a Ruby Gem called <code>Snapi</code> which we
+have released under GPLv3.</p>
 
 <p>The <a href="https://github.com/pwnieexpress/snapi">Github project is here</a>. I also
 maintain a <a href="https://github.com/granolocks/snapi">personal fork</a>.</p>
@@ -106,6 +106,8 @@ functions defined for it I&#39;ll add a couple <code>Snapi::Function</code> defi
 <p>My complete class looks like this:</p>
 
 <pre><code class="ruby">require &#39;snapi&#39;
+
+# These requirements should go away...
 require &#39;sinatra&#39;
 require &#39;sinatra/contrib&#39;
 
@@ -145,7 +147,7 @@ end
 
 <h2>Ruby API</h2>
 
-<p>This just got a bit more interesting! We have defined the two ruby class
+<p>This just got a bit more interesting! We have defined the ruby class
 methods as <code>Snapi</code> functions and our API is all built. </p>
 
 <p>Note that the methods have an arity of one and expect to take a single hash
@@ -192,7 +194,7 @@ end
 <h2>Future Improvements</h2>
 
 <p>This is far from a finished product. <code>Snapi</code> has just started its life and has
-many improvements to be made. In the (nearish) future I hope to see:</p>
+many improvements to be made! In the (nearish) future I hope to see:</p>
 
 <ul>
 <li>Dynamic HTML form / view generation</li>
