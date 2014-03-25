@@ -4,7 +4,7 @@ created_at: 2014-03-24 19:31
 updated_at: 2014-03-24 19:31
 kind: blog-post
 author: Gabe Koss
-summary: 
+summary:  I created a Ruby Gem called Snapi which helps with dynamic API generation.
 tags: 
   - ruby
   - sinatra
