@@ -68,6 +68,14 @@ directory recursively</p>
 <pre><code class="bash">find . -type f -name *.rb -exec cat {} \; | grep -vE &quot;^([[:space:]]+)?\#&quot; | wc -l
 </code></pre>
 
+<h2>Print list of file extensions</h2>
+
+<p>This will print a count of each type of file extension in a given directory
+tree</p>
+
+<pre><code class="bash">find . -type f -name &#39;*.*&#39; | grep -Eo &quot;\.{1}[^.]*$&quot; | sort | uniq -c | sort -n
+</code></pre>
+
       
     </div>
     <div id="footer">

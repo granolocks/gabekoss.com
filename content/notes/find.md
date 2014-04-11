@@ -27,3 +27,12 @@ directory recursively
 ```bash
 find . -type f -name *.rb -exec cat {} \; | grep -vE "^([[:space:]]+)?\#" | wc -l
 ```
+
+## Print list of file extensions
+
+This will print a count of each type of file extension in a given directory
+tree
+
+```bash
+find . -type f -name '*.*' | grep -Eo "\.{1}[^.]*$" | sort | uniq -c | sort -n
+```
