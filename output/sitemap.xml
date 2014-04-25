@@ -178,7 +178,7 @@
   </url>
   <url>
     <loc>http://gabekoss.com/notes/</loc>
-    <lastmod>2013-12-31</lastmod>
+    <lastmod>2014-04-25</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/notes/arp-scan/</loc>
@@ -301,6 +301,10 @@
     <lastmod>2013-12-21</lastmod>
   </url>
   <url>
+    <loc>http://gabekoss.com/notes/postgresql/</loc>
+    <lastmod>2014-04-25</lastmod>
+  </url>
+  <url>
     <loc>http://gabekoss.com/notes/ranger/</loc>
     <lastmod>2014-01-22</lastmod>
   </url>
@@ -383,6 +387,9 @@
   <url>
     <loc>http://gabekoss.com/tags/</loc>
     <lastmod>2013-12-23</lastmod>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/active_record/</loc>
   </url>
   <url>
     <loc>http://gabekoss.com/tags/ajax/</loc>
@@ -566,6 +573,9 @@
   </url>
   <url>
     <loc>http://gabekoss.com/tags/port_forwarding/</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/postgres/</loc>
   </url>
   <url>
     <loc>http://gabekoss.com/tags/programming_languages/</loc>

@@ -49,6 +49,7 @@ Unless otherwise specified assume these notes were created on Crunchbang Waldorf
 * [nodejs](/notes/nodejs)
 * [ntp](/notes/ntp)
 * [Openarena](/notes/openarena)
+* [Postgres & ActiveRecord](/notes/postgresql/)
 * [riak](/notes/riak)
 * [rsync](/notes/rsync)
 * [screen](/notes/screen)
