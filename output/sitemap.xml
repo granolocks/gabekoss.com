@@ -141,6 +141,10 @@
     <lastmod>2014-03-24</lastmod>
   </url>
   <url>
+    <loc>http://gabekoss.com/blog/2014/04/first_experiments_with_blender/</loc>
+    <lastmod>2014-04-26</lastmod>
+  </url>
+  <url>
     <loc>http://gabekoss.com/css/notes.css</loc>
     <lastmod>2013-12-06</lastmod>
   </url>
@@ -389,6 +393,9 @@
     <lastmod>2013-12-23</lastmod>
   </url>
   <url>
+    <loc>http://gabekoss.com/tags/3d/</loc>
+  </url>
+  <url>
     <loc>http://gabekoss.com/tags/active_record/</loc>
   </url>
   <url>
@@ -411,6 +418,9 @@
   </url>
   <url>
     <loc>http://gabekoss.com/tags/bitcoin/</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/blender/</loc>
   </url>
   <url>
     <loc>http://gabekoss.com/tags/code_golf/</loc>
@@ -462,6 +472,9 @@
   </url>
   <url>
     <loc>http://gabekoss.com/tags/git/</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/graphics/</loc>
   </url>
   <url>
     <loc>http://gabekoss.com/tags/grep/</loc>
