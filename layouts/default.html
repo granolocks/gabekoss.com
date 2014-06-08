@@ -34,7 +34,10 @@
     <div id="footer">
       <%= render '_footer', item: item %>
     </div>
-    <%= render "ga_script" %>
   </body>
+  <% if item.identifier == '/blog/' %>
+    <script src='/js/blog-scroll.js'></script>
+  <% end %> 
+  <%= render 'ga_script' %>
 </html>
 

@@ -2,395 +2,399 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>http://gabekoss.com/</loc>
-    <lastmod>2013-11-27</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/blog/</loc>
-    <lastmod>2014-04-11</lastmod>
+    <lastmod>2014-06-08</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/blog/2013/11/writing_with_vim/</loc>
-    <lastmod>2013-12-21</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/blog/2013/11/introduction_to_elastic_search/</loc>
-    <lastmod>2013-11-26</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/blog/2013/11/riak_101/</loc>
-    <lastmod>2013-11-26</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/blog/2013/11/be_your_own_boss/</loc>
-    <lastmod>2013-12-07</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/blog/2013/11/ruby_string_interpolation_weirdness/</loc>
-    <lastmod>2013-11-26</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/blog/2013/11/tl_dr_legal/</loc>
-    <lastmod>2013-12-05</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/blog/2013/11/ssh_port_forwarding_with_ruby_net_ssh/</loc>
-    <lastmod>2013-11-26</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/blog/2013/11/my_open_source_report_card/</loc>
-    <lastmod>2013-12-07</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/blog/2013/11/textfiles_com/</loc>
-    <lastmod>2013-11-28</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/blog/2013/11/ode_to_c/</loc>
-    <lastmod>2013-11-27</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/blog/2013/11/running_rspec_from_vim/</loc>
-    <lastmod>2013-11-27</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/blog/2013/11/why_computers_are_straight_up_magic/</loc>
-    <lastmod>2013-12-02</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/blog/2013/12/mounting_nexus_7_files_on_crunchbang/</loc>
-    <lastmod>2013-12-03</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/blog/2013/12/why_i_love_ruby_enumerable_inject/</loc>
-    <lastmod>2013-12-05</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/blog/2013/12/benchmark_inject_versus_each_with_object/</loc>
-    <lastmod>2013-12-05</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/blog/2013/12/captain_haddock_insult_generator/</loc>
-    <lastmod>2013-12-05</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/blog/2013/12/create_an_array_of_symbols_with_i_in_ruby_2/</loc>
-    <lastmod>2013-12-07</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/blog/2013/12/caesar_cypher_in_bash_oneliner/</loc>
-    <lastmod>2013-12-09</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/blog/2013/12/view_tcp_port_activity/</loc>
-    <lastmod>2013-12-08</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/blog/2013/12/unix_vs_ruby_vol_1/</loc>
-    <lastmod>2013-12-10</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/blog/2013/12/give_a_man_a_regex/</loc>
-    <lastmod>2013-12-16</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/blog/2013/12/create_a_hash_like_structure_with_bash/</loc>
-    <lastmod>2013-12-17</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/blog/2013/12/simple_data_exchange_with_ruby_tcp_sockets/</loc>
-    <lastmod>2013-12-18</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/blog/2013/12/tiny_fibonacci_in_ruby/</loc>
-    <lastmod>2013-12-19</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/blog/2013/12/my_nanowrimo_stats/</loc>
-    <lastmod>2013-12-21</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/blog/2013/12/graphing_bitcoin_data_with_d3_js/</loc>
-    <lastmod>2013-12-23</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/blog/2013/12/5_important_things_i_have_learned_in_a_startup/</loc>
-    <lastmod>2013-12-31</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/blog/2013/12/tedx_hack_a_banana_make_a_keyboard/</loc>
-    <lastmod>2013-12-31</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/blog/2014/01/make_your_terminal_vomit_rainbows/</loc>
-    <lastmod>2014-01-03</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/blog/2014/01/ruby_style_data_blob_implemented_in_bash/</loc>
-    <lastmod>2014-01-18</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/blog/2014/03/everybody_owns_the_great_ideas/</loc>
-    <lastmod>2014-03-10</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/blog/2014/03/serving_static_site_files_with_ruby_1_8/</loc>
-    <lastmod>2014-03-16</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/blog/2014/03/introducing_snapi_the_snap_in_api_generator/</loc>
-    <lastmod>2014-03-24</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/blog/2014/04/first_experiments_with_blender/</loc>
-    <lastmod>2014-04-26</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/css/notes.css</loc>
-    <lastmod>2013-12-06</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/css/zenburn.css</loc>
-    <lastmod>2013-11-06</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/js/blog-scroll.js</loc>
-    <lastmod>2013-12-07</lastmod>
+    <lastmod>2014-06-08</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/js/d3-v3-min.js</loc>
-    <lastmod>2013-12-16</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/js/d3_bitcoin.js</loc>
-    <lastmod>2013-12-23</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/js/highlight-pack.js</loc>
-    <lastmod>2013-11-06</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/js/jquery-1-10-1-min.js</loc>
-    <lastmod>2014-03-21</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/js/nano.js</loc>
-    <lastmod>2013-12-21</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/js/search.js</loc>
-    <lastmod>2013-12-23</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/notes/</loc>
-    <lastmod>2014-04-25</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/notes/arp-scan/</loc>
-    <lastmod>2014-01-22</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/notes/cp/</loc>
-    <lastmod>2013-12-27</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/notes/d/</loc>
-    <lastmod>2013-12-27</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/notes/ffmpeg/</loc>
-    <lastmod>2013-12-21</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/notes/finch/</loc>
-    <lastmod>2013-12-21</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/notes/find/</loc>
-    <lastmod>2014-04-11</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/notes/git/</loc>
-    <lastmod>2013-12-21</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/notes/grep/</loc>
-    <lastmod>2013-12-21</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/notes/iptraf/</loc>
-    <lastmod>2013-12-21</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/notes/linux/crunchbang_install/</loc>
-    <lastmod>2014-01-14</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/notes/linux/harden_ubuntu_12_04/</loc>
-    <lastmod>2013-12-21</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/notes/linux/ubuntu-11_10_install/</loc>
-    <lastmod>2013-12-21</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/notes/linux/ubuntu-12_04_rails_server/</loc>
-    <lastmod>2013-12-21</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/notes/lxc/</loc>
-    <lastmod>2013-12-21</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/notes/mkdir/</loc>
-    <lastmod>2013-12-21</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/notes/mpd/</loc>
-    <lastmod>2013-12-21</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/notes/mysql/</loc>
-    <lastmod>2013-12-21</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/notes/nanoc/create_a_collection/</loc>
-    <lastmod>2013-12-21</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/notes/nanoc/load_collection_asynchronously/</loc>
-    <lastmod>2013-12-21</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/notes/nc/</loc>
-    <lastmod>2013-12-21</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/notes/nethog/</loc>
-    <lastmod>2013-12-21</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/notes/nodejs/</loc>
-    <lastmod>2013-12-21</lastmod>
+    <lastmod>2014-05-13</lastmod>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/notes/nokogiri_on_debian/</loc>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/notes/ntp/</loc>
-    <lastmod>2013-12-21</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/notes/openarena/</loc>
-    <lastmod>2013-12-21</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/notes/pentesting_tools/README/</loc>
-    <lastmod>2013-12-21</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/notes/pentesting_tools/john_the_ripper_mangle_with_ruby/</loc>
-    <lastmod>2013-12-21</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/notes/pentesting_tools/kippo/</loc>
-    <lastmod>2013-12-21</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/notes/pentesting_tools/kismet/</loc>
-    <lastmod>2013-12-21</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/notes/pentesting_tools/metasploit/</loc>
-    <lastmod>2013-12-21</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/notes/pentesting_tools/metasploitable/vsftpd_version-2-3-4/</loc>
-    <lastmod>2013-12-21</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/notes/postgresql/</loc>
-    <lastmod>2014-04-25</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/notes/ranger/</loc>
-    <lastmod>2014-01-22</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/notes/riak/</loc>
-    <lastmod>2013-12-21</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/notes/rsync/</loc>
-    <lastmod>2013-12-21</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/notes/screen/</loc>
-    <lastmod>2013-12-21</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/notes/script/</loc>
-    <lastmod>2013-12-21</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/notes/sed/</loc>
-    <lastmod>2014-01-02</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/notes/sound/</loc>
-    <lastmod>2013-12-21</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/notes/splunk/</loc>
-    <lastmod>2013-12-21</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/notes/ssh/</loc>
-    <lastmod>2013-12-21</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/notes/tar/</loc>
-    <lastmod>2013-12-21</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/notes/tee/</loc>
-    <lastmod>2013-12-21</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/notes/tr/</loc>
-    <lastmod>2013-12-21</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/notes/tshark/</loc>
-    <lastmod>2014-01-02</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/notes/vagrant/</loc>
-    <lastmod>2013-12-21</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/notes/view_tcp_port_activity/</loc>
-    <lastmod>2013-12-21</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/notes/vim/</loc>
-    <lastmod>2014-03-01</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/notes/vmware/</loc>
-    <lastmod>2013-12-21</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/notes/writing_with_vim/</loc>
-    <lastmod>2013-12-21</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/robots.txt</loc>
-    <lastmod>2013-11-09</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/style.css</loc>
-    <lastmod>2014-04-11</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/tags/</loc>
-    <lastmod>2013-12-23</lastmod>
+    <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/tags/3d/</loc>
@@ -445,6 +449,9 @@
   </url>
   <url>
     <loc>http://gabekoss.com/tags/db/</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/debian/</loc>
   </url>
   <url>
     <loc>http://gabekoss.com/tags/discovery/</loc>
@@ -502,6 +509,9 @@
   </url>
   <url>
     <loc>http://gabekoss.com/tags/kismet/</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/libxml/</loc>
   </url>
   <url>
     <loc>http://gabekoss.com/tags/link/</loc>
