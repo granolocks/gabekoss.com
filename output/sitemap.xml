@@ -274,7 +274,7 @@
   </url>
   <url>
     <loc>http://gabekoss.com/notes/nokogiri_on_debian/</loc>
-    <lastmod>2014-05-13</lastmod>
+    <lastmod>2014-06-08</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/notes/ntp/</loc>
@@ -572,6 +572,9 @@
   </url>
   <url>
     <loc>http://gabekoss.com/tags/nodejs/</loc>
+  </url>
+  <url>
+    <loc>http://gabekoss.com/tags/nokogiri/</loc>
   </url>
   <url>
     <loc>http://gabekoss.com/tags/nosql/</loc>
