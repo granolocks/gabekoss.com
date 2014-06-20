@@ -145,6 +145,10 @@
     <lastmod>2014-05-13</lastmod>
   </url>
   <url>
+    <loc>http://gabekoss.com/blog/2014/06/creating_github_style_punchcard_graph_with_d3/</loc>
+    <lastmod>2014-06-20</lastmod>
+  </url>
+  <url>
     <loc>http://gabekoss.com/css/notes.css</loc>
     <lastmod>2014-05-13</lastmod>
   </url>
@@ -157,12 +161,16 @@
     <lastmod>2014-06-08</lastmod>
   </url>
   <url>
+    <loc>http://gabekoss.com/js/d3-github-punchcard.js</loc>
+    <lastmod>2014-06-20</lastmod>
+  </url>
+  <url>
     <loc>http://gabekoss.com/js/d3-v3-min.js</loc>
     <lastmod>2014-05-13</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/js/d3_bitcoin.js</loc>
-    <lastmod>2014-05-13</lastmod>
+    <lastmod>2014-06-19</lastmod>
   </url>
   <url>
     <loc>http://gabekoss.com/js/highlight-pack.js</loc>
