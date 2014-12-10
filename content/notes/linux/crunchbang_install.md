@@ -32,14 +32,16 @@ There are some standard Packages
 sudo dpkg --configure -a
 sudo apt-get update
 sudo apt-get dist-upgrade
-sudo apt-get install -y vim tmux git curl nmap wireshark tshark meld wget sl 
+sudo apt-get install vim tmux git nmap wireshark tshark meld wget sl 
 ```
 
-I also usually install RVM to manage my rubies.
+I also usually install RVM to manage my rubies. Note this process changes
+frequently and should be double checked at [RVM](http://rvm.io)
 
 ```bash
-curl -L https://get.rvm.io | bash -s stable --rails --autolibs=enabled 
-rvm install ruby-2.0.0
+command curl -sSL https://rvm.io/mpapis.asc | gpg --import -
+curl -sSL https://get.rvm.io | bash -s stable
+rvm install ruby
 ```
 
 ## Generate SSH Keys
