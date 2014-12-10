@@ -31,7 +31,8 @@ There are some standard Packages
 ```bash
 sudo dpkg --configure -a
 sudo apt-get update
-sudo apt-get install vim tmux git-core ruby curl nmap wireshark tshark meld wget finch gpsd gpsd-clients
+sudo apt-get dist-upgrade
+sudo apt-get install -y vim tmux git curl nmap wireshark tshark meld wget sl 
 ```
 
 I also usually install RVM to manage my rubies.
@@ -39,4 +40,24 @@ I also usually install RVM to manage my rubies.
 ```bash
 curl -L https://get.rvm.io | bash -s stable --rails --autolibs=enabled 
 rvm install ruby-2.0.0
+```
+
+## Generate SSH Keys
+
+```bash
+ssh-keygen -b 4096 -t rsa -f $HOME/.ssh/id_rsa
+```
+
+Once my have been generated I will add them to my services as needed.
+
+## Install config
+
+Drop in my Dotfiles. :)
+
+```bash
+cd ~
+git clone git@github.com:granolocks/dotfiles.git
+mv dotfiles .dotfiles
+cd .dotfiles
+./dot-install.sh
 ```

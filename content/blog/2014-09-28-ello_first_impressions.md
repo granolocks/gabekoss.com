@@ -36,8 +36,8 @@ be evil" mantra Ello is a social media site founded with a manifesto:
 
 I have to say I pretty much love this, at least the concept of it anyway. There
 has, however, been some criticism already from the fringes even as Ello starts
-to go viral and draw attention from thousand of angsty Facebook users desperate
-to feel more in control of the medium they use to communicate. 
+to go viral and draw attention from thousands of angsty Facebook users
+desperate to feel more in control of the medium they use to communicate. 
 
 Aral Balkan wrote an intriguing post titled "[Ello,
 goodbye.](https://aralbalkan.com/notes/ello-goodbye/)" in which he challenges
@@ -54,12 +54,13 @@ finishes the piece with
 > 
 > Or, even better, do not join it in the first place.
 
-I don't agree with everything he said I do feel that there is some space for
-concern whenever money gets involved but ultimately if your goal is to start
-disrupting the big name Social Media you need money. It is nearly impossible to
-build for webscale on a shoestring budget and so VC will probably always be
-involved. The trick will be managing and controlling that relationship and not
-letting the VC money disrupt the mission. A tricky path to walk, to be sure. 
+While I don't agree with everything he said I do feel that there is some space
+for concern whenever money gets involved. However, if your ultimate goal is to
+start disrupting Big Social Media you need money. It is nearly impossible to
+build for webscale on a shoestring budget so VC will probably always be
+involved. The trick will be managing and controlling that relationship and
+not letting the VC money disrupt the mission. A tricky path to walk, to be
+sure. 
 
 Personally, I'd be more than willing to pay for a social media service which
 holds firm to values, is beholden to customers not investors and does not
@@ -102,13 +103,13 @@ image is an animated gif! Facebook doesn't support inline gif posting and this
 alone is a huge win in my book for Ello. Gifs are a huge part of the new media
 internet and supporting user generated animated content is crucial.
 
+## Direct Messaging
 
-## Messaging
+One huge gap I see is the lack of messaging. Accoridng to the ello feature
+roadmap it is an upcoming improvement which will be seemless and inline using
+the `@@username` syntax. 
 
-One huge gap I see is the lack of messaging. This is a small note and it is
-listed on the feature using the `@@username` syntax. 
-
-All jokes aside about privacy being dead -- which it basically is_-- for people
+All jokes aside about privacy being dead -- which it basically is -- for people
 to utilize a site as a basic daily communications medium they need the ability
 do directly message each other without broadcasting to the entire world
 internet. 
@@ -116,13 +117,19 @@ internet.
 If I had been driving product management for Ello I might have delayed public
 beta till this feature is in place. 
 
+In addition to this failure of the communication platform they also render
+comments in what I believe to be the reverse order, namely with the newest
+first. This effectively means it isn't practical to use Ello to be part of a
+conversation as you will have to scroll to the bottom first and read it in
+reverse, and who wants to do that?
+
 ## Lack of social feedback
 
 Another core feature I see as missing is a mechanism for social feedback.
-Facebook has likes & shared, Twitter has favoriting or retweeting and Reddit
+Facebook has likes & shares, Twitter has favoriting or retweeting and Reddit
 has upvotes/downvotes. 
 
-Ello has nothing along those lines, beyond that it doesn't even have a
+Ello has nothing along those lines. Beyond that, it doesn't even have a
 notification system for new comments and so forth. When I log into Ello I am
 only made aware of a new comment or notification if I see it in my stream or
 happen to notice the announcement email.
@@ -147,11 +154,23 @@ infrastructure and fan-out capabilities which create a seamless and
 instantaneous feedback loop allowing the site to *feel* like they are chatting
 in person or in real time. 
 
+## Platform Support & Mobile
+
+Along with scale I think they are going to quickly need to support a wider
+variety of platforms. To be a successful social media outlet you need to
+support as many people as possible and this will need to take the form of cross
+browser support and testing but also improved mobile support
+
+As of today the mobile site is trash and there are no mobile apps which means
+half of the people I would be interacting with aren't able to engage even if
+they have an invite because they primarily want to access it with mobile.  Our
+lives are mobile and social media needs to be to survive.
+
 ## Bottom Line
 
 I really like Ello. 
 
-I don't know if it will succeed or take off but I sincerely
-hope it does. Its time for an alternative technology which is driven by a moral
-goal and not simply by a manipulative interface designed to funnel us onto
-advertisements or commerce pages. 
+I don't know if it will succeed or take off but I sincerely hope it does. Its
+time for an alternative technology which is driven by a moral goal and not
+simply by a manipulative interface designed to funnel us onto advertisements or
+commerce pages. 
