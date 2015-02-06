@@ -39,26 +39,29 @@ approach.
 
 OOO was not without its problems and I soon found myself scratching my head as
 concepts such as Rhizome theory and Nomadology constantly shattered the
-simplistic models of "flat hierarchies" I was concocting based on OOO by the
-explanations gave for the lines of flow and drift, deteritorialization and
-reteritorialization, stratification and double articulation I found in D&G. 
+simplistic models of "flat hierarchies" I had concocting based on OOO. _A
+Thousand Plateaus_ holds many powerful concepts for this including the
+explanations given around lines of flow and drift, deteritorialization and
+reteritorialization, stratification and double articulation.
 
-Needing a practical application to grapple with such extreme levels of
-abstract thought I began using both concepts from D&G as well as OOO and other
-things I have read to attempt to map an abstract schema to use to structure and
-index data. Spoiler alert, that isn't the point of this post and I have nothing
-to show from that as yet. 
+Needing a practical application to grapple with these extreme levels of
+abstract thinking I started an using concepts from D&G as well as OOO and other
+things I have read in an attempt to map an abstract schema for data indexing.
+Spoiler alert, that isn't the point of this post and I have nothing to show
+from that as yet. 
 
 Once while out for a run I told Harlan about my project and he was almost
 indignant. It wasn't that he didn't understand it at an intellectual level but
-he argued that in many ways it was counter to the overall point of _A Thousand
+he argued that in many ways it was counter to the overall purpose of _A Thousand
 Plateus_. In retrospect I tend to agree but I think it was a valuable exercise
 for me and it resulted in many interesting diagrams as I tried to conceptually
 map different objects into Rhizomes or other "structures". 
 
-I was intrigued and having read some of Levi Bryants blog posts it came to pass
-that when _Onto-Cartography was released I had already pre-ordered it.
-Tragically I didn't have the mental fortitude to read it for several months. 
+My studies continued and I began reading Bryants blog [Larval
+Subjects](https://larvalsubjects.wordpress.com/).  I was intrigued and so it
+came to pass that when _Onto-Cartography_ was released I had already
+pre-ordered it.  Tragically I didn't have the mental fortitude to read it for
+several months. 
 
 In the book Bryant lays out the framework for what he sees as tool for mapping
 the nature of reality. Hence the so called "Ontological Cartography". He builds

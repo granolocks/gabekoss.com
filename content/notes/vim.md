@@ -46,3 +46,13 @@ you modify and save the file you will corrupt the file.
 :bufdo %s/# @return /# @returns /g
 :wa
 ```
+
+## Delete all Non-ascii characters in a file
+
+This will remove all non-ascii characters in a file. This can have dire consequences so use carefully. Based on a regex found on [Stack Overflow](http://stackoverflow.com/questions/16987362/how-to-get-vim-to-highlight-non-ascii-characters).
+
+```vim
+:%s/[^\x00-\x7F]//g
+```
+
+

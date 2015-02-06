@@ -47,3 +47,11 @@ to less the colors can be retained as follows:
 ```bash
 grep --color=force pattern location | less -R
 ```
+
+## Find non ascii characters in a codebase: 
+
+I found this on Stack Overflow [here](http://stackoverflow.com/questions/3001177/how-do-i-grep-for-all-non-ascii-characters-in-unix).
+
+```
+grep --color='auto' -P -n "[\x80-\xFF]" *
+```
