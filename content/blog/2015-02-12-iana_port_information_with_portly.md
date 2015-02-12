@@ -4,7 +4,7 @@ created_at: 2015-02-12 02:52
 updated_at: 2015-02-12 02:52
 kind: blog-post
 author: Gabe Koss
-summary: 
+summary:  Introduction to a lightweight data Gem I tossed up. 
 tags: 
 - gem
 - ruby

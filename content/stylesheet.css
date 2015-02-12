@@ -1,5 +1,19 @@
-* { font-family: sans }
-html { background-color: #DEFFCD; }
+html { background-color: #ffffff; }
+
+#main { padding-top: 30px; }
+#main, #footer, #menu {
+  margin: 0 auto;
+  width: 900px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Bree Serif', serif;
+}
+
+.padded {
+  padding-left: 20px;
+}
+
 pre {
   margin: 5px;
   padding: 5px;
@@ -7,6 +21,7 @@ pre {
   color: #eee;
   background-color: #3F3F3F;
 }
+
 code, code *, pre, pre * { 
   font-family: monospace; 
   font-size: 106% !important;
@@ -32,52 +47,63 @@ blockquote {
   border-left: 2px solid #333;
 }
 
-#sidebar {
-  height: 100%;
-  background: rgb(0,0,0);
-  /* RGBa with 0.6 opacity */
-  background: rgba(0,0,0, 0.6);
-  width: 120px;
+#menu-wrapper {
+  background: #000;
+  width: 100%;
   position: fixed;
   top: 0;
   left: 0;
 }
 
-#sidebar ul {
+#menu ul {
+  font-family: 'Bree Serif', serif;
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
 
-#sidebar ul li a {
-  display: block;
-  padding: .5em;
-  color: #fff;
-  /* RGBa with 0.6 opacity */
-  background: rgba(0,0,0,0.6);
+#menu ul li {
+  display: inline;
+  margin-left: 1em;
 }
 
-#sidebar ul li a:hover { background: rgba(0,50,0,0.6); }
+#menu ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.5em;
+}
 
-.img-links {} 
+#menu ul li a:hover { 
+  text-decoration: overline;
+}
+
+.text-links {
+  padding-top: 5px;
+  float: left;
+}
+
+.img-links  { 
+  float: right;
+}
+
+.img-links img { 
+  height: 45px;
+}
+
+
 .img-links a { 
   float: left;
   background: rgba(0,0,0,0.6);
 }
+
 .img-links a:hover { 
-  background: rgba(0,50,0,0.6);
+  background: rgba(50,50,50,0.6);
 }
 
-#main, #footer {
-  padding-left: 130px;
-  width: 900px;
-}
 
 .post-summary {
-  background: rgba(20,20,20,0.2);
-  margin: 1em;
-  padding: 1em;
-  border-radius: 7px;
+  padding-left: 20px;
+  padding-bottom: 20px;
 }
 
 
@@ -103,6 +129,7 @@ p.tags a:visited, p.tags a {
   border-radius: 7px;
   border: 1px solid black;
   padding: 2px;
+  margin: 2px;
 }
 
 p.tags a:hover { 

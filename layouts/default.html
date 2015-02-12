@@ -4,8 +4,8 @@
     <%= render '_head', item: item %>
   </head>
   <body>
-    <div id="sidebar">
-      <%= render '_sidebar', item: item %>
+    <div id="menu-wrapper">
+      <%= render '_menu', item: item %>
     </div>
     <div id="main">
       <% if item[:kind] == 'blog-post' %>
@@ -27,7 +27,7 @@
         <%= yield %>
         <%= render '_disqus' %>
       <% else %>
-        <h1><%= item[:title] %></h1>
+        <h1 class='padded'><%= item[:title] %></h1>
         <%= yield %>
       <% end %>
     </div>
@@ -35,7 +35,7 @@
       <%= render '_footer', item: item %>
     </div>
   </body>
-  <% if item.identifier == '/blog/' %>
+  <% if item.identifier == '/' %>
     <script src='/js/blog-scroll.js'></script>
   <% end %> 
   <%= render 'ga_script' %>

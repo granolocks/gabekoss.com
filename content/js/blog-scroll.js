@@ -21,7 +21,7 @@ function buildPost(post) {
   output += "<p>"  + readmore + "</p>";
 
   if (post.tags) {
-    tags = "<hr/> <p class='tags'>"
+    tags = "<p class='tags'>"
       for (var i in post.tags) {
         tag = post.tags[i];
         url_tag = tag.replace(" ","_");
@@ -30,6 +30,7 @@ function buildPost(post) {
       }
     tags += "</p>";
     output += tags;
+    output += "<hr/>"
   }
   return output;
 }

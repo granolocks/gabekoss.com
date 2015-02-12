@@ -4,7 +4,7 @@ created_at: 2014-06-19 21:20
 updated_at: 2014-06-19 21:20
 kind: blog-post
 author: Gabe Koss
-summary: 
+summary: In which I borrow ideas from Github as a mechanism to practice my own mediocre skills with D3.js.
 tags: 
  - d3
  - javascript

@@ -4,7 +4,7 @@ created_at: 2014-01-18 12:20
 updated_at: 2014-01-18 12:20
 kind: blog-post
 author: Gabe Koss
-summary: 
+summary: A weird experiemnt in things that shouldn't be done.
 tags: 
   - ruby
   - bash

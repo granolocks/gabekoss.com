@@ -1,24 +1,46 @@
 ---
-title: Gabe Koss
-kind: homepage
-summary: I am a programmer of things that make use of the Internet. 
+title: Gabe Koss Homepage
 ---
 
-<p>I am a programmer of things that make use of the Internet. I work at <a href="http://pwnieexpress.com">Pwnie Express</a></p>
-<hr/>
+<% require 'json' %>
 
-<h3>Recent Blog Posts</h3>
-<% posts = @items.reject {|i| !(i[:kind] == 'blog-post') } %>
-<% posts.reject! {|i| i[:tags].include?('link') } %>
-<% posts.sort_by! {|i| i[:created_at] } %>
-<% posts.reverse! %>
+<% posts = Post.all_from(@items) %>
 
-<% posts[0...4].each do |post| %>
-  <p class="post-summary">
-    <strong>
-      <a  href="<%= post.path %>"><%= post[:title] %></a>
-    </strong><br/>
-    <small><em>Created <%= post[:created_at] %> by <%= post[:author] || "Gabe Koss" %></em></small><br/>
-    <%= post[:summary] %></a>
-  </p>
+<% posts[0..(Post::AJAX_SLICE_SIZE-1)].each do |post| %>
+  <div class="post-summary">
+    <p>
+      <small>
+        <em>
+          Written <%= post[:created_at] %> by <%= post[:author] || "Gabe Koss" %>
+        </em>
+      </small>
+    </p>
+
+    <h2>
+    <% if post[:redirect] %>
+      <a href="<%= post[:redirect_path] %>" target="_blank"><%= post[:title] %></a>
+    <% else %>
+      <a href="<%= post.path %>"><%= post[:title] %></a>
+    <% end %>
+  </h2>
+    <p><%= post[:summary] %></p>
+
+    <% if post[:redirect] %>
+      <p><a href="<%= post[:redirect_path] %>" target="_blank">visit link ...</a><br/>
+      <small>This is an external link.</small></p>
+    <% else %>
+      <p><a href="<%= post.path %>">read post ...</a></p>
+    <% end %>
+
+    <% if post[:tags] %>
+      <p class='tags'>
+        <% post[:tags].each do |t| %>
+          <a href="/tags/<%=t.gsub(/ /,'_') %>"><%= t %></a>
+        <% end %>
+      </p>
+    <% end %>
+    <hr/>
+  </div>
 <% end %>
+
+<span id="page-location" style="display:none;">1</div>

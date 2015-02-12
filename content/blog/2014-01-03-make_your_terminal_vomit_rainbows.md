@@ -4,7 +4,7 @@ created_at: 2014-01-03 17:20
 updated_at: 2014-01-03 17:20
 kind: blog-post
 author: Gabe Koss
-summary: 
+summary: The title should be fairly self explanatory.
 tags:
   - linux
   - bash
