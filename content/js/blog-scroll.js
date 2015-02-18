@@ -8,15 +8,15 @@ function buildPost(post) {
   output = "<p> <small> <em> Written "+ post.created_at +" by "+ post.author +" </em> </small> </p>";
 
   if (post.redirect == null) {
-    h2       = "<a href='"+ post.path +"'>"+ post.title +"</a>";
+    h3       = "<a href='"+ post.path +"'>"+ post.title +"</a>";
     readmore = "<a href='"+ post.path +"'>read post ...</a>";
   } else {
-    h2       = "<a href='"+ post.redirect_path +"' target='_blank'>"+ post.title +"</a>";
+    h3       = "<a href='"+ post.redirect_path +"' target='_blank'>"+ post.title +"</a>";
     readmore = "<a href='"+ post.path +"'>visit link ...</a><br/><small>This is an external link.</small>";
 
   }
 
-  output += "<h2>" + h2       + "</h2>";
+  output += "<h3>" + h3       + "</h3>";
   output += "<p>"  + summary  + "</p>";
   output += "<p>"  + readmore + "</p>";
 

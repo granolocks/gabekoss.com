@@ -2,10 +2,23 @@
 title: Hack Stuff!
 ---
 
+<div class="padded">
+  <p>
+    Hello! My name is Gabe. I like to make stuff and break stuff. I'm a thinker and a doer with a very broad set of interests and skills.
+  </p>
+
+  <blockquote>
+    It is often said that before you die your life passes before your eyes. It is in fact true. It's called living.
+    <em>&mdash; Terry Pratchett</em>
+  </blockquote>
+  <hr />
+</div>
+
 <% require 'json' %>
 
 <% posts = Post.all_from(@items) %>
 
+<h2 class="padded">Recent rantings and ravings...</h2>
 <% posts[0..(Post::AJAX_SLICE_SIZE-1)].each do |post| %>
   <div class="post-summary">
     <p>
@@ -16,13 +29,14 @@ title: Hack Stuff!
       </small>
     </p>
 
-    <h2>
-    <% if post[:redirect] %>
-      <a href="<%= post[:redirect_path] %>" target="_blank"><%= post[:title] %></a>
-    <% else %>
-      <a href="<%= post.path %>"><%= post[:title] %></a>
-    <% end %>
-  </h2>
+    <h3>
+      <% if post[:redirect] %>
+        <a href="<%= post[:redirect_path] %>" target="_blank"><%= post[:title] %></a>
+      <% else %>
+        <a href="<%= post.path %>"><%= post[:title] %></a>
+      <% end %>
+    </h3>
+
     <p><%= post[:summary] %></p>
 
     <% if post[:redirect] %>
