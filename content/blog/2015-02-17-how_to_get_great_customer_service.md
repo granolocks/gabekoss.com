@@ -4,7 +4,7 @@ created_at: 2015-02-17 22:27
 updated_at: 2015-02-17 22:27
 kind: blog-post
 author: Gabe Koss
-summary: Some musings on what it takes to consistently get great customer service in a world that rarely wants to get it. 
+summary: Some musings on what it takes to consistently get great customer service in a world that rarely wants to give it. 
 tags: 
 - customer service
 - social engineering
