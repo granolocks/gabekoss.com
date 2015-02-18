@@ -47,9 +47,8 @@ namespace :generate do
     })
 
     begin
-    File.write(file_path, template)
       puts "[+] Created new blog post at #{file_path}"
-      `vim #{ file_path }`
+      File.write(file_path, template)
     rescue
       puts "[-] Failed to create new blog post at #{file_path}"
       puts "[-] Unknown Error"
