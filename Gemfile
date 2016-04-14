@@ -9,3 +9,5 @@ gem 'pygments.rb'
 # for xml sitemap
 gem 'builder'
 
+
+gem 'rake'
