@@ -29,7 +29,36 @@ by Charles Petzoid. This book does an incredible job of explaining the
 development of electronic signaling and binary math. I remember when I first
 read it I felt like a constellation of dots were being connected for me.  
 
-When I first dipped my toe into t
+When I first dipped my toe into the SDR waters and saw the signals I knew were
+there represented in such a beautiful and compelling way I (re)discovered a 
+strong desire to know more, even if just for the pure awareness of the world 
+around me. 
+
+This post can't possibly synthesize all that I tried, failed or learned over
+the last week or so of SDR research but I just want to summarize some of my
+notes and thoughts on the subject as much for myself to return to later on as 
+anything else. 
+
+## What is Software Defined Radio?  
+
+Software Defined Radio or SDR basically boils down to using digital mechanisms
+to control, inspect and process radio frequencies. Traditionally this would be
+done with analog controls such as knobs or dials that adjusted the physical
+relationships within the radio itself. 
+
+SDR is incredibly powerful because it empowers amateur researchers to
+investigate and create complex digital radio systems or inspect the signals
+around them at a fraction of the cost of traditional analog gear. It is also
+capable of covering a much wider spectrum of the radio and tuning it incredibly
+precise way all within the computer itself.
+
+Additionally, because the SDR does the job of bringing the signal into the
+computer in a programatically accessible way this is ideal for writing code
+that generates or consumes radio waves.
+
+An SDR card itself is basically a sound card where the out audio I/O is
+replaced with antennas and (in this case) a USB cable to manage the device and
+extract the data back to the host computer.
 
 ## Hardware
 
@@ -37,7 +66,6 @@ For the research from which these notes are derived I primarily used two
 different SDRs
 
 ### HackRF Jawbreaker
-
 HackRF Jawbreaker is an older SDR board which has been replaced by the popular
 [HackRF One](https://greatscottgadgets.com/hackrf/). Even being out of date
 this board was still capable of operating from 1 MHz to 6 GHz and therefore
@@ -77,7 +105,7 @@ working on Ubuntu. In addition to running `sudo apt-get install rtl_sdr` I
 added a UDEV rule to my system to make the device appear in `/dev/` when i 
 plugged it in. 
 
-First I plugged in the DBT-T+DAB+FM and ran `lsusb | grep Realtek`. This 
+First I plugged in the DVB-T+DAB+FM and ran `lsusb | grep Realtek`. This 
 returned the following output:
 
 ```
@@ -156,7 +184,7 @@ processed signal is (re)transmitted.
 
 Like `gqrx`, GRC also supports some graphical outputs such as the classic
 Waterfall and FFT graphs. Unfortunately because GRC is doing a lot of its GUI
-processing underthe hood in Python it is much more sluggish and less pretty
+processing under the hood in Python it is much more sluggish and less pretty
 than gqrx. 
 
 That being said I was able to use the Scope sink to clearly see the signal
@@ -167,7 +195,7 @@ present in some AM demodulated waves off a keyless car entry remote.
 ### rtl_433
 
 [rtl_433](https://github.com/merbanan/rtl_433) is a cool library built on top
-of the `rtl_sdr` packages which is ddesign to scan the common 433MHz band for
+of the `rtl_sdr` packages which is designed to scan the common 433MHz band for
 things like Heat Sensors and other interesting radio broadcasting appliances. 
 
 I did not do a deep dive on the tool but ran it with the simplest default flags 
@@ -196,7 +224,7 @@ signal_len = 20005,  pulses = 1
 Distance coding: Pulse length 4
 ```
 
-That particular signal repeated quite often wiht some slight variations but it
+That particular signal repeated quite often with some slight variations but it
 doesnt look like the format was immediately recognized as a signature,
 nevertheless the structure of the packets is pretty clear and so I suspect with
 a bit more research I could figure out what in my neighborhood is broadcasting
@@ -206,7 +234,7 @@ I also played with tuning `rtl_433` to the 315MHz bands to see if it could
 gimme a freebie and decode the Car Lock Remote I was experimenting with. It
 definitely saw the signal as signal when I pressed the lock or unlock button
 but this info was inconsistent and seemed to be demodulated incorrectly.  Here
-are some samples bursts of data. To do this i used the command `rtl_433 -f
+are some samples bursts of data. To do this I used the command `rtl_433 -f
 315000000 -s 2000000 -a -q`. 
 
 *Note: these are not in the sequence the appeared but were cherry picked out of
@@ -275,7 +303,7 @@ Short distance: 32228, long distance: 0, packet distance: 36903
 * [SDR with HackRF Tutorials](https://greatscottgadgets.com/sdr/): Hands down 
   these tutorials from Great Scott Gadgets were the most valuable resource I 
   have come across. Michael Ossmann's teaches with an extraordinarily clear 
-  style and really helps guide the studpents understanding holistically. I will
+  style and really helps guide the students understanding holistically. I will
   be revisiting these for quite some time.
 * [Discrete Fourier Transorm Demo](http://madebyevan.com/dft/): a useful site
   to help understand how the samples displayed on FFT Charts are generated. 
