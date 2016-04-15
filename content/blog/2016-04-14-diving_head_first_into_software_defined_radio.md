@@ -60,6 +60,136 @@ An SDR card itself is basically a sound card where the out audio I/O is
 replaced with antennas and (in this case) a USB cable to manage the device and
 extract the data back to the host computer.
 
+## Interesting Bands
+
+### POCSAG Bands
+
+The POCSAG (Post Office Code Standardization Advisory Group) Bands are reserved for Police and Medical pagers and communication.
+They were an interesting place to look for interesting signals. According to
+Wikipedia the following frequencies are reserved for POCSAG communication:
+
+<style>
+  .bands, .bands tr, .bands th, .bands td { border: 1px solid black; }
+</style>
+
+<table class='bands'>
+  <tr><td>POCSAG can be used on any of the frequencies reserved for paging.</td></tr>
+  <tr><td>35.2200</td></tr>
+  <tr><td>35.5800</td></tr>
+  <tr><td>43.2200</td></tr>
+  <tr><td>43.5800</td></tr>
+  <tr><td>152.0075 Medical Paging</td></tr>
+  <tr><td>152.2700</td></tr>
+  <tr><td>152.4800</td></tr>
+  <tr><td>157.4500 Medical Paging</td></tr>
+  <tr><td>158.1000</td></tr>
+  <tr><td>158.7000</td></tr>
+  <tr><td>163.2500 Medical Paging</td></tr>
+  <tr><td>454.0125 to 454.5000 (12.5 kHz steps)</td></tr>
+  <tr><td>462.7500 to 462.9250 (25 kHz steps)</td></tr>
+  <tr><td>465.0000</td></tr>
+  <tr><td>929.0125 to 929.9875 (12.5 kHz steps)</td></tr>
+  <tr><td>931.0125 to 931.9875 (12.5 kHz steps)</td></tr>
+</table>
+
+*This table was taken from the [Wikipedia Page](https://en.wikipedia.org/wiki/POCSAG)*
+
+
+### ISM Bands
+
+The ISM (industrial, scientific and medical) reserved for purposes other than
+just Telecommunications. This means that there are many smart devices and other
+oddities to be detected poking around here. 
+
+<table class='bands'>
+<tbody><tr>
+<th>Frequency range</th>
+<th>Availability</th>
+<th>Licensed users</th>
+</tr>
+<tr>
+<td>6,765 kHz - 6,795 kHz</td>
+<td>Subject to local acceptance</td>
+<td>FIXED SERVICE &amp; Mobile service</td>
+</tr>
+<tr>
+<td>13,553 kHz - 13,567 kHz</td>
+<td>Worldwide</td>
+<td>FIXED &amp; Mobile services except Aeronautical mobile (R) service</td>
+</tr>
+<tr>
+<td>26,957 kHz - 27,283 kHz</td>
+<td></td>
+<td>FIXED &amp; MOBILE SERVICE except Aeronautical mobile service</td>
+</tr>
+<tr>
+<td>40.66 MHz - 40.7 MHz</td>
+<td>Worldwide</td>
+<td>Fixed, Mobile services &amp; Earth exploration-satellite service</td>
+</tr>
+<tr>
+<td>433.05&nbsp;MHz - 434.79&nbsp;MHz</td>
+<td>only in Region 1, subject to local acceptance</td>
+<td>AMATEUR SERVICE &amp; RADIOLOCATION SERVICE, additional apply the provisions of footnote 5.280</td>
+</tr>
+<tr>
+<td>902 MHz - 928 MHz</td>
+<td>Region 2 only (with some exceptions)</td>
+<td>FIXED, Mobile except aeronautical mobile &amp; Radiolocation service; in Region 2 additional Amateur service</td>
+</tr>
+<tr>
+<td>2,400 MHz - 2,500 MHz</td>
+<td>Worldwide</td>
+<td>FIXED, MOBILE, RADIOLOCATION, Amateur &amp; Amateur-satellite service</td>
+</tr>
+<tr>
+<td>5,725 MHz - 5,875 MHz</td>
+<td>Worldwide</td>
+<td>FIXED-SATELLITE, RADIOLOCATION, MOBILE, Amateur &amp; Amateur-satellite service</td>
+</tr>
+<tr>
+<td>24 GHz - 24.25 GHz</td>
+<td>Worldwide</td>
+<td>AMATEUR, AMATEUR-SATELLITE, RADIOLOCATION &amp; Earth exploration-satellite service (active)</td>
+</tr>
+<tr>
+<td>61 GHz - 61.5 GHz</td>
+<td>Subject to local acceptance</td>
+<td>FIXED, INTER-SATELLITE, MOBILE &amp; RADIOLOCATION SERVICE</td>
+</tr>
+<tr>
+<td>122 GHz - 123 GHz</td>
+<td>Subject to local acceptance</td>
+<td>EARTH EXPLORATION-SATELLITE (passive), FIXED, INTER-SATELLITE, MOBILE, SPACE RESEARCH (passive) &amp; Amateur service</td>
+</tr>
+<tr>
+<td>244 GHz - 246 GHz</td>
+<td>Subject to local acceptance</td>
+<td>RADIOLOCATION, RADIO ASTRONOMY, Amateur &amp; Amateur-satellite service</td>
+</tr>
+</tbody></table>
+
+*Information from this table is taken from the [Wikipedia
+Page](https://en.wikipedia.org/wiki/ISM_band)*
+
+### 315MHz
+One other frequency range I found very interesting was around 315MHz and isn't
+listed amongst either the POCSAG or ISM bands but I found that many simple
+radios like Keyless Entry Remotes for cars or Garage Door Openers. I found this
+particularly interesting because it was something that had to do with real
+people around me and was immediately accesssible because I had several devices
+that emitted around this frequency. 
+
+At one point I just sat in a parking lot and watched people unlock their car
+doors. If that isn't cool, I dont know what is!
+
+<img src="/images/sdr/rf_analyzer_315mhz.jpg" style="width:100%;" />
+
+*This image is a screencap from the app [RF
+Analyzer](https://play.google.com/store/apps/details?id=com.mantz_it.rfanalyzer&hl=en)
+take on a [Pwnie Express
+PwnPad](https://www.pwnieexpress.com/product/pwn-pad-2014-penetration-testing-tablet/).*
+
 ## Hardware
 
 For the research from which these notes are derived I primarily used two
