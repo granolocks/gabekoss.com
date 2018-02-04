@@ -14,6 +14,29 @@ h1, h2, h3, h4, h5, h6 {
   padding-left: 20px;
 }
 
+.gallery-wrapper {
+clear: both;
+}
+
+.gallery-row a {
+  display: block;
+}
+
+.gallery-thumbnail {
+  width: 19%;
+  float: left;
+  padding: 3%;
+}
+
+.gallery-thumbnail:hover {
+  opacity: 75%;
+  background-color: black;
+}
+
+.clear {
+  clear: both;
+}
+
 pre {
   margin: 5px;
   padding: 5px;

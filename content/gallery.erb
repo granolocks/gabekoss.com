@@ -1,0 +1,27 @@
+---
+title: Gallery
+updated_at:  2018-2-3 09:57
+--- 
+
+<p> 
+I produce a wide range of artwork incorporating watercolor paint, ink and
+other media. I am drawn to primitive and naturalistic colors such as yellow,
+red and black. I draw inspiration from classical illustration, medieval art and
+medieval calligraphy.  
+</p>
+
+<% GalleryImage.collection_hash(@items).each do |dir, images| %>
+  <div class="gallery-wrapper">
+    <h2><%= dir.upcase %></h2>
+    <% images.each_slice(4) do |slice| %>
+      <div class="gallery-row">
+        <% slice.each do |image| %>
+          <a href="#" data-featherlight="<%= image.path %>">
+            <img class="gallery-thumbnail" src="<%= image.path.gsub('.jpg', '-thumbnail.jpg') %>" />
+          </a>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+<div class="clear"> </div>
