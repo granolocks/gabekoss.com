@@ -69,6 +69,9 @@ namespace :generate do
       File.unlink(image)
     end
 
+    check = thumbnails.map{|x| File.exist?(x)}
+
+
     images.each do |image|
       dirpath =  image.split('/')
       filename = dirpath.pop
@@ -81,7 +84,7 @@ namespace :generate do
       thumbnail = File.join(dirpath, "#{name}-thumbnail.#{ext}")
 
       puts "converting #{image} to #{thumbnail}"
-      `convert #{image} -crop 280x280+100+100 #{thumbnail}`
+      `convert #{image} -scale 50% -crop 280x280+0+0 -gravity center #{thumbnail}`
     end
   end
 
