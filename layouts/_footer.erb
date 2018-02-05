@@ -3,3 +3,6 @@
 <% unless item[:kind] == 'homepage' %>
   <p><small>Last updated at: <%= item[:updated_at] || Time.now.strftime("%Y-%m-%d %H:%M") %></small></p>
 <% end %>
+<script src="//code.jquery.com/jquery-latest.js"></script>
+<script src="//cdn.rawgit.com/noelboss/featherlight/1.7.12/release/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="//cdn.rawgit.com/noelboss/featherlight/1.7.12/release/featherlight.gallery.min.js" type="text/javascript" charset="utf-8"></script>
