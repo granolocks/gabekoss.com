@@ -118,7 +118,7 @@ Any additional flags are in the `ssh` man page under the authorized keys info.
 if you attempt to do a normal connection it will fail but these flags will allow the connection to work and the Port to forward happily :)
 
 ```sh
-ssh -L 64738:localhost:64738 awk@receiver -i ~/.ssh/prod_id_rsa -o ExitOnForwardFailure=yes -N
+ssh -L 3000:localhost:3000 no-access-user@receiver -i ~/.ssh/id_rsa -o ExitOnForwardFailure=yes -N
 ```
 
 
