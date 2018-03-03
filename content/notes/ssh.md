@@ -84,4 +84,41 @@ user@host:~$ echo "$SSH_AUTH_SOCK"
 *Note: if this isn't working make sure that `/etc/ssh/ssh_config` isn't
 overriding these settings*
 
+## Limiting a user to ssh portforwarding only
+
+This is useful if you want to let someone pivot through you or portfward but
+not to have them get a shell on your receiver box.  This setup was done on an
+ubuntu server running openssh, should work anywhere openssh is found...
+
+### setup user on server
+
+```bash
+sudo useradd no-access-user
+sudo mkdir -p /home/no-access-user/.ssh
+```
+
+For that user create `.ssh/authorized_keys` with the users public key and some
+restrictive flags.
+
+```
+command="/bin/false",no-agent-forwarding,no-X11-forwarding,port-forwarding,permitopen="localhost:3000" ssh-rsa PUBLIC_KEY_HERE PUBLIC_KEY_HERE PUBLIC_KEY_HERE PUBLIC_KEY_HERE PUBLIC_KEY_HERE PUBLIC_KEY_HERE PUBLIC_KEY_HERE PUBLIC_KEY_HERE PUBLIC_KEY_HERE PUBLIC_KEY_HERE
+```
+
+These flags serve the following purposes: 
+* `command="/bin/false"`: limit the user to a single command if not port forwarding, this command wont do much
+* `no-agent-forwarding`: disallow agent forwarding
+* `no-X11-forwarding`: disallow X11 forwarding
+* `port-forwarding`: enable portforwarding
+* `permitopen="localhost:3000": restrict port forwarding to localhost 3000
+
+Any additional flags are in the `ssh` man page under the authorized keys info.
+
+### connect to server
+
+if you attempt to do a normal connection it will fail but these flags will allow the connection to work and the Port to forward happily :)
+
+```sh
+ssh -L 64738:localhost:64738 awk@receiver -i ~/.ssh/prod_id_rsa -o ExitOnForwardFailure=yes -N
+```
+
 

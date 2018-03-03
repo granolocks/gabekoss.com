@@ -10,6 +10,7 @@ red and black. I draw inspiration from classical illustration, medieval art and
 medieval calligraphy.  
 </p>
 <% GalleryImage.collection_hash(@items).each do |dir, images| %>
+   
     <section class="gallery-wrapper" data-featherlight-gallery data-featherlight-filter="a" >
     <h2><%= dir.upcase %></h2>
     <% images.each_slice(4) do |slice| %>
